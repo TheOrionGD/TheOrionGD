@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import type { FC } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-const Background3D: React.FC = () => {
+const Background3D: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     // --- Scene Setup ---
     const scene = new THREE.Scene();
@@ -19,11 +21,11 @@ const Background3D: React.FC = () => {
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    containerRef.current.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     // --- Colors & Branding ---
-    const colorCyan = new THREE.Color(0x06b6d4);
-    const colorViolet = new THREE.Color(0x8b5cf6);
+    const colorRed = new THREE.Color(0xfc3a45);
+    const colorOrangeRed = new THREE.Color(0xf2674a);
     const colorWhite = new THREE.Color(0xffffff);
 
     // --- Master Group for Parallax ---
@@ -36,7 +38,7 @@ const Background3D: React.FC = () => {
     // Outer Wireframe Polyhedron
     const coreOuterGeo = new THREE.IcosahedronGeometry(3, 1);
     const coreOuterMat = new THREE.MeshBasicMaterial({
-      color: colorCyan,
+      color: colorRed,
       wireframe: true,
       transparent: true,
       opacity: 0.4,
@@ -48,8 +50,8 @@ const Background3D: React.FC = () => {
     // Inner Glowing Core
     const coreInnerGeo = new THREE.IcosahedronGeometry(1.2, 2);
     const coreInnerMat = new THREE.MeshPhongMaterial({
-      color: colorViolet,
-      emissive: colorViolet,
+      color: colorOrangeRed,
+      emissive: colorOrangeRed,
       emissiveIntensity: 2,
       transparent: true,
       opacity: 0.7,
@@ -74,7 +76,7 @@ const Background3D: React.FC = () => {
       const points = curve.getPoints(100);
       const ringGeo = new THREE.BufferGeometry().setFromPoints(points);
       const ringMat = new THREE.LineBasicMaterial({ 
-        color: i % 2 === 0 ? colorCyan : colorViolet, 
+        color: i % 2 === 0 ? colorRed : colorOrangeRed, 
         transparent: true, 
         opacity: 0.15,
         blending: THREE.AdditiveBlending
@@ -95,7 +97,7 @@ const Background3D: React.FC = () => {
       
       const partMat = new THREE.PointsMaterial({
         size: 0.08,
-        color: i % 2 === 0 ? colorCyan : colorViolet,
+        color: i % 2 === 0 ? colorRed : colorOrangeRed,
         transparent: true,
         opacity: 0.6,
         blending: THREE.AdditiveBlending
@@ -137,7 +139,7 @@ const Background3D: React.FC = () => {
     // --- Lights ---
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     scene.add(ambientLight);
-    const coreLight = new THREE.PointLight(colorCyan, 15, 40);
+    const coreLight = new THREE.PointLight(colorRed, 15, 40);
     coreLight.position.set(0, 0, 0);
     scene.add(coreLight);
 
@@ -182,8 +184,8 @@ const Background3D: React.FC = () => {
 
       // Material color change based on mouse
       const colorMix = (Math.sin(time) + 1) / 2;
-      coreInnerMat.color.lerpColors(colorViolet, colorCyan, Math.min(proximity, 1));
-      coreInnerMat.emissive.lerpColors(colorViolet, colorCyan, colorMix * proximity);
+      coreInnerMat.color.lerpColors(colorOrangeRed, colorRed, Math.min(proximity, 1));
+      coreInnerMat.emissive.lerpColors(colorOrangeRed, colorRed, colorMix * proximity);
       coreInnerMat.emissiveIntensity = 2 + (Math.sin(time * 5) * 0.5) + (proximity * 2);
 
       coreOuter.rotation.y += 0.005 + (proximity * 0.02);
@@ -228,7 +230,7 @@ const Background3D: React.FC = () => {
         (sys.particles.material as THREE.Material).dispose();
       });
       renderer.dispose();
-      containerRef.current?.removeChild(renderer.domElement);
+      container.removeChild(renderer.domElement);
     };
   }, []);
 

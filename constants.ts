@@ -1,12 +1,12 @@
 import { Project, Experience, Education, SkillCategory, Certification } from './types';
-import { FaGithub, FaLinkedin, FaHackerrank, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHackerrank } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 
 export const PERSONAL_INFO = {
   name: "GODFREY T R",
   role: "SOFTWARE ENGINEER",
   tagline: "Software Engineer specializing in full-stack development, building scalable, AI-integrated applications from concept to deployment.",
-  email: "godfrey.prof@gmail.com",
+  email: "godfreytr.prof@gmail.com",
   phone: "+91 93444 62238",
   location: "Tiruchirapalli, Tamil Nadu, India",
   github: "https://github.com/OrionGD",
@@ -37,6 +37,17 @@ export const EDUCATION: Education[] = [
 
 export const EXPERIENCE: Experience[] = [
   {
+    role: "Full Stack Intern",
+    company: "VDart Academy",
+    period: "Jan 2026 – Jan 2026",
+    details: [
+      "Completed Academic Internship as part of On-the-Job Training (OJT)",
+      "Worked on full stack development concepts and practical implementation",
+      "Collaborated with peers and mentors to build and enhance technical skills",
+      "Demonstrated strong learning ability and successfully completed training within the timeframe"
+    ]
+  },
+  {
     role: "UI/UX Design Intern",
     company: "SkillCraft",
     period: "Feb 2025 – Mar 2025",
@@ -47,7 +58,7 @@ export const EXPERIENCE: Experience[] = [
       "User journey mapping and pain point analysis for fitness apps"
     ]
   },
-    {
+  {
     role: "Web Development Intern",
     company: "Prodigy InfoTech",
     period: "Aug 2024 – Sept 2024",
@@ -84,105 +95,105 @@ export const LEADERSHIP_XR = [
   "AR Workshops Facilitator",
   "Mentoring Juniors",
   "Active NSS Volunteer",
-  "Hackathons & Events Coordination"
+  "Events Coordination"
 ];
 
 export const PROJECTS: Project[] = [
-  { 
-    title: "SMART-LMS-16", 
-    category: "AI / ML", 
-    tech: ["MERN", "TypeScript", "Google Gemini"], 
-    description: "AI-powered adaptive learning platform. Personalizes lessons using Google Gemini, generates quizzes, and rewrites content based on learning styles.", 
-    github: "https://github.com/OrionGD/SMART-LMS-16", 
-    demo: "https://smart-k6c7kww3i-oriongds-projects.vercel.app/" 
+  {
+    title: "SMART-LMS-16",
+    category: "AI / ML",
+    tech: ["MERN", "TypeScript", "Google Gemini"],
+    description: "AI-powered adaptive learning platform. Personalizes lessons using Google Gemini, generates quizzes, and rewrites content based on learning styles.",
+    github: "https://github.com/OrionGD/SMART-LMS-16",
+    demo: "https://smart-k6c7kww3i-oriongds-projects.vercel.app/"
   },
-  { 
-    title: "VELTRIO", 
-    category: "AI / ML", 
-    tech: ["React", "TypeScript", "Gemini 2.5"], 
-    description: "AI-Powered Real-time Translation & Conversation Platform. Leveraging Gemini models for seamless language processing and sentiment analysis.", 
-    github: "https://github.com/OrionGD/VELTRIO", 
-    demo: "https://veltrio.vercel.app/" 
+  {
+    title: "VELTRIO",
+    category: "AI / ML",
+    tech: ["React", "TypeScript", "Gemini 2.5"],
+    description: "AI-Powered Real-time Translation & Conversation Platform. Leveraging Gemini models for seamless language processing and sentiment analysis.",
+    github: "https://github.com/OrionGD/VELTRIO",
+    demo: "https://veltrio.vercel.app/"
   },
-  { 
-    title: "MTS Security", 
-    category: "Systems", 
-    tech: ["Java", "GPS API", "Encryption"], 
-    description: "Mobile Tracking System (MTS) designed for device security, enabling real-time location tracking and remote sensitive data locking.", 
-    github: "https://github.com/OrionGD/GD-s-Mobile-Tracking-System", 
-    demo: "#" 
+  {
+    title: "MTS Security",
+    category: "Systems",
+    tech: ["Java", "GPS API", "Encryption"],
+    description: "Mobile Tracking System (MTS) designed for device security, enabling real-time location tracking and remote sensitive data locking.",
+    github: "https://github.com/OrionGD/GD-s-Mobile-Tracking-System",
+    demo: "#"
   },
-  { 
-    title: "Hostel Mgt System", 
-    category: "Systems", 
-    tech: ["Python", "Tkinter", "MySQL"], 
-    description: "A role-based Hostel Management System for attendance and outpass tracking, featuring a customized desktop GUI.", 
-    github: "https://github.com/OrionGD/GD-S-HOSTEL-MANAGEMENT-SYSTEM", 
-    demo: "#" 
+  {
+    title: "Hostel Mgt System",
+    category: "Systems",
+    tech: ["Python", "Tkinter", "MySQL"],
+    description: "A role-based Hostel Management System for attendance and outpass tracking, featuring a customized desktop GUI.",
+    github: "https://github.com/OrionGD/GD-S-HOSTEL-MANAGEMENT-SYSTEM",
+    demo: "#"
   },
-  { 
-    title: "GD Text Analyzer", 
-    category: "AI / ML", 
-    tech: ["Python", "Regex", "NLP"], 
-    description: "Processing pipeline for text cleaning, sentiment analysis, and keyword identification with modular design.", 
-    github: "https://github.com/OrionGD/GD-s-TEXT-ANALYZER", 
-    demo: "#" 
+  {
+    title: "GD Text Analyzer",
+    category: "AI / ML",
+    tech: ["Python", "Regex", "NLP"],
+    description: "Processing pipeline for text cleaning, sentiment analysis, and keyword identification with modular design.",
+    github: "https://github.com/OrionGD/GD-s-TEXT-ANALYZER",
+    demo: "#"
   },
-  { 
-    title: "ARgorithm", 
-    category: "XR", 
-    tech: ["Unity", "ARCore", "C#"], 
-    description: "Augmented reality visualizer for data structures and algorithms, helping students grasp complex concepts in 3D space.", 
-    github: "https://github.com/OrionGD/ARgorithm", 
-    demo: "#" 
+  {
+    title: "ARgorithm",
+    category: "XR",
+    tech: ["Unity", "ARCore", "C#"],
+    description: "Augmented reality visualizer for data structures and algorithms, helping students grasp complex concepts in 3D space.",
+    github: "https://github.com/OrionGD/ARgorithm",
+    demo: "#"
   },
-  { 
-    title: "Waiting List Mgt", 
-    category: "Systems", 
-    tech: ["C", "Linked Lists", "Queues"], 
-    description: "Console-based system implemented in C to manage seat bookings efficiently using advanced data structures.", 
-    github: "https://github.com/OrionGD/GD-s-WAITING-LIST-MANAGEMENT-SYSTEM", 
-    demo: "#" 
+  {
+    title: "Waiting List Mgt",
+    category: "Systems",
+    tech: ["C", "Linked Lists", "Queues"],
+    description: "Console-based system implemented in C to manage seat bookings efficiently using advanced data structures.",
+    github: "https://github.com/OrionGD/GD-s-WAITING-LIST-MANAGEMENT-SYSTEM",
+    demo: "#"
   },
-  { 
-    title: "Weather Sphere Pro", 
-    category: "Web", 
-    tech: ["JavaScript", "REST APIs", "CSS"], 
-    description: "Responsive Weather Web App providing hyper-local forecasts and dynamic atmospheric visualizations.", 
-    github: "https://github.com/OrionGD/GD-S-Web-Weather-Application", 
-    demo: "#" 
+  {
+    title: "Weather Sphere Pro",
+    category: "Web",
+    tech: ["JavaScript", "REST APIs", "CSS"],
+    description: "Responsive Weather Web App providing hyper-local forecasts and dynamic atmospheric visualizations.",
+    github: "https://github.com/OrionGD/GD-S-Web-Weather-Application",
+    demo: "#"
   },
-  { 
-    title: "GD Optimizer", 
-    category: "Web", 
-    tech: ["JavaScript", "Canvas", "HTML5"], 
-    description: "Client-side image optimization tool to enhance web loading speeds by reducing file sizes without quality loss.", 
-    github: "https://github.com/OrionGD/GDs-Image-Optimization", 
-    demo: "#" 
+  {
+    title: "GD Optimizer",
+    category: "Web",
+    tech: ["JavaScript", "Canvas", "HTML5"],
+    description: "Client-side image optimization tool to enhance web loading speeds by reducing file sizes without quality loss.",
+    github: "https://github.com/OrionGD/GDs-Image-Optimization",
+    demo: "#"
   },
-  { 
-    title: "SecurLink Checker", 
-    category: "Cybersecurity", 
-    tech: ["JavaScript", "Regex", "Security"], 
-    description: "Real-time password strength evaluator providing instant feedback on entropy and pattern vulnerabilities.", 
-    github: "https://github.com/OrionGD/Password-Strength_Checker", 
-    demo: "#" 
+  {
+    title: "SecurLink Checker",
+    category: "Cybersecurity",
+    tech: ["JavaScript", "Regex", "Security"],
+    description: "Real-time password strength evaluator providing instant feedback on entropy and pattern vulnerabilities.",
+    github: "https://github.com/OrionGD/Password-Strength_Checker",
+    demo: "#"
   },
-  { 
-    title: "Chrono-Stopwatch", 
-    category: "Web", 
-    tech: ["JavaScript", "DOM", "CSS"], 
-    description: "High-precision web stopwatch with lap management and specialized UI for performance monitoring.", 
-    github: "https://github.com/OrionGD/Chrono-Stopwatch", 
-    demo: "#" 
+  {
+    title: "Chrono-Stopwatch",
+    category: "Web",
+    tech: ["JavaScript", "DOM", "CSS"],
+    description: "High-precision web stopwatch with lap management and specialized UI for performance monitoring.",
+    github: "https://github.com/OrionGD/Chrono-Stopwatch",
+    demo: "#"
   },
-  { 
-    title: "Tactical Tic-Tac-Toe", 
-    category: "Web", 
-    tech: ["Logic", "JavaScript", "Animation"], 
-    description: "Strategic game implementation with multiple difficulty levels and a sleek glassmorphism interface.", 
-    github: "https://github.com/OrionGD/TicTacToe-Pro", 
-    demo: "#" 
+  {
+    title: "Tactical Tic-Tac-Toe",
+    category: "Web",
+    tech: ["Logic", "JavaScript", "Animation"],
+    description: "Strategic game implementation with multiple difficulty levels and a sleek glassmorphism interface.",
+    github: "https://github.com/OrionGD/TicTacToe-Pro",
+    demo: "#"
   }
 ];
 
@@ -193,22 +204,45 @@ export const CERTIFICATIONS: Certification[] = [
 ];
 
 export const GALLERY_IMAGES = [
-  { src: "/assets/CLUB XR.jpg", alt: "XR Club Hub" },
-  { src: "/assets/XR.jpg", alt: "Extended Reality Exhibition" },
-  { src: "/assets/XR.jpeg", alt: "XR Symposium Poster" },
-  { src: "/assets/DREAMGEN.jpg", alt: "DreamGen Innovation" },
-  { src: "/assets/hackathon best .jpg", alt: "Hackathon Excellence Award" },
-  { src: "/assets/HACKATHON.jpg", alt: "Intensive Development Session" },
-  { src: "/assets/OASYS.jpg", alt: "OASYS IT Symposium" },
-  { src: "/assets/ENTHUSIA.jpg", alt: "Enthusia Cultural Celebration" },
-  { src: "/assets/xrsymposium.jpeg", alt: "XR Symposium Event" },
-  { src: "/assets/IV.jpg", alt: "Industrial Visit Insights" },
-  { src: "/assets/Marchpast.jpg", alt: "NSS Volunteer Marchpast" },
-  { src: "/assets/YOGA DAY.jpg", alt: "Yoga Day Session" },
-  { src: "/assets/STILL.jpg", alt: "Seminar Still" },
-  { src: "/assets/XR(1).jpg", alt: "AR Workshop Training" },
-  { src: "/assets/XR(2).jpg", alt: "XR Future Tech" },
-  { src: "/assets/DREAMGEN(1).jpg", alt: "AI Project Demo" },
-  { src: "/assets/HACKATHON(1).jpg", alt: "Team Collaboration" },
-  { src: "/assets/OASYS(1).jpg", alt: "Honors Presentation" }
+  { src: "/assets/CampusX.jpg", alt: "Campus Experience", width: 1164, height: 655 },
+
+  { src: "/assets/Codeathon1.jpg", alt: "Codeathon Session 1", width: 1280, height: 720 },
+  { src: "/assets/Codeathon2.jpg", alt: "Codeathon Session 2", width: 1280, height: 720 },
+  { src: "/assets/Codeathon3.jpg", alt: "Codeathon Session 3", width: 1280, height: 721 },
+  { src: "/assets/CodeSprintt.jpg", alt: "Code Sprint Event", width: 3196, height: 1596 },
+
+  { src: "/assets/DreamGen.jpg", alt: "DreamGen Innovation", width: 2448, height: 3264 },
+  { src: "/assets/DreamGen 1.jpg", alt: "DreamGen Session 1", width: 1600, height: 721 },
+  { src: "/assets/DreamGen 2.jpg", alt: "DreamGen Session 2", width: 1600, height: 721 },
+  { src: "/assets/DreamGen 3.jpg", alt: "DreamGen Session 3", width: 4160, height: 3120 },
+  { src: "/assets/DreamGen 4.jpg", alt: "DreamGen Session 4", width: 4096, height: 3072 },
+  { src: "/assets/DREAMGEN 5.jpg", alt: "DreamGen Session 5", width: 960, height: 1280 },
+  { src: "/assets/DREAMGEN0.jpg", alt: "DreamGen Special Session", width: 1600, height: 721 },
+
+  { src: "/assets/EDC Workshop 1.jpg", alt: "EDC Workshop", width: 1280, height: 963 },
+
+  { src: "/assets/ENTHUSIA 2.jpg", alt: "Enthusia Event", width: 1280, height: 591 },
+
+  { src: "/assets/IV 2.jpg", alt: "Industrial Visit", width: 1600, height: 1200 },
+
+  { src: "/assets/Jet Hackathon 2.jpg", alt: "Jet Hackathon", width: 4096, height: 3072 },
+
+  { src: "/assets/MarchPast.jpg", alt: "March Past Event", width: 4160, height: 3120 },
+
+  { src: "/assets/nSS cAMP 26.jpg", alt: "NSS Camp Activity", width: 4096, height: 3072 },
+
+  { src: "/assets/Oyasys 2.jpg", alt: "Oyasys Event", width: 1271, height: 710 },
+
+  { src: "/assets/Vdart1.jpg", alt: "VDart Internship", width: 4096, height: 2304 },
+
+  { src: "/assets/XTIC.jpg", alt: "XTIC Event", width: 3264, height: 1836 },
+  { src: "/assets/XTIC 1.jpg", alt: "XTIC Session 1", width: 3013, height: 1834 },
+  { src: "/assets/XTIC 2.jpg", alt: "XTIC Session 2", width: 4096, height: 2304 },
+  { src: "/assets/XTIC 3.jpg", alt: "XTIC Session 3", width: 2880, height: 2068 },
+  { src: "/assets/XTIC 4.jpg", alt: "XTIC Session 4", width: 3072, height: 4096 },
+
+  { src: "/assets/Yoga Workshop 1.jpg", alt: "Yoga Workshop 1", width: 1280, height: 960 },
+  { src: "/assets/Yoga Workshop 2.jpg", alt: "Yoga Workshop 2", width: 1280, height: 960 },
+
+  { src: "/assets/CLUB XR.jpg", alt: "XR Club", width: 4096, height: 3072 }
 ];

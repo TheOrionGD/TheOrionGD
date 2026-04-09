@@ -11,9 +11,9 @@ const CodingProfiles: React.FC = () => {
       icon: FaGithub,
       url: PERSONAL_INFO.github,
       username: '@OrionGD',
-      color: 'border-slate-500/30',
-      glow: 'group-hover:shadow-slate-500/20',
-      iconColor: 'text-slate-400',
+      color: 'border-border',
+      glow: 'hover:neon-glow-red',
+      iconColor: 'text-text-muted',
       description: 'Repositories, open-source contributions, and technical documentation.'
     },
     {
@@ -21,9 +21,9 @@ const CodingProfiles: React.FC = () => {
       icon: SiLeetcode,
       url: PERSONAL_INFO.leetcode,
       username: 'OrionGD',
-      color: 'border-orange-500/30',
-      glow: 'group-hover:shadow-orange-500/20',
-      iconColor: 'text-orange-500',
+      color: 'border-border',
+      glow: 'hover:neon-glow-red',
+      iconColor: 'text-text-muted',
       description: 'Problem solving, algorithmic challenges, and data structure mastery.'
     },
     {
@@ -31,15 +31,15 @@ const CodingProfiles: React.FC = () => {
       icon: FaHackerrank,
       url: PERSONAL_INFO.hackerrank,
       username: '@OrionGD07',
-      color: 'border-emerald-500/30',
-      glow: 'group-hover:shadow-emerald-500/20',
-      iconColor: 'text-emerald-500',
+      color: 'border-border',
+      glow: 'hover:neon-glow-red',
+      iconColor: 'text-text-muted',
       description: 'Verified skills, technical assessments, and competitive coding.'
     }
   ];
 
   return (
-    <section id="coding-hub" className="py-24 bg-transparent relative">
+    <section id="coding-hub" className="py-24 bg-surface relative">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,11 +47,11 @@ const CodingProfiles: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+          <h2 className="text-4xl font-black text-text-primary mb-4 tracking-tight">
             Coding Ecosystem
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 mx-auto rounded-full"></div>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+          <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+          <p className="mt-6 text-text-secondary max-w-xl mx-auto">
             Explore my live activity and problem-solving progress across various industry-standard platforms.
           </p>
         </motion.div>
@@ -68,26 +68,26 @@ const CodingProfiles: React.FC = () => {
               whileHover={{ y: -10 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`group block p-8 rounded-[2.5rem] bg-white/40 dark:bg-slate-900/20 backdrop-blur-xl border ${platform.color} transition-all duration-500 shadow-lg ${platform.glow}`}
+              className={`group block p-8 rounded-[2.5rem] bg-background/60 backdrop-blur-xl border ${platform.color} transition-all duration-500 shadow-lg ${platform.glow} hover:border-accent/50`}
             >
               <div className="flex justify-between items-start mb-8">
-                <div className={`w-14 h-14 rounded-2xl bg-white dark:bg-white/5 flex items-center justify-center shadow-inner border border-white/10 ${platform.iconColor}`}>
+                <div className={`w-14 h-14 rounded-2xl bg-background-deep border border-border flex items-center justify-center shadow-inner ${platform.iconColor} group-hover:text-accent transition-colors`}>
                   <platform.icon size={28} />
                 </div>
                 <FaExternalLinkAlt className="text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" size={14} />
               </div>
               
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-1">
+              <h3 className="text-2xl font-black text-text-primary mb-1">
                 {platform.name}
               </h3>
-              <p className="text-sm font-bold text-cyan-500 mb-4">{platform.username}</p>
+              <p className="text-sm font-bold text-accent mb-4">{platform.username}</p>
               
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+              <p className="text-text-secondary text-sm leading-relaxed mb-6">
                 {platform.description}
               </p>
 
-              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
-                Visit Profile <span className="w-8 h-px bg-slate-300 dark:bg-slate-700 group-hover:bg-cyan-500 group-hover:w-12 transition-all"></span>
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-text-primary group-hover:text-accent transition-colors">
+                Visit Profile <span className="w-8 h-px bg-border group-hover:bg-accent group-hover:w-12 transition-all"></span>
               </div>
             </motion.a>
           ))}

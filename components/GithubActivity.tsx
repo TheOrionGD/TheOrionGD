@@ -11,19 +11,19 @@ const GithubActivity: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto bg-white dark:bg-[#0d1117] border border-slate-200 dark:border-[#30363d] rounded-2xl p-6 md:p-10 shadow-xl"
+          className="max-w-5xl mx-auto bg-[#0F172A] border border-[#1F2937] rounded-2xl p-6 md:p-10 shadow-xl"
         >
           {/* Header */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-100 dark:border-[#30363d]">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 pb-8 border-b border-[#1F2937]">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-slate-900 dark:bg-white/10 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-lg bg-[#22C55E] flex items-center justify-center text-black">
                 <FaGithub size={28} />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h2 className="text-xl font-bold text-[#E2E8F0]">
                   GitHub Contributions
                 </h2>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-[#94A3B8]">
                   @OrionGD • Live open-source activity
                 </p>
               </div>
@@ -33,7 +33,7 @@ const GithubActivity: React.FC = () => {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noreferrer"
-              className="text-sm font-semibold text-blue-500 hover:text-blue-400 transition-colors"
+              className="text-sm font-semibold text-[#22C55E] hover:text-[#16A34A] transition-colors"
             >
               View GitHub Profile ↗
             </a>
@@ -49,7 +49,7 @@ const GithubActivity: React.FC = () => {
             />
           </div>
 
-          <p className="mt-6 text-xs text-slate-500 dark:text-slate-400 italic text-center">
+          <p className="mt-6 text-xs text-[#64748B] italic text-center">
             Live data sourced directly from GitHub — updated automatically.
           </p>
         </motion.div>
