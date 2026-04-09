@@ -158,11 +158,11 @@ const Hero: React.FC = () => {
                 <span className="text-text-secondary">{suffixPart}</span>
                 <motion.span
                   animate={{ opacity: [1, 0] }}
-                  transition={{ 
-                    duration: 0.8, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
                     ease: "linear",
-                    times: [0, 0.5] 
+                    times: [0, 0.5]
                   }}
                   className="ml-1 text-accent inline-block"
                 >
@@ -203,7 +203,7 @@ const Hero: React.FC = () => {
                 href="/assets/resume.pdf"
                 className="px-8 py-4 rounded-full border-2 border-accent/30 text-accent font-bold text-lg transition-all duration-300 hover:bg-accent/10 hover:border-accent/60"
               >
-                Download CV
+                Download Resume
               </a>
             </motion.div>
 
