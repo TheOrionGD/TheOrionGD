@@ -24,7 +24,7 @@ export const SOCIAL_LINKS = [
 
 export const EDUCATION: Education[] = [
   {
-    degree: "B.Tech CSE",
+    degree: "B.E CSE",
     institution: "K. Ramakrishnan College of Technology",
     period: "Aug 2023 – May 2027 (Expected)"
   },

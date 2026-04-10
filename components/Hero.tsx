@@ -90,17 +90,17 @@ const Hero: React.FC = () => {
   const suffixPart = currentText.slice(prefixLength);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-32 overflow-hidden bg-background">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-32 pb-24 md:pt-24 md:pb-32 overflow-hidden bg-background">
       {/* Background Cinematic Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent-secondary/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute top-[-10%] left-[-10%] w-[80%] h-[40%] md:w-[50%] md:h-[50%] bg-accent/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[80%] h-[40%] md:w-[50%] md:h-[50%] bg-accent-secondary/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
 
       <div className="container mx-auto px-6 z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16 lg:gap-24">
 
           {/* LEFT SIDE: TEXT CONTENT */}
           <motion.div
-            className="flex-1 text-center lg:text-left"
+            className="flex-1 text-center lg:text-left order-2 lg:order-1 w-full"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -108,19 +108,19 @@ const Hero: React.FC = () => {
             {/* Status Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 md:mb-8"
             >
               <div className="relative flex h-2 w-2">
                 <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></div>
                 <div className="relative inline-flex rounded-full h-2 w-2 bg-accent"></div>
               </div>
-              <span className="text-sm font-medium text-text-primary tracking-wide">
+              <span className="text-[10px] md:text-sm font-bold text-text-primary uppercase tracking-widest">
                 Available for New Adventures
               </span>
             </motion.div>
 
             {/* Name with Staggered Letter Animation */}
-            <h1 className="mb-6 flex flex-wrap justify-center lg:justify-start">
+            <h1 className="mb-6 flex flex-wrap justify-center lg:justify-start text-5xl md:text-7xl lg:text-8xl font-black">
               <span className="flex">
                 {first_name.split('').map((char, i) => (
                   <motion.span
@@ -133,7 +133,7 @@ const Hero: React.FC = () => {
                   </motion.span>
                 ))}
               </span>
-              <span className="mx-4"></span>
+              <span className="mx-3 md:mx-4"></span>
               <span className="flex">
                 {last_name.split('').map((char, i) => (
                   <motion.span
@@ -151,9 +151,9 @@ const Hero: React.FC = () => {
             {/* Role Text with Typewriter Effect */}
             <motion.div
               variants={itemVariants}
-              className="h-16 mb-6 flex items-center justify-center lg:justify-start"
+              className="h-20 md:h-16 mb-6 flex items-center justify-center lg:justify-start"
             >
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
+              <h2 className="text-xl md:text-3xl font-semibold tracking-tight">
                 <span className="text-accent-secondary">{prefixPart}</span>
                 <span className="text-text-secondary">{suffixPart}</span>
                 <motion.span
@@ -172,15 +172,15 @@ const Hero: React.FC = () => {
             </motion.div>
 
             {/* Description & Metadata */}
-            <motion.div variants={itemVariants} className="max-w-xl mb-10 space-y-4">
-              <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
-                Hi, I'm Godfrey. I bridge the gap between complex engineering and intuitive design to build AI-powered applications that make a real-world impact.
+            <motion.div variants={itemVariants} className="max-w-xl mb-10 space-y-6">
+              <p className="text-base md:text-xl text-text-secondary leading-relaxed mx-auto lg:mx-0">
+                Hi, I&apos;m Godfrey. I bridge the gap between complex engineering and intuitive design to build AI-powered applications that make a real-world impact.
               </p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm font-medium text-text-secondary">
-                <span className="px-3 py-1 rounded-md glass-dark">{EDUCATION[0].degree}</span>
-                <span className="px-3 py-1 rounded-md glass-dark">{LEADERSHIP_XR[0]}</span>
-                <span className="flex items-center gap-1">
-                  <FaMapMarkerAlt className="text-accent-secondary" /> {PERSONAL_INFO.location.split(',')[0]}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-[10px] md:text-sm font-black uppercase tracking-widest">
+                <span className="px-3 py-1 rounded-lg glass-dark border border-white/5">{EDUCATION[0].degree}</span>
+                <span className="px-3 py-1 rounded-lg glass-dark border border-white/5">{LEADERSHIP_XR[0]}</span>
+                <span className="flex items-center gap-2 text-text-muted">
+                  <FaMapMarkerAlt className="text-accent" /> {PERSONAL_INFO.location.split(',')[0]}
                 </span>
               </div>
             </motion.div>
@@ -188,20 +188,20 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6"
             >
               <a
                 href="#projects"
-                className="group relative px-8 py-4 rounded-full bg-accent text-white font-bold text-lg transition-all duration-300 hover:scale-105 neon-glow-red overflow-hidden"
+                className="w-full sm:w-auto group relative px-8 py-4 rounded-2xl bg-accent text-white font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:scale-105 neon-glow-red overflow-hidden text-center"
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center justify-center gap-3">
                   View My Work <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
               <a
                 href="/assets/resume.pdf"
-                className="px-8 py-4 rounded-full border-2 border-accent/30 text-accent font-bold text-lg transition-all duration-300 hover:bg-accent/10 hover:border-accent/60"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl border-2 border-accent/20 text-accent font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-accent/10 hover:border-accent/60 text-center"
               >
                 Download Resume
               </a>
@@ -210,7 +210,7 @@ const Hero: React.FC = () => {
             {/* Social Links */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 flex justify-center lg:justify-start gap-8"
+              className="mt-12 flex justify-center lg:justify-start gap-6 md:gap-8"
             >
               {SOCIAL_LINKS.map((link, idx) => (
                 <a
@@ -218,10 +218,10 @@ const Hero: React.FC = () => {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-text-secondary transition-colors duration-300 hover:text-accent flex items-center gap-2 text-sm font-semibold group"
+                  className="text-text-secondary transition-all duration-300 hover:text-accent flex items-center gap-3 text-xs font-black uppercase tracking-widest group"
                 >
                   <link.icon className="text-xl group-hover:scale-120 transition-transform" />
-                  <span className="hidden sm:inline">{link.label}</span>
+                  <span className="hidden sm:inline-block">{link.label}</span>
                 </a>
               ))}
             </motion.div>
@@ -229,7 +229,7 @@ const Hero: React.FC = () => {
 
           {/* RIGHT SIDE: PROFILE IMAGE & DECORATIONS */}
           <motion.div
-            className="relative"
+            className="relative order-1 lg:order-2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -242,7 +242,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-[-4px] rounded-full bg-linear-to-tr from-accent via-accent-secondary to-accent opacity-50" />
 
               {/* Profile Image Container */}
-              <div className="relative aspect-square w-64 md:w-80 lg:w-96 rounded-full overflow-hidden border-4 border-surface shadow-2xl z-10 bg-surface">
+              <div className="relative aspect-square w-48 md:w-64 lg:w-96 rounded-full overflow-hidden border-4 border-surface shadow-2xl z-10 bg-surface">
                 <img
                   src="/assets/DreamGen.jpg"
                   alt="Godfrey T R"
@@ -252,21 +252,21 @@ const Hero: React.FC = () => {
 
               {/* Floating Badges */}
               <motion.div
-                className="absolute top-0 -left-8 glass px-4 py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl border-accent-secondary/30"
+                className="absolute top-0 -left-4 md:-left-8 glass px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl border-accent-secondary/30"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="w-2 h-2 rounded-full bg-accent-secondary shadow-[0_0_8px_#F2674A]" />
-                <span className="text-xs font-bold tracking-wider text-text-primary">📍 TRICHY, INDIA</span>
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent-secondary shadow-[0_0_8px_#F2674A]" />
+                <span className="text-[8px] md:text-xs font-bold tracking-wider text-text-primary whitespace-nowrap uppercase">📍 Trichy, India</span>
               </motion.div>
 
               <motion.div
-                className="absolute bottom-12 -right-8 glass px-4 py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl border-accent/30"
+                className="absolute bottom-8 -right-4 md:-right-8 glass px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-20 shadow-xl border-accent/30"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               >
-                <div className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_#FC3A45]" />
-                <span className="text-xs font-bold tracking-wider text-text-primary">B.TECH CSE &apos;27</span>
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent shadow-[0_0_8px_#FC3A45]" />
+                <span className="text-[8px] md:text-xs font-bold tracking-wider text-text-primary whitespace-nowrap uppercase">B.Tech CSE &apos;27</span>
               </motion.div>
             </div>
           </motion.div>

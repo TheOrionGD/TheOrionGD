@@ -9,12 +9,11 @@ import Gallery from './Gallery';
 import CodingProfiles from './CodingProfiles';
 import Certifications from './Certifications';
 import Contact from './Contact';
-import Background3D from './Background3D';
 
 const Home: React.FC = () => {
   return (
     <div className="bg-background min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent transition-colors duration-300 relative">
-      <Background3D />
+      <Navbar />
       <Navbar />
       <main className="relative z-10">
         <Hero />
