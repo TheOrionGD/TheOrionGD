@@ -40,7 +40,7 @@ const GithubActivity: React.FC = () => {
           </div>
 
           {/* Live Contribution Graph */}
-          <div className="flex justify-center overflow-x-auto">
+          <div className="flex justify-center overflow-hidden">
             <img
               src="https://ghchart.rshah.org/OrionGD"
               alt="GitHub contribution graph for OrionGD"

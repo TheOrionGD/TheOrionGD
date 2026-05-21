@@ -4,7 +4,7 @@ import { SKILLS } from '../constants';
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 relative bg-surface/10">
+    <section id="skills" className="py-24 relative">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ const Skills: React.FC = () => {
                 {category.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="px-4 py-2 bg-background-deep/40 text-text-secondary text-[11px] font-bold rounded-xl border border-white/5 hover:border-accent/50 hover:text-accent hover:bg-accent/5 transition-all cursor-default uppercase tracking-wider"
+                    className="px-4 py-2 glass-dark text-text-secondary text-[11px] font-bold rounded-xl border border-white/5 hover:border-accent/50 hover:text-accent hover:bg-accent/5 transition-all cursor-default uppercase tracking-wider"
                   >
                     {skill}
                   </span>

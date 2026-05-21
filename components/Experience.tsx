@@ -4,9 +4,8 @@ import { EXPERIENCE } from '../constants';
 
 const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-background-deep/50 relative overflow-hidden">
-      {/* Background Decorative Glow */}
-      <div className="absolute top-1/2 left-[-10%] w-[40%] h-[40%] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="experience" className="py-24 relative overflow-hidden">
+      {/* Background Decorative Glow removed */}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div

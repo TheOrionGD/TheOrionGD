@@ -83,7 +83,7 @@ const Contact: FC = () => {
       } else {
         setSubmitStatus('error');
       }
-    } catch (err) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -105,9 +105,8 @@ const Contact: FC = () => {
   };
 
   return (
-    <footer id="contact" className="relative bg-background-deep pt-24 md:pt-32 pb-12 overflow-hidden border-t border-border/10">
-      {/* Background Decorative Element */}
-      <div className="absolute bottom-0 right-0 w-[40%] h-[40%] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+    <footer id="contact" className="relative pt-24 md:pt-32 pb-12 overflow-hidden border-t border-border/10">
+      {/* Background Decorative Element removed */}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -136,7 +135,7 @@ const Contact: FC = () => {
                   onClick={() => copyToClipboard(PERSONAL_INFO.email, 'email')}
                   className="group relative flex items-center gap-5 p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-background-deep border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
+                  <div className="w-14 h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
                     <FaEnvelope />
                   </div>
                   <div>
@@ -160,7 +159,7 @@ const Contact: FC = () => {
                   onClick={() => copyToClipboard(PERSONAL_INFO.phone, 'phone')}
                   className="group relative flex items-center gap-5 p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-background-deep border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
+                  <div className="w-14 h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
                     <FaPhone />
                   </div>
                   <div>
@@ -175,7 +174,7 @@ const Contact: FC = () => {
 
               {/* Location */}
               <motion.div variants={itemVariants} className="flex items-center gap-5 p-5">
-                <div className="w-14 h-14 rounded-2xl bg-background-deep/50 border border-white/5 flex items-center justify-center text-text-muted text-xl">
+                <div className="w-14 h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-text-muted text-xl">
                   <FaMapMarkerAlt />
                 </div>
                 <div>
@@ -199,16 +198,16 @@ const Contact: FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-widest text-text-muted ml-1">Identity</label>
-                    <input name="name" type="text" placeholder="Full Name" required className="w-full bg-background-deep/40 border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all font-bold placeholder:text-white/10 uppercase text-xs" />
+                    <input name="name" type="text" placeholder="Full Name" required className="w-full glass-dark border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all font-bold placeholder:text-white/10 uppercase text-xs" />
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-widest text-text-muted ml-1">E-Mail</label>
-                    <input name="email" type="email" placeholder="example@domain.com" required className="w-full bg-background-deep/40 border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all font-bold placeholder:text-white/10 uppercase text-xs" />
+                    <input name="email" type="email" placeholder="example@domain.com" required className="w-full glass-dark border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all font-bold placeholder:text-white/10 uppercase text-xs" />
                   </div>
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-widest text-text-muted ml-1">Your Vision</label>
-                  <textarea name="message" rows={4} placeholder="Describe your project or ideas..." required className="w-full bg-background-deep/40 border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all resize-none font-bold placeholder:text-white/10 uppercase text-xs"></textarea>
+                  <textarea name="message" rows={4} placeholder="Describe your project or ideas..." required className="w-full glass-dark border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all resize-none font-bold placeholder:text-white/10 uppercase text-xs"></textarea>
                 </div>
 
                 <motion.button
@@ -256,7 +255,7 @@ const Contact: FC = () => {
                     href={social.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-surface/20 glass border border-white/5 flex items-center justify-center text-text-muted hover:border-accent/60 hover:text-accent hover:shadow-xl hover:shadow-accent/20 transition-all duration-300 group"
+                    className="w-14 h-14 md:w-16 md:h-16 rounded-2xl glass glass border border-white/5 flex items-center justify-center text-text-muted hover:border-accent/60 hover:text-accent hover:shadow-xl hover:shadow-accent/20 transition-all duration-300 group"
                     title={social.label}
                   >
                     <social.icon size={24} className="group-hover:scale-110 transition-transform" />

@@ -113,7 +113,7 @@ const LeetCodeActivity: FC = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto bg-[#0F172A]/60 backdrop-blur-3xl border border-[#1F2937] rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#22C55E]/5 rounded-full blur-[100px] pointer-events-none" />
+          {/* Background blurred blob removed */}
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-20 relative z-10">
             <div className="flex items-center gap-6">
@@ -206,8 +206,8 @@ const LeetCodeActivity: FC = () => {
                 ))}
               </div>
 
-              <div className="bg-[#020617] p-10 rounded-[3rem] border border-[#1F2937] group relative shadow-inner overflow-x-auto scrollbar-hide">
-                <div className="min-w-fit flex gap-[4px]">
+              <div className="bg-[#020617] p-6 md:p-10 rounded-[3rem] border border-[#1F2937] group relative shadow-inner overflow-hidden">
+                <div className="flex flex-wrap gap-[3px] justify-center">
                   {Array.from({ length: 53 }).map((_, weekIndex) => (
                     <div key={weekIndex} className="flex flex-col gap-[4px]">
                       {Array.from({ length: 7 }).map((_, dayIndex) => {

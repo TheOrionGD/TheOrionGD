@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { CERTIFICATIONS, LEADERSHIP_XR } from '../constants';
-import { FaAward, FaUsers, FaCheckCircle } from 'react-icons/fa';
+import { FaAward, FaUsers, FaCheckCircle, FaFileAlt } from 'react-icons/fa';
 
 const Certifications: React.FC = () => {
   return (
-    <section className="py-24 bg-surface/20 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
@@ -49,6 +50,23 @@ const Certifications: React.FC = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Full Certificate Archive Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="mt-8"
+            >
+              <Link
+                to="/certificates"
+                className="group inline-flex items-center gap-4 px-8 py-4 bg-signature text-white rounded-full font-black text-[10px] sm:text-xs uppercase tracking-widest hover:shadow-2xl hover:shadow-accent/30 transition-all active:scale-95"
+              >
+                <FaFileAlt className="text-lg group-hover:rotate-12 transition-transform" />
+                Full Certificate Archive
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Leadership Column */}

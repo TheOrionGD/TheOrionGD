@@ -12,10 +12,9 @@ import Contact from './Contact';
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-background min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent transition-colors duration-300 relative">
+    <div className="relative z-10 min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent">
       <Navbar />
-      <Navbar />
-      <main className="relative z-10">
+      <main className="relative">
         <Hero />
         <About />
         <Experience />

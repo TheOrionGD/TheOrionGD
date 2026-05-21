@@ -42,7 +42,6 @@ export const useThemeManager = () => {
 
     // 5. Dynamic Page Metadata (Example: Update on specific events or routes)
     const updateTitle = () => {
-      const pageTitle = document.title;
       // We could add logic here to prefix/suffix titles dynamically
       // For example, adding a status indicator during long-running tasks
     };

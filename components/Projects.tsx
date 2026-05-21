@@ -30,8 +30,7 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-24 bg-transparent relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(252,58,69,0.05)_0%,transparent_70%)] pointer-events-none" />
+      {/* Background radial glow removed */}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -96,7 +95,7 @@ const Projects: React.FC = () => {
                   animate="show"
                   exit="exit"
                   onClick={() => setSelectedId(isSelected ? null : index)}
-                  className={`group relative h-[22rem] md:h-[24rem] cursor-pointer overflow-hidden rounded-3xl bg-surface/40 backdrop-blur-xl border border-white/5 hover:border-accent/40 transition-all duration-300 shadow-xl ${isSelected ? 'ring-2 ring-accent/50' : ''}`}
+                  className={`group relative h-[22rem] md:h-[24rem] cursor-pointer overflow-hidden rounded-3xl glass backdrop-blur-xl border border-white/5 hover:border-accent/40 transition-all duration-300 shadow-xl ${isSelected ? 'ring-2 ring-accent/50' : ''}`}
                 >
                   {/* BASE CONTENT */}
                   <div className="p-8 h-full flex flex-col justify-between relative z-10">
@@ -115,7 +114,7 @@ const Projects: React.FC = () => {
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {project.tech.slice(0, 3).map((tech, i) => (
-                          <span key={i} className="text-[9px] font-black text-text-muted bg-background-deep/40 px-3 py-1 rounded-full border border-white/5 uppercase tracking-widest">
+                          <span key={i} className="text-[9px] font-black text-text-muted glass-dark px-3 py-1 rounded-full border border-white/5 uppercase tracking-widest">
                             {tech}
                           </span>
                         ))}
@@ -133,7 +132,7 @@ const Projects: React.FC = () => {
                     animate={{ y: isSelected ? 0 : "100%" }}
                     whileHover={{ y: 0 }}
                     transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                    className="absolute inset-0 bg-background-deep/98 backdrop-blur-2xl p-8 flex flex-col justify-between border-t border-accent/30 z-20"
+                    className="absolute inset-0 glass-dark backdrop-blur-2xl p-8 flex flex-col justify-between border-t border-accent/30 z-20"
                   >
                     <div className="flex-1 overflow-hidden">
                       <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-4">

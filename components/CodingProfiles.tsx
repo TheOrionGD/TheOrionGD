@@ -30,10 +30,8 @@ const CodingProfiles: React.FC = () => {
   ];
 
   return (
-    <section id="coding-hub" className="py-24 bg-background-deep relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-[30%] h-[30%] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-accent-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="coding-hub" className="py-24 relative overflow-hidden">
+      {/* Background Decorative Elements removed */}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -72,7 +70,7 @@ const CodingProfiles: React.FC = () => {
               <div className="absolute -top-12 -right-12 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
               
               <div className="flex justify-between items-start mb-10">
-                <div className="w-16 h-16 rounded-2xl bg-background-deep/50 border border-white/5 flex items-center justify-center shadow-inner text-text-muted group-hover:text-accent group-hover:border-accent/30 group-hover:scale-110 transition-all duration-500">
+                <div className="w-16 h-16 rounded-2xl glass-dark border border-white/5 flex items-center justify-center shadow-inner text-text-muted group-hover:text-accent group-hover:border-accent/30 group-hover:scale-110 transition-all duration-500">
                   <platform.icon size={32} />
                 </div>
                 <div className="w-10 h-10 rounded-full glass border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">

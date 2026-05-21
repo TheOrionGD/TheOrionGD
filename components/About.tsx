@@ -4,7 +4,7 @@ import { EDUCATION } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 relative bg-surface/30">
+    <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
@@ -32,13 +32,13 @@ const About: React.FC = () => {
               </p>
               
               <div className="mt-8 flex flex-wrap gap-4 relative z-10">
-                <div className="px-4 py-2 rounded-xl bg-background-deep/40 border border-white/5 text-[10px] font-bold text-accent uppercase tracking-wider">
+                <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-accent uppercase tracking-wider">
                   Creative
                 </div>
-                <div className="px-4 py-2 rounded-xl bg-background-deep/40 border border-white/5 text-[10px] font-bold text-accent-secondary uppercase tracking-wider">
+                <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-accent-secondary uppercase tracking-wider">
                   Analytical
                 </div>
-                <div className="px-4 py-2 rounded-xl bg-background-deep/40 border border-white/5 text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-text-muted uppercase tracking-wider">
                   Scalable
                 </div>
               </div>

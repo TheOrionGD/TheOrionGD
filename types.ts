@@ -31,3 +31,16 @@ export interface Certification {
   year?: string;
   description?: string;
 }
+
+export interface CertificateFile {
+  name: string;
+  /** Primary file path (PDF or single image). For multi-page image sets use `pages`. */
+  file: string;
+  /** 'pdf' | 'image' – determines how the viewer renders the file */
+  fileType?: 'pdf' | 'image';
+  /** For multi-page image certs (e.g. pledge pages) provide all page paths here */
+  pages?: string[];
+  category: string;
+  issuer: string;
+  tag?: string;
+}

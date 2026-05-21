@@ -32,7 +32,7 @@ const FullGallery: FC = () => {
   };
 
   return (
-    <div className="bg-background-deep min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent">
+    <div className="min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent relative z-10">
       {/* Header */}
       <motion.div
         initial={{ y: -100 }}
@@ -122,7 +122,7 @@ const FullGallery: FC = () => {
                 />
 
                 {/* Glass Overlay on Hover */}
-                <div className="absolute inset-0 bg-background-deep/40 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center">
+                <div className="absolute inset-0 glass-dark opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileHover={{ scale: 1, opacity: 1 }}
