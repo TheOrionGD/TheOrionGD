@@ -194,7 +194,7 @@ const Hero: React.FC = () => {
             {/* Description & Metadata */}
             <motion.div variants={itemVariants} className="max-w-xl mb-10 space-y-6">
               <p className="text-base md:text-xl text-text-secondary leading-relaxed mx-auto lg:mx-0">
-                Hi, I&apos;m Godfrey &mdash; a B.E CSE student building modern web applications, AI-assisted systems, and interactive XR experiences. I focus on clean architecture, real usability, and scalable design.
+                I’m Godfrey — a Computer Science and Engineering student building scalable software, intelligent systems, and user-focused digital experiences.
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-[10px] md:text-sm font-black uppercase tracking-widest">
                 <span className="px-3 py-1 rounded-lg bg-accent/5 border border-accent/20 text-accent/90 shadow-[0_0_10px_rgba(252,58,69,0.1)]">{EDUCATION[0].degree}</span>

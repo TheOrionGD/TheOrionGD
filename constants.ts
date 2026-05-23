@@ -12,7 +12,7 @@ import { SiLeetcode } from 'react-icons/si';
 export const PERSONAL_INFO = {
   name: "GODFREY T R",
   role: "SOFTWARE ENGINEER",
-  tagline: "I build modern web applications, AI-assisted systems, and interactive XR experiences — with a focus on usability, performance, and scalable design.",
+  tagline: "Turning ideas into intelligent systems and interactive realities.",
   email: "godfreytr.prof@gmail.com",
   phone: "+91 93444 62238",
   location: "Tiruchirapalli, Tamil Nadu, India",
@@ -90,12 +90,12 @@ export const EXPERIENCE: Experience[] = [
 ];
 
 export const SKILLS: SkillCategory[] = [
-  { category: "Languages",          skills: ["Java", "Python", "JavaScript", "TypeScript", "C", "SQL"] },
-  { category: "Frontend",           skills: ["React", "Tailwind CSS", "HTML & CSS", "Responsive UI Design"] },
-  { category: "Backend & APIs",     skills: ["Node.js", "Express.js", "REST APIs", "FastAPI"] },
-  { category: "Databases",          skills: ["MongoDB", "MySQL"] },
-  { category: "Tools & Platforms",  skills: ["Git & GitHub", "Figma", "VS Code", "Unity"] },
-  { category: "Areas of Interest",  skills: ["AI Integration", "XR Development", "UI/UX Design", "Cybersecurity Fundamentals"] }
+  { category: "Languages", skills: ["Java", "Python", "JavaScript", "TypeScript", "C", "SQL"] },
+  { category: "Frontend", skills: ["React", "Tailwind CSS", "HTML & CSS", "Responsive UI Design"] },
+  { category: "Backend & APIs", skills: ["Node.js", "Express.js", "REST APIs", "FastAPI"] },
+  { category: "Databases", skills: ["MongoDB", "MySQL"] },
+  { category: "Tools & Platforms", skills: ["Git & GitHub", "Figma", "VS Code", "Unity"] },
+  { category: "Areas of Interest", skills: ["AI Integration", "XR Development", "UI/UX Design", "Cybersecurity Fundamentals"] }
 ];
 
 export const LEADERSHIP_XR = [
