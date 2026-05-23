@@ -111,23 +111,24 @@ const LeetCodeActivity: FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-6xl mx-auto bg-[#0F172A]/60 backdrop-blur-3xl border border-[#1F2937] rounded-[3rem] p-8 md:p-14 shadow-2xl relative overflow-hidden"
+          className="max-w-6xl mx-auto bg-[#0F172A]/60 backdrop-blur-3xl border border-[#1F2937] rounded-[2rem] md:rounded-[3rem] p-5 sm:p-8 md:p-14 shadow-2xl relative overflow-hidden"
         >
           {/* Background blurred blob removed */}
           
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 mb-20 relative z-10">
-            <div className="flex items-center gap-6">
-              <div className="w-24 h-24 rounded-3xl bg-[#22C55E] p-0.5 shadow-2xl shadow-[#22C55E]/20 group cursor-pointer hover:rotate-3 transition-transform">
-                <div className="w-full h-full rounded-[1.4rem] bg-[#020617] flex items-center justify-center">
-                  <SiLeetcode size={48} className="text-[#22C55E] group-hover:scale-110 transition-transform" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 md:mb-20 relative z-10">
+            <div className="flex items-center gap-4 md:gap-6">
+              <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl md:rounded-3xl bg-[#22C55E] p-0.5 shadow-2xl shadow-[#22C55E]/20 group cursor-pointer hover:rotate-3 transition-transform flex-shrink-0">
+                <div className="w-full h-full rounded-[1rem] md:rounded-[1.4rem] bg-[#020617] flex items-center justify-center">
+                  <SiLeetcode size={32} className="md:hidden text-[#22C55E]" />
+                  <SiLeetcode size={48} className="hidden md:block text-[#22C55E] group-hover:scale-110 transition-transform" />
                 </div>
               </div>
-              <div className="text-center md:text-left">
-                <h2 className="text-4xl font-black text-[#E2E8F0] tracking-tight mb-2">Algorithm Forge</h2>
-                <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
-                  <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0F172A] border border-[#1F2937] shadow-sm">
+              <div className="text-left">
+                <h2 className="text-2xl md:text-4xl font-black text-[#E2E8F0] tracking-tight mb-2">Algorithm Forge</h2>
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-[#0F172A] border border-[#1F2937] shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-                    <span className="text-[11px] font-black text-[#94A3B8] uppercase tracking-widest">
+                    <span className="text-[10px] md:text-[11px] font-black text-[#94A3B8] uppercase tracking-widest">
                       Rank: {liveStats.loading ? '...' : liveStats.ranking.toLocaleString()}
                     </span>
                   </div>
@@ -141,24 +142,35 @@ const LeetCodeActivity: FC = () => {
               rel="noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 px-12 py-5 bg-[#22C55E] hover:bg-[#16A34A] text-black rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-[#22C55E]/20 transition-all"
+              className="group self-start sm:self-auto flex items-center gap-3 px-6 sm:px-12 py-4 md:py-5 bg-[#22C55E] hover:bg-[#16A34A] text-black rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-[#22C55E]/20 transition-all"
             >
               Analyze Profile <FaExternalLinkAlt size={10} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.a>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
-            <div className="lg:col-span-4 flex flex-col items-center justify-center p-12 bg-[#020617] rounded-[3rem] border border-[#1F2937] shadow-inner">
-              <div className="relative w-56 h-56 mb-10">
+            <div className="lg:col-span-4 flex flex-col items-center justify-center p-8 md:p-12 bg-[#020617] rounded-[2rem] md:rounded-[3rem] border border-[#1F2937] shadow-inner">
+              <div className="relative w-40 h-40 md:w-56 md:h-56 mb-8 md:mb-10">
                 <svg className="w-full h-full transform -rotate-90 relative">
-                  <circle cx="112" cy="112" r="104" className="stroke-[#1F2937] fill-none" strokeWidth="14" />
+                  <circle cx="80" cy="80" r="72" className="block md:hidden stroke-[#1F2937] fill-none" strokeWidth="12" />
+                  <motion.circle
+                    cx="80" cy="80" r="72"
+                    initial={{ strokeDasharray: "0 452" }}
+                    whileInView={{ strokeDasharray: `${(liveStats.totalSolved / Math.max(1, liveStats.totalQuestions)) * 452} 452` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2.2, ease: "circOut" }}
+                    className="block md:hidden stroke-[#22C55E] fill-none"
+                    strokeWidth="12"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="112" cy="112" r="104" className="hidden md:block stroke-[#1F2937] fill-none" strokeWidth="14" />
                   <motion.circle
                     cx="112" cy="112" r="104"
                     initial={{ strokeDasharray: "0 653" }}
                     whileInView={{ strokeDasharray: `${(liveStats.totalSolved / Math.max(1, liveStats.totalQuestions)) * 653} 653` }}
                     viewport={{ once: true }}
                     transition={{ duration: 2.2, ease: "circOut" }}
-                    className="stroke-[#22C55E] fill-none"
+                    className="hidden md:block stroke-[#22C55E] fill-none"
                     strokeWidth="14"
                     strokeLinecap="round"
                   />
@@ -206,21 +218,24 @@ const LeetCodeActivity: FC = () => {
                 ))}
               </div>
 
-              <div className="bg-[#020617] p-6 md:p-10 rounded-[3rem] border border-[#1F2937] group relative shadow-inner overflow-hidden">
-                <div className="flex flex-wrap gap-[3px] justify-center">
-                  {Array.from({ length: 53 }).map((_, weekIndex) => (
-                    <div key={weekIndex} className="flex flex-col gap-[4px]">
-                      {Array.from({ length: 7 }).map((_, dayIndex) => {
-                        const data = heatmapData[weekIndex * 7 + dayIndex];
-                        return (
-                          <motion.div
-                            key={dayIndex}
-                            className={`w-4 h-4 md:w-4.5 md:h-4.5 rounded-[4px] ${getLevelColor(data?.level || 0)} cursor-crosshair transition-all duration-300 hover:scale-125`}
-                          />
-                        );
-                      })}
-                    </div>
-                  ))}
+              <div className="bg-[#020617] p-4 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-[#1F2937] group relative shadow-inner overflow-hidden">
+                {/* Horizontally scrollable on mobile */}
+                <div className="overflow-x-auto -mx-2 px-2">
+                  <div className="flex gap-[3px] justify-start md:justify-center" style={{ minWidth: 'max-content' }}>
+                    {Array.from({ length: 53 }).map((_, weekIndex) => (
+                      <div key={weekIndex} className="flex flex-col gap-[3px]">
+                        {Array.from({ length: 7 }).map((_, dayIndex) => {
+                          const data = heatmapData[weekIndex * 7 + dayIndex];
+                          return (
+                            <motion.div
+                              key={dayIndex}
+                              className={`w-3 h-3 md:w-4 md:h-4 rounded-[3px] ${getLevelColor(data?.level || 0)} cursor-crosshair transition-all duration-300 hover:scale-125`}
+                            />
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

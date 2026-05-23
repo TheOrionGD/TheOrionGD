@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-32 pb-24 md:pt-24 md:pb-32 overflow-hidden">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-32 pb-24 md:pt-24 md:pb-32 overflow-hidden w-full">
       <div className="container mx-auto px-6 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16 lg:gap-24">
 
@@ -135,12 +135,12 @@ const Hero: React.FC = () => {
                 <div className="relative inline-flex rounded-full h-2 w-2 bg-accent shadow-[0_0_8px_rgba(252,58,69,0.8)]"></div>
               </div>
               <span className="text-[10px] md:text-sm font-bold text-text-primary uppercase tracking-widest">
-                System Online // Ready
+                Available for Opportunities
               </span>
             </motion.div>
 
             {/* Name with Staggered Letter Animation */}
-            <h1 className="mb-6 flex flex-wrap justify-center lg:justify-start text-5xl md:text-7xl lg:text-8xl font-black">
+            <h1 className="mb-6 flex flex-wrap justify-center lg:justify-start text-4xl xs:text-5xl md:text-7xl lg:text-8xl font-black">
               <span className="flex drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                 {first_name.split('').map((char, i) => (
                   <motion.span
@@ -171,7 +171,7 @@ const Hero: React.FC = () => {
             {/* Role Text with Typewriter Effect */}
             <motion.div
               variants={itemVariants}
-              className="h-20 md:h-16 mb-6 flex items-center justify-center lg:justify-start"
+              className="h-16 md:h-16 mb-6 flex items-center justify-center lg:justify-start"
             >
               <h2 className="text-xl md:text-3xl font-semibold tracking-tight">
                 <span className="text-white">{prefixPart}</span>
@@ -194,7 +194,7 @@ const Hero: React.FC = () => {
             {/* Description & Metadata */}
             <motion.div variants={itemVariants} className="max-w-xl mb-10 space-y-6">
               <p className="text-base md:text-xl text-text-secondary leading-relaxed mx-auto lg:mx-0">
-                Hi, I&apos;m Godfrey. I engineer immersive realities and intelligent AI systems. Bridging the gap between human perception and computational limits.
+                Hi, I&apos;m Godfrey &mdash; a B.E CSE student building modern web applications, AI-assisted systems, and interactive XR experiences. I focus on clean architecture, real usability, and scalable design.
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-[10px] md:text-sm font-black uppercase tracking-widest">
                 <span className="px-3 py-1 rounded-lg bg-accent/5 border border-accent/20 text-accent/90 shadow-[0_0_10px_rgba(252,58,69,0.1)]">{EDUCATION[0].degree}</span>
@@ -216,16 +216,16 @@ const Hero: React.FC = () => {
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <span className="relative z-10 flex items-center justify-center gap-3">
-                  Initialize Protocol <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  View Projects <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
               <a
-                href={`${import.meta.env.VITE_API_URI || "http://localhost:5000"}/assets/resume.pdf`}
+                href="/assets/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl border-2 border-accent/30 text-white font-black text-xs uppercase tracking-[0.2em] transition-all duration-300 hover:bg-accent/20 hover:border-accent hover:shadow-[0_0_15px_rgba(252,58,69,0.2)] text-center"
               >
-                View Blueprint
+                Download Resume
               </a>
             </motion.div>
 
@@ -251,7 +251,7 @@ const Hero: React.FC = () => {
 
           {/* RIGHT SIDE: 3D PROFILE IMAGE & DECORATIONS */}
           <motion.div
-            className="relative order-1 lg:order-2 perspective-[1000px] w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 z-20"
+            className="relative order-1 lg:order-2 perspective-[1000px] w-44 h-44 xs:w-48 xs:h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 z-20 flex-shrink-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -306,7 +306,7 @@ const Hero: React.FC = () => {
               {/* Profile Image Container */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#020810] shadow-[0_0_50px_rgba(252,58,69,0.15)] bg-[#020810] group">
                 <img
-                  src={`${import.meta.env.VITE_API_URI || "http://localhost:5000"}/assets/DreamGen.jpg`}
+                  src="/assets/DreamGen.jpg"
                   alt="Godfrey T R"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -321,20 +321,20 @@ const Hero: React.FC = () => {
 
               {/* Static Badges (Re-positioned slightly outward to avoid clipping with orbital ring) */}
               <motion.div
-                className="absolute top-4 -left-8 md:-left-12 glass px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-40 shadow-xl border-accent-secondary/30 pointer-events-none"
+                className="absolute top-4 -left-6 sm:-left-8 md:-left-12 glass px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-40 shadow-xl border-accent-secondary/30 pointer-events-none"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                style={{ transform: "translateZ(30px)" }} // Pop out in 3D
+                style={{ transform: "translateZ(30px)" }}
               >
                 <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent-secondary shadow-[0_0_8px_#F2674A]" />
                 <span className="text-[8px] md:text-xs font-bold tracking-wider text-white whitespace-nowrap uppercase">📍 Trichy, India</span>
               </motion.div>
 
               <motion.div
-                className="absolute bottom-12 -right-8 md:-right-12 glass px-3 py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-40 shadow-xl border-accent/30 pointer-events-none"
+                className="absolute bottom-12 -right-6 sm:-right-8 md:-right-12 glass px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-xl flex items-center gap-2 z-40 shadow-xl border-accent/30 pointer-events-none"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                style={{ transform: "translateZ(40px)" }} // Pop out in 3D
+                style={{ transform: "translateZ(40px)" }}
               >
                 <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent shadow-[0_0_8px_#FC3A45]" />
                 <span className="text-[8px] md:text-xs font-bold tracking-wider text-white whitespace-nowrap uppercase">B.Tech CSE &apos;27</span>

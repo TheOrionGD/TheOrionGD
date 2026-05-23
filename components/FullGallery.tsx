@@ -83,7 +83,7 @@ const FullGallery: FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 auto-rows-[250px] md:auto-rows-[300px]"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 auto-rows-[200px] sm:auto-rows-[220px] md:auto-rows-[280px]"
         >
           {GALLERY_IMAGES.map((img, index) => {
             const isPortrait = img.height > img.width;

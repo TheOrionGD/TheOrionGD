@@ -33,16 +33,23 @@
 
 /* Custom Base Styles */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+  }
+
   body {
     @apply text-text-primary font-sans antialiased;
     background: transparent;
     margin: 0;
     min-height: 100vh;
+    overflow-x: hidden; /* Belt-and-suspenders: prevent any stray overflow */
+    touch-action: manipulation; /* Remove 300ms tap delay on mobile */
   }
 
-  /* Smooth Scrolling */
-  html {
-    scroll-behavior: smooth;
+  /* Prevent flex/grid children from bursting out of containers */
+  *, *::before, *::after {
+    min-width: 0;
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */

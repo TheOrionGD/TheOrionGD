@@ -46,10 +46,12 @@ interface GridPoint {
   radius: number;
 }
 
-const GRID_SIZE = 70; // px between grid lines
+const BASE_GRID_SIZE = 70;       // px between grid lines (desktop)
+const MOBILE_GRID_SIZE = 100;    // sparser grid on mobile
 const GRID_COLOR = 'rgba(252, 58, 69, 0.12)'; // Red signature base
 const GRID_ACCENT = 'rgba(242, 103, 74, 0.4)'; // Orange-red accent
-const MAX_STREAKS = 18;
+const MAX_STREAKS_DESKTOP = 18;
+const MAX_STREAKS_MOBILE = 8;
 const TAIL_LENGTH = 35;
 
 const NeonGridBackground: FC = () => {
@@ -79,6 +81,9 @@ const NeonGridBackground: FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext('2d')!;
+    const isMobile = window.innerWidth < 768;
+    const GRID_SIZE = isMobile ? MOBILE_GRID_SIZE : BASE_GRID_SIZE;
+    const MAX_STREAKS = isMobile ? MAX_STREAKS_MOBILE : MAX_STREAKS_DESKTOP;
 
     // Initialize morphing grid points
     const initPoints = (w: number, h: number) => {

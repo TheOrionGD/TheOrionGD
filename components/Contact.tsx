@@ -76,7 +76,7 @@ const Contact: FC = () => {
         body: formData
       });
       const data = await response.json();
-      
+
       if (data.success) {
         setSubmitStatus('success');
         (e.target as HTMLFormElement).reset();
@@ -133,14 +133,14 @@ const Contact: FC = () => {
               <motion.div variants={itemVariants}>
                 <div
                   onClick={() => copyToClipboard(PERSONAL_INFO.email, 'email')}
-                  className="group relative flex items-center gap-5 p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
+                  className="group relative flex items-center gap-4 p-4 sm:p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="w-14 h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500 flex-shrink-0">
                     <FaEnvelope />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Direct Outreach</p>
-                    <p className="text-text-primary font-black text-sm md:text-base tracking-tight">{PERSONAL_INFO.email}</p>
+                    <p className="text-text-primary font-black text-xs sm:text-sm md:text-base tracking-tight truncate">{PERSONAL_INFO.email}</p>
                   </div>
                   <div className="ml-auto pr-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     {copiedType === 'email' ? <FaCheck className="text-accent animate-bounce" /> : <FaCopy className="text-text-muted" />}
@@ -157,14 +157,14 @@ const Contact: FC = () => {
               <motion.div variants={itemVariants}>
                 <div
                   onClick={() => copyToClipboard(PERSONAL_INFO.phone, 'phone')}
-                  className="group relative flex items-center gap-5 p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
+                  className="group relative flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="w-14 h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500 flex-shrink-0">
                     <FaPhone />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Quick Call</p>
-                    <p className="text-text-primary font-black text-sm md:text-base tracking-tight">{PERSONAL_INFO.phone}</p>
+                    <p className="text-text-primary font-black text-xs sm:text-sm md:text-base tracking-tight">{PERSONAL_INFO.phone}</p>
                   </div>
                   <div className="ml-auto pr-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     {copiedType === 'phone' ? <FaCheck className="text-accent animate-bounce" /> : <FaCopy className="text-text-muted" />}
@@ -173,13 +173,13 @@ const Contact: FC = () => {
               </motion.div>
 
               {/* Location */}
-              <motion.div variants={itemVariants} className="flex items-center gap-5 p-5">
-                <div className="w-14 h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-text-muted text-xl">
+              <motion.div variants={itemVariants} className="flex items-center gap-4 sm:gap-5 p-4 sm:p-5">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-text-muted text-xl flex-shrink-0">
                   <FaMapMarkerAlt />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Based In</p>
-                  <p className="text-text-secondary font-black text-sm md:text-base tracking-tight uppercase opacity-60">{PERSONAL_INFO.location}</p>
+                  <p className="text-text-secondary font-black text-xs sm:text-sm md:text-base tracking-tight uppercase opacity-60 truncate">{PERSONAL_INFO.location}</p>
                 </div>
               </motion.div>
             </div>
@@ -187,7 +187,7 @@ const Contact: FC = () => {
 
           {/* Right: Modern Contact Form */}
           <motion.div variants={itemVariants} className="relative">
-            <div className="p-8 md:p-12 rounded-[2.5rem] glass-dark border border-white/10 shadow-2xl relative overflow-hidden group">
+            <div className="p-5 sm:p-8 md:p-12 rounded-[2.5rem] glass-dark border border-white/10 shadow-2xl relative overflow-hidden group">
               {/* Animated Border Glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5 transition-opacity group-hover:opacity-100 opacity-50" />
 
@@ -215,20 +215,19 @@ const Contact: FC = () => {
                   disabled={isSubmitting}
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                  className={`group relative w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.4em] transition-all overflow-hidden shadow-2xl ${
-                    isSubmitting 
-                      ? 'bg-accent/40 cursor-wait' 
+                  className={`group relative w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.4em] transition-all overflow-hidden shadow-2xl ${isSubmitting
+                      ? 'bg-accent/40 cursor-wait'
                       : 'bg-signature neon-glow-red shadow-accent/40'
-                  }`}
+                    }`}
                 >
                   <motion.div
                     initial={false}
                     whileHover={{ opacity: 1 }}
                     className="absolute inset-0 bg-white/10 opacity-0 transition-opacity rounded-2xl pointer-events-none"
                   />
-                  
+
                   <span className="relative flex items-center justify-center gap-4 text-white">
-                    {isSubmitting ? 'Initiating...' : submitStatus === 'success' ? 'Transmission Success!' : 'Launch Mission'}
+                    {isSubmitting ? 'Sending...' : submitStatus === 'success' ? 'Message Sent!' : 'Send Message'}
                     <FaPaperPlane className={`text-sm ${isSubmitting ? 'animate-bounce' : 'group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-700'}`} />
                   </span>
                 </motion.button>
@@ -269,13 +268,8 @@ const Contact: FC = () => {
         {/* Footer Bottom */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-text-muted text-[10px] font-black uppercase tracking-widest text-center md:text-left">
-            &copy; {new Date().getFullYear()} <span className="text-text-secondary">OrionGD Systems</span>. Engineering Excellence.
+            &copy; {new Date().getFullYear()} <span className="text-text-secondary">Godfrey T R</span>. Built with curiosity and consistency.
           </p>
-          <div className="flex gap-8 text-[9px] font-black uppercase tracking-[0.3em] text-text-muted px-4">
-            <a href="#" className="hover:text-accent transition-colors">Privacy</a>
-            <a href="#" className="hover:text-accent transition-colors">Security</a>
-            <a href="#" className="hover:text-accent transition-colors">OS Status</a>
-          </div>
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -56,6 +56,23 @@ interface ModalState {
   pageIndex: number;
 }
 
+// ── Hover prefetch ────────────────────────────────────────────────────────────
+// Fires a silent background fetch the moment the cursor enters a card.
+// The Vite plugin sets Cache-Control: public, max-age=3600 on all /assets/*
+// responses, so by the time the user clicks "View" (~200ms later) the file is
+// already in the browser's HTTP cache → zero cold-stream latency.
+const prefetched = new Set<string>();
+
+const prefetchFile = (url: string) => {
+  const encoded = encodePath(url);
+  if (prefetched.has(encoded)) return;   // already cached — skip
+  prefetched.add(encoded);
+  // fetch() with low priority so it never competes with page resources
+  fetch(encoded, { priority: 'low' } as RequestInit).catch(() => {
+    prefetched.delete(encoded);           // allow retry on transient error
+  });
+};
+
 // ── Component ────────────────────────────────────────────────────────────────
 const FullCertificates: FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -76,6 +93,16 @@ const FullCertificates: FC = () => {
       return matchCat && matchSearch;
     });
   }, [activeCategory, search]);
+
+  // Close modal on Escape key (desktop UX)
+  useEffect(() => {
+    if (!modal) return;                          // only listen while a cert is open
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setModal(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [modal]);
 
   // Open modal
   const openViewer = (index: number) => {
@@ -158,7 +185,7 @@ const FullCertificates: FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="mb-10 flex flex-col md:flex-row gap-4 items-center justify-between"
+          className="mb-10 flex flex-col gap-4"
         >
           {/* Search */}
           <div className="relative w-full md:w-80">
@@ -172,24 +199,26 @@ const FullCertificates: FC = () => {
             />
           </div>
 
-          {/* Category pills */}
-          <div className="flex flex-wrap gap-2 justify-center md:justify-end">
-            <span className="flex items-center gap-1.5 text-text-secondary text-[10px] font-black uppercase tracking-widest mr-1 self-center">
-              <FaFilter size={10} /> Filter:
-            </span>
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all duration-200 ${
-                  activeCategory === cat
-                    ? 'bg-accent text-white border-accent shadow-lg shadow-accent/30'
-                    : 'glass-dark border-white/10 text-text-secondary hover:border-accent/30 hover:text-text-primary'
-                }`}
-              >
-                {cat === 'All' ? `All (${CERTIFICATE_ARCHIVE.length})` : cat}
-              </button>
-            ))}
+          {/* Category pills — horizontally scrollable strip on mobile */}
+          <div className="overflow-x-auto -mx-6 px-6 pb-1">
+            <div className="flex gap-2 w-max items-center">
+              <span className="flex items-center gap-1.5 text-text-secondary text-[10px] font-black uppercase tracking-widest mr-1 self-center flex-shrink-0">
+                <FaFilter size={10} /> Filter:
+              </span>
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+                    activeCategory === cat
+                      ? 'bg-accent text-white border-accent shadow-lg shadow-accent/30'
+                      : 'glass-dark border-white/10 text-text-secondary hover:border-accent/30 hover:text-text-primary'
+                  }`}
+                >
+                  {cat === 'All' ? `All (${CERTIFICATE_ARCHIVE.length})` : cat}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -238,6 +267,7 @@ const FullCertificates: FC = () => {
                   }}
                   className={`group relative flex flex-col rounded-2xl overflow-hidden border bg-gradient-to-br ${colorClass} glass backdrop-blur-md hover:shadow-xl hover:shadow-black/30 transition-all duration-400 cursor-pointer`}
                   onClick={() => openViewer(index)}
+                  onMouseEnter={() => prefetchFile(cert.file)}
                 >
                   {/* Top accent strip */}
                   <div className="h-1 w-full bg-gradient-to-r from-white/10 to-transparent" />

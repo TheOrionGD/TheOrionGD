@@ -23,23 +23,27 @@ const About: React.FC = () => {
               About Me 
               <span className="h-1 w-16 bg-accent rounded-full inline-block"></span>
             </h3>
-            <div className="glass p-8 md:p-10 rounded-[2rem] border border-white/10 shadow-2xl relative overflow-hidden group">
+            <div className="glass p-5 sm:p-8 md:p-10 rounded-[2rem] border border-white/10 shadow-2xl relative overflow-hidden group">
                {/* Decorative Gradient Inner Glow */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors" />
               
               <p className="text-text-secondary leading-relaxed text-base md:text-lg relative z-10">
-                I build intelligent, user-centric software systems using full-stack development, AI integration, and strong UX principles. My approach combines technical excellence with a deep understanding of user needs, resulting in high-impact solutions that solve real-world problems.
+                I am a Computer Science and Engineering student with a focus on full-stack development, AI integration, XR technologies, and UI/UX design. I enjoy building practical software solutions that combine clean interfaces, intelligent functionality, and scalable architecture.
+              </p>
+              
+              <p className="text-text-secondary leading-relaxed text-sm md:text-base relative z-10 mt-4 opacity-80">
+                I&apos;ve worked on academic and internship projects involving MERN stack development, REST APIs, AI-assisted platforms, cybersecurity fundamentals, and Unity-based XR experiences.
               </p>
               
               <div className="mt-8 flex flex-wrap gap-4 relative z-10">
                 <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-accent uppercase tracking-wider">
-                  Creative
+                  Full Stack
                 </div>
                 <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-accent-secondary uppercase tracking-wider">
-                  Analytical
+                  AI-Integrated
                 </div>
                 <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-text-muted uppercase tracking-wider">
-                  Scalable
+                  XR Focused
                 </div>
               </div>
             </div>

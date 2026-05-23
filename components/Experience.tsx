@@ -46,7 +46,7 @@ const Experience: React.FC = () => {
 
               {/* Experience Card */}
               <div className="w-full md:w-[45%] group">
-                <div className="glass p-8 rounded-[2rem] border border-white/5 group-hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 relative overflow-hidden">
+                <div className="glass p-5 sm:p-8 rounded-[2rem] border border-white/5 group-hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
                   
                   <div className="flex flex-wrap items-center gap-3 mb-6 relative z-10 text-[10px] font-black uppercase tracking-widest">

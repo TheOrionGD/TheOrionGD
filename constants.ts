@@ -1,7 +1,9 @@
-export const getAssetUrl = (path: string) => {
-  const base = import.meta.env.VITE_API_URI || "http://localhost:5000";
-  return `${base}${path}`;
-};
+/**
+ * Returns a root-relative URL for a GridFS asset.
+ * Assets are served by the embedded Vite plugin at /assets/* on the same
+ * origin — no separate backend or absolute URL required.
+ */
+export const getAssetUrl = (path: string): string => path;
 
 import { Project, Experience, Education, SkillCategory, Certification, CertificateFile } from './types';
 import { FaGithub, FaLinkedin, FaHackerrank } from 'react-icons/fa';
@@ -10,7 +12,7 @@ import { SiLeetcode } from 'react-icons/si';
 export const PERSONAL_INFO = {
   name: "GODFREY T R",
   role: "SOFTWARE ENGINEER",
-  tagline: "Software Engineer specializing in full-stack development, building scalable, AI-integrated applications from concept to deployment.",
+  tagline: "I build modern web applications, AI-assisted systems, and interactive XR experiences — with a focus on usability, performance, and scalable design.",
   email: "godfreytr.prof@gmail.com",
   phone: "+91 93444 62238",
   location: "Tiruchirapalli, Tamil Nadu, India",
@@ -46,10 +48,10 @@ export const EXPERIENCE: Experience[] = [
     company: "VDart Academy",
     period: "Jan 2026 – Jan 2026",
     details: [
-      "Completed Academic Internship as part of On-the-Job Training (OJT)",
-      "Worked on full stack development concepts and practical implementation",
-      "Collaborated with peers and mentors to build and enhance technical skills",
-      "Demonstrated strong learning ability and successfully completed training within the timeframe"
+      "Completed structured On-the-Job Training (OJT) in full-stack development",
+      "Built and iterated on full-stack components applying MERN stack concepts",
+      "Collaborated with a team to deliver training milestones within deadline",
+      "Demonstrated strong adaptability and initiative throughout the programme"
     ]
   },
   {
@@ -57,10 +59,10 @@ export const EXPERIENCE: Experience[] = [
     company: "SkillCraft",
     period: "Feb 2025 – Mar 2025",
     details: [
-      "Homepage redesign for improved hierarchy and visual clarity",
-      "Dark mode theme integration for mobile news applications",
-      "E-commerce checkout flow optimization to reduce friction",
-      "User journey mapping and pain point analysis for fitness apps"
+      "Designed modern UI workflows and dark-mode interfaces applying UX principles",
+      "Improved visual hierarchy and usability for mobile-first application screens",
+      "Conducted user flow analysis and interface optimisation for fitness and e-commerce apps",
+      "Delivered homepage redesign with improved information architecture and clarity"
     ]
   },
   {
@@ -68,9 +70,10 @@ export const EXPERIENCE: Experience[] = [
     company: "Prodigy InfoTech",
     period: "Aug 2024 – Sept 2024",
     details: [
-      "Weather Web App using REST APIs and responsive design",
-      "Utility tools: Stopwatch and Tic-Tac-Toe with dynamic DOM",
-      "Frontend-backend integration focusing on cross-platform compatibility"
+      "Developed responsive frontend applications using JavaScript and REST APIs",
+      "Implemented dynamic DOM interactions and interactive UI components",
+      "Built a location-based weather application with real-time API data rendering",
+      "Improved cross-device compatibility and frontend responsiveness across projects"
     ]
   },
   {
@@ -78,21 +81,21 @@ export const EXPERIENCE: Experience[] = [
     company: "Adaovi",
     period: "Jun 2024 – Jul 2024",
     details: [
-      "Password Strength Checker with real-time feedback",
-      "Ethical Keylogger simulation for security demonstrations",
-      "Penetration testing fundamentals and password security audits"
+      "Built a real-time password strength checker with entropy-based feedback",
+      "Implemented an ethical keylogger simulation for security education demonstrations",
+      "Applied penetration testing fundamentals and password audit techniques",
+      "Gained hands-on experience in security vulnerability analysis and reporting"
     ]
   }
-
 ];
 
 export const SKILLS: SkillCategory[] = [
-  { category: "Programming", skills: ["C", "C++", "Java", "Python", "HTML", "CSS", "JavaScript", "TypeScript"] },
-  { category: "Web", skills: ["MERN Stack", "REST APIs", "DOM", "Responsive Design", "Tailwind CSS", "FastAPI"] },
-  { category: "Databases", skills: ["MySQL", "MongoDB"] },
-  { category: "Tools", skills: ["Git", "GitHub", "VS Code", "Figma", "Canva", "GenAI Tools", "Unity"] },
-  { category: "Concepts", skills: ["AI Integration", "UI/UX", "Cybersecurity", "NLP", "Text Analysis", "ARCore"] },
-  { category: "XR", skills: ["Unity3D", "ARCore", "Blender"] }
+  { category: "Languages",          skills: ["Java", "Python", "JavaScript", "TypeScript", "C", "SQL"] },
+  { category: "Frontend",           skills: ["React", "Tailwind CSS", "HTML & CSS", "Responsive UI Design"] },
+  { category: "Backend & APIs",     skills: ["Node.js", "Express.js", "REST APIs", "FastAPI"] },
+  { category: "Databases",          skills: ["MongoDB", "MySQL"] },
+  { category: "Tools & Platforms",  skills: ["Git & GitHub", "Figma", "VS Code", "Unity"] },
+  { category: "Areas of Interest",  skills: ["AI Integration", "XR Development", "UI/UX Design", "Cybersecurity Fundamentals"] }
 ];
 
 export const LEADERSHIP_XR = [
@@ -105,58 +108,58 @@ export const LEADERSHIP_XR = [
 
 export const PROJECTS: Project[] = [
   {
-    title: "SMART-LMS-16",
+    title: "Smart LMS with AI Assistance",
     category: "AI / ML",
-    tech: ["MERN", "TypeScript", "Google Gemini"],
-    description: "AI-powered adaptive learning platform. Personalizes lessons using Google Gemini, generates quizzes, and rewrites content based on learning styles.",
+    tech: ["MERN", "TypeScript", "Gemini API"],
+    description: "AI-assisted learning management platform built using the MERN stack. Integrates Google Gemini to generate quizzes, provide adaptive content assistance, and personalise learning workflows for students.",
     github: "https://github.com/OrionGD/SMART-LMS-16",
     demo: "https://smart-k6c7kww3i-oriongds-projects.vercel.app/"
   },
   {
-    title: "VELTRIO",
+    title: "AI Translation & Conversation Platform",
     category: "AI / ML",
     tech: ["React", "TypeScript", "Gemini 2.5"],
-    description: "AI-Powered Real-time Translation & Conversation Platform. Leveraging Gemini models for seamless language processing and sentiment analysis.",
+    description: "Real-time multilingual communication platform that leverages Gemini APIs for contextual translation, conversation assistance, and sentiment analysis across languages.",
     github: "https://github.com/OrionGD/VELTRIO",
     demo: "https://veltrio.vercel.app/"
   },
   {
-    title: "MTS Security",
+    title: "Mobile Tracking & Security System",
     category: "Systems",
     tech: ["Java", "GPS API", "Encryption"],
-    description: "Mobile Tracking System (MTS) designed for device security, enabling real-time location tracking and remote sensitive data locking.",
+    description: "Android-based device security application enabling real-time GPS location tracking and remote data lock functionality to protect sensitive information on lost or stolen devices.",
     github: "https://github.com/OrionGD/GD-s-Mobile-Tracking-System",
     demo: "#"
   },
   {
-    title: "Hostel Mgt System",
+    title: "Hostel Management System",
     category: "Systems",
     tech: ["Python", "Tkinter", "MySQL"],
-    description: "A role-based Hostel Management System for attendance and outpass tracking, featuring a customized desktop GUI.",
+    description: "Role-based desktop application for hostel attendance tracking and outpass management. Features a customised GUI with CRUD operations and persistent MySQL storage.",
     github: "https://github.com/OrionGD/GD-S-HOSTEL-MANAGEMENT-SYSTEM",
+    demo: "#"
+  },
+  {
+    title: "ARgorithm — XR Algorithm Visualiser",
+    category: "XR",
+    tech: ["Unity", "ARCore", "C#"],
+    description: "Unity-based augmented reality application that renders data structures and algorithm execution steps in 3D space, helping students build intuitive understanding of complex CS concepts.",
+    github: "https://github.com/OrionGD/ARgorithm",
     demo: "#"
   },
   {
     title: "GD Text Analyzer",
     category: "AI / ML",
     tech: ["Python", "Regex", "NLP"],
-    description: "Processing pipeline for text cleaning, sentiment analysis, and keyword identification with modular design.",
+    description: "Modular text-processing pipeline implementing cleaning, tokenisation, keyword extraction, and sentiment analysis — built to demonstrate applied NLP fundamentals.",
     github: "https://github.com/OrionGD/GD-s-TEXT-ANALYZER",
     demo: "#"
   },
   {
-    title: "ARgorithm",
-    category: "XR",
-    tech: ["Unity", "ARCore", "C#"],
-    description: "Augmented reality visualizer for data structures and algorithms, helping students grasp complex concepts in 3D space.",
-    github: "https://github.com/OrionGD/ARgorithm",
-    demo: "#"
-  },
-  {
-    title: "Waiting List Mgt",
+    title: "Waiting List Management System",
     category: "Systems",
     tech: ["C", "Linked Lists", "Queues"],
-    description: "Console-based system implemented in C to manage seat bookings efficiently using advanced data structures.",
+    description: "Console-based seat booking system implemented in C using linked lists and queues to efficiently manage waitlisted entries and cancellation reassignments.",
     github: "https://github.com/OrionGD/GD-s-WAITING-LIST-MANAGEMENT-SYSTEM",
     demo: "#"
   },
@@ -164,50 +167,51 @@ export const PROJECTS: Project[] = [
     title: "Weather Sphere Pro",
     category: "Web",
     tech: ["JavaScript", "REST APIs", "CSS"],
-    description: "Responsive Weather Web App providing hyper-local forecasts and dynamic atmospheric visualizations.",
+    description: "Responsive weather web application integrating OpenWeather REST APIs with dynamic UI rendering, location-based forecasts, and animated atmospheric condition displays.",
     github: "https://github.com/OrionGD/GD-S-Web-Weather-Application",
     demo: "#"
   },
   {
-    title: "GD Optimizer",
+    title: "Client-Side Image Optimiser",
     category: "Web",
-    tech: ["JavaScript", "Canvas", "HTML5"],
-    description: "Client-side image optimization tool to enhance web loading speeds by reducing file sizes without quality loss.",
+    tech: ["JavaScript", "Canvas API", "HTML5"],
+    description: "Browser-based image compression tool using the HTML5 Canvas API to reduce file sizes without perceptible quality loss, requiring no server-side processing.",
     github: "https://github.com/OrionGD/GDs-Image-Optimization",
     demo: "#"
   },
   {
-    title: "SecurLink Checker",
+    title: "Password Strength Checker",
     category: "Cybersecurity",
     tech: ["JavaScript", "Regex", "Security"],
-    description: "Real-time password strength evaluator providing instant feedback on entropy and pattern vulnerabilities.",
+    description: "Real-time password strength evaluator providing instant entropy scoring, pattern-vulnerability detection, and actionable improvement feedback to users.",
     github: "https://github.com/OrionGD/Password-Strength_Checker",
     demo: "#"
   },
   {
-    title: "Chrono-Stopwatch",
+    title: "Chrono Stopwatch",
     category: "Web",
     tech: ["JavaScript", "DOM", "CSS"],
-    description: "High-precision web stopwatch with lap management and specialized UI for performance monitoring.",
+    description: "High-precision web stopwatch with lap-time management and a clean UI, demonstrating accurate DOM timing and interactive state management.",
     github: "https://github.com/OrionGD/Chrono-Stopwatch",
     demo: "#"
   },
   {
-    title: "Tactical Tic-Tac-Toe",
+    title: "Strategic Tic-Tac-Toe",
     category: "Web",
-    tech: ["Logic", "JavaScript", "Animation"],
-    description: "Strategic game implementation with multiple difficulty levels and a sleek glassmorphism interface.",
+    tech: ["JavaScript", "Game Logic", "CSS"],
+    description: "Browser-based Tic-Tac-Toe with two difficulty levels, win-detection logic, and a glassmorphism UI — built as a focused exercise in game-state management.",
     github: "https://github.com/OrionGD/TicTacToe-Pro",
     demo: "#"
   }
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  { title: "Patent: Android TV Using Remote IR Sensor", year: "2024", description: "Innovative control mechanism for smart TVs using infrared signal processing." },
-  { title: "Azure AI Engineer Associate (AI-102)", year: "Feb 2025", description: "Definitive proof of expertise in designing and implementing AI solutions—including natural language processing and computer vision—using Azure services." },
-  { title: "Applied Generative AI Specialization", year: "Apr 2026", description: "Comprehensive mastery of modern Generative AI. Supported by advanced technical modules including Building LLM Applications, Generative AI Models and Architecture, and Generative AI Governance." }
+  { title: "Patent: Android TV Using Remote IR Sensor", year: "2024", description: "Registered innovation for a control mechanism using infrared signal processing — demonstrates applied hardware-software integration." },
+  { title: "Azure AI Engineer Associate (AI-102)", year: "Feb 2025", description: "Microsoft-certified expertise in designing and implementing AI solutions — including NLP, computer vision, and conversational AI — on Azure infrastructure." },
+  { title: "Applied Generative AI Specialization", year: "Apr 2026", description: "Advanced specialization covering LLM application development, generative model architecture, AI governance, and prompt engineering best practices." }
 ];
 
+// DreamGen.jpg is intentionally excluded — it is the Hero section profile portrait
 export const GALLERY_IMAGES = [
   { src: getAssetUrl("/assets/CampusX.jpg"), alt: "Campus Experience", width: 1164, height: 655 },
 
@@ -216,7 +220,6 @@ export const GALLERY_IMAGES = [
   { src: getAssetUrl("/assets/Codeathon3.jpg"), alt: "Codeathon Session 3", width: 1280, height: 721 },
   { src: getAssetUrl("/assets/CodeSprintt.jpg"), alt: "Code Sprint Event", width: 3196, height: 1596 },
 
-  { src: getAssetUrl("/assets/DreamGen.jpg"), alt: "DreamGen Innovation", width: 2448, height: 3264 },
   { src: getAssetUrl("/assets/DreamGen 1.jpg"), alt: "DreamGen Session 1", width: 1600, height: 721 },
   { src: getAssetUrl("/assets/DreamGen 2.jpg"), alt: "DreamGen Session 2", width: 1600, height: 721 },
   { src: getAssetUrl("/assets/DreamGen 3.jpg"), alt: "DreamGen Session 3", width: 4160, height: 3120 },
