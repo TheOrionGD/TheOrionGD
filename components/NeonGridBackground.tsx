@@ -77,8 +77,10 @@ const NeonGridBackground: FC = () => {
       mouse.current = { x: -9999, y: -9999 };
     };
 
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseleave', onLeave);
+    if (!isMobile) {
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseleave', onLeave);
+    }
 
     // ── Animation Loop ───────────────────────────────────────────────────────
     const draw = () => {
@@ -97,6 +99,11 @@ const NeonGridBackground: FC = () => {
       bg.addColorStop(1, '#060000'); // Elegant near-black bounds
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
+
+      if (isMobile) {
+        // Draw the static rich deep burgundy gradient once and stop the continuous loop on mobile
+        return;
+      }
 
       // ── 2. Ambient Mouse Glow spotlight ───────────────────────────────────
       if (mx > 0) {
@@ -191,8 +198,10 @@ const NeonGridBackground: FC = () => {
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mouseleave', onLeave);
+      if (!isMobile) {
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseleave', onLeave);
+      }
     };
   }, [isMobileState]);
 
