@@ -1,10 +1,22 @@
+import React, { useState, useEffect } from 'react';
 import type { FC } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { GALLERY_IMAGES } from '../constants';
 import { FaArrowLeft, FaExpand } from 'react-icons/fa';
 
 const FullGallery: FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const getImageUrl = (src: string) => {
     return src.replace(/ /g, '%20');
   };
@@ -148,6 +160,32 @@ const FullGallery: FC = () => {
           })}
         </motion.div>
       </div>
+
+      {/* Scroll to Top Logic */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-[100] w-12 h-12 rounded-full glass border border-accent/40 flex items-center justify-center text-accent hover:scale-110 active:scale-95 transition-all shadow-xl shadow-accent/20"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

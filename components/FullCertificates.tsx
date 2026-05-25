@@ -78,6 +78,16 @@ const FullCertificates: FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [search, setSearch] = useState('');
   const [modal, setModal] = useState<ModalState | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(CERTIFICATE_ARCHIVE.map(c => c.category)));
@@ -448,6 +458,32 @@ const FullCertificates: FC = () => {
               )}
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Scroll to Top Logic */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-[100] w-12 h-12 rounded-full glass border border-accent/40 flex items-center justify-center text-accent hover:scale-110 active:scale-95 transition-all shadow-xl shadow-accent/20"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
+          </motion.button>
         )}
       </AnimatePresence>
     </div>

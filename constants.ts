@@ -90,17 +90,51 @@ export const EXPERIENCE: Experience[] = [
 ];
 
 export const SKILLS: SkillCategory[] = [
-  { category: "Languages", skills: ["Java", "Python", "JavaScript", "TypeScript", "C", "SQL"] },
-  { category: "Frontend", skills: ["React", "Tailwind CSS", "HTML & CSS", "Responsive UI Design"] },
-  { category: "Backend & APIs", skills: ["Node.js", "Express.js", "REST APIs", "FastAPI"] },
-  { category: "Databases", skills: ["MongoDB", "MySQL"] },
-  { category: "Tools & Platforms", skills: ["Git & GitHub", "Figma", "VS Code", "Unity"] },
-  { category: "Areas of Interest", skills: ["AI Integration", "XR Development", "UI/UX Design", "Cybersecurity Fundamentals"] }
+  {
+    category: "Languages",
+    skills: ["Java", "Python", "JavaScript", "TypeScript", "C", "SQL"]
+  },
+  {
+    category: "Frontend Development",
+    skills: ["React.js", "Tailwind CSS", "HTML5 & CSS3", "Responsive UI/UX Design", "Modern Component-Based Architecture", "Vite"]
+  },
+  {
+    category: "Backend & APIs",
+    skills: ["Node.js", "Express.js", "REST APIs", "FastAPI", "Authentication & API Integration", "Real-time System Architecture"]
+  },
+  {
+    category: "Databases",
+    skills: ["MongoDB", "MySQL", "Database Schema Design"]
+  },
+  {
+    category: "AI & Intelligent Systems",
+    skills: ["AI Integration", "AI-Powered Automation Systems", "Biometric AI Systems", "Speech Processing Concepts", "AI Monitoring Dashboards", "Smart Assistive Technology Development"]
+  },
+  {
+    category: "Cybersecurity & Systems",
+    skills: ["Cybersecurity Fundamentals", "Ethical Hacking Concepts", "Mobile Monitoring Architectures", "Secure System Design", "Network & Device Monitoring Concepts", "Linux/Ubuntu Environment"]
+  },
+  {
+    category: "XR & Interactive Technologies",
+    skills: ["AR Development", "Unity Development", "Interactive Experience Design", "Simulation-Based Systems"]
+  },
+  {
+    category: "Tools & Platforms",
+    skills: ["Git & GitHub", "Figma", "VS Code", "Unity", "Postman", "npm / Node Ecosystem", "GitHub CLI"]
+  },
+  {
+    category: "Design & Creative Skills",
+    skills: ["UI/UX Design", "Design Systems", "Wireframing & Prototyping", "Cyber-Tech Themed Interface Design", "Presentation & Visual Branding"]
+  },
+  {
+    category: "Areas of Interest",
+    skills: ["Artificial Intelligence", "Cybersecurity", "Health-Tech Innovation", "XR & Immersive Computing", "Smart Wearable Technologies", "Full Stack Development", "Human-Centered Technology Systems"]
+  }
 ];
 
 export const LEADERSHIP_XR = [
   "XR Club Vice President",
-  "AR Workshops Facilitator",
+  "Software Bootcamp Facilitator",
   "Mentoring Juniors",
   "Active NSS Volunteer",
   "Events Coordination"

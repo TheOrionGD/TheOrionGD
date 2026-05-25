@@ -9,10 +9,14 @@ const Navbar: FC = () => {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Gallery', href: '#gallery' },
+    { name: 'AI Innovations', href: '#ai-innovations' },
+    { name: 'Immersive Systems', href: '#immersive-systems' },
+    { name: 'Scalable Systems', href: '#scalable-systems' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Competitions', href: '#hackathons' },
+    { name: 'Leadership', href: '#leadership' },
+    { name: 'Academics', href: '#academic-milestones' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -37,7 +41,7 @@ const Navbar: FC = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = ['about', 'experience', 'skills', 'projects', 'gallery', 'certifications', 'contact'];
+    const sections = ['about', 'skills', 'ai-innovations', 'immersive-systems', 'scalable-systems', 'experience', 'hackathons', 'leadership', 'academic-milestones', 'certifications', 'contact'];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);

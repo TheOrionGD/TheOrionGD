@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { EDUCATION } from '../constants';
 
 const About: React.FC = () => {
   return (
@@ -8,7 +7,7 @@ const About: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
-          {/* About Text */}
+          {/* Column 1: The Narrative / Developer Story */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -17,81 +16,61 @@ const About: React.FC = () => {
             className="flex flex-col justify-center"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-widest mb-6 w-fit">
-              Who I Am
+              Section 02 // Narrative
             </div>
-            <h3 className="text-3xl md:text-4xl font-black text-text-primary mb-8 tracking-tight flex items-center gap-4">
-              About Me 
+            <h3 className="text-3xl md:text-4xl font-black text-text-primary mb-8 tracking-tight flex items-center gap-4 uppercase">
+              Developer Story 
               <span className="h-1 w-16 bg-accent rounded-full inline-block"></span>
             </h3>
-            <div className="glass p-5 sm:p-8 md:p-10 rounded-[2rem] border border-white/10 shadow-2xl relative overflow-hidden group">
-               {/* Decorative Gradient Inner Glow */}
+            
+            <div className="glass p-6 sm:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden group">
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors" />
               
               <p className="text-text-secondary leading-relaxed text-base md:text-lg relative z-10">
-                I am a Computer Science and Engineering student with a focus on full-stack development, AI integration, XR technologies, and UI/UX design. I enjoy building practical software solutions that combine clean interfaces, intelligent functionality, and scalable architecture.
+                I am Godfrey — a Computer Science and Engineering student building scalable software, intelligent systems, and user-focused digital experiences. My journey is fueled by a profound interest in bridging advanced AI capabilities with robust, low-latency architectures.
               </p>
               
               <p className="text-text-secondary leading-relaxed text-sm md:text-base relative z-10 mt-4 opacity-80">
-                I&apos;ve worked on academic and internship projects involving MERN stack development, REST APIs, AI-assisted platforms, cybersecurity fundamentals, and Unity-based XR experiences.
+                From designing real-world patented hardware control systems to architecting AI-adaptive MERN stack learning engines, I specialize in transforming conceptual challenges into reliable, deployable codebases. I focus on modular engineering, strong security structures, and high-performance WebGL/spatial platforms.
               </p>
-              
-              <div className="mt-8 flex flex-wrap gap-4 relative z-10">
-                <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-accent uppercase tracking-wider">
-                  Full Stack
-                </div>
-                <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-accent-secondary uppercase tracking-wider">
-                  AI-Integrated
-                </div>
-                <div className="px-4 py-2 rounded-xl glass-dark border border-white/5 text-[10px] font-bold text-text-muted uppercase tracking-wider">
-                  XR Focused
-                </div>
-              </div>
             </div>
           </motion.div>
 
-          {/* Education Timeline */}
+          {/* Column 2: Engineering Philosophy & Directives */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col justify-center"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-secondary/10 border border-accent-secondary/20 text-accent-secondary text-[10px] font-black uppercase tracking-widest mb-6 w-fit">
-              Background
+              Core Principles
             </div>
-             <h3 className="text-3xl md:text-4xl font-black text-text-primary mb-8 tracking-tight flex items-center gap-4">
-              Education
+            <h3 className="text-3xl md:text-4xl font-black text-text-primary mb-8 tracking-tight flex items-center gap-4 uppercase">
+              Engineering Mindset
               <span className="h-1 w-16 bg-accent-secondary rounded-full inline-block"></span>
             </h3>
             
-            <div className="space-y-6 md:space-y-8">
-              {EDUCATION.map((edu, index) => (
-                <motion.div 
-                  key={edu.degree} 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  className="relative pl-10 md:pl-12 group"
-                >
-                  <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full glass border border-accent flex items-center justify-center z-10 group-hover:scale-125 transition-transform duration-300">
-                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
-                  </div>
-                  
-                  {/* Vertical line connecting nodes */}
-                  {index !== EDUCATION.length - 1 && (
-                    <div className="absolute left-[11px] top-8 bottom-[-24px] w-0.5 bg-gradient-to-b from-accent/50 to-transparent"></div>
-                  )}
-
-                  <div className="glass-dark p-6 rounded-2xl border border-white/5 group-hover:border-accent/40 transition-all duration-300">
-                    <h4 className="text-lg md:text-xl font-black text-text-primary mb-1 uppercase tracking-tight">{edu.degree}</h4>
-                    <p className="text-accent text-[11px] font-black uppercase tracking-widest mb-3">{edu.institution}</p>
-                    <div className="flex items-center gap-2 text-text-muted text-[10px] font-bold uppercase tracking-widest">
-                       <span className="w-4 h-px bg-text-muted opacity-30"></span>
-                       {edu.period}
-                    </div>
-                  </div>
-                </motion.div>
+            <div className="space-y-6">
+              {[
+                {
+                  title: "⚡ Zero-Friction UX",
+                  desc: "Designing highly optimized, responsive client-side interfaces. Prioritizing instant load speeds, 120 FPS animations, and fluid responsive touch controls."
+                },
+                {
+                  title: "⚙️ Scalable by Design",
+                  desc: "Engineering highly modular code, strict component encapsulation, and robust role-based access control platforms (RBAC) right from day one."
+                },
+                {
+                  title: "🤖 AI as a Utility Multiplier",
+                  desc: "Integrating large language models (LLMs) and cognitive translation APIs as native, deeply embedded backend utilities to solve actual workflow friction."
+                }
+              ].map((phi, idx) => (
+                <div key={idx} className="glass-dark p-6 rounded-2xl border border-white/5 hover:border-accent-secondary/30 transition-all duration-300">
+                  <h4 className="text-lg font-black text-text-primary mb-2 uppercase tracking-tight">{phi.title}</h4>
+                  <p className="text-text-secondary text-sm leading-relaxed">{phi.desc}</p>
+                </div>
               ))}
             </div>
           </motion.div>

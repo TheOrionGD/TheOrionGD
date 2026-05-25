@@ -1,70 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FC } from 'react';
 
-// ── Streak particle ──────────────────────────────────────────────────────────
-interface Streak {
+// ── Particle interface ──────────────────────────────────────────────────────
+interface Particle {
   x: number;
   y: number;
   vx: number;
   vy: number;
-  length: number;
-  alpha: number;
-  hue: number; // cyan=185, magenta=300, purple=265
-  width: number;
-  life: number;
-  maxLife: number;
-}
-
-// ── Spark particle ───────────────────────────────────────────────────────────
-interface Spark {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  life: number;
-  maxLife: number;
-  hue: number;
-  size: number;
-}
-
-// ── Mouse tail point ─────────────────────────────────────────────────────────
-interface TailPoint {
-  x: number;
-  y: number;
-  alpha: number;
-  size: number;
-}
-
-// ── Grid Point ─────────────────────────────────────────────────────────────
-interface GridPoint {
-  x: number;
-  y: number;
-  originX: number;
-  originY: number;
-  angle: number;
-  speed: number;
   radius: number;
+  alpha: number;
+  baseAlpha: number;
+  speedMultiplier: number;
 }
-
-const BASE_GRID_SIZE = 70;       // px between grid lines (desktop)
-const MOBILE_GRID_SIZE = 100;    // sparser grid on mobile
-const GRID_COLOR = 'rgba(252, 58, 69, 0.12)'; // Red signature base
-const GRID_ACCENT = 'rgba(242, 103, 74, 0.4)'; // Orange-red accent
-const MAX_STREAKS_DESKTOP = 18;
-const MAX_STREAKS_MOBILE = 8;
-const TAIL_LENGTH = 35;
 
 const NeonGridBackground: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef({ x: -9999, y: -9999 });
-  const tail = useRef<TailPoint[]>([]);
-  const streaks = useRef<Streak[]>([]);
-  const sparks = useRef<Spark[]>([]);
-  const gridPoints = useRef<GridPoint[][]>([]);
+  const particles = useRef<Particle[]>([]);
   const rafRef = useRef<number>(0);
   const [isMobileState, setIsMobileState] = useState<boolean | null>(null);
 
-  // Detect mobile screen once on mount and check on resize
+  // Detect mobile viewport once on mount and check on resize
   useEffect(() => {
     const checkMobile = () => {
       setIsMobileState(window.innerWidth < 768);
@@ -74,337 +30,158 @@ const NeonGridBackground: FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Spawn a new neon streak
-  const spawnStreak = (W: number, H: number): Streak => {
-    const hues = [350, 355, 0, 5, 10, 15]; // Red / Crimson / Orange spectrum
-    const hue = hues[Math.floor(Math.random() * hues.length)];
-    const edge = Math.floor(Math.random() * 4); // 0=top,1=right,2=bottom,3=left
-    let x = 0, y = 0, vx = 0, vy = 0;
-    const speed = 1.8 + Math.random() * 2.8;
-    if (edge === 0) { x = Math.random() * W; y = 0; vy = speed; vx = (Math.random() - 0.5) * 0.6; }
-    if (edge === 1) { x = W; y = Math.random() * H; vx = -speed; vy = (Math.random() - 0.5) * 0.6; }
-    if (edge === 2) { x = Math.random() * W; y = H; vy = -speed; vx = (Math.random() - 0.5) * 0.6; }
-    if (edge === 3) { x = 0; y = Math.random() * H; vx = speed; vy = (Math.random() - 0.5) * 0.6; }
-    const maxLife = 120 + Math.random() * 140;
-    return { x, y, vx, vy, length: 60 + Math.random() * 120, alpha: 0, hue, width: 1.5 + Math.random() * 2.5, life: 0, maxLife };
+  // Spawn dynamic stardust particles
+  const spawnParticles = (w: number, h: number, count: number) => {
+    const arr: Particle[] = [];
+    for (let i = 0; i < count; i++) {
+      const radius = 1 + Math.random() * 2.2;
+      const baseAlpha = 0.2 + Math.random() * 0.55;
+      arr.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        radius,
+        alpha: baseAlpha,
+        baseAlpha,
+        speedMultiplier: 0.8 + Math.random() * 0.6
+      });
+    }
+    particles.current = arr;
   };
 
   useEffect(() => {
-    if (isMobileState === null || isMobileState === true) return;
+    // If mobile state is null, wait for client-side viewport check
+    if (isMobileState === null) return;
+
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext('2d')!;
-    const isMobile = window.innerWidth < 768;
-    const GRID_SIZE = isMobile ? MOBILE_GRID_SIZE : BASE_GRID_SIZE;
-    const MAX_STREAKS = isMobile ? MAX_STREAKS_MOBILE : MAX_STREAKS_DESKTOP;
+    const isMobile = isMobileState;
+    const PARTICLE_COUNT = isMobile ? 35 : 110;
+    const CONNECTION_LIMIT = isMobile ? 65 : 100;
 
-    // Initialize morphing grid points
-    const initPoints = (w: number, h: number) => {
-      const cols = Math.ceil(w / GRID_SIZE) + 1;
-      const rows = Math.ceil(h / GRID_SIZE) + 1;
-      const newPoints: GridPoint[][] = [];
-      for (let i = 0; i < cols; i++) {
-        newPoints[i] = [];
-        for (let j = 0; j < rows; j++) {
-          newPoints[i][j] = {
-            x: i * GRID_SIZE,
-            y: j * GRID_SIZE,
-            originX: i * GRID_SIZE,
-            originY: j * GRID_SIZE,
-            angle: Math.random() * Math.PI * 2,
-            speed: 0.005 + Math.random() * 0.015,
-            radius: 5 + Math.random() * 15,
-          };
-        }
-      }
-      gridPoints.current = newPoints;
-    };
-
-    // Resize handler
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      initPoints(canvas.width, canvas.height);
+      spawnParticles(canvas.width, canvas.height, PARTICLE_COUNT);
     };
+
     resize();
     window.addEventListener('resize', resize);
 
-    // Mouse tracking
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
     };
-    const onLeave = () => { mouse.current = { x: -9999, y: -9999 }; };
+
+    const onLeave = () => {
+      mouse.current = { x: -9999, y: -9999 };
+    };
+
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseleave', onLeave);
 
-    // Seed streaks
-    const W = () => canvas.width;
-    const H = () => canvas.height;
-    for (let i = 0; i < MAX_STREAKS; i++) {
-      const s = spawnStreak(W(), H());
-      s.life = Math.random() * s.maxLife; // stagger starts
-      streaks.current.push(s);
-    }
-
-    // ── Draw loop ──────────────────────────────────────────────────────────
+    // ── Animation Loop ───────────────────────────────────────────────────────
     const draw = () => {
-      const w = W(), h = H();
-      const mx = mouse.current.x, my = mouse.current.y;
+      const w = canvas.width;
+      const h = canvas.height;
+      const mx = mouse.current.x;
+      const my = mouse.current.y;
+
       ctx.clearRect(0, 0, w, h);
 
-      // ── 1. Deep background ───────────────────────────────────────────────
-      const bg = ctx.createRadialGradient(w * 0.5, h * 0.4, 0, w * 0.5, h * 0.4, Math.max(w, h) * 0.85);
-      bg.addColorStop(0, '#040A15');
-      bg.addColorStop(0.6, '#02060D');
-      bg.addColorStop(1, '#000103');
+      // ── 1. Pitch-Black Gradient Safeguard ──────────────────────────────────
+      // Instead of flat pitch black, we draw an ultra-rich deep burgundy radial glow
+      const bg = ctx.createRadialGradient(w * 0.5, h * 0.35, 0, w * 0.5, h * 0.35, Math.max(w, h) * 0.9);
+      bg.addColorStop(0, '#220000'); // Inner deep warm crimson glow
+      bg.addColorStop(0.5, '#0e0000'); // Midway transition
+      bg.addColorStop(1, '#060000'); // Elegant near-black bounds
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
 
-      // ── 2. Dynamic Geometrical Mesh Grid ─────────────────────────────────
-      const pts = gridPoints.current;
-      const cols = pts.length;
-      const rows = cols > 0 ? pts[0].length : 0;
-
-      // Update point positions
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const p = pts[i][j];
-          p.angle += p.speed;
-          
-          let offsetX = 0;
-          let offsetY = 0;
-
-          // Mouse repel physics
-          if (mx > 0) {
-            const dx = p.originX - mx;
-            const dy = p.originY - my;
-            const dist = Math.hypot(dx, dy);
-            const repelRadius = 180;
-            
-            if (dist < repelRadius && dist > 0) {
-              const force = (repelRadius - dist) / repelRadius;
-              offsetX = (dx / dist) * force * 40;
-              offsetY = (dy / dist) * force * 40;
-            }
-          }
-
-          p.x = p.originX + Math.cos(p.angle) * p.radius + offsetX;
-          p.y = p.originY + Math.sin(p.angle) * p.radius + offsetY;
-        }
+      // ── 2. Ambient Mouse Glow spotlight ───────────────────────────────────
+      if (mx > 0) {
+        const spotlight = ctx.createRadialGradient(mx, my, 0, mx, my, 220);
+        spotlight.addColorStop(0, 'rgba(255, 0, 0, 0.08)'); // Pure brand red ambient flare
+        spotlight.addColorStop(1, 'transparent');
+        ctx.fillStyle = spotlight;
+        ctx.fillRect(0, 0, w, h);
       }
 
-      ctx.lineWidth = 0.8;
-      ctx.strokeStyle = GRID_COLOR;
-      ctx.beginPath();
-      
-      // Draw interconnected triangulated lines
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const p = pts[i][j];
-          
-          if (i < cols - 1) {
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(pts[i+1][j].x, pts[i+1][j].y);
+      const pts = particles.current;
+
+      // ── 3. Particle Movement & Constellations ──────────────────────────────
+      // Update particles first
+      pts.forEach((p) => {
+        // Move particle
+        p.x += p.vx * p.speedMultiplier;
+        p.y += p.vy * p.speedMultiplier;
+
+        // Bounce off screen boundaries
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+
+        // Keep inside bounds
+        p.x = Math.max(0, Math.min(w, p.x));
+        p.y = Math.max(0, Math.min(h, p.y));
+
+        // Magnetic attraction when mouse is near
+        if (mx > 0) {
+          const dx = mx - p.x;
+          const dy = my - p.y;
+          const dist = Math.hypot(dx, dy);
+          const pullRadius = 180;
+
+          if (dist < pullRadius) {
+            // Smoothly pull particles toward the cursor
+            const force = (pullRadius - dist) / pullRadius;
+            p.x += (dx / dist) * force * 0.5;
+            p.y += (dy / dist) * force * 0.5;
+            p.alpha = Math.min(1, p.baseAlpha + force * 0.45);
+          } else {
+            p.alpha = p.baseAlpha;
           }
-          if (j < rows - 1) {
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(pts[i][j+1].x, pts[i][j+1].y);
-          }
-          if (i < cols - 1 && j < rows - 1) {
-            if ((i + j) % 2 === 0) {
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(pts[i+1][j+1].x, pts[i+1][j+1].y);
-            } else {
-              ctx.moveTo(pts[i+1][j].x, pts[i+1][j].y);
-              ctx.lineTo(pts[i][j+1].x, pts[i][j+1].y);
-            }
-          }
-        }
-      }
-      ctx.stroke();
-
-      // Draw glowing nodes at intersections
-      ctx.fillStyle = GRID_ACCENT;
-      ctx.beginPath();
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const p = pts[i][j];
-          // Check proximity to mouse to light up nodes
-          let glow = 1.2;
-          if (mx > 0) {
-            const dist = Math.hypot(p.x - mx, p.y - my);
-            if (dist < 150) {
-              glow = 1.2 + ((150 - dist) / 150) * 2;
-              ctx.shadowColor = '#FC3A45'; // Red glow
-              ctx.shadowBlur = glow * 5;
-            } else {
-              ctx.shadowBlur = 0;
-            }
-          }
-          
-          ctx.moveTo(p.x, p.y);
-          ctx.arc(p.x, p.y, glow, 0, Math.PI * 2);
-        }
-      }
-      ctx.fill();
-      ctx.shadowBlur = 0; // Reset shadow
-
-      // ── 3. Neon streaks ──────────────────────────────────────────────────
-      streaks.current.forEach((s, i) => {
-        s.life++;
-        const progress = s.life / s.maxLife;
-        // Fade in/out
-        s.alpha = progress < 0.15
-          ? progress / 0.15
-          : progress > 0.75
-            ? 1 - (progress - 0.75) / 0.25
-            : 1;
-
-        const tailX = s.x - s.vx * (s.length / Math.hypot(s.vx, s.vy));
-        const tailY = s.y - s.vy * (s.length / Math.hypot(s.vx, s.vy));
-
-        const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
-        grad.addColorStop(0, `hsla(${s.hue}, 100%, 70%, 0)`);
-        grad.addColorStop(0.4, `hsla(${s.hue}, 100%, 70%, ${s.alpha * 0.35})`);
-        grad.addColorStop(1, `hsla(${s.hue}, 100%, 88%, ${s.alpha * 0.95})`);
-
-        ctx.save();
-        ctx.shadowColor = `hsla(${s.hue}, 100%, 70%, ${s.alpha * 0.9})`;
-        ctx.shadowBlur = 18;
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = s.width;
-        ctx.lineCap = 'round';
-        ctx.beginPath();
-        ctx.moveTo(tailX, tailY);
-        ctx.lineTo(s.x, s.y);
-        ctx.stroke();
-        ctx.restore();
-
-        // Move
-        s.x += s.vx;
-        s.y += s.vy;
-
-        // Respawn when off-screen or life ended
-        if (s.life >= s.maxLife || s.x < -200 || s.x > w + 200 || s.y < -200 || s.y > h + 200) {
-          streaks.current[i] = spawnStreak(w, h);
+        } else {
+          p.alpha = p.baseAlpha;
         }
       });
 
-      // Keep streak count stable
-      while (streaks.current.length < MAX_STREAKS) {
-        streaks.current.push(spawnStreak(w, h));
-      }
+      // Draw constellation connections between close particles
+      ctx.lineWidth = 0.55;
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const p1 = pts[i];
+          const p2 = pts[j];
+          const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
 
-      // ── 4. Mouse glow halo & Tail ──────────────────────────────────────────
-
-      // Update and draw sparks
-      for (let i = sparks.current.length - 1; i >= 0; i--) {
-        const sp = sparks.current[i];
-        sp.life++;
-        sp.x += sp.vx;
-        sp.y += sp.vy;
-        sp.vy += 0.05; // slight gravity
-
-        const spT = 1 - sp.life / sp.maxLife;
-        if (spT <= 0) {
-          sparks.current.splice(i, 1);
-          continue;
-        }
-
-        ctx.save();
-        ctx.globalAlpha = spT;
-        ctx.fillStyle = `hsla(${sp.hue}, 100%, 75%, ${spT})`;
-        ctx.shadowBlur = 8 * spT;
-        ctx.shadowColor = `hsla(${sp.hue}, 100%, 65%, ${spT})`;
-        ctx.beginPath();
-        ctx.arc(sp.x, sp.y, sp.size * spT, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-
-      if (mx > 0) {
-        // Distance check for physics logic
-        const dx = tail.current.length > 0 ? mx - tail.current[0].x : 0;
-        const dy = tail.current.length > 0 ? my - tail.current[0].y : 0;
-        const dist = Math.hypot(dx, dy);
-
-        // Update tail
-        tail.current.unshift({ x: mx, y: my, alpha: 1, size: 7 });
-        if (tail.current.length > TAIL_LENGTH) tail.current.length = TAIL_LENGTH;
-
-        // Spawn sparks when moving fast
-        if (dist > 5 && Math.random() > 0.4) {
-          sparks.current.push({
-            x: mx + (Math.random() - 0.5) * 10,
-            y: my + (Math.random() - 0.5) * 10,
-            vx: -dx * 0.12 + (Math.random() - 0.5) * 3,
-            vy: -dy * 0.12 + (Math.random() - 0.5) * 3,
-            life: 0,
-            maxLife: 20 + Math.random() * 25,
-            hue: 350 + Math.random() * 25, // Red to Orange sparks
-            size: 1.5 + Math.random() * 2
-          });
-        }
-
-        // Draw segmented tapering tail
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        for (let i = 0; i < tail.current.length - 1; i++) {
-          const p0 = i === 0 ? tail.current[0] : tail.current[i - 1];
-          const p1 = tail.current[i];
-          const p2 = tail.current[i + 1];
-          const t = 1 - i / TAIL_LENGTH;
-          const hue = 350 + i * 1.5; // Red to Orange fading tail
-
-          ctx.beginPath();
-          if (i === 0) {
+          if (dist < CONNECTION_LIMIT) {
+            const opacity = (1 - dist / CONNECTION_LIMIT) * 0.12 * Math.min(p1.alpha, p2.alpha);
+            ctx.strokeStyle = `rgba(255, 51, 51, ${opacity})`;
+            ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
-          } else {
-            const startX = (p0.x + p1.x) / 2;
-            const startY = (p0.y + p1.y) / 2;
-            const endX = (p1.x + p2.x) / 2;
-            const endY = (p1.y + p2.y) / 2;
-            ctx.moveTo(startX, startY);
-            ctx.quadraticCurveTo(p1.x, p1.y, endX, endY);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
           }
-
-          ctx.save();
-          // Core bright laser line
-          ctx.lineWidth = 0.5 + (t * 3.5);
-          ctx.strokeStyle = `hsla(${hue}, 100%, 80%, ${t})`;
-          ctx.shadowBlur = 12 * t;
-          ctx.shadowColor = `hsla(${hue}, 100%, 60%, ${t})`;
-          ctx.stroke();
-
-          // Outer glowing ambient trail
-          ctx.lineWidth = 3 + (t * 8);
-          ctx.strokeStyle = `hsla(${hue}, 100%, 65%, ${t * 0.15})`;
-          ctx.shadowBlur = 0;
-          ctx.stroke();
-          ctx.restore();
         }
-
-        // Draw cursor core dot
-        ctx.save();
-        ctx.shadowColor = 'rgba(252, 58, 69, 0.9)'; // Signature red shadow
-        ctx.shadowBlur = 20;
-        const coreGrd = ctx.createRadialGradient(mx, my, 0, mx, my, 8);
-        coreGrd.addColorStop(0, 'rgba(255, 255, 255, 1)');
-        coreGrd.addColorStop(0.3, 'rgba(252, 58, 69, 0.8)'); // Red glow
-        coreGrd.addColorStop(1, 'rgba(252, 58, 69, 0)');
-        ctx.beginPath();
-        ctx.arc(mx, my, 8, 0, Math.PI * 2);
-        ctx.fillStyle = coreGrd;
-        ctx.fill();
-        ctx.restore();
-
-        // Mouse ambient halo on grid
-        const halo = ctx.createRadialGradient(mx, my, 0, mx, my, 180);
-        halo.addColorStop(0, 'rgba(252, 58, 69, 0.08)'); // Signature red subtle halo
-        halo.addColorStop(1, 'transparent');
-        ctx.fillStyle = halo;
-        ctx.fillRect(0, 0, w, h);
       }
+
+      // Draw individual neural particles
+      ctx.save();
+      pts.forEach((p) => {
+        ctx.fillStyle = `rgba(255, 102, 102, ${p.alpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Very soft outer blur shadow for the larger particles
+        if (p.radius > 1.8) {
+          ctx.shadowColor = 'rgba(255, 0, 0, 0.4)';
+          ctx.shadowBlur = 5;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+      ctx.restore();
 
       rafRef.current = requestAnimationFrame(draw);
     };
@@ -417,60 +194,7 @@ const NeonGridBackground: FC = () => {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseleave', onLeave);
     };
-  }, []);
-
-  if (isMobileState === null || isMobileState === true) {
-    return (
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#000103]">
-        {/* Radial background gradient mimicking canvas */}
-        <div 
-          className="absolute inset-0" 
-          style={{
-            background: 'radial-gradient(circle at 50% 40%, #040A15 0%, #02060D 60%, #000103 100%)'
-          }}
-        />
-
-        {/* Elegant static neon grid */}
-        <div 
-          className="absolute inset-0 opacity-30" 
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(252, 58, 69, 0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(252, 58, 69, 0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: '65px 65px',
-            backgroundPosition: 'center center',
-          }}
-        />
-
-        {/* Glowing node effect at grid intersections (subtle radial gradients to mimic nodes) */}
-        <div 
-          className="absolute inset-0 opacity-12"
-          style={{
-            backgroundImage: `radial-gradient(rgba(242, 103, 74, 0.4) 1px, transparent 0)`,
-            backgroundSize: '65px 65px',
-            backgroundPosition: 'center center',
-          }}
-        />
-
-        {/* Ambient Pulsating Neon Glows */}
-        <div className="absolute top-[-10%] left-[-20%] w-[320px] h-[320px] rounded-full bg-[#FC3A45] opacity-15 blur-[90px] animate-mobile-glow" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[280px] h-[280px] rounded-full bg-[#F2674A] opacity-15 blur-[80px] animate-mobile-glow" style={{ animationDelay: '-3s' }} />
-        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[220px] h-[220px] rounded-full bg-[#FC3A45] opacity-5 blur-[90px]" />
-        
-        {/* Scoped CSS animations to prevent overriding high blur filters */}
-        <style>{`
-          @keyframes mobileGlow {
-            0%, 100% { opacity: 0.12; transform: scale(1); }
-            50% { opacity: 0.22; transform: scale(1.1); }
-          }
-          .animate-mobile-glow {
-            animation: mobileGlow 8s ease-in-out infinite;
-          }
-        `}</style>
-      </div>
-    );
-  }
+  }, [isMobileState]);
 
   return (
     <canvas

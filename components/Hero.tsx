@@ -5,11 +5,11 @@ import { FaArrowRight, FaMapMarkerAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 const roles = [
-  { prefix: "XR", suffix: " Systems Engineer" },
+  { prefix: "Full Stack", suffix: " Systems Engineer" },
   { prefix: "AI", suffix: " Solutions Developer" },
   { prefix: "Full Stack", suffix: " Architect" },
   { prefix: "Creative", suffix: " Technologist" },
-  { prefix: "Immersive", suffix: " Experience Designer" },
+  { prefix: "Cloud", suffix: " Solutions Designer" },
   { prefix: "Human-Centered", suffix: " Innovator" },
   { prefix: "Cyber", suffix: " Interface Engineer" },
   { prefix: "Visionary", suffix: " Problem Solver" },
@@ -207,11 +207,18 @@ const Hero: React.FC = () => {
               <p className="text-base md:text-xl text-text-secondary leading-relaxed mx-auto lg:mx-0">
                 I’m Godfrey — a Computer Science and Engineering student building scalable software, intelligent systems, and user-focused digital experiences.
               </p>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-[10px] md:text-sm font-black uppercase tracking-widest">
-                <span className="px-3 py-1 rounded-lg bg-accent/5 border border-accent/20 text-accent/90 shadow-[0_0_10px_rgba(252,58,69,0.1)]">{EDUCATION[0].degree}</span>
-                <span className="px-3 py-1 rounded-lg bg-accent/5 border border-accent/20 text-accent/90 shadow-[0_0_10px_rgba(252,58,69,0.1)]">{LEADERSHIP_XR[0]}</span>
-                <span className="flex items-center gap-2 text-text-muted">
-                  <FaMapMarkerAlt className="text-accent" /> {PERSONAL_INFO.location.split(',')[0]}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3.5 text-[10px] md:text-xs font-black uppercase tracking-wider">
+                <span className="px-4 py-2 rounded-xl bg-accent/10 border border-accent/30 text-accent shadow-[0_0_15px_rgba(255,0,0,0.15)] flex items-center gap-2 select-none">
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full animate-ping shrink-0" />
+                  B.E CSE
+                </span>
+                <span className="px-4 py-2 rounded-xl bg-accent/10 border border-accent/30 text-accent shadow-[0_0_15px_rgba(255,0,0,0.15)] flex items-center gap-2 select-none">
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full animate-ping shrink-0" />
+                  Full Stack Developer
+                </span>
+                <span className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-text-secondary flex items-center gap-2 select-none hover:border-accent/30 transition-colors">
+                  <FaMapMarkerAlt className="text-accent animate-bounce" />
+                  Tiruchirappalli
                 </span>
               </div>
             </motion.div>
@@ -292,7 +299,7 @@ const Hero: React.FC = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
                 >
-                  {['React', 'AI', 'XR', 'Java', 'Unity', 'Python'].map((tech, index) => {
+                  {['React', 'AI', 'SQL', 'Java', 'Unity', 'Python'].map((tech, index) => {
                     const angle = index * 60;
                     return (
                       <div
