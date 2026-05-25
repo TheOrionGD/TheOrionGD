@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FC } from 'react';
 
 // ── Streak particle ──────────────────────────────────────────────────────────
@@ -62,6 +62,17 @@ const NeonGridBackground: FC = () => {
   const sparks = useRef<Spark[]>([]);
   const gridPoints = useRef<GridPoint[][]>([]);
   const rafRef = useRef<number>(0);
+  const [isMobileState, setIsMobileState] = useState<boolean | null>(null);
+
+  // Detect mobile screen once on mount and check on resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileState(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Spawn a new neon streak
   const spawnStreak = (W: number, H: number): Streak => {
@@ -79,6 +90,7 @@ const NeonGridBackground: FC = () => {
   };
 
   useEffect(() => {
+    if (isMobileState === null || isMobileState === true) return;
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext('2d')!;
     const isMobile = window.innerWidth < 768;
@@ -406,6 +418,59 @@ const NeonGridBackground: FC = () => {
       window.removeEventListener('mouseleave', onLeave);
     };
   }, []);
+
+  if (isMobileState === null || isMobileState === true) {
+    return (
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#000103]">
+        {/* Radial background gradient mimicking canvas */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: 'radial-gradient(circle at 50% 40%, #040A15 0%, #02060D 60%, #000103 100%)'
+          }}
+        />
+
+        {/* Elegant static neon grid */}
+        <div 
+          className="absolute inset-0 opacity-30" 
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(252, 58, 69, 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(252, 58, 69, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: '65px 65px',
+            backgroundPosition: 'center center',
+          }}
+        />
+
+        {/* Glowing node effect at grid intersections (subtle radial gradients to mimic nodes) */}
+        <div 
+          className="absolute inset-0 opacity-12"
+          style={{
+            backgroundImage: `radial-gradient(rgba(242, 103, 74, 0.4) 1px, transparent 0)`,
+            backgroundSize: '65px 65px',
+            backgroundPosition: 'center center',
+          }}
+        />
+
+        {/* Ambient Pulsating Neon Glows */}
+        <div className="absolute top-[-10%] left-[-20%] w-[320px] h-[320px] rounded-full bg-[#FC3A45] opacity-15 blur-[90px] animate-mobile-glow" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[280px] h-[280px] rounded-full bg-[#F2674A] opacity-15 blur-[80px] animate-mobile-glow" style={{ animationDelay: '-3s' }} />
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[220px] h-[220px] rounded-full bg-[#FC3A45] opacity-5 blur-[90px]" />
+        
+        {/* Scoped CSS animations to prevent overriding high blur filters */}
+        <style>{`
+          @keyframes mobileGlow {
+            0%, 100% { opacity: 0.12; transform: scale(1); }
+            50% { opacity: 0.22; transform: scale(1.1); }
+          }
+          .animate-mobile-glow {
+            animation: mobileGlow 8s ease-in-out infinite;
+          }
+        `}</style>
+      </div>
+    );
+  }
 
   return (
     <canvas

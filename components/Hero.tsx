@@ -18,6 +18,17 @@ const roles = [
 ];
 
 const Hero: React.FC = () => {
+  const [isMobileState, setIsMobileState] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileState(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Animation Variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -259,7 +270,7 @@ const Hero: React.FC = () => {
             onMouseLeave={handleMouseLeave}
           >
             <motion.div
-              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              style={isMobileState ? {} : { rotateX, rotateY, transformStyle: "preserve-3d" }}
               className="w-full h-full relative"
             >
               {/* Holographic Rings */}
@@ -275,30 +286,32 @@ const Hero: React.FC = () => {
               />
 
               {/* Orbiting Tech Badges */}
-              <motion.div
-                className="absolute inset-[-25%] z-30 pointer-events-none"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-              >
-                {['React', 'AI', 'XR', 'Java', 'Unity', 'Python'].map((tech, index) => {
-                  const angle = index * 60;
-                  return (
-                    <div
-                      key={tech}
-                      className="absolute top-0 left-1/2 w-16 h-1/2 origin-bottom -ml-8"
-                      style={{ transform: `rotate(${angle}deg)` }}
-                    >
-                      <motion.div
-                        className="w-full h-8 mt-0 flex items-center justify-center bg-[#020810]/90 backdrop-blur-md border border-accent/40 rounded-full text-[10px] md:text-xs font-black text-white shadow-[0_0_15px_rgba(252,58,69,0.4)] tracking-widest uppercase"
-                        animate={{ rotate: [-angle, -360 - angle] }}
-                        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+              {!isMobileState && (
+                <motion.div
+                  className="absolute inset-[-25%] z-30 pointer-events-none"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                >
+                  {['React', 'AI', 'XR', 'Java', 'Unity', 'Python'].map((tech, index) => {
+                    const angle = index * 60;
+                    return (
+                      <div
+                        key={tech}
+                        className="absolute top-0 left-1/2 w-16 h-1/2 origin-bottom -ml-8"
+                        style={{ transform: `rotate(${angle}deg)` }}
                       >
-                        {tech}
-                      </motion.div>
-                    </div>
-                  )
-                })}
-              </motion.div>
+                        <motion.div
+                          className="w-full h-8 mt-0 flex items-center justify-center bg-[#020810]/90 backdrop-blur-md border border-accent/40 rounded-full text-[10px] md:text-xs font-black text-white shadow-[0_0_15px_rgba(252,58,69,0.4)] tracking-widest uppercase"
+                          animate={{ rotate: [-angle, -360 - angle] }}
+                          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                        >
+                          {tech}
+                        </motion.div>
+                      </div>
+                    )
+                  })}
+                </motion.div>
+              )}
 
               {/* Inner Glowing Ring */}
               <div className="absolute inset-[-4px] rounded-full bg-linear-to-tr from-accent via-accent-secondary to-accent opacity-50 shadow-[0_0_40px_rgba(252,58,69,0.6)]" />
