@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 import { GALLERY_IMAGES } from '../constants';
 import { FaTrophy, FaImages, FaCode, FaAward } from 'react-icons/fa';
 
-const SPEED = 0.7;        
-const DRAG_FRICTION = 0.88; 
+const SPEED = 0.7;
+const DRAG_FRICTION = 0.88;
 
 const Hackathons: FC = () => {
-  const trackRef   = useRef<HTMLDivElement>(null);
-  const rafRef     = useRef<number>(0);
-  const xRef       = useRef(0);          
-  const halfRef    = useRef(0);          
+  const trackRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const xRef = useRef(0);
+  const halfRef = useRef(0);
   const isDragging = useRef(false);
-  const dragStartX = useRef(0);          
-  const dragStartScroll = useRef(0);     
-  const velocityRef = useRef(0);         
-  const lastDragX  = useRef(0);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
+  const velocityRef = useRef(0);
+  const lastDragX = useRef(0);
   const momentumActive = useRef(false);
 
   const encodeUrl = (src: string) => src.replace(/ /g, '%20');
@@ -26,7 +26,7 @@ const Hackathons: FC = () => {
     const half = halfRef.current;
     if (half === 0) return val;
     let n = val % half;
-    if (n > 0) n -= half;   
+    if (n > 0) n -= half;
     return n;
   }, []);
 
@@ -103,16 +103,16 @@ const Hackathons: FC = () => {
 
   useEffect(() => {
     const move = (e: MouseEvent | TouchEvent) => onDragMove(e);
-    const end  = () => onDragEnd();
+    const end = () => onDragEnd();
     window.addEventListener('mousemove', move);
-    window.addEventListener('mouseup',   end);
+    window.addEventListener('mouseup', end);
     window.addEventListener('touchmove', move, { passive: true });
-    window.addEventListener('touchend',  end);
+    window.addEventListener('touchend', end);
     return () => {
       window.removeEventListener('mousemove', move);
-      window.removeEventListener('mouseup',   end);
+      window.removeEventListener('mouseup', end);
       window.removeEventListener('touchmove', move);
-      window.removeEventListener('touchend',  end);
+      window.removeEventListener('touchend', end);
     };
   }, [onDragMove, onDragEnd]);
 
@@ -131,9 +131,9 @@ const Hackathons: FC = () => {
       icon: FaTrophy
     },
     {
-      title: "Code Sprint 6.0",
-      role: "Top Performer",
-      desc: "Competed in high-speed algorithmic programming sprints, solving complex computational puzzles under strict time limits.",
+      title: "Oasys IT Hackathon 2.0",
+      role: "Best Performance (Team of 4)",
+      desc: "I participated in the Oasys IT Hackathon 2.0 with my team members. We had to develop a solution for a real-world problem using technology. Our solution was an anti phishing tool using AI&ML. We worked together to develop the application and presented it to the judges. Our solution was appreciated by the judges and we were awarded as the best performing team.",
       icon: FaAward
     }
   ];
@@ -174,7 +174,7 @@ const Hackathons: FC = () => {
             >
               {/* Thin neon active top-line indicator */}
               <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[1.5px] bg-accent transition-all duration-500" />
-              
+
               <div className="flex items-center gap-4 mb-4 select-none">
                 <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-105 transition-transform duration-300">
                   <ach.icon className="text-accent text-lg" />
@@ -185,7 +185,7 @@ const Hackathons: FC = () => {
               <h3 className="text-xl font-black text-text-primary mb-4 uppercase tracking-tight group-hover:text-gradient transition-all duration-300">
                 {ach.title}
               </h3>
-              
+
               <p className="text-text-secondary text-sm md:text-base leading-relaxed">
                 {ach.desc}
               </p>
@@ -219,7 +219,7 @@ const Hackathons: FC = () => {
                 src={encodeUrl(img.src)}
                 alt={img.alt}
                 loading="lazy"
-                draggable={false}   
+                draggable={false}
                 className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-700 pointer-events-none"
               />
               <div className="absolute inset-x-3 bottom-3 p-3 glass border border-white/10 rounded-xl opacity-0 group-hover/item:opacity-100 translate-y-2 group-hover/item:translate-y-0 transition-all duration-300 pointer-events-none">
