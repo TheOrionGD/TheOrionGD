@@ -105,6 +105,10 @@ export const SKILLS: SkillCategory[] = [
   {
     category: "Interactive & Creative Tech",
     skills: ["AR & Unity Development", "Interactive UI/UX Experience Design"]
+  },
+  {
+    category: "Areas of Interest",
+    skills: ["Applied Machine Learning", "Spatial Computing & XR", "AI Agent Workflows", "CyberSecurity", "Framework Optimization"]
   }
 ];
 
