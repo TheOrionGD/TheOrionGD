@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CERTIFICATIONS, LEADERSHIP_XR } from '../constants';
-import { FaAward, FaUsers, FaCheckCircle, FaFileAlt } from 'react-icons/fa';
+import { CERTIFICATIONS } from '../constants';
+import { FaAward, FaFileAlt } from 'react-icons/fa';
 
 const Certifications: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="max-w-4xl mx-auto">
           
           {/* Achievements Column */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
@@ -67,43 +67,6 @@ const Certifications: React.FC = () => {
                 Full Certificate Archive
               </Link>
             </motion.div>
-          </motion.div>
-
-          {/* Leadership Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-secondary/10 border border-accent-secondary/20 text-accent-secondary text-[10px] font-black uppercase tracking-widest mb-6">
-               <FaUsers /> Community & Impact
-            </div>
-             <h3 className="text-3xl md:text-4xl font-black text-text-primary mb-10 tracking-tight uppercase flex items-center gap-4">
-              Leadership
-              <span className="h-1 w-12 bg-accent-secondary rounded-full hidden md:inline-block"></span>
-            </h3>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              {LEADERSHIP_XR.map((item, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ x: 10 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-5 glass-dark p-6 rounded-2xl border border-white/10 hover:border-accent-secondary/40 transition-all duration-300 group shadow-lg shadow-black/20"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center text-accent-secondary shadow-inner group-hover:scale-110 transition-transform">
-                    <FaCheckCircle size={18} />
-                  </div>
-                  <span className="text-text-primary text-[11px] md:text-sm font-black uppercase tracking-wider leading-tight">
-                    {item}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
