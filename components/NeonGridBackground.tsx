@@ -32,6 +32,7 @@ const NeonGridBackground: FC = () => {
 
   // Spawn dynamic stardust particles
   const spawnParticles = (w: number, h: number, count: number) => {
+    if (particles.current.length > 0) return; // Prevent recreating particles on mobile scroll resizing
     const arr: Particle[] = [];
     for (let i = 0; i < count; i++) {
       const radius = 1 + Math.random() * 2.2;
@@ -99,11 +100,6 @@ const NeonGridBackground: FC = () => {
       bg.addColorStop(1, '#060000'); // Elegant near-black bounds
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
-
-      if (isMobile) {
-        // Draw the static rich deep burgundy gradient once and stop the continuous loop on mobile
-        return;
-      }
 
       // ── 2. Ambient Mouse Glow spotlight ───────────────────────────────────
       if (mx > 0) {

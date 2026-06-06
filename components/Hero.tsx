@@ -295,7 +295,7 @@ const Hero: React.FC = () => {
               {/* Orbiting Tech Badges */}
               {!isMobileState && (
                 <motion.div
-                  className="absolute inset-[-25%] z-30 pointer-events-none"
+                  className="absolute inset-[-25%] z-30 pointer-events-none hidden lg:block"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
                 >
