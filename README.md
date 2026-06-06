@@ -26,7 +26,7 @@
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.x-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/OrionGD/Godfrey-Portfolio?style=for-the-badge&logo=github&color=ffd700)](https://github.com/TheOrionGD/Godfrey-Portfolio)
-[![Profile Views](https://komarev.com/ghpvc/?username=OrionGD&label=PROFILE+VIEWS&color=06b6d4&style=for-the-badge)](https://github.com/TheOrionGD)
+[![Profile Views](https://komarev.com/ghpvc/?username=TheOrionGD&label=PROFILE+VIEWS&color=06b6d4&style=for-the-badge)](https://github.com/TheOrionGD)
 
 </div>
 
@@ -35,7 +35,7 @@
 ## 🧬 The Developer's Story
 
 <details open>
-<summary><strong>Click to expand — the full story behind Godfrey T R Portfolio</strong></summary>
+<summary><strong>Click to expand — the full story behind My Portfolio</strong></summary>
 
 ### ✨ Project Inspiration
 
@@ -47,7 +47,7 @@ The inspiration came from exploring interactive media, 3D web experiences, and p
 
 ### 👨‍💻 Meet the Developer
 
-**Godfrey T R** is a Software Engineer and B.E. Computer Science student at K. Ramakrishnan College of Technology, Tiruchirapalli, India. His specialisation spans Full-Stack Development, AI Integration, Augmented Reality, and Cybersecurity. He currently serves as Vice President of the XR Club at his university and is actively involved in NSS volunteering, software bootcamp facilitation, and mentoring junior students.
+**My** is a Software Engineer and B.E. Computer Science student at K. Ramakrishnan College of Technology, Tiruchirapalli, India. His specialisation spans Full-Stack Development, AI Integration, Augmented Reality, and Cybersecurity. He currently serves as Vice President of the XR Club at his university and is actively involved in NSS volunteering, software bootcamp facilitation, and mentoring junior students.
 
 Godfrey holds a Microsoft Azure AI Engineer Associate (AI-102) certification, an Applied Generative AI Specialization, and a registered patent for an Android TV control mechanism using IR sensors. His philosophy is simple: **write code that is architectural, not just functional.**
 
@@ -145,7 +145,7 @@ Both libraries manage their own render loops. Careful separation of the Three.js
 
 ### 🤝 Collaboration Story
 
-This portfolio was designed and built entirely by Godfrey T R as a solo engineering project. The design drew inspiration from the broader developer community — including Dribbble design shots, GitHub README aesthetics, and Awwwards-winning portfolio sites. The codebase is open-source, and contributions that improve performance, accessibility, or feature completeness are welcome via Pull Request.
+This portfolio was designed and built entirely by My as a solo engineering project. The design drew inspiration from the broader developer community — including Dribbble design shots, GitHub README aesthetics, and Awwwards-winning portfolio sites. The codebase is open-source, and contributions that improve performance, accessibility, or feature completeness are welcome via Pull Request.
 
 ---
 
@@ -182,7 +182,7 @@ The GitHub handle **OrionGD** is a fusion of *Orion* — the constellation repre
 
 > *"This portfolio is more than a showcase — it's a proof of concept. A proof that a solo developer, armed with the right tools and an uncompromising design vision, can build production-quality, visually exceptional software. Every component in this codebase was written with intentionality: clear separation of concerns, type safety, accessible markup, and a user experience that I would be proud to hand to any senior engineer or hiring manager. I hope it inspires you to build something extraordinary."*
 >
-> — **Godfrey T R**, Software Engineer & XR Club Vice President
+> — **My**, Software Engineer & XR Club Vice President
 
 </details>
 
@@ -251,7 +251,7 @@ The GitHub handle **OrionGD** is a fusion of *Orion* — the constellation repre
 
 ## 🌐 Overview
 
-**Godfrey T R Portfolio** is a high-performance, interactive personal portfolio application designed to showcase technical achievements, professional experience, and creative projects through a premium web experience. Built with a modern React ecosystem and powered by a cloud-native asset pipeline, the portfolio delivers the visual richness of a AAA design agency product with the technical depth expected of a production-grade software system.
+**My Portfolio** is a high-performance, interactive personal portfolio application designed to showcase technical achievements, professional experience, and creative projects through a premium web experience. Built with a modern React ecosystem and powered by a cloud-native asset pipeline, the portfolio delivers the visual richness of a AAA design agency product with the technical depth expected of a production-grade software system.
 
 The application features a Three.js-powered animated background, smooth Framer Motion page transitions, a MongoDB Atlas GridFS asset delivery system, a full-screen certificate archive with live PDF streaming, a masonry photography gallery, interactive project showcases, and real-time GitHub activity integration. Every component is written in TypeScript with strict type safety, and the entire codebase follows a clean, modular architecture.
 
@@ -1875,7 +1875,7 @@ A: Vercel's static file serving does not know about MongoDB GridFS — it can on
 ```
 MIT License
 
-Copyright (c) 2025 Godfrey T R
+Copyright (c) 2025 My
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1923,7 +1923,7 @@ See the full [LICENSE](./LICENSE) file for details.
 
 <div align="center">
 
-**Godfrey T R** — Software Engineer
+**My** — Software Engineer
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-gds--portfolio.vercel.app-2563EB?style=for-the-badge&logo=vercel&logoColor=white)](https://gds-portfolio.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-godfrey192607-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/godfrey192607)
@@ -1942,7 +1942,7 @@ See the full [LICENSE](./LICENSE) file for details.
 
 <div align="center">
 
-*Built with ❤️ and a lot of ☕ by **Godfrey T R***
+*Built with ❤️ and a lot of ☕ by **My***
 
 *"Architecting scalable systems, intelligent integrations, and immersive user experiences."*
 
