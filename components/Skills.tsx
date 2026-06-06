@@ -1,21 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SKILLS } from '../constants';
-import { useIsMobile } from '../hooks/useIsMobile';
 
 const Skills: React.FC = () => {
-  const isMobile = useIsMobile();
-
   return (
     <section id="skills" className="py-24 bg-transparent relative">
       <div className="container mx-auto px-6">
         
         {/* Header */}
         <motion.div
-          initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          whileInView={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: isMobile ? 0 : 0.6 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-widest mb-6">
@@ -35,17 +32,17 @@ const Skills: React.FC = () => {
           {SKILLS.map((category, index) => (
             <motion.div
               key={index}
-              initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              whileInView={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={isMobile ? { duration: 0 } : { delay: index * 0.05, duration: 0.5 }}
+              transition={{ delay: index * 0.05, duration: 0.5 }}
               className="flex flex-col relative group pt-6 border-t border-white/10"
             >
               {/* Thin neon active top-line indicator */}
-              <div className={`absolute top-0 left-0 w-0 ${isMobile ? '' : 'group-hover:w-full transition-all duration-500'} h-[1.5px] bg-accent`} />
+              <div className="absolute top-0 left-0 w-0 md:group-hover:w-full transition-all duration-500 h-[1.5px] bg-accent" />
               
               <h3 className="text-lg md:text-xl font-black text-text-primary mb-6 uppercase tracking-wider flex items-center gap-3">
-                <span className={`w-1.5 h-1.5 rounded-full bg-accent ${isMobile ? '' : 'animate-pulse shadow-[0_0_8px_rgba(255,0,0,0.6)]'} shrink-0`} />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent md:animate-pulse md:shadow-[0_0_8px_rgba(255,0,0,0.6)] shrink-0" />
                 {category.category}
               </h3>
               
@@ -53,7 +50,7 @@ const Skills: React.FC = () => {
                 {category.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className={`px-3.5 py-1.5 glass-dark text-text-secondary text-[11px] font-bold rounded-xl border border-white/5 ${isMobile ? '' : 'hover:border-accent/40 hover:text-white transition-all cursor-default'} uppercase tracking-wider`}
+                    className="px-3.5 py-1.5 glass-dark text-text-secondary text-[11px] font-bold rounded-xl border border-white/5 md:hover:border-accent/40 md:hover:text-white transition-all cursor-default uppercase tracking-wider"
                   >
                     {skill}
                   </span>

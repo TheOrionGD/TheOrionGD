@@ -16,7 +16,7 @@ export const PERSONAL_INFO = {
   email: "godfreytr.prof@gmail.com",
   phone: "+91 93444 62238",
   location: "Tiruchirapalli, Tamil Nadu, India",
-  github: "https://github.com/OrionGD",
+  github: "https://github.com/TheOrionGD",
   linkedin: "https://linkedin.com/in/godfrey192607",
   hackerrank: "https://hackerrank.com/OrionGD07",
   leetcode: "https://leetcode.com/u/OrionGD/"
