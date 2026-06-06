@@ -269,7 +269,7 @@ const Hero: React.FC = () => {
 
           {/* RIGHT SIDE: 3D PROFILE IMAGE & DECORATIONS */}
           <motion.div
-            className="relative order-1 lg:order-2 perspective-[1000px] w-44 h-44 xs:w-48 xs:h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 z-20 flex-shrink-0"
+            className="relative order-1 lg:order-2 perspective-[1000px] w-44 h-44 xs:w-48 xs:h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 z-20 flex-shrink-0 lg:mr-16"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
