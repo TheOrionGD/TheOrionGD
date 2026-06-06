@@ -91,40 +91,20 @@ export const EXPERIENCE: Experience[] = [
 
 export const SKILLS: SkillCategory[] = [
   {
-    category: "Languages",
-    skills: ["Java", "Python", "JavaScript", "TypeScript", "C", "SQL"]
-  },
-  {
-    category: "Frontend Development",
-    skills: ["React.js", "Tailwind CSS", "HTML5 & CSS3", "Responsive UI/UX Design", "Modern Component-Based Architecture", "Vite"]
-  },
-  {
-    category: "Backend & APIs",
-    skills: ["Node.js", "Express.js", "REST APIs", "FastAPI", "Authentication & API Integration", "Real-time System Architecture"]
-  },
-  {
-    category: "Databases",
-    skills: ["MongoDB", "MySQL", "Database Schema Design"]
+    category: "Full Stack Engineering",
+    skills: ["Full Stack Development", "Scalable Systems Architecture", "Database Schema Design"]
   },
   {
     category: "AI & Intelligent Systems",
-    skills: ["AI Integration", "AI-Powered Automation Systems", "Biometric AI Systems", "Speech Processing Concepts", "AI Monitoring Dashboards", "Smart Assistive Technology Development"]
+    skills: ["AI Integration & Automation", "Conversational AI & LLM Integration"]
   },
   {
     category: "Cybersecurity & Systems",
-    skills: ["Cybersecurity Fundamentals", "Ethical Hacking Concepts", "Mobile Monitoring Architectures", "Secure System Design", "Network & Device Monitoring Concepts", "Linux/Ubuntu Environment"]
+    skills: ["Secure System Design", "Network & Device Monitoring"]
   },
   {
-    category: "XR & Interactive Technologies",
-    skills: ["AR Development", "Unity Development", "Interactive Experience Design", "Simulation-Based Systems"]
-  },
-  {
-    category: "Tools & Platforms",
-    skills: ["Git & GitHub", "Figma", "VS Code", "Unity", "Postman", "npm / Node Ecosystem", "GitHub CLI"]
-  },
-  {
-    category: "Design & Creative Skills",
-    skills: ["UI/UX Design", "Design Systems", "Wireframing & Prototyping", "Cyber-Tech Themed Interface Design", "Presentation & Visual Branding"]
+    category: "Interactive & Creative Tech",
+    skills: ["AR & Unity Development", "Interactive UI/UX Experience Design"]
   }
 ];
 
