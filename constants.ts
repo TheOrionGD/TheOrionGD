@@ -125,10 +125,6 @@ export const SKILLS: SkillCategory[] = [
   {
     category: "Design & Creative Skills",
     skills: ["UI/UX Design", "Design Systems", "Wireframing & Prototyping", "Cyber-Tech Themed Interface Design", "Presentation & Visual Branding"]
-  },
-  {
-    category: "Areas of Interest",
-    skills: ["Artificial Intelligence", "Cybersecurity", "Health-Tech Innovation", "XR & Immersive Computing", "Smart Wearable Technologies", "Full Stack Development", "Human-Centered Technology Systems"]
   }
 ];
 
