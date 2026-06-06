@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 const roles = [
   { prefix: "Full Stack", suffix: " Systems Engineer" },
+  { prefix: "Next-Gen", suffix: " Software Engineer" },
   { prefix: "AI", suffix: " Solutions Developer" },
   { prefix: "Full Stack", suffix: " Architect" },
   { prefix: "Creative", suffix: " Technologist" },
@@ -13,7 +14,6 @@ const roles = [
   { prefix: "Human-Centered", suffix: " Innovator" },
   { prefix: "Cyber", suffix: " Interface Engineer" },
   { prefix: "Visionary", suffix: " Problem Solver" },
-  { prefix: "Next-Gen", suffix: " Software Engineer" },
   { prefix: "Interactive", suffix: " Systems Developer" }
 ];
 
