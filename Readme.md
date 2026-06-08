@@ -59,7 +59,7 @@ I believe in writing code that is not just functional, but architectural. My cor
 
 I have engineered a high-impact, interactive 3D portfolio to showcase my engineering achievements through a cutting-edge WebGL experience.
 
-> 🔗 **Live Demo:** [OrionGD 3D Portfolio](https://gds-portfolio.vercel.app/)  
+> 🔗 **Live Demo:** [Portfolio](https://gds-portfolio.vercel.app/)  
 > 🛠️ **Architecture:** Built with **React**, **Three.js** (@react-three/fiber & drei), and **Vite**.  
 > ✨ **Highlights:** Real-world WebGL integration, performance-aware frontend engineering, interactive camera controls.
 
@@ -98,33 +98,33 @@ Designed and deployed a secure desktop application to streamline hostel attendan
 ## 📊 Neural Network Analytics
 
 <div align="center">
-  <img src="https://img.shields.io/github/followers/OrionGD?style=for-the-badge&logo=github&color=06b6d4&labelColor=020617" alt="Followers" />
+  <img src="https://img.shields.io/github/followers/TheOrionGD?style=for-the-badge&logo=github&color=06b6d4&labelColor=020617" alt="Followers" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=OrionGD&theme=tokyonight&no-bg=true&no-frame=true&margin-w=15" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=TheOrionGD&theme=tokyonight&no-bg=true&no-frame=true&margin-w=15" alt="GitHub Trophies" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=OrionGD&theme=tokyonight" alt="GitHub Stats" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=OrionGD&theme=tokyonight" alt="Top Languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=TheOrionGD&theme=tokyonight" alt="GitHub Stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=TheOrionGD&theme=tokyonight" alt="Top Languages" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=OrionGD&theme=tokyonight&hide_border=true&title_color=06b6d4&icon_color=3b82f6&ring=06b6d4&fire=06b6d4" alt="GitHub Streak" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=OrionGD&theme=tokyonight" alt="Productive Time" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=TheOrionGD&theme=tokyonight&hide_border=true&title_color=06b6d4&icon_color=3b82f6&ring=06b6d4&fire=06b6d4" alt="GitHub Streak" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=TheOrionGD&theme=tokyonight" alt="Productive Time" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=OrionGD&theme=react-dark&hide_border=true&color=06b6d4" alt="Activity Graph" width="100%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=TheOrionGD&theme=react-dark&hide_border=true&color=06b6d4" alt="Activity Graph" width="100%" />
 </div>
 
 ---
@@ -177,9 +177,4 @@ Designed and deployed a secure desktop application to streamline hostel attendan
 </a>
 
 <br><br><br>
-
-
-
 </div>
-
-
