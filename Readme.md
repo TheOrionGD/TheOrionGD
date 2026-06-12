@@ -4,15 +4,14 @@
 <br>
 
 <img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=500&size=20&duration=2500&pause=1000&color=67E8F9&center=true&vCenter=true&width=1100&lines=>_+INITIATING_NEURAL_LINK_...;>_+LOADING_XR_ENVIRONMENTS_...;>_+SYNTHESIZING_AI_ARCHITECTURES_...;>_+SYSTEM_STATUS:+OPTIMAL" />
-
 <br>
 
 *Architecting scalable systems, intelligent integrations, and immersive user experiences.*
 
 <br>
-
+<!--
 <img src="https://komarev.com/ghpvc/?username=OrionGD&label=PROFILE+VIEWS&color=06b6d4&style=for-the-badge" alt="Profile Views" />
-
+-->
 </div>
 
 ---
