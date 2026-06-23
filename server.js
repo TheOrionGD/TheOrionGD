@@ -3,7 +3,7 @@ import cors from 'cors';
 import { MongoClient, GridFSBucket } from 'mongodb';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ override: true });
 
 const app = express();
 app.use(cors());

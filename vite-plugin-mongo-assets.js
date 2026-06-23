@@ -19,7 +19,7 @@
 import { MongoClient, GridFSBucket } from 'mongodb';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ override: true });
 
 // ── Connection state (module-level singleton) ─────────────────────────────────
 let _client = null;
@@ -51,7 +51,7 @@ async function getBucket() {
     if (!uri)          throw new Error('[mongo-assets] CONNECTION_STRING is not set in .env');
     if (!databaseName) throw new Error('[mongo-assets] DATABASE_NAME is not set in .env');
 
-    console.log('\n[mongo-assets] Connecting to MongoDB...');
+    console.log('\n[mongo-assets] Connecting to MongoDB... URI length:', uri ? uri.length : 0, 'Starts with:', JSON.stringify(uri ? uri.substring(0, 15) : ''));
     _client = new MongoClient(uri, {
       connectTimeoutMS:       10_000,
       socketTimeoutMS:        45_000,
