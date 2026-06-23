@@ -105,7 +105,7 @@ const Contact: FC = () => {
   };
 
   return (
-    <footer id="contact" className="relative pt-24 md:pt-32 pb-12 overflow-hidden border-t border-border/10">
+    <footer id="contact" className="relative pt-8 md:pt-10 pb-6 overflow-hidden" style={{ borderTop: '1px solid rgba(99,102,241,0.12)' }}>
       {/* Background Decorative Element removed */}
 
       <div className="container mx-auto px-6 relative z-10">
@@ -114,41 +114,46 @@ const Contact: FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid lg:grid-cols-2 gap-12 lg:gap-24 mb-20"
+          className="grid lg:grid-cols-2 gap-12 lg:gap-24 mb-8 items-center"
         >
           {/* Left: Interactive Info */}
-          <div>
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-widest mb-6">
-              Let&apos;s Connect
-            </motion.div>
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-black text-text-primary mb-6 tracking-tight uppercase">
-              Ready to <span className="text-gradient">Collab?</span>
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-text-secondary text-base md:text-lg mb-12 max-w-md leading-relaxed opacity-80">
-              Whether you have a specific project in mind or just want to explore possibilities, I&apos;m always open to new adventures and technical challenges.
-            </motion.p>
+          <div className="flex flex-col justify-center gap-6">
+            <div>
+              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-4" style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.20)', color: '#4f46e5' }}>
+                Let&apos;s Connect
+              </motion.div>
+              <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-black mb-4 tracking-tight uppercase" style={{ color: '#0f172a' }}>
+                Ready to <span className="text-gradient">Collab?</span>
+              </motion.h2>
+              <motion.p variants={itemVariants} className="text-sm md:text-base mb-6 max-w-md leading-relaxed" style={{ color: '#64748b' }}>
+                Whether you have a specific project in mind or just want to explore possibilities, I&apos;m always open to new adventures and technical challenges.
+              </motion.p>
+            </div>
 
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Email Card */}
               <motion.div variants={itemVariants}>
                 <div
                   onClick={() => copyToClipboard(PERSONAL_INFO.email, 'email')}
-                  className="group relative flex items-center gap-4 p-4 sm:p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
+                  className="group relative flex items-center gap-3.5 p-3 sm:p-3.5 rounded-[1.25rem] cursor-pointer transition-all duration-300 overflow-hidden"
+                  style={{ background: 'rgba(255,255,255,0.85)', border: '1px solid rgba(99,102,241,0.10)', boxShadow: '0 2px 8px rgba(99,102,241,0.06)' }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.35)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.10)'}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500 flex-shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-base group-hover:scale-110 transition-all duration-500 flex-shrink-0" style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.15)', color: '#4f46e5' }}>
                     <FaEnvelope />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Direct Outreach</p>
-                    <p className="text-text-primary font-black text-xs sm:text-sm md:text-base tracking-tight truncate">{PERSONAL_INFO.email}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-widest mb-0.5" style={{ color: '#94a3b8' }}>Direct Outreach</p>
+                    <p className="font-black text-xs sm:text-sm tracking-tight truncate" style={{ color: '#0f172a' }}>{PERSONAL_INFO.email}</p>
                   </div>
                   <div className="ml-auto pr-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {copiedType === 'email' ? <FaCheck className="text-accent animate-bounce" /> : <FaCopy className="text-text-muted" />}
+                    {copiedType === 'email' ? <FaCheck className="animate-bounce" style={{ color: '#4f46e5' }} /> : <FaCopy style={{ color: '#94a3b8' }} />}
                   </div>
 
                   {/* Subtle Copied Toast */}
                   {copiedType === 'email' && (
-                    <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="absolute right-4 bottom-2 text-[10px] font-black text-accent uppercase tracking-tighter">Copied!</motion.div>
+                    <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="absolute right-4 bottom-2 text-[10px] font-black uppercase tracking-tighter" style={{ color: '#4f46e5' }}>Copied!</motion.div>
                   )}
                 </div>
               </motion.div>
@@ -157,29 +162,32 @@ const Contact: FC = () => {
               <motion.div variants={itemVariants}>
                 <div
                   onClick={() => copyToClipboard(PERSONAL_INFO.phone, 'phone')}
-                  className="group relative flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-[2rem] glass border border-white/5 cursor-pointer hover:border-accent/40 transition-all duration-300 overflow-hidden"
+                  className="group relative flex items-center gap-3.5 p-3 sm:p-3.5 rounded-[1.25rem] cursor-pointer transition-all duration-300 overflow-hidden"
+                  style={{ background: 'rgba(255,255,255,0.85)', border: '1px solid rgba(99,102,241,0.10)', boxShadow: '0 2px 8px rgba(99,102,241,0.06)' }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.35)'}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = 'rgba(99,102,241,0.10)'}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-accent text-xl group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500 flex-shrink-0">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-base group-hover:scale-110 transition-all duration-500 flex-shrink-0" style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.15)', color: '#4f46e5' }}>
                     <FaPhone />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Quick Call</p>
-                    <p className="text-text-primary font-black text-xs sm:text-sm md:text-base tracking-tight">{PERSONAL_INFO.phone}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-widest mb-0.5" style={{ color: '#94a3b8' }}>Quick Call</p>
+                    <p className="font-black text-xs sm:text-sm tracking-tight" style={{ color: '#0f172a' }}>{PERSONAL_INFO.phone}</p>
                   </div>
                   <div className="ml-auto pr-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {copiedType === 'phone' ? <FaCheck className="text-accent animate-bounce" /> : <FaCopy className="text-text-muted" />}
+                    {copiedType === 'phone' ? <FaCheck className="animate-bounce" style={{ color: '#4f46e5' }} /> : <FaCopy style={{ color: '#94a3b8' }} />}
                   </div>
                 </div>
               </motion.div>
 
               {/* Location */}
-              <motion.div variants={itemVariants} className="flex items-center gap-4 sm:gap-5 p-4 sm:p-5">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl glass-dark border border-white/5 flex items-center justify-center text-text-muted text-xl flex-shrink-0">
+              <motion.div variants={itemVariants} className="flex items-center gap-3.5 p-3 sm:p-3.5">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-base flex-shrink-0" style={{ background: 'rgba(15,23,42,0.05)', border: '1px solid rgba(15,23,42,0.10)', color: '#94a3b8' }}>
                   <FaMapMarkerAlt />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-1">Based In</p>
-                  <p className="text-text-secondary font-black text-xs sm:text-sm md:text-base tracking-tight uppercase opacity-60 truncate">{PERSONAL_INFO.location}</p>
+                  <p className="text-[9px] font-bold uppercase tracking-widest mb-0.5" style={{ color: '#94a3b8' }}>Based In</p>
+                  <p className="font-black text-xs sm:text-sm tracking-tight uppercase truncate" style={{ color: '#64748b' }}>{PERSONAL_INFO.location}</p>
                 </div>
               </motion.div>
             </div>
@@ -187,27 +195,27 @@ const Contact: FC = () => {
 
           {/* Right: Modern Contact Form */}
           <motion.div variants={itemVariants} className="relative">
-            <div className="p-5 sm:p-8 md:p-12 rounded-[2.5rem] glass-dark border border-white/10 shadow-2xl relative overflow-hidden group">
-              {/* Animated Border Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/5 transition-opacity group-hover:opacity-100 opacity-50" />
+            <div className="p-4 sm:p-5 md:p-6 rounded-[1.5rem] relative overflow-hidden group"
+              style={{ background: 'rgba(255,255,255,0.92)', border: '1px solid rgba(99,102,241,0.12)', boxShadow: '0 6px 24px rgba(99,102,241,0.08)', backdropFilter: 'blur(20px)' }}>
+              <div className="absolute inset-0 opacity-50 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.03), transparent, rgba(124,58,237,0.03))' }} />
 
-              <form className="relative z-10 space-y-6 md:space-y-8" onSubmit={handleSubmit}>
+              <form className="relative z-10 space-y-3.5 md:space-y-4" onSubmit={handleSubmit}>
                 <input type="hidden" name="subject" value="New Portfolio Message" />
                 <input type="hidden" name="from_name" value="Portfolio Contact Form" />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-text-muted ml-1">Identity</label>
-                    <input name="name" type="text" placeholder="Full Name" required className="w-full glass-dark border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all font-bold placeholder:text-white/10 uppercase text-xs" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-[9px] font-black uppercase tracking-widest ml-1" style={{ color: '#94a3b8' }}>Identity</label>
+                    <input name="name" type="text" placeholder="Full Name" required className="w-full rounded-xl px-3.5 py-2.5 focus:outline-none transition-all font-bold uppercase text-xs" style={{ background: 'rgba(248,249,251,1)', border: '1px solid rgba(99,102,241,0.15)', color: '#0f172a' }} onFocus={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.50)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(99,102,241,0.10)'; }} onBlur={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.15)'; e.currentTarget.style.boxShadow = 'none'; }} />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-text-muted ml-1">E-Mail</label>
-                    <input name="email" type="email" placeholder="example@domain.com" required className="w-full glass-dark border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all font-bold placeholder:text-white/10 uppercase text-xs" />
+                  <div className="space-y-1.5">
+                    <label className="text-[9px] font-black uppercase tracking-widest ml-1" style={{ color: '#94a3b8' }}>E-Mail</label>
+                    <input name="email" type="email" placeholder="example@domain.com" required className="w-full rounded-xl px-3.5 py-2.5 focus:outline-none transition-all font-bold uppercase text-xs" style={{ background: 'rgba(248,249,251,1)', border: '1px solid rgba(99,102,241,0.15)', color: '#0f172a' }} onFocus={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.50)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(99,102,241,0.10)'; }} onBlur={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.15)'; e.currentTarget.style.boxShadow = 'none'; }} />
                   </div>
                 </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-text-muted ml-1">Your Vision</label>
-                  <textarea name="message" rows={4} placeholder="Describe your project or ideas..." required className="w-full glass-dark border border-white/5 rounded-2xl px-6 py-4 text-text-primary focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/40 transition-all resize-none font-bold placeholder:text-white/10 uppercase text-xs"></textarea>
+                <div className="space-y-1.5">
+                  <label className="text-[9px] font-black uppercase tracking-widest ml-1" style={{ color: '#94a3b8' }}>Your Vision</label>
+                  <textarea name="message" rows={3} placeholder="Describe your project or ideas..." required className="w-full rounded-xl px-3.5 py-2.5 focus:outline-none transition-all resize-none font-bold uppercase text-xs" style={{ background: 'rgba(248,249,251,1)', border: '1px solid rgba(99,102,241,0.15)', color: '#0f172a' }} onFocus={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.50)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(99,102,241,0.10)'; }} onBlur={e => { e.currentTarget.style.borderColor = 'rgba(99,102,241,0.15)'; e.currentTarget.style.boxShadow = 'none'; }}></textarea>
                 </div>
 
                 <motion.button
@@ -215,10 +223,8 @@ const Contact: FC = () => {
                   disabled={isSubmitting}
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                  className={`group relative w-full py-5 rounded-2xl font-black text-xs uppercase tracking-[0.4em] transition-all overflow-hidden shadow-2xl ${isSubmitting
-                      ? 'bg-accent/40 cursor-wait'
-                      : 'bg-signature neon-glow-red shadow-accent/40'
-                    }`}
+                  className={`group relative w-full py-2.5 rounded-xl font-black text-xs uppercase tracking-[0.4em] transition-all overflow-hidden ${isSubmitting ? 'cursor-wait' : 'hover:scale-[1.02]'}`}
+                  style={{ background: isSubmitting ? 'rgba(99,102,241,0.5)' : 'linear-gradient(135deg, #6366f1, #7c3aed)', boxShadow: '0 4px 12px rgba(99,102,241,0.25)' }}
                 >
                   <motion.div
                     initial={false}
@@ -248,27 +254,34 @@ const Contact: FC = () => {
 
             {/* Magnetic Socials Section */}
             <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6 px-4 md:px-0">
-              {SOCIAL_LINKS.map((social, index) => (
-                <MagneticElement key={index}>
-                  <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-14 h-14 md:w-16 md:h-16 rounded-2xl glass glass border border-white/5 flex items-center justify-center text-text-muted hover:border-accent/60 hover:text-accent hover:shadow-xl hover:shadow-accent/20 transition-all duration-300 group"
-                    title={social.label}
-                  >
-                    <social.icon size={24} className="group-hover:scale-110 transition-transform" />
-                  </a>
-                </MagneticElement>
-              ))}
             </div>
           </motion.div>
         </motion.div>
 
         {/* Footer Bottom */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-text-muted text-[10px] font-black uppercase tracking-widest text-center md:text-left">
-            &copy; {new Date().getFullYear()} <span className="text-text-secondary">Godfrey T R</span>. Built with curiosity and consistency.
+        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-6" style={{ borderTop: '1px solid rgba(99,102,241,0.10)' }}>
+          {/* Magnetic Socials Section */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6">
+            {SOCIAL_LINKS.map((social, index) => (
+              <MagneticElement key={index}>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group"
+                  style={{ background: 'rgba(255,255,255,0.80)', border: '1px solid rgba(99,102,241,0.12)', color: '#64748b' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(99,102,241,0.45)'; el.style.color = '#4f46e5'; el.style.boxShadow = '0 4px 12px rgba(99,102,241,0.15)'; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(99,102,241,0.12)'; el.style.color = '#64748b'; el.style.boxShadow = 'none'; }}
+                  title={social.label}
+                >
+                  <social.icon size={18} className="group-hover:scale-110 transition-transform" />
+                </a>
+              </MagneticElement>
+            ))}
+          </div>
+
+          <p className="text-[10px] font-black uppercase tracking-widest text-center md:text-right" style={{ color: '#94a3b8' }}>
+            &copy; {new Date().getFullYear()} <span style={{ color: '#334155' }}>Godfrey T R</span>. Built with curiosity and consistency.
           </p>
         </div>
       </div>

@@ -5,6 +5,9 @@ export interface Project {
   description: string;
   github?: string;
   demo?: string;
+  problemStatement?: string;
+  deliverables?: string[];
+  specifications?: string[];
 }
 
 export interface Experience {
@@ -43,4 +46,5 @@ export interface CertificateFile {
   category: string;
   issuer: string;
   tag?: string;
+  summary?: string;
 }

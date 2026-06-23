@@ -62,14 +62,15 @@ const Leadership: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6"
+            style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.20)', color: '#4f46e5' }}>
             <FaUsers className="animate-pulse" /> Section 09
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-text-primary mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight" style={{ color: '#0f172a' }}>
             Leadership &amp; <span className="text-gradient uppercase tracking-tighter">Community Impact</span>
           </h2>
-          <div className="w-24 h-1.5 bg-signature mx-auto rounded-full mb-6 shadow-lg shadow-accent/20"></div>
-          <p className="text-text-secondary max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <div className="w-24 h-1.5 mx-auto rounded-full mb-6" style={{ background: 'linear-gradient(90deg, #6366f1, #7c3aed)', boxShadow: '0 2px 12px rgba(99,102,241,0.25)' }}></div>
+          <p className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed" style={{ color: '#64748b' }}>
             Fostering technical ecosystems, mentoring next-generation engineers, and executing civic service initiatives.
           </p>
         </motion.div>
@@ -86,25 +87,28 @@ const Leadership: React.FC = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="flex flex-col relative group pt-6 border-t border-white/10"
+              className="flex flex-col relative group pt-6"
+              style={{ borderTop: '1px solid rgba(99,102,241,0.15)' }}
             >
               {/* Thin neon active top-line indicator */}
-              <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[1.5px] bg-accent transition-all duration-500" />
+              <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[1.5px] transition-all duration-500 rounded-full"
+                style={{ background: 'linear-gradient(90deg, #6366f1, #7c3aed)' }} />
 
               <div className="flex justify-between items-center mb-4 select-none">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
+                    style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.20)' }}>
                     <lead.icon className="text-accent text-lg" />
                   </div>
-                  <span className="text-[10px] font-black text-accent uppercase tracking-widest">{lead.badge}</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: '#4f46e5' }}>{lead.badge}</span>
                 </div>
               </div>
 
-              <h3 className="text-xl font-black text-text-primary mb-4 uppercase tracking-tight group-hover:text-gradient transition-all duration-300">
+              <h3 className="text-xl font-black mb-4 uppercase tracking-tight transition-all duration-300" style={{ color: '#0f172a' }}>
                 {lead.title}
               </h3>
               
-              <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#334155' }}>
                 {lead.desc}
               </p>
             </motion.div>

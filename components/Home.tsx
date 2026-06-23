@@ -6,7 +6,6 @@ import Skills from './Skills'; // 03. Technical Arsenal (Skills)
 import CodingProfiles from './CodingProfiles'; // 03b. Coding Ecosystem
 import AIProjects from './AIProjects'; // 04. Featured AI Innovations
 import ImmersiveSystems from './ImmersiveSystems'; // 05. Immersive System Building Experiences
-import ScalableSystems from './ScalableSystems'; // 06. Full-Stack & Scalable Systems
 import Experience from './Experience'; // 07. Professional Experience (Internships)
 import Hackathons from './Hackathons'; // 08. Hackathons & Competitions (includes Marquee Gallery)
 import Leadership from './Leadership'; // 09. Leadership & Community Impact
@@ -25,7 +24,6 @@ const Home: React.FC = () => {
         <CodingProfiles />
         <AIProjects />
         <ImmersiveSystems />
-        <ScalableSystems />
         <Experience />
         <Hackathons />
         <Leadership />

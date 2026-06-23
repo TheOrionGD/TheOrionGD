@@ -49,7 +49,7 @@ const FullGallery: FC = () => {
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 glass py-4"
+        className="sticky top-0 left-0 right-0 z-50 glass py-4"
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
@@ -73,7 +73,7 @@ const FullGallery: FC = () => {
       </motion.div>
 
       {/* Gallery Content */}
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-6 pt-16 pb-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

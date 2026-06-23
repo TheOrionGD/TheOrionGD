@@ -32,11 +32,11 @@ const NeonGridBackground: FC = () => {
 
   // Spawn dynamic stardust particles
   const spawnParticles = (w: number, h: number, count: number) => {
-    if (particles.current.length > 0) return; // Prevent recreating particles on mobile scroll resizing
+    if (particles.current.length > 0) return;
     const arr: Particle[] = [];
     for (let i = 0; i < count; i++) {
       const radius = 1 + Math.random() * 2.2;
-      const baseAlpha = 0.2 + Math.random() * 0.55;
+      const baseAlpha = 0.15 + Math.random() * 0.40;
       arr.push({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -52,7 +52,6 @@ const NeonGridBackground: FC = () => {
   };
 
   useEffect(() => {
-    // If mobile state is null, wait for client-side viewport check
     if (isMobileState === null) return;
 
     const canvas = canvasRef.current!;
@@ -92,19 +91,18 @@ const NeonGridBackground: FC = () => {
 
       ctx.clearRect(0, 0, w, h);
 
-      // ── 1. Pitch-Black Gradient Safeguard ──────────────────────────────────
-      // Instead of flat pitch black, we draw an ultra-rich deep burgundy radial glow
-      const bg = ctx.createRadialGradient(w * 0.5, h * 0.35, 0, w * 0.5, h * 0.35, Math.max(w, h) * 0.9);
-      bg.addColorStop(0, '#220000'); // Inner deep warm crimson glow
-      bg.addColorStop(0.5, '#0e0000'); // Midway transition
-      bg.addColorStop(1, '#060000'); // Elegant near-black bounds
+      // ── 1. Light Pearl-White Background Gradient ───────────────────────────
+      const bg = ctx.createRadialGradient(w * 0.5, h * 0.3, 0, w * 0.5, h * 0.3, Math.max(w, h) * 0.95);
+      bg.addColorStop(0,   '#f0f4ff'); // soft lavender-white center
+      bg.addColorStop(0.5, '#f5f7fb'); // neutral off-white mid
+      bg.addColorStop(1,   '#f8f9fb'); // clean canvas edge
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
 
-      // ── 2. Ambient Mouse Glow spotlight ───────────────────────────────────
+      // ── 2. Ambient Mouse Glow (soft indigo spotlight) ─────────────────────
       if (mx > 0) {
-        const spotlight = ctx.createRadialGradient(mx, my, 0, mx, my, 220);
-        spotlight.addColorStop(0, 'rgba(255, 0, 0, 0.08)'); // Pure brand red ambient flare
+        const spotlight = ctx.createRadialGradient(mx, my, 0, mx, my, 260);
+        spotlight.addColorStop(0, 'rgba(99,102,241,0.07)');
         spotlight.addColorStop(1, 'transparent');
         ctx.fillStyle = spotlight;
         ctx.fillRect(0, 0, w, h);
@@ -112,22 +110,17 @@ const NeonGridBackground: FC = () => {
 
       const pts = particles.current;
 
-      // ── 3. Particle Movement & Constellations ──────────────────────────────
-      // Update particles first
+      // ── 3. Particle Movement & Constellations ─────────────────────────────
       pts.forEach((p) => {
-        // Move particle
         p.x += p.vx * p.speedMultiplier;
         p.y += p.vy * p.speedMultiplier;
 
-        // Bounce off screen boundaries
         if (p.x < 0 || p.x > w) p.vx *= -1;
         if (p.y < 0 || p.y > h) p.vy *= -1;
 
-        // Keep inside bounds
         p.x = Math.max(0, Math.min(w, p.x));
         p.y = Math.max(0, Math.min(h, p.y));
 
-        // Magnetic attraction when mouse is near
         if (mx > 0) {
           const dx = mx - p.x;
           const dy = my - p.y;
@@ -135,11 +128,10 @@ const NeonGridBackground: FC = () => {
           const pullRadius = 180;
 
           if (dist < pullRadius) {
-            // Smoothly pull particles toward the cursor
             const force = (pullRadius - dist) / pullRadius;
             p.x += (dx / dist) * force * 0.5;
             p.y += (dy / dist) * force * 0.5;
-            p.alpha = Math.min(1, p.baseAlpha + force * 0.45);
+            p.alpha = Math.min(0.75, p.baseAlpha + force * 0.4);
           } else {
             p.alpha = p.baseAlpha;
           }
@@ -148,8 +140,8 @@ const NeonGridBackground: FC = () => {
         }
       });
 
-      // Draw constellation connections between close particles
-      ctx.lineWidth = 0.55;
+      // Draw constellation connections — subtle indigo lines
+      ctx.lineWidth = 0.6;
       for (let i = 0; i < pts.length; i++) {
         for (let j = i + 1; j < pts.length; j++) {
           const p1 = pts[i];
@@ -157,8 +149,8 @@ const NeonGridBackground: FC = () => {
           const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
 
           if (dist < CONNECTION_LIMIT) {
-            const opacity = (1 - dist / CONNECTION_LIMIT) * 0.12 * Math.min(p1.alpha, p2.alpha);
-            ctx.strokeStyle = `rgba(255, 51, 51, ${opacity})`;
+            const opacity = (1 - dist / CONNECTION_LIMIT) * 0.18 * Math.min(p1.alpha, p2.alpha);
+            ctx.strokeStyle = `rgba(99,102,241,${opacity})`;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -167,18 +159,17 @@ const NeonGridBackground: FC = () => {
         }
       }
 
-      // Draw individual neural particles
+      // Draw individual particles — soft indigo dots
       ctx.save();
       pts.forEach((p) => {
-        ctx.fillStyle = `rgba(255, 102, 102, ${p.alpha})`;
+        ctx.fillStyle = `rgba(99,102,241,${p.alpha})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
 
-        // Very soft outer blur shadow for the larger particles
         if (p.radius > 1.8) {
-          ctx.shadowColor = 'rgba(255, 0, 0, 0.4)';
-          ctx.shadowBlur = 5;
+          ctx.shadowColor = 'rgba(99,102,241,0.3)';
+          ctx.shadowBlur = 4;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fill();

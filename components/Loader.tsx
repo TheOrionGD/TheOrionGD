@@ -9,7 +9,6 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Prevent scrolling while loading
     document.body.style.overflow = 'hidden';
     
     const duration = 2000;
@@ -25,7 +24,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         setTimeout(() => {
           document.body.style.overflow = '';
           onComplete();
-        }, 400); // Small pause at 100% before triggering exit
+        }, 400);
       }
     }, interval);
 
@@ -38,14 +37,16 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   return (
     <motion.div 
       key="loader"
-      exit={{ opacity: 0, backgroundColor: 'rgba(0,0,0,0)' }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#000103]"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
+      style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #f8f9fb 100%)' }}
     >
       <div className="flex flex-col items-center justify-center h-full pb-20">
         <motion.h1 
           layoutId="brandText"
-          className="text-4xl md:text-5xl font-bold text-white tracking-widest uppercase mb-8"
+          className="text-4xl md:text-5xl font-bold tracking-widest uppercase mb-8"
+          style={{ color: '#4f46e5' }}
         >
           OrionGD
         </motion.h1>
@@ -54,15 +55,27 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.3 }}
-          className="w-48 h-1 bg-white/20 rounded-full overflow-hidden"
+          className="w-48 h-1 rounded-full overflow-hidden"
+          style={{ background: 'rgba(99,102,241,0.15)' }}
         >
           <motion.div 
-            className="h-full bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+            className="h-full rounded-full"
+            style={{ background: 'linear-gradient(90deg, #6366f1, #7c3aed)', boxShadow: '0 0 10px rgba(99,102,241,0.5)' }}
             initial={{ width: '0%' }}
             animate={{ width: `${progress}%` }}
             transition={{ ease: "linear", duration: 0.02 }}
           />
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ delay: 0.3 }}
+          className="mt-6 text-xs font-bold uppercase tracking-widest"
+          style={{ color: '#64748b' }}
+        >
+          Loading Portfolio
+        </motion.p>
       </div>
     </motion.div>
   );

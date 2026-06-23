@@ -3,192 +3,188 @@
 
 :root {
   /* =========================================================
-     CORE BRAND PALETTE
+     CORE BRAND PALETTE — Indigo / Violet (Light Theme)
   ========================================================= */
 
-  --color-brand-50: #ffe5e5;
-  --color-brand-100: #ffcccc;
-  --color-brand-200: #ff9999;
-  --color-brand-300: #ff6666;
-  --color-brand-400: #ff3333;
-  --color-brand-500: #ff0000;
-  --color-brand-600: #cc0000;
-  --color-brand-700: #990000;
-  --color-brand-800: #660000;
-  --color-brand-900: #330000;
-  --color-brand-950: #240000;
+  --color-brand-50:  #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;  /* primary indigo */
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand-950: #1e1b4b;
 
   /* =========================================================
      TEXT COLORS
   ========================================================= */
 
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #ffcccc;
-  --color-text-muted: #ff9999;
-  --color-text-disabled: #e59a9a;
-  --color-text-dark: #330000;
+  --color-text-primary:   #0f172a;   /* slate-900 */
+  --color-text-secondary: #334155;   /* slate-700 */
+  --color-text-muted:     #64748b;   /* slate-500 */
+  --color-text-disabled:  #94a3b8;   /* slate-400 */
+  --color-text-dark:      #0f172a;
 
   /* =========================================================
      BACKGROUND COLORS
   ========================================================= */
 
-  --color-bg-primary: #240000;
-  --color-bg-secondary: #330000;
-  --color-bg-tertiary: #660000;
-  --color-bg-surface: #ffffff;
-  --color-bg-card: #fff5f5;
-  --color-bg-modal: #2a0000;
-  --color-bg-hover: #660000;
-  --color-bg-active: #990000;
-  --color-bg-disabled: #f2caca;
+  --color-bg-primary:   #f8f9fb;   /* off-white main canvas */
+  --color-bg-secondary: #f1f3f7;   /* slightly cooler section bands */
+  --color-bg-tertiary:  #e8eaf0;   /* borders / dividers */
+  --color-bg-surface:   #ffffff;   /* card surfaces */
+  --color-bg-card:      #ffffff;
+  --color-bg-modal:     #ffffff;
+  --color-bg-hover:     #eef2ff;   /* indigo-50 hover */
+  --color-bg-active:    #e0e7ff;   /* indigo-100 active */
+  --color-bg-disabled:  #f1f5f9;
 
   /* =========================================================
      BORDER COLORS
   ========================================================= */
 
-  --color-border-primary: #ff3333;
-  --color-border-secondary: #ff9999;
-  --color-border-muted: #ffcccc;
-  --color-border-dark: #660000;
-  --color-border-focus: #ff0000;
+  --color-border-primary:   #6366f1;  /* indigo */
+  --color-border-secondary: #a5b4fc;
+  --color-border-muted:     #e2e8f0;  /* slate-200 — default card border */
+  --color-border-dark:      #c7d2fe;
+  --color-border-focus:     #4f46e5;
 
   /* =========================================================
      BUTTON COLORS
   ========================================================= */
 
-  --color-button-primary: #ff0000;
-  --color-button-primary-hover: #cc0000;
-  --color-button-primary-active: #990000;
-  --color-button-primary-disabled: #e59a9a;
+  --color-button-primary:          #4f46e5;
+  --color-button-primary-hover:    #4338ca;
+  --color-button-primary-active:   #3730a3;
+  --color-button-primary-disabled: #a5b4fc;
 
-  --color-button-secondary: #ffcccc;
-  --color-button-secondary-hover: #ff9999;
-  --color-button-secondary-active: #ff6666;
-  --color-button-secondary-disabled: #e59a9a;
+  --color-button-secondary:          #e0e7ff;
+  --color-button-secondary-hover:    #c7d2fe;
+  --color-button-secondary-active:   #a5b4fc;
+  --color-button-secondary-disabled: #f1f5f9;
 
-  --color-button-tertiary: transparent;
-  --color-button-tertiary-hover: #ffe5e5;
-  --color-button-tertiary-active: #ffcccc;
-  --color-button-tertiary-border: #ff0000;
+  --color-button-tertiary:        transparent;
+  --color-button-tertiary-hover:  #eef2ff;
+  --color-button-tertiary-active: #e0e7ff;
+  --color-button-tertiary-border: #4f46e5;
 
   /* =========================================================
      ACCENT COLORS
   ========================================================= */
 
-  --color-accent-primary: #ff3333;
-  --color-accent-secondary: #ff6666;
-  --color-accent-soft: #ffcccc;
-  --color-accent-dark: #990000;
+  --color-accent-primary:   #6366f1;  /* indigo-500 */
+  --color-accent-secondary: #7c3aed;  /* violet-600 */
+  --color-accent-soft:      #c7d2fe;
+  --color-accent-dark:      #3730a3;
 
   /* =========================================================
      STATUS COLORS
   ========================================================= */
 
   --color-success: #16a34a;
-  --color-warning: #f59e0b;
-  --color-danger: #ff0000;
-  --color-error: #dc2626;
-  --color-info: #2563eb;
+  --color-warning: #d97706;
+  --color-danger:  #dc2626;
+  --color-error:   #dc2626;
+  --color-info:    #2563eb;
 
   /* =========================================================
      INPUT COLORS
   ========================================================= */
 
-  --color-input-bg: #ffffff;
-  --color-input-border: #ff9999;
-  --color-input-border-focus: #ff0000;
-  --color-input-placeholder: #cc9999;
-  --color-input-text: #330000;
+  --color-input-bg:             #ffffff;
+  --color-input-border:         #e2e8f0;
+  --color-input-border-focus:   #4f46e5;
+  --color-input-placeholder:    #94a3b8;
+  --color-input-text:           #0f172a;
 
   /* =========================================================
-     SIDEBAR COLORS
+     SIDEBAR / NAVBAR COLORS
   ========================================================= */
 
-  --color-sidebar-bg: #240000;
-  --color-sidebar-item: #ffcccc;
-  --color-sidebar-item-hover: #660000;
-  --color-sidebar-item-active: #990000;
-  --color-sidebar-text: #ffffff;
+  --color-sidebar-bg:          rgba(255,255,255,0.95);
+  --color-sidebar-item:        #334155;
+  --color-sidebar-item-hover:  #eef2ff;
+  --color-sidebar-item-active: #e0e7ff;
+  --color-sidebar-text:        #0f172a;
 
-  /* =========================================================
-     NAVBAR COLORS
-  ========================================================= */
-
-  --color-navbar-bg: #330000;
-  --color-navbar-border: #660000;
-  --color-navbar-text: #ffffff;
+  --color-navbar-bg:     rgba(255,255,255,0.85);
+  --color-navbar-border: #e2e8f0;
+  --color-navbar-text:   #0f172a;
 
   /* =========================================================
      TABLE COLORS
   ========================================================= */
 
-  --color-table-header: #660000;
-  --color-table-row: #fff5f5;
-  --color-table-row-hover: #ffe5e5;
-  --color-table-border: #ffcccc;
+  --color-table-header:    #eef2ff;
+  --color-table-row:       #ffffff;
+  --color-table-row-hover: #f8faff;
+  --color-table-border:    #e2e8f0;
 
   /* =========================================================
      SHADOWS
   ========================================================= */
 
-  --shadow-primary: 0 4px 12px rgba(255, 0, 0, 0.2);
-  --shadow-secondary: 0 4px 20px rgba(153, 0, 0, 0.25);
-  --shadow-card: 0 2px 10px rgba(51, 0, 0, 0.08);
+  --shadow-primary:   0 4px 20px rgba(99,102,241,0.15);
+  --shadow-secondary: 0 4px 24px rgba(124,58,237,0.12);
+  --shadow-card:      0 2px 12px rgba(15,23,42,0.06);
 
   /* =========================================================
      OVERLAY COLORS
   ========================================================= */
 
-  --color-overlay-dark: rgba(36, 0, 0, 0.75);
-  --color-overlay-light: rgba(255, 255, 255, 0.6);
+  --color-overlay-dark:  rgba(15,23,42,0.55);
+  --color-overlay-light: rgba(255,255,255,0.75);
 
   /* =========================================================
      LIGHTNESS / OPACITY SCALE
   ========================================================= */
 
   --opacity-disabled: 0.45;
-  --opacity-muted: 0.65;
-  --opacity-soft: 0.85;
-  --opacity-solid: 1;
+  --opacity-muted:    0.65;
+  --opacity-soft:     0.85;
+  --opacity-solid:    1;
 
   /* =========================================================
      INDUSTRIAL UI SPECIAL COLORS
   ========================================================= */
 
-  --color-kiosk-bg: #120000;
-  --color-kiosk-border: #990000;
-  --color-kiosk-glow: rgba(255, 0, 0, 0.35);
+  --color-kiosk-bg:     #f8f9fb;
+  --color-kiosk-border: #6366f1;
+  --color-kiosk-glow:   rgba(99,102,241,0.2);
 
-  --color-live-indicator: #ff3333;
-  --color-security-alert: #cc0000;
-  --color-geofence-warning: #ff6666;
+  --color-live-indicator:   #22c55e;
+  --color-security-alert:   #dc2626;
+  --color-geofence-warning: #f59e0b;
 
   /* =========================================================
      AI ASSISTANT COLORS
   ========================================================= */
 
-  --color-ai-bg: #2a0000;
-  --color-ai-message-user: #990000;
-  --color-ai-message-system: #ffe5e5;
-  --color-ai-border: #ff3333;
+  --color-ai-bg:             #eef2ff;
+  --color-ai-message-user:   #4f46e5;
+  --color-ai-message-system: #f8faff;
+  --color-ai-border:         #6366f1;
 }
 
 @theme {
-  --color-background-deep: var(--color-kiosk-bg);
+  --color-background-deep: #f1f3f7;
   --color-background:      var(--color-bg-primary);
-  --color-surface:         var(--color-bg-secondary);
-  --color-surface-card:    var(--color-bg-modal);
+  --color-surface:         var(--color-bg-surface);
+  --color-surface-card:    var(--color-bg-card);
   --color-surface-hover:   var(--color-bg-hover);
   
-  --color-border: var(--color-border-primary);
+  --color-border: var(--color-border-muted);
 
-  --color-text-primary: var(--color-text-primary);
+  --color-text-primary:   var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted: var(--color-text-muted);
+  --color-text-muted:     var(--color-text-muted);
 
-  --color-accent: var(--color-brand-500);
+  --color-accent:           var(--color-brand-500);
   --color-accent-secondary: var(--color-accent-secondary);
-  --color-accent-hover: var(--color-brand-600);
+  --color-accent-hover:     var(--color-brand-600);
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
@@ -207,19 +203,19 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
   }
 
   body {
-    @apply text-text-primary font-sans antialiased;
+    @apply font-sans antialiased;
+    color: var(--color-text-primary);
     background: transparent;
     margin: 0;
     min-height: 100vh;
-    overflow-x: hidden; /* Belt-and-suspenders: prevent any stray overflow */
-    touch-action: manipulation; /* Remove 300ms tap delay on mobile */
+    overflow-x: hidden;
+    touch-action: manipulation;
   }
 
-  /* Prevent flex/grid children from bursting out of containers */
   *, *::before, *::after {
     min-width: 0;
   }
@@ -231,23 +227,32 @@
   
   /* Hide scrollbar for IE, Edge and Firefox */
   html, body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 /* Utilities */
 @layer utilities {
+  /* Light frosted glass — white/warm for light backgrounds */
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(99,102,241,0.10);
   }
-  
+
+  /* Stronger frosted white panel */
   .glass-dark {
-    @apply bg-black/30 backdrop-blur-xl border border-white/5;
+    background: rgba(255,255,255,0.90);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(99,102,241,0.12);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-linear-135 from-accent to-accent-secondary;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #6366f1, #7c3aed);
   }
 
   .neon-glow-red {
@@ -255,11 +260,11 @@
   }
 
   .bg-signature {
-    background: linear-gradient(135deg, var(--color-brand-500), var(--color-accent-secondary));
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
   }
 
   .bg-glow-gradient {
-    background: linear-gradient(135deg, var(--color-brand-500), var(--color-accent-secondary), var(--color-brand-600));
+    background: linear-gradient(135deg, #6366f1, #7c3aed, #4f46e5);
   }
 
   .animate-float {

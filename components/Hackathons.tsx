@@ -147,14 +147,15 @@ const Hackathons: FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-[10px] font-black uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6"
+            style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.20)', color: '#4f46e5' }}>
             <FaTrophy className="animate-pulse" /> Section 08
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-text-primary mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight" style={{ color: '#0f172a' }}>
             Hackathons &amp; <span className="text-gradient uppercase tracking-tighter">Competitions</span>
           </h2>
-          <div className="w-24 h-1.5 bg-signature mx-auto rounded-full mb-6" />
-          <p className="text-text-secondary max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <div className="w-24 h-1.5 mx-auto rounded-full mb-6" style={{ background: 'linear-gradient(90deg, #6366f1, #7c3aed)' }} />
+          <p className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed" style={{ color: '#64748b' }}>
             Demonstrating rapid prototyping, competitive drive, algorithmic efficiency, and fast cross-functional collaborative delivery.
           </p>
         </motion.div>
@@ -170,23 +171,26 @@ const Hackathons: FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex flex-col relative group pt-6 border-t border-white/10"
+              className="flex flex-col relative group pt-6"
+              style={{ borderTop: '1px solid rgba(99,102,241,0.15)' }}
             >
               {/* Thin neon active top-line indicator */}
-              <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[1.5px] bg-accent transition-all duration-500" />
+              <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[1.5px] transition-all duration-500 rounded-full"
+                style={{ background: 'linear-gradient(90deg, #6366f1, #7c3aed)' }} />
 
               <div className="flex items-center gap-4 mb-4 select-none">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
+                  style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.20)' }}>
                   <ach.icon className="text-accent text-lg" />
                 </div>
-                <span className="text-[10px] font-black text-accent uppercase tracking-widest">{ach.role}</span>
+                <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: '#4f46e5' }}>{ach.role}</span>
               </div>
 
-              <h3 className="text-xl font-black text-text-primary mb-4 uppercase tracking-tight group-hover:text-gradient transition-all duration-300">
+              <h3 className="text-xl font-black mb-4 uppercase tracking-tight transition-all duration-300" style={{ color: '#0f172a' }}>
                 {ach.title}
               </h3>
 
-              <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#334155' }}>
                 {ach.desc}
               </p>
             </motion.div>
@@ -195,11 +199,12 @@ const Hackathons: FC = () => {
       </div>
 
       {/* Interactive Drag Gallery Strip */}
-      <div className="relative w-full overflow-hidden py-10 glass-dark border-y border-border shadow-inner select-none">
-        <div className="absolute inset-y-0 left-0 w-20 md:w-40 z-10 bg-gradient-to-r from-background-deep to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-20 md:w-40 z-10 bg-gradient-to-l from-background-deep to-transparent pointer-events-none" />
+      <div className="relative w-full overflow-hidden py-10 border-y select-none"
+        style={{ background: 'rgba(255,255,255,0.60)', borderColor: 'rgba(99,102,241,0.10)', backdropFilter: 'blur(8px)' }}>
+        <div className="absolute inset-y-0 left-0 w-20 md:w-40 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #f8f9fb, transparent)' }} />
+        <div className="absolute inset-y-0 right-0 w-20 md:w-40 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #f8f9fb, transparent)' }} />
 
-        <p className="text-center text-[10px] font-black text-text-muted uppercase tracking-widest opacity-60 mb-6 flex items-center justify-center gap-2">
+        <p className="text-center text-[10px] font-black uppercase tracking-widest opacity-50 mb-6 flex items-center justify-center gap-2" style={{ color: '#94a3b8' }}>
           <span>←</span> DRAG TO EXPLORE GALLERY <span>→</span>
         </p>
 
@@ -213,7 +218,8 @@ const Hackathons: FC = () => {
           {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((img, index) => (
             <div
               key={index}
-              className="relative flex-shrink-0 w-64 h-48 sm:w-72 sm:h-52 md:w-[26rem] md:h-64 rounded-3xl overflow-hidden shadow-2xl border border-white/5 hover:border-accent/30 transition-all duration-500 group/item"
+              className="relative flex-shrink-0 w-64 h-48 sm:w-72 sm:h-52 md:w-[26rem] md:h-64 rounded-3xl overflow-hidden shadow-xl transition-all duration-500 group/item"
+              style={{ border: '1px solid rgba(99,102,241,0.10)' }}
             >
               <img
                 src={encodeUrl(img.src)}
@@ -222,8 +228,9 @@ const Hackathons: FC = () => {
                 draggable={false}
                 className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-700 pointer-events-none"
               />
-              <div className="absolute inset-x-3 bottom-3 p-3 glass border border-white/10 rounded-xl opacity-0 group-hover/item:opacity-100 translate-y-2 group-hover/item:translate-y-0 transition-all duration-300 pointer-events-none">
-                <p className="text-text-primary text-[10px] font-black uppercase tracking-widest line-clamp-1">{img.alt}</p>
+              <div className="absolute inset-x-3 bottom-3 p-3 rounded-xl opacity-0 group-hover/item:opacity-100 translate-y-2 group-hover/item:translate-y-0 transition-all duration-300 pointer-events-none"
+                style={{ background: 'rgba(255,255,255,0.90)', border: '1px solid rgba(99,102,241,0.15)', backdropFilter: 'blur(8px)' }}>
+                <p className="text-[10px] font-black uppercase tracking-widest line-clamp-1" style={{ color: '#0f172a' }}>{img.alt}</p>
               </div>
             </div>
           ))}
@@ -240,7 +247,8 @@ const Hackathons: FC = () => {
         >
           <Link
             to="/gallery"
-            className="group inline-flex items-center gap-4 px-12 py-5 bg-signature text-white rounded-full font-black text-xs uppercase tracking-widest hover:shadow-2xl hover:shadow-accent/30 transition-all active:scale-95"
+            className="group inline-flex items-center gap-4 px-12 py-5 text-white rounded-full font-black text-xs uppercase tracking-widest transition-all active:scale-95 hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, #6366f1, #7c3aed)', boxShadow: '0 4px 20px rgba(99,102,241,0.30)' }}
           >
             <FaImages className="text-lg group-hover:rotate-12 transition-transform" />
             Full Event Gallery

@@ -8,6 +8,9 @@ import {
   FaFileAlt, FaDownload, FaImage, FaChevronLeft, FaChevronRight,
 } from 'react-icons/fa';
 
+// Display only top 25 certificates
+const DISPLAY_ARCHIVE = CERTIFICATE_ARCHIVE.slice(0, 25);
+
 // ── Colour maps ──────────────────────────────────────────────────────────────
 const CATEGORY_COLORS: Record<string, string> = {
   'Core Professional':   'from-yellow-500/20 to-amber-600/10 border-yellow-500/30 text-yellow-400',
@@ -54,6 +57,7 @@ interface ModalState {
   fileType: 'pdf' | 'image';
   pages: string[];   // empty = single page / PDF
   pageIndex: number;
+  summary?: string;
 }
 
 // ── Hover prefetch ────────────────────────────────────────────────────────────
@@ -90,12 +94,12 @@ const FullCertificates: FC = () => {
   }, []);
 
   const categories = useMemo(() => {
-    const cats = Array.from(new Set(CERTIFICATE_ARCHIVE.map(c => c.category)));
+    const cats = Array.from(new Set(DISPLAY_ARCHIVE.map(c => c.category)));
     return ['All', ...cats];
   }, []);
 
   const filtered = useMemo(() => {
-    return CERTIFICATE_ARCHIVE.filter(c => {
+    return DISPLAY_ARCHIVE.filter(c => {
       const matchCat  = activeCategory === 'All' || c.category === activeCategory;
       const matchSearch =
         c.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -119,7 +123,7 @@ const FullCertificates: FC = () => {
     const cert = filtered[index];
     const pages = cert.pages ?? [];
     const fileType = cert.fileType ?? (isImageFile(cert.file) ? 'image' : 'pdf');
-    setModal({ name: cert.name, file: cert.file, fileType, pages, pageIndex: 0 });
+    setModal({ name: cert.name, file: cert.file, fileType, pages, pageIndex: 0, summary: cert.summary });
   };
 
   const closeViewer = () => setModal(null);
@@ -146,7 +150,7 @@ const FullCertificates: FC = () => {
       <motion.div
         initial={{ y: -80 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 glass py-4 border-b border-white/5"
+        className="sticky top-0 left-0 right-0 z-50 glass py-4 border-b border-white/5"
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link
@@ -154,7 +158,8 @@ const FullCertificates: FC = () => {
             className="group flex items-center gap-3 px-4 py-2 rounded-xl glass-dark text-text-secondary hover:text-accent transition-all duration-300 hover:scale-105"
           >
             <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
-            <span className="font-bold text-[10px] md:text-sm uppercase tracking-widest">Back to Portfolio</span>
+            <span className="hidden sm:inline font-bold text-[10px] md:text-sm uppercase tracking-widest">Back to Portfolio</span>
+            <span className="sm:hidden font-bold text-[10px] uppercase tracking-widest">Back</span>
           </Link>
 
           <h1 className="text-lg md:text-2xl font-black text-gradient tracking-tight text-center flex-1 uppercase">
@@ -163,14 +168,14 @@ const FullCertificates: FC = () => {
 
           <div className="hidden md:flex w-40 justify-end">
             <span className="text-[10px] font-black text-accent/60 border border-accent/20 px-3 py-1 rounded-full uppercase tracking-widest">
-              {CERTIFICATE_ARCHIVE.length} Certs
+              {DISPLAY_ARCHIVE.length} Certs
             </span>
           </div>
         </div>
       </motion.div>
 
       {/* ── Page Content ── */}
-      <div className="container mx-auto px-6 pt-32 pb-24 relative z-10">
+      <div className="container mx-auto px-6 pt-16 pb-24 relative z-10">
 
         {/* Hero headline */}
         <motion.div
@@ -225,7 +230,7 @@ const FullCertificates: FC = () => {
                       : 'glass-dark border-white/10 text-text-secondary hover:border-accent/30 hover:text-text-primary'
                   }`}
                 >
-                  {cat === 'All' ? `All (${CERTIFICATE_ARCHIVE.length})` : cat}
+                  {cat === 'All' ? `All (${DISPLAY_ARCHIVE.length})` : cat}
                 </button>
               ))}
             </div>
@@ -242,7 +247,7 @@ const FullCertificates: FC = () => {
             transition={{ duration: 0.2 }}
             className="text-text-secondary text-xs font-black uppercase tracking-widest mb-6"
           >
-            Showing {filtered.length} of {CERTIFICATE_ARCHIVE.length} certificates
+            Showing {filtered.length} of {DISPLAY_ARCHIVE.length} certificates
           </motion.p>
         </AnimatePresence>
 
@@ -275,8 +280,7 @@ const FullCertificates: FC = () => {
                     scale:   { duration: 0.25, delay: staggerDelay },
                     layout:  { type: 'spring', stiffness: 350, damping: 30 },
                   }}
-                  className={`group relative flex flex-col rounded-2xl overflow-hidden border bg-gradient-to-br ${colorClass} glass backdrop-blur-md hover:shadow-xl hover:shadow-black/30 transition-all duration-400 cursor-pointer`}
-                  onClick={() => openViewer(index)}
+                  className={`group relative flex flex-col rounded-2xl overflow-hidden border bg-gradient-to-br ${colorClass} glass backdrop-blur-md hover:shadow-xl hover:shadow-black/30 transition-all duration-400 cursor-default`}
                   onMouseEnter={() => prefetchFile(cert.file)}
                 >
                   {/* Top accent strip */}
@@ -310,14 +314,22 @@ const FullCertificates: FC = () => {
                   </div>
 
                   {/* View button */}
-                  <div className="px-5 pb-5 pt-0 mt-auto">
+                  <div className="px-5 pb-5 pt-0 mt-auto relative z-30">
                     <button
-                      onClick={e => { e.stopPropagation(); openViewer(index); }}
+                      onClick={() => openViewer(index)}
                       className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl glass-dark border border-white/10 text-text-secondary text-[10px] font-black uppercase tracking-widest hover:border-accent/50 hover:text-accent group-hover:border-accent/40 transition-all duration-300"
                     >
                       <FaEye className="group-hover:scale-110 transition-transform" />
                       View Certificate
                     </button>
+                  </div>
+
+                  {/* Hover slide-up summary panel */}
+                  <div className="absolute inset-x-0 top-0 bottom-[72px] bg-black/95 p-5 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0 rounded-t-2xl z-20 overflow-y-auto">
+                    <div>
+                      <span className="text-[9px] font-black uppercase text-accent tracking-widest block mb-2">Credential Summary</span>
+                      <p className="text-xs leading-relaxed text-text-secondary select-none">{cert.summary || "No summary available"}</p>
+                    </div>
                   </div>
 
                   {/* Hover ring */}
@@ -396,66 +408,98 @@ const FullCertificates: FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.25 }}
-              className="flex-1 overflow-hidden p-4 flex flex-col gap-3"
+              className="flex-1 overflow-y-auto lg:overflow-hidden p-4 flex flex-col lg:flex-row gap-5"
               onClick={e => e.stopPropagation()}
             >
-              {/* ── Image viewer ── */}
-              {modal.fileType === 'image' ? (
-                <div className="flex-1 relative flex items-center justify-center overflow-hidden rounded-2xl bg-white/5 border border-white/10">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={currentPageUrl}
-                      src={currentPageUrl}
-                      alt={modal.name}
-                      initial={{ opacity: 0, scale: 0.96 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.96 }}
-                      transition={{ duration: 0.2 }}
-                      className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
-                    />
-                  </AnimatePresence>
+              {/* Document Container */}
+              <div className="w-full h-[55vh] lg:h-full flex-none lg:flex-1 flex flex-col gap-3 overflow-hidden">
+                {modal.fileType === 'image' ? (
+                  <div className="flex-1 relative flex items-center justify-center overflow-hidden rounded-2xl bg-white/5 border border-white/10">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={currentPageUrl}
+                        src={currentPageUrl}
+                        alt={modal.name}
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.96 }}
+                        transition={{ duration: 0.2 }}
+                        className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+                      />
+                    </AnimatePresence>
 
-                  {/* Prev / Next arrows for multi-page */}
-                  {modal.pages.length > 1 && (
-                    <>
-                      <button
-                        onClick={prevPage}
-                        className="absolute left-4 w-11 h-11 rounded-full glass-dark border border-white/10 flex items-center justify-center text-white hover:text-accent hover:border-accent/40 transition-all shadow-xl"
-                      >
-                        <FaChevronLeft />
-                      </button>
-                      <button
-                        onClick={nextPage}
-                        className="absolute right-4 w-11 h-11 rounded-full glass-dark border border-white/10 flex items-center justify-center text-white hover:text-accent hover:border-accent/40 transition-all shadow-xl"
-                      >
-                        <FaChevronRight />
-                      </button>
-                    </>
-                  )}
-                </div>
-              ) : (
-                /* ── PDF iframe ── */
-                <iframe
-                  src={encodePath(modal.file)}
-                  title={modal.name}
-                  className="flex-1 w-full rounded-2xl border border-white/10 bg-white"
-                />
-              )}
+                    {/* Prev / Next arrows for multi-page */}
+                    {modal.pages.length > 1 && (
+                      <>
+                        <button
+                          onClick={prevPage}
+                          className="absolute left-4 w-11 h-11 rounded-full glass-dark border border-white/10 flex items-center justify-center text-white hover:text-accent hover:border-accent/40 transition-all shadow-xl"
+                        >
+                          <FaChevronLeft />
+                        </button>
+                        <button
+                          onClick={nextPage}
+                          className="absolute right-4 w-11 h-11 rounded-full glass-dark border border-white/10 flex items-center justify-center text-white hover:text-accent hover:border-accent/40 transition-all shadow-xl"
+                        >
+                          <FaChevronRight />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                ) : (
+                  /* ── PDF iframe ── */
+                  <iframe
+                    src={encodePath(modal.file)}
+                    title={modal.name}
+                    className="flex-1 w-full rounded-2xl border border-white/10 bg-white"
+                  />
+                )}
 
-              {/* Page dot indicators for multi-page */}
-              {modal.pages.length > 1 && (
-                <div className="flex-none flex items-center justify-center gap-1.5 pb-1">
-                  {modal.pages.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setModal(m => m ? { ...m, pageIndex: i } : m)}
-                      className={`h-1.5 rounded-full transition-all duration-200 ${
-                        i === modal.pageIndex ? 'w-6 bg-accent' : 'w-1.5 bg-white/20 hover:bg-white/40'
-                      }`}
-                    />
-                  ))}
+                {/* Page dot indicators for multi-page */}
+                {modal.pages.length > 1 && (
+                  <div className="flex-none flex items-center justify-center gap-1.5 pb-1">
+                    {modal.pages.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setModal(m => m ? { ...m, pageIndex: i } : m)}
+                        className={`h-1.5 rounded-full transition-all duration-200 ${
+                          i === modal.pageIndex ? 'w-6 bg-accent' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Dialogue/Comment panel */}
+              <div className="w-full lg:w-96 flex-shrink-0 flex flex-col gap-5 p-6 rounded-2xl glass border border-white/10 backdrop-blur-md overflow-y-auto max-h-none lg:max-h-full">
+                <div className="flex items-center gap-2.5 border-b border-white/10 pb-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
+                  <h4 className="text-xs font-black uppercase text-text-primary tracking-widest">Metadata &amp; Verification</h4>
                 </div>
-              )}
+                <div className="flex flex-col gap-4">
+                  <div>
+                    <span className="text-[9px] font-black text-text-secondary uppercase tracking-widest">Credential Name</span>
+                    <p className="text-xs font-bold text-text-primary mt-1">{modal.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-black text-text-secondary uppercase tracking-widest">Domain / Category</span>
+                    <p className="text-xs font-bold text-text-primary mt-1">
+                      {DISPLAY_ARCHIVE.find(c => c.name === modal.name)?.category || "Professional Development"}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-black text-text-secondary uppercase tracking-widest">Issuer / Authority</span>
+                    <p className="text-xs font-bold text-text-primary mt-1">
+                      {DISPLAY_ARCHIVE.find(c => c.name === modal.name)?.issuer || "Verified Issuer"}
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 mt-2">
+                    <span className="text-[9px] font-black text-accent uppercase tracking-widest block mb-2">Verification Summary</span>
+                    <p className="text-xs leading-relaxed text-text-primary select-none">{modal.summary || "No summary available"}</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
