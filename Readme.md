@@ -1,143 +1,280 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0a0a,50:7f1d1d,100:ef4444&height=200&section=header&text=Godfrey%20T%20R&fontSize=52&fontColor=fff1f2&fontAlignY=38&desc=Full-Stack%20Engineer%20%C2%B7%20AI%20Integration%20%C2%B7%20XR%20Technologies&descSize=16&descAlignY=58&descColor=fecaca" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:052e16,50:166534,100:22c55e&height=250&section=header&text=Godfrey%20T%20R&fontSize=55&fontColor=dcfce7&fontAlignY=38&desc=AI%20Systems%20Architect%20%C2%B7%20Full-Stack%20Product%20Engineer%20%C2%B7%20XR%20Innovator&descSize=17&descAlignY=58&descColor=bbf7d0"/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=600&size=16&duration=2800&pause=800&color=4ADE80&center=true&vCenter=true&width=1000&lines=Building+AI-native+systems+that+scale.;Engineering+products+%E2%80%94+not+just+prototypes.;From+vector+search+to+spatial+computing." />
 
 <br>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/godfrey192607/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-ef4444?style=for-the-badge&logo=vercel&logoColor=white)](https://gds-portfolio.vercel.app)
-[![Email](https://img.shields.io/badge/Email-b91c1c?style=for-the-badge&logo=gmail&logoColor=white)](mailto:godfreytr.prof@gmail.com)
-
-<br>
-
-<img src="https://readme-typing-svg.demolab.com?font=Space+Mono&weight=500&size=15&duration=3000&pause=800&color=F87171&center=true&vCenter=true&width=900&lines=Building+systems+that+scale+%E2%80%94+not+just+systems+that+work.;LLMs+as+utilities%2C+not+accessories.;From+WebGL+environments+to+AR+spaces+%E2%80%94+I+build+for+depth." />
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-166534?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/godfrey192607/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-22c55e?style=for-the-badge&logo=vercel&logoColor=white)](https://gds-portfolio.vercel.app)
+[![Email](https://img.shields.io/badge/Email-15803d?style=for-the-badge&logo=gmail&logoColor=white)](mailto:godfreytr.prof@gmail.com)
+[![Visitors](https://komarev.com/ghpvc/?username=TheOrionGD&label=Profile%20Views&color=22c55e&style=for-the-badge)](https://github.com/TheOrionGD)
 
 </div>
 
 ---
 
-<table width="100%"><tr><td valign="top" width="60%">
+# `> boot_sequence`
 
-### `> whoami`
+```bash
+$ initialize_profile
 
-Software engineer building at the intersection of **scalable web systems**, **applied AI**, and **spatial computing**. I specialize in turning complex requirements into clean, performant architectures — whether that's an LLM-powered learning platform, a real-time comms hub, or an immersive AR experience.
+[✓] Loading AI Engineering Modules
+[✓] Loading Full Stack Architectures
+[✓] Loading XR Innovation Systems
+[✓] Loading Research Portfolio
+[✓] Loading Leadership Credentials
 
-- 🎓 &nbsp; B.E. Computer Science & Engineering
-- 📍 &nbsp; Tiruchirapalli, India
-- 💼 &nbsp; Open to new opportunities
-- 🔭 &nbsp; Currently deep in AI-native architectures & WebGL
-
-</td><td valign="top" width="40%">
-
-### `> principles`
-
-```
-⚡  Zero-Friction UX
-    Interfaces that feel invisible.
-
-⚙️  Scalable by Design
-    Modularity and RBAC from day one.
-
-🤖  AI as a Multiplier
-    LLMs solving real problems —
-    not window dressing.
+System Ready.
 ```
 
-</td></tr></table>
+---
+
+# `> whoami`
+
+Software engineer building at the intersection of:
+
+- **Artificial Intelligence**
+- **Scalable Distributed Systems**
+- **Spatial Computing / XR**
+
+I engineer products where **software architecture**, **intelligence**, and **experience design** converge.
+
+```yaml
+Name: Godfrey T R
+Degree: B.E Computer Science & Engineering
+College: K. Ramakrishnan College of Technology
+Location: Tamil Nadu, India
+Status: Open to Internships / Collaborations
+```
 
 ---
 
-### `> tech_stack --list`
+# `> system_metrics`
+
+| Metric | Value |
+|---|---:|
+| Production-grade Projects | 25+ |
+| Certifications | 80+ |
+| Patent Published | 1 |
+| Research Works | 2 |
+| Hackathon Awards | 4+ |
+| Leadership Roles | 8+ |
+| Club Memberships | 4 |
+| Internships | 3+ |
+
+---
+
+# `> core_domains`
+
+<table>
+<tr>
+<td width="33%">
+
+### 🧠 AI Engineering
+- LLM Integration  
+- RAG Pipelines  
+- Vector Search  
+- AI Agents  
+- NLP Systems  
+
+</td>
+<td width="33%">
+
+### ⚙ System Architecture
+- Full Stack Engineering  
+- APIs  
+- WebSockets  
+- RBAC  
+- Scalable Backend  
+
+</td>
+<td width="33%">
+
+### 🥽 XR Computing
+- ARCore  
+- Unity  
+- WebGL  
+- Spatial UX  
+- Immersive Learning  
+
+</td>
+</tr>
+</table>
+
+---
+
+# `> flagship_projects`
+
+## 🥽 ARgorithm
+```yaml
+Domain: XR Education
+Stack: Kotlin, ARCore, SceneView, Room DB
+Impact: Interactive AR algorithm visualization platform
+```
+
+## 🧠 EchoCortex
+```yaml
+Domain: AI Knowledge Systems
+Stack: RAG, LLMs, Vector Search
+Impact: Intelligent knowledge reasoning engine
+```
+
+## 🏥 EntityEase
+```yaml
+Domain: Clinical AI
+Stack: FastAPI, MongoDB, NLP
+Impact: Medical entity extraction & intelligence
+```
+
+## 🛡 AegisNet
+```yaml
+Domain: Cybersecurity
+Stack: Python, ML
+Impact: Intrusion detection platform
+```
+
+## 📚 ScholarAI
+```yaml
+Domain: Academic AI
+Stack: RAG, Semantic Search
+Impact: AI research assistant
+```
+
+---
+
+# `> AI_CORE_STATUS`
+
+🟢 Prompt Engine      | ONLINE
+🟢 LLM Runtime        | ONLINE
+🟢 RAG Engine         | ONLINE
+🟢 Agent Framework    | ONLINE
+🟢 Vector Index       | ONLINE
+🟡 NLP Processor      | OPTIMIZING
+🟡 ML Models          | TRAINING
+
+---
+
+# `> tech_stack`
+
+## Languages
+![Python](https://img.shields.io/badge/Python-052e16?style=for-the-badge&logo=python&logoColor=4ade80)
+![TypeScript](https://img.shields.io/badge/TypeScript-052e16?style=for-the-badge&logo=typescript&logoColor=4ade80)
+![Java](https://img.shields.io/badge/Java-052e16?style=for-the-badge&logo=openjdk&logoColor=4ade80)
+![Kotlin](https://img.shields.io/badge/Kotlin-052e16?style=for-the-badge&logo=kotlin&logoColor=4ade80)
+![C#](https://img.shields.io/badge/CSharp-052e16?style=for-the-badge&logo=csharp&logoColor=4ade80)
+
+## Frontend
+![React](https://img.shields.io/badge/React-052e16?style=for-the-badge&logo=react&logoColor=4ade80)
+![Next.js](https://img.shields.io/badge/Next.js-052e16?style=for-the-badge&logo=next.js&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-052e16?style=for-the-badge&logo=tailwind-css&logoColor=4ade80)
+![ThreeJS](https://img.shields.io/badge/Three.js-052e16?style=for-the-badge&logo=three.js&logoColor=white)
+
+## Backend
+![FastAPI](https://img.shields.io/badge/FastAPI-052e16?style=for-the-badge&logo=fastapi&logoColor=4ade80)
+![Node](https://img.shields.io/badge/Node.js-052e16?style=for-the-badge&logo=node.js&logoColor=4ade80)
+![Express](https://img.shields.io/badge/Express-052e16?style=for-the-badge&logo=express&logoColor=white)
+
+## Databases
+![MongoDB](https://img.shields.io/badge/MongoDB-052e16?style=for-the-badge&logo=mongodb&logoColor=4ade80)
+![MySQL](https://img.shields.io/badge/MySQL-052e16?style=for-the-badge&logo=mysql&logoColor=4ade80)
+![Redis](https://img.shields.io/badge/Redis-052e16?style=for-the-badge&logo=redis&logoColor=4ade80)
+
+## AI / ML
+![PyTorch](https://img.shields.io/badge/PyTorch-052e16?style=for-the-badge&logo=pytorch&logoColor=4ade80)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-052e16?style=for-the-badge&logo=tensorflow&logoColor=4ade80)
+
+---
+
+# `> github_analytics`
 
 <div align="center">
 
-**Languages**
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=TheOrionGD&theme=github_dark" height="170"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=TheOrionGD&theme=github_dark" height="170"/>
 
-![TypeScript](https://img.shields.io/badge/TypeScript-1a0a0a?style=for-the-badge&logo=typescript&logoColor=f87171)
-![JavaScript](https://img.shields.io/badge/JavaScript-1a0a0a?style=for-the-badge&logo=javascript&logoColor=fbbf24)
-![Python](https://img.shields.io/badge/Python-1a0a0a?style=for-the-badge&logo=python&logoColor=f87171)
-![Java](https://img.shields.io/badge/Java-1a0a0a?style=for-the-badge&logo=openjdk&logoColor=fca5a5)
-![C#](https://img.shields.io/badge/C%23-1a0a0a?style=for-the-badge&logo=csharp&logoColor=f87171)
-![Dart](https://img.shields.io/badge/Dart-1a0a0a?style=for-the-badge&logo=dart&logoColor=fca5a5)
-![Kotlin](https://img.shields.io/badge/Kotlin-1a0a0a?style=for-the-badge&logo=kotlin&logoColor=f87171)
+<br>
 
-**Frontend**
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=TheOrionGD&theme=dark&hide_border=true&ring=22c55e&fire=16a34a&currStreakLabel=86efac&sideLabels=86efac"/>
 
-![React](https://img.shields.io/badge/React-1a0a0a?style=for-the-badge&logo=react&logoColor=fca5a5)
-![Next.js](https://img.shields.io/badge/Next.js-1a0a0a?style=for-the-badge&logo=next.js&logoColor=ffffff)
-![TailwindCSS](https://img.shields.io/badge/Tailwind-1a0a0a?style=for-the-badge&logo=tailwind-css&logoColor=f87171)
-![Three.js](https://img.shields.io/badge/Three.js-1a0a0a?style=for-the-badge&logo=three.js&logoColor=ffffff)
-![Flutter](https://img.shields.io/badge/Flutter-1a0a0a?style=for-the-badge&logo=flutter&logoColor=fca5a5)
+<br>
 
-**Backend**
-
-![Node.js](https://img.shields.io/badge/Node.js-1a0a0a?style=for-the-badge&logo=node.js&logoColor=f87171)
-![Express](https://img.shields.io/badge/Express-1a0a0a?style=for-the-badge&logo=express&logoColor=ffffff)
-![FastAPI](https://img.shields.io/badge/FastAPI-1a0a0a?style=for-the-badge&logo=fastapi&logoColor=fca5a5)
-![Django](https://img.shields.io/badge/Django-1a0a0a?style=for-the-badge&logo=django&logoColor=f87171)
-![Socket.io](https://img.shields.io/badge/Socket.io-1a0a0a?style=for-the-badge&logo=socket.io&logoColor=ffffff)
-
-**Databases & Cloud**
-
-![MongoDB](https://img.shields.io/badge/MongoDB-1a0a0a?style=for-the-badge&logo=mongodb&logoColor=f87171)
-![MySQL](https://img.shields.io/badge/MySQL-1a0a0a?style=for-the-badge&logo=mysql&logoColor=fca5a5)
-![Redis](https://img.shields.io/badge/Redis-1a0a0a?style=for-the-badge&logo=redis&logoColor=ef4444)
-![Supabase](https://img.shields.io/badge/Supabase-1a0a0a?style=for-the-badge&logo=supabase&logoColor=f87171)
-![AWS](https://img.shields.io/badge/AWS-1a0a0a?style=for-the-badge&logo=amazon-aws&logoColor=fca5a5)
-![Docker](https://img.shields.io/badge/Docker-1a0a0a?style=for-the-badge&logo=docker&logoColor=f87171)
-
-**AI / ML**
-
-![TensorFlow](https://img.shields.io/badge/TensorFlow-1a0a0a?style=for-the-badge&logo=tensorflow&logoColor=ef4444)
-![PyTorch](https://img.shields.io/badge/PyTorch-1a0a0a?style=for-the-badge&logo=pytorch&logoColor=f87171)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1a0a0a?style=for-the-badge&logo=scikit-learn&logoColor=fca5a5)
-![Gemini](https://img.shields.io/badge/Gemini_API-1a0a0a?style=for-the-badge&logo=google&logoColor=f87171)
-
-**XR & 3D**
-
-![Unity](https://img.shields.io/badge/Unity-1a0a0a?style=for-the-badge&logo=unity&logoColor=ffffff)
-![ARCore](https://img.shields.io/badge/ARCore-1a0a0a?style=for-the-badge&logo=google&logoColor=fca5a5)
-![WebGL](https://img.shields.io/badge/WebGL-1a0a0a?style=for-the-badge&logo=webgl&logoColor=ef4444)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=TheOrionGD&theme=react-dark&hide_border=true&color=4ade80&line=22c55e&point=86efac" width="100%"/>
 
 </div>
 
 ---
 
-### `> git log --stats`
+# `> certifications_dashboard`
 
-<div align="center">
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=TheOrionGD&theme=github_dark" height="165" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=TheOrionGD&theme=github_dark" height="165" />
-
-<br>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=TheOrionGD&theme=dark&hide_border=true&title_color=ef4444&ring=ef4444&fire=b91c1c&currStreakLabel=f87171&sideLabels=f87171&dates=fca5a5" />
-
-<br>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=TheOrionGD&theme=react-dark&hide_border=true&color=f87171&line=ef4444&point=fca5a5" width="100%" />
-
-<br>
-
-<img src="https://github-profile-trophy.vercel.app/?username=TheOrionGD&theme=radical&no-bg=true&no-frame=true&margin-w=12&column=7" />
-
-</div>
+| Domain | Count |
+|---|---:|
+| AI / ML | 25+ |
+| Full Stack | 18+ |
+| Security | 10+ |
+| Cloud | 12+ |
+| XR / AR | 5+ |
+| Leadership | 10+ |
 
 ---
 
-### `> roadmap --current`
+# `> innovation_log`
 
-| Direction | Status |
-|---|---|
-| 🧠 &nbsp; AI-Native Architectures — serverless pipelines with MongoDB Atlas & edge inference | `in progress` |
-| 🔍 &nbsp; Semantic Search — custom reasoning engines via Gemini API | `in progress` |
-| 🥽 &nbsp; Spatial Computing — next-gen WebGL & high-fidelity AR interactions | `exploring` |
+🏆 Patent Published — Access Android TV using IR Sensor  
+📄 IEEE Conference Contribution  
+🚀 OASYS Hackathon — Best Performance Award  
+🥽 XR Club Vice President  
+🎤 National Science Day Winner  
+🧪 MSME Innovation Proposal Contributor  
+
+---
+
+# `> timeline`
+
+```text
+2023 → Started CSE Journey
+2024 → Patent Published
+2024 → National Science Day Winner
+2025 → XR Club Vice President
+2025 → OASYS Hackathon Best Performance
+2025 → IIT Madras XR Symposium
+2026 → ARgorithm Production Release
+2026 → Building AI-native Systems
+```
+
+---
+
+# `> mission_2026`
+
+```yaml
+Goal:
+  Become elite AI Product Engineer
+
+Current Focus:
+  - Agentic AI Systems
+  - Enterprise AI
+  - Spatial Interfaces
+  - Production Architecture
+```
+
+---
+
+# `> random_access_memory`
+
+```bash
+Favorite IDE      : VS Code
+Terminal Theme    : Matrix Green
+Coding Style      : Modular + Scalable
+Build Philosophy  : Systems First
+Debug Method      : Root Cause Analysis
+Coffee Dependency : High
+```
 
 ---
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ef4444,50:7f1d1d,100:0f0a0a&height=120&section=footer&text=Open%20to%20new%20opportunities&fontSize=18&fontColor=fecaca&fontAlignY=55" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:22c55e,50:166534,100:052e16&height=120&section=footer&text=Innovation%20%E2%80%A2%20Build%20%E2%80%A2%20Impact&fontSize=20&fontColor=dcfce7&fontAlignY=55"/>
 
 </div>
