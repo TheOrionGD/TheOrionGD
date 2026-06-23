@@ -21,10 +21,10 @@
 $ initialize_profile
 
 [✓] Loading AI Engineering Modules
-[✓] Loading Full Stack Architectures
-[✓] Loading XR Innovation Systems
-[✓] Loading Research Portfolio
-[✓] Loading Leadership Credentials
+[✓] Loading Immersive Systems Building
+[✓] Loading Client-Side Analytics Pipelines
+[✓] Loading Verification Dashboard
+[✓] Loading Internships & Credentials
 
 System Ready.
 ```
@@ -35,17 +35,18 @@ System Ready.
 
 Software engineer building at the intersection of:
 
-- **Artificial Intelligence**
-- **Scalable Distributed Systems**
-- **Spatial Computing / XR**
+- **Artificial Intelligence & LLMs**
+- **Spatial Computing & Immersive Environments**
+- **Secure Full-Stack Architectures**
 
 I engineer products where **software architecture**, **intelligence**, and **experience design** converge.
 
 ```yaml
 Name: Godfrey T R
 Degree: B.E Computer Science & Engineering
+Period: Aug 2023 – May 2027 (Expected)
 College: K. Ramakrishnan College of Technology
-Location: Tamil Nadu, India
+Location: Tiruchirapalli, Tamil Nadu, India
 Status: Open to Internships / Collaborations
 ```
 
@@ -55,14 +56,12 @@ Status: Open to Internships / Collaborations
 
 | Metric | Value |
 |---|---:|
-| Production-grade Projects | 25+ |
-| Certifications | 80+ |
-| Patent Published | 1 |
-| Research Works | 2 |
+| Core Production Projects | 7 |
+| Verified Certificate Credentials | 50 |
+| Patents Published | 1 |
+| Professional Internships | 4 |
 | Hackathon Awards | 4+ |
-| Leadership Roles | 8+ |
-| Club Memberships | 4 |
-| Internships | 3+ |
+| Leadership Roles | 5+ |
 
 ---
 
@@ -73,31 +72,31 @@ Status: Open to Internships / Collaborations
 <td width="33%">
 
 ### 🧠 AI Engineering
-- LLM Integration  
-- RAG Pipelines  
-- Vector Search  
-- AI Agents  
-- NLP Systems  
+- LLM Integration & Gemini API  
+- RAG & Vector Search (FAISS)  
+- Sentence Transformers  
+- Whisper Speech-to-Text  
+- Cognitive Memory Caches  
 
 </td>
 <td width="33%">
 
 ### ⚙ System Architecture
-- Full Stack Engineering  
-- APIs  
-- WebSockets  
-- RBAC  
-- Scalable Backend  
+- Full Stack MERN Ecosystems  
+- WebSockets & Rest APIs  
+- Dual-DB Sync (SQLite / Postgres)  
+- OAuth & JWT Security Gates  
+- Framework Optimizations  
 
 </td>
 <td width="33%">
 
-### 🥽 XR Computing
-- ARCore  
-- Unity  
-- WebGL  
-- Spatial UX  
-- Immersive Learning  
+### 🥽 Spatial Computing
+- ARCore Mobile Core  
+- Unity 3D & WebGL Renders  
+- Jetpack Compose Telemetry  
+- Minutiae Edge Computations  
+- Immersive Physics Simulators  
 
 </td>
 </tr>
@@ -107,39 +106,53 @@ Status: Open to Internships / Collaborations
 
 # `> flagship_projects`
 
-## 🥽 ARgorithm
+## 🧠 EchoCortex-Intelligence
 ```yaml
-Domain: XR Education
-Stack: Kotlin, ARCore, SceneView, Room DB
-Impact: Interactive AR algorithm visualization platform
+Domain: AI Knowledge System & 3D Indexing
+Stack: React, Whisper, Sentence Transformers, Three.js, MongoDB
+Impact: Captures verbal meetings, matches vector embeddings, and renders interactive 3D neural graph maps.
 ```
 
-## 🧠 EchoCortex
+## 🛡️ FaceShield-Authentication
 ```yaml
-Domain: AI Knowledge Systems
-Stack: RAG, LLMs, Vector Search
-Impact: Intelligent knowledge reasoning engine
+Domain: Edge AI facial recognition & PPE Audits
+Stack: Python, FastAPI, ONNX Runtime, NestJS, React 19, SQLite
+Impact: Edge face detection and vest audit gate syncing over exponential backoff caches for offline sites.
 ```
 
-## 🏥 EntityEase
+## 🏥 EntityEase-DataPlatform
 ```yaml
-Domain: Clinical AI
-Stack: FastAPI, MongoDB, NLP
-Impact: Medical entity extraction & intelligence
+Domain: Clinical NLP & Classification
+Stack: FastAPI, BioBERT, FAISS Index, PyTorch, React
+Impact: Extracts clinical concepts from notes, matching segments against 17k+ ICD codes in parallel threads.
 ```
 
-## 🛡 AegisNet
+## 🌐 AegisNet-IDS
 ```yaml
-Domain: Cybersecurity
-Stack: Python, ML
-Impact: Intrusion detection platform
+Domain: Cybersecurity SIEM / SOAR
+Stack: FastAPI, libpcap, Snort 3, Isolation Forest, React
+Impact: Captures inline packets, flags anomalies with ML, and auto-quarantines threat IPs on iptables/netsh.
 ```
 
-## 📚 ScholarAI
+## 🔒 FenceIN-AccessControl
 ```yaml
-Domain: Academic AI
-Stack: RAG, Semantic Search
-Impact: AI research assistant
+Domain: Workforce Telemetry Command
+Stack: React, NestJS, pgvector, AES-CBC, PostgreSQL, MongoDB
+Impact: Enforces geofenced shift check-ins with minutiae fingerprint templates and geofence geochecks.
+```
+
+## ⚙️ CodeSight-DeveloperToolkit
+```yaml
+Domain: Explainable Code Intelligence
+Stack: Python, FastAPI, React, D3.js, Graphviz
+Impact: Generates dependency architectures from code, translating UI diagram edits back to refactoring recommendations.
+```
+
+## 💬 Veltrio.Suite
+```yaml
+Domain: Real-Time Translation Hub
+Stack: React, Vite, Gemini API, Whisper, JWT
+Impact: Context-aware multilingual translation with sentiment check panels and dynamic theming widgets.
 ```
 
 ---
@@ -151,8 +164,8 @@ Impact: AI research assistant
 🟢 RAG Engine         | ONLINE
 🟢 Agent Framework    | ONLINE
 🟢 Vector Index       | ONLINE
-🟡 NLP Processor      | OPTIMIZING
-🟡 ML Models          | TRAINING
+🟢 NLP Processor      | ONLINE
+🟢 ML Models          | ONLINE
 
 ---
 
@@ -176,14 +189,16 @@ Impact: AI research assistant
 ![Node](https://img.shields.io/badge/Node.js-052e16?style=for-the-badge&logo=node.js&logoColor=4ade80)
 ![Express](https://img.shields.io/badge/Express-052e16?style=for-the-badge&logo=express&logoColor=white)
 
-## Databases
+## Databases & Caches
 ![MongoDB](https://img.shields.io/badge/MongoDB-052e16?style=for-the-badge&logo=mongodb&logoColor=4ade80)
 ![MySQL](https://img.shields.io/badge/MySQL-052e16?style=for-the-badge&logo=mysql&logoColor=4ade80)
 ![Redis](https://img.shields.io/badge/Redis-052e16?style=for-the-badge&logo=redis&logoColor=4ade80)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-052e16?style=for-the-badge&logo=postgresql&logoColor=4ade80)
 
-## AI / ML
+## AI / ML / ONNX
 ![PyTorch](https://img.shields.io/badge/PyTorch-052e16?style=for-the-badge&logo=pytorch&logoColor=4ade80)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-052e16?style=for-the-badge&logo=tensorflow&logoColor=4ade80)
+![ONNX](https://img.shields.io/badge/ONNX-052e16?style=for-the-badge&logo=onnx&logoColor=white)
 
 ---
 
@@ -208,54 +223,56 @@ Impact: AI research assistant
 
 # `> certifications_dashboard`
 
-| Domain | Count |
+| Domain | Verified Credentials |
 |---|---:|
-| AI / ML | 25+ |
-| Full Stack | 18+ |
-| Security | 10+ |
-| Cloud | 12+ |
-| XR / AR | 5+ |
-| Leadership | 10+ |
+| AI & Generative AI | 25+ |
+| Full Stack & System Core | 15+ |
+| Security | 5+ |
+| Cloud / Microsoft | 5+ |
 
 ---
 
 # `> innovation_log`
 
-🏆 Patent Published — Access Android TV using IR Sensor  
-📄 IEEE Conference Contribution  
-🚀 OASYS Hackathon — Best Performance Award  
-🥽 XR Club Vice President  
-🎤 National Science Day Winner  
-🧪 MSME Innovation Proposal Contributor  
+🏆 **Patent Published** — Android TV Using Remote IR Sensor (Reg: 2024)  
+🚀 **OASYS Hackathon** — Best Performance Award (Access Control System Core)  
+🥽 **XR Club** — Vice President  
+🎤 **National Science Day** — Presentation Winner (ARcore Implementations)  
+💻 **Full Stack Intern** — VDart Academy (MERN stack deployments)  
+🎨 **UI/UX Design Intern** — SkillCraft (Desktop dark layout designs)  
+⚙️ **Web Development Intern** — Prodigy InfoTech (Location service APIs)  
+🔒 **Cybersecurity Intern** — Adaovi (Entropy metrics diagnostics)  
 
 ---
 
 # `> timeline`
 
 ```text
-2023 → Started CSE Journey
-2024 → Patent Published
-2024 → National Science Day Winner
-2025 → XR Club Vice President
-2025 → OASYS Hackathon Best Performance
-2025 → IIT Madras XR Symposium
-2026 → ARgorithm Production Release
-2026 → Building AI-native Systems
+2023 → Started CSE Academic Journey
+2024 → Patent Published (Android TV control)
+2024 → National Science Day Presentation Winner
+2024 → Web Dev Internship (Prodigy InfoTech)
+2024 → Cybersecurity Internship (Adaovi)
+2025 → UI/UX Design Internship (SkillCraft)
+2025 → XR Club Vice President Election
+2025 → OASYS Hackathon Best Performance Award
+2026 → Full Stack Internship (VDart Academy)
+2026 → Upgraded Portfolio with 3D lattices & verification comments
 ```
 
 ---
 
-# `> mission_2026`
+# `> mission_2026_2027`
 
 ```yaml
 Goal:
-  Become elite AI Product Engineer
+  Become elite AI-Native System Architect
 
 Current Focus:
-  - Agentic AI Systems
-  - Enterprise AI
-  - Spatial Interfaces
-  - Production Architecture
+  - Agentic LLM chains (Gemini & Groq APIs)
+  - Edge Biometrics & ONNX runtime inference
+  - Local-first caching & dual-database state sync
+  - Spatial Telemetry Matrix interfaces
 ```
 
 ---
@@ -264,10 +281,10 @@ Current Focus:
 
 ```bash
 Favorite IDE      : VS Code
-Terminal Theme    : Matrix Green
-Coding Style      : Modular + Scalable
-Build Philosophy  : Systems First
-Debug Method      : Root Cause Analysis
+Terminal Theme    : Cyberpunk Obsidian
+Coding Style      : Clean, Data-Driven, Decoupled
+Build Philosophy  : Compile early, lint strictly
+Debug Method      : Logs Audit Trail Analysis
 Coffee Dependency : High
 ```
 
