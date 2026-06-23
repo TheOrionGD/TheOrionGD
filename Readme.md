@@ -7,7 +7,7 @@
 <br>
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-166534?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/godfrey192607/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-22c55e?style=for-the-badge&logo=vercel&logoColor=white)](https://gds-portfolio.vercel.app)
+[![Portfolio](https://img.shields.io/badge/Portfolio-22c55e?style=for-the-badge&logo=vercel&logoColor=white)](https://theoriongd.vercel.app/)
 [![Email](https://img.shields.io/badge/Email-15803d?style=for-the-badge&logo=gmail&logoColor=white)](mailto:godfreytr.prof@gmail.com)
 [![Visitors](https://komarev.com/ghpvc/?username=TheOrionGD&label=Profile%20Views&color=22c55e&style=for-the-badge)](https://github.com/TheOrionGD)
 
