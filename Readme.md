@@ -13,6 +13,10 @@
 
 </div>
 
+
+---
+# 🚀 Innovate • Build • Impact
+### Code with Purpose. Engineer with Vision. Deliver with Impact.
 ---
 
 # `> boot_sequence`
