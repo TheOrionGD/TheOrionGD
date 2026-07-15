@@ -18,10 +18,16 @@
 
 ### 🌐 Live Portfolio Preview
 
-<iframe src="https://the-orion-gd.vercel.app/" width="100%" height="500px" style="border: 2px solid #10b981; border-radius: 12px; background: #0f172a;"></iframe>
+<p align="center">
+  <a href="https://the-orion-gd.vercel.app/" target="_blank">
+    <img src="https://api.microlink.io/?url=https%3A%2F%2Fthe-orion-gd.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url" width="100%" alt="Live Portfolio Preview — TheOrionGD" style="border-radius: 12px;" />
+  </a>
+</p>
 
 <p align="center">
-  <a href="https://the-orion-gd.vercel.app/" target="_blank">👉 Click here to open the Live Portfolio in a new tab 👈</a>
+  <a href="https://the-orion-gd.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Open_Live_Portfolio-10b981?style=for-the-badge&labelColor=0f172a&color=10b981" alt="Open Live Portfolio"/>
+  </a>
 </p>
 
 ---
