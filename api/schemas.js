@@ -38,7 +38,7 @@ export const PersonalInfoSchema = z.object({
   linkedin: z.string().url("Invalid LinkedIn URL"),
   hackerrank: z.string().optional().default(""),
   leetcode: z.string().optional().default(""),
-  profileImage: z.string().optional().default("/godfrey_portrait.png"),
+  profileImage: z.string().optional().default("https://res.cloudinary.com/dhpwd7uta/image/upload/v1784111251/IMG_20260410_185513_oamxwl.png"),
   updatedAt: z.any().optional(),
 });
 

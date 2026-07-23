@@ -51,13 +51,13 @@ const Skills: React.FC = () => {
               className="lg:col-span-4 lg:border-r border-[#DCDCDC] lg:pr-10 pb-8 lg:pb-0 flex flex-col justify-between"
             >
               <div>
-                <div className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-black mb-6">
+                <div className="font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] text-black mb-6">
                   Section 03 // Arsenal
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-none text-black mb-6 font-space-grotesk">
+                <h2 className="font-section-heading text-4xl md:text-5xl font-bold tracking-[-0.03em] leading-none text-black mb-6">
                   Technical capability matrix
                 </h2>
-                <p className="text-sm leading-relaxed text-black max-w-sm">
+                <p className="font-body-text text-base md:text-[18px] font-normal leading-[1.7] text-black max-w-sm">
                   Multi-disciplinary engineering built for high-performance execution. Five core domains, one throughline.
                 </p>
               </div>
@@ -66,9 +66,9 @@ const Skills: React.FC = () => {
               <div className="mt-10">
                 <button
                   onClick={handleScrollToContact}
-                  className="inline-flex items-center bg-[#0A0A08] hover:bg-[#7B3F00] transition-colors duration-300 text-black text-[10px] font-bold font-mono tracking-widest uppercase py-3 px-5 cursor-pointer"
+                  className="inline-flex items-center bg-[#0A0A08] hover:bg-[#7B3F00] transition-colors duration-300 text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-3 px-5 cursor-pointer"
                 >
-                  <span className="text-black/70 mr-2.5 text-xs">▪</span>
+                  <span className="text-white/70 mr-2.5 text-xs">▪</span>
                   Start a collaboration
                 </button>
               </div>
@@ -111,12 +111,12 @@ const Skills: React.FC = () => {
                       </div>
 
                       {/* Capability Title */}
-                      <h3 className="text-lg font-bold font-space-grotesk tracking-tight text-black mb-3 leading-snug">
+                      <h3 className="font-card-title text-lg md:text-xl font-bold tracking-[-0.03em] text-black mb-3 leading-snug">
                         {category.category}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-xs leading-relaxed text-black mb-4">
+                      <p className="font-body-text text-sm sm:text-base leading-[1.7] text-black mb-4 font-normal">
                         {description}
                       </p>
 
@@ -125,7 +125,7 @@ const Skills: React.FC = () => {
                         {category.skills.map((skill, idx) => (
                           <span
                             key={idx}
-                            className="text-[9px] font-mono font-bold tracking-widest uppercase px-2 py-0.5 rounded-full glass-badge"
+                            className="font-status-badge text-[13px] font-semibold tracking-[0.06em] uppercase px-3 py-1 rounded-full glass-badge"
                           >
                             {skill}
                           </span>
@@ -150,7 +150,7 @@ const Skills: React.FC = () => {
           <div className="container mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-center gap-2.5">
               <FaAward className="text-black text-sm" />
-              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-black">
+              <h4 className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] text-black">
                 Field Leadership &amp; Community Impact
               </h4>
             </div>
@@ -158,7 +158,7 @@ const Skills: React.FC = () => {
               {LEADERSHIP_XR.map((role, idx) => (
                 <span
                   key={idx}
-                  className="text-[10px] font-mono font-bold uppercase tracking-widest text-black"
+                  className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] text-black"
                 >
                   {role}
                 </span>

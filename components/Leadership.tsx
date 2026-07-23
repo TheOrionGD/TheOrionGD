@@ -62,14 +62,14 @@ const Leadership: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 glass-badge">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] mb-6 glass-badge">
             <FaUsers className="animate-pulse" /> Section 09
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+          <h2 className="font-section-heading text-4xl md:text-5xl font-bold mb-6 tracking-[-0.03em]">
             Leadership &amp; <span className="text-black uppercase tracking-tighter">Community Impact</span>
           </h2>
           <div className="w-24 h-1.5 mx-auto rounded-full mb-6" style={{ background: 'linear-gradient(90deg, #7B3F00, #B87333)', boxShadow: '0 2px 12px rgba(255,99,99,0.25)' }}></div>
-          <p className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="max-w-2xl mx-auto font-body-text text-base md:text-[18px] font-normal leading-[1.7]">
             Fostering technical ecosystems, mentoring next-generation engineers, and executing civic service initiatives.
           </p>
         </motion.div>
@@ -99,15 +99,15 @@ const Leadership: React.FC = () => {
                     style={{ background: 'rgba(219,255,203,0.80)', border: '1px solid rgba(255,130,130,0.40)' }}>
                     <lead.icon className="text-accent text-lg" />
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest">{lead.badge}</span>
+                  <span className="font-status-badge text-[13px] font-semibold uppercase tracking-[0.06em]">{lead.badge}</span>
                 </div>
               </div>
 
-              <h3 className="text-xl font-black mb-4 uppercase tracking-tight transition-all duration-300">
+              <h3 className="font-card-title text-xl font-bold mb-4 uppercase tracking-[-0.03em] transition-all duration-300">
                 {lead.title}
               </h3>
               
-              <p className="text-sm md:text-base leading-relaxed">
+              <p className="font-body-text text-sm md:text-base leading-[1.7]">
                 {lead.desc}
               </p>
             </motion.div>

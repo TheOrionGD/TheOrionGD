@@ -179,7 +179,7 @@ const ChatbotWidget: React.FC = () => {
             setIsDragging(false);
           }, 80);
         }}
-        className="fixed bottom-6 right-6 z-50 pointer-events-auto cursor-grab active:cursor-grabbing"
+        className="fixed bottom-6 left-6 z-50 pointer-events-auto cursor-grab active:cursor-grabbing"
       >
         <motion.button
           whileHover={{ scale: 1.08 }}
@@ -201,7 +201,7 @@ const ChatbotWidget: React.FC = () => {
           
           {/* Tooltip on hover */}
           {!isOpen && (
-            <span className="absolute right-full mr-3.5 px-3 py-1.5 rounded-2xl bg-slate-900/95 text-white font-mono text-[9px] font-bold tracking-wider whitespace-nowrap shadow-2xl border border-white/15 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none flex items-center gap-1.5 backdrop-blur-md">
+            <span className="absolute left-full ml-3.5 px-3 py-1.5 rounded-2xl bg-slate-900/95 text-white font-mono text-[9px] font-bold tracking-wider whitespace-nowrap shadow-2xl border border-white/15 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none flex items-center gap-1.5 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-[#EDEDED] animate-ping" />
               TALK TO GODFREY // AI
             </span>
@@ -254,7 +254,7 @@ const ChatbotWidget: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[350px] h-[480px] max-h-[calc(100vh-6.5rem)] z-50 rounded-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-20 left-4 sm:left-6 w-[calc(100vw-2rem)] sm:w-[350px] h-[480px] max-h-[calc(100vh-6.5rem)] z-50 rounded-2xl flex flex-col overflow-hidden"
             style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', boxShadow: '0 20px 50px rgba(255,99,99,0.15), 0 0 30px rgba(190,228,208,0.3)', backdropFilter: 'blur(24px)' }}
           >
             {/* Compact Header */}

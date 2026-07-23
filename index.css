@@ -211,8 +211,10 @@
   --color-accent-hover: var(--color-brand-500);
   /* Burnt Umber */
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
   --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
 
   @keyframes float {
 
@@ -278,14 +280,34 @@
     scrollbar-width: none;
   }
 
-  /* Force all button text to white by default */
-  button {
+  /* Force all button text to white by default and use Space Grotesk + 0.02em spacing */
+  button, .btn {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.02em;
     color: #ffffff;
   }
 }
 
 /* Utilities */
 @layer utilities {
+
+  /* Light blur glass button with white text */
+  .btn-light-blur {
+    background: rgba(20, 20, 20, 0.75) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-light-blur:hover {
+    background: rgba(0, 0, 0, 0.9) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+  }
 
   /* Light Gray-toned frosted glass */
   .glass {
@@ -422,5 +444,82 @@
     height: 100%;
     border-radius: inherit;
     background: linear-gradient(135deg, #F2F2F2 0%, #EDEDED 100%);
+  }
+
+  /* =========================================================
+     STANDARDIZED TYPOGRAPHY UTILITIES
+  ========================================================= */
+
+  /* Hero Display Title: Orbitron, Bold (700-800), 72-96px, -0.05em spacing */
+  .font-hero {
+    font-family: var(--font-orbitron), 'Orbitron', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+  }
+
+  .font-orbitron {
+    font-family: var(--font-orbitron), 'Orbitron', sans-serif;
+  }
+
+  /* Section Label / Eyebrow: Inter, SemiBold (600), 11px (reduced), 0.08em tracking, uppercase */
+  .font-section-label {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Section Heading: Space Grotesk, Bold (700), -0.03em tracking */
+  .font-section-heading {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  /* Card Title: Space Grotesk, Bold (700), 1.15 line-height, -0.03em tracking */
+  .font-card-title {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  /* Card Subtitle: Inter, Regular (400), 13px (reduced from 17px) */
+  .font-card-subtitle {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  /* Status Badge: Inter, SemiBold (600), 11px (reduced from 13px), 0.06em tracking */
+  .font-status-badge {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Body Text: Inter, Regular (400), 14px (reduced from 18px), 1.6 line-height */
+  .font-body-text {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Small Labels: Inter, Medium (500), 10px (reduced from 12px), uppercase, 0.12em tracking */
+  .font-small-label {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* Numbers (01,02,03): Space Grotesk, Bold (700) */
+  .font-number-display {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+    font-weight: 700;
   }
 }

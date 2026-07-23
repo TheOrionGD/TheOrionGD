@@ -111,14 +111,14 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-left mb-6"
           >
-            <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full font-space-grotesk text-[9px] font-bold tracking-widest uppercase mb-5 glass-badge">
+            <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full font-section-label text-[13px] font-semibold tracking-[0.08em] uppercase mb-5 glass-badge">
               <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               INNOVATE // BUILD // IMPACT
             </div>
             <h1
               onClick={() => navigate('/admin/login')}
               title="System of Record // CMS"
-              className="font-space-grotesk text-[13vw] font-bold tracking-tighter text-black leading-[0.92] uppercase cursor-pointer hover:opacity-85 select-none"
+              className="font-hero text-[13vw] font-extrabold tracking-[-0.05em] text-black leading-[0.92] uppercase cursor-pointer hover:opacity-85 select-none"
             >
               {firstName}<br />
               <span className="text-black">{lastName}</span>
@@ -151,14 +151,14 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.22 }}
             className="text-left"
           >
-            <p className="font-inter text-black text-sm leading-relaxed mb-7 max-w-sm">
+            <p className="font-body-text text-black text-[18px] leading-[1.7] mb-7 max-w-sm">
               {personal?.tagline || "Final-year CS engineer and systems architect. Four internships, one patent. Building fluid, intelligent platforms."}
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full bg-[#2E2E2E] hover:bg-[#B87333] text-white font-space-grotesk font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#B87333]/25 cursor-pointer"
+                className="px-6 py-3 rounded-full bg-black/80 backdrop-blur-md hover:bg-[#B87333] text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 cursor-pointer"
               >
                 Explore Work
               </a>
@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
                 href="/assets/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                 className="px-6 py-3 rounded-full border border-[#E5E5E5] bg-transparent hover:bg-[#EDEDED] text-black font-space-grotesk font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
+                className="px-6 py-3 rounded-full bg-black/80 backdrop-blur-md hover:bg-black/95 text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 cursor-pointer"
               >
                 View Case File
               </a>
@@ -175,23 +175,23 @@ const Hero: React.FC = () => {
             {/* Stats — 2×2 on mobile */}
             <div className="grid grid-cols-2 gap-x-6 gap-y-5 pt-6 border-t border-[#E5E5E5]">
               <div>
-                <span className="font-space-grotesk text-2xl font-bold text-black">{internshipsCount}+</span>
-                <span className="font-inter text-[9px] text-black block mt-0.5 uppercase tracking-wider">Internships</span>
+                <span className="font-number-display text-[42px] font-bold text-black">{internshipsCount}+</span>
+                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Internships</span>
               </div>
               <div>
-                <span className="font-space-grotesk text-2xl font-bold text-black">{projectsCount}+</span>
-                <span className="font-inter text-[9px] text-black block mt-0.5 uppercase tracking-wider">Projects</span>
+                <span className="font-number-display text-[42px] font-bold text-black">{projectsCount}+</span>
+                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Projects</span>
               </div>
               <div>
-                <span className="font-space-grotesk text-2xl font-bold text-black">{certsCount}+</span>
-                <span className="font-inter text-[9px] text-black block mt-0.5 uppercase tracking-wider">Credentials</span>
+                <span className="font-number-display text-[42px] font-bold text-black">{certsCount}+</span>
+                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Credentials</span>
               </div>
               <div>
-                <span className="font-space-grotesk text-2xl font-bold text-black">{patentCount}</span>
-                <span className="font-inter text-[9px] text-black block mt-0.5 uppercase tracking-wider">Patent</span>
+                <span className="font-number-display text-[42px] font-bold text-black">{patentCount}</span>
+                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Patent</span>
               </div>
               <div className="col-span-2 border-t border-[#E5E5E5]/40 pt-4 flex justify-between items-center">
-                <span className="font-inter text-[9px] text-black uppercase tracking-wider">Education</span>
+                <span className="font-small-label text-[11px] text-black uppercase tracking-[0.12em]">Education</span>
                 <span className="font-space-grotesk text-sm font-bold text-black">B.E CSE</span>
               </div>
             </div>
@@ -210,13 +210,13 @@ const Hero: React.FC = () => {
                   <exp.icon size={13} />
                 </div>
                 <div>
-                  <span className="font-space-grotesk text-[9px] font-bold text-black uppercase tracking-widest block mb-0.5">
+                  <span className="font-space-grotesk text-[11px] font-bold text-black uppercase tracking-widest block mb-0.5">
                     {exp.step}
                   </span>
-                  <h3 className="font-space-grotesk text-xs font-bold text-black mb-1 uppercase">
+                  <h3 className="font-section-heading text-sm font-bold text-black mb-1 uppercase">
                     {exp.title}
                   </h3>
-                  <p className="font-inter text-[11px] text-black leading-relaxed">
+                  <p className="font-body-text text-xs text-black leading-relaxed">
                     {exp.desc}
                   </p>
                 </div>
@@ -235,7 +235,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full font-space-grotesk text-[10px] font-bold tracking-widest uppercase mb-6 glass-badge">
+            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full font-section-label text-[13px] font-semibold tracking-[0.08em] uppercase mb-6 glass-badge">
               <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               INNOVATE // BUILD // IMPACT — {(personal?.name || "THEORIONGD").toUpperCase()}
             </div>
@@ -243,20 +243,20 @@ const Hero: React.FC = () => {
             <h1
               onClick={() => navigate('/admin/login')}
               title="System of Record // CMS"
-              className="font-space-grotesk text-6xl md:text-8xl font-bold tracking-tighter text-black leading-[0.95] uppercase mb-6 cursor-pointer hover:opacity-85 select-none"
+              className="font-hero text-6xl lg:text-[72px] xl:text-[96px] font-extrabold tracking-[-0.05em] text-black leading-[0.95] uppercase mb-6 cursor-pointer hover:opacity-85 select-none"
             >
               {firstName}<br />
               <span className="text-black">{lastName}</span>
             </h1>
 
-            <p className="font-inter text-black text-sm md:text-base leading-relaxed mb-8 max-w-md">
+            <p className="font-body-text text-black text-[18px] leading-[1.7] mb-8 max-w-md">
               {personal?.tagline || "Final-year Computer Science engineer and systems architect. Backed by four internships in cybersecurity, UI/UX, and full-stack development, and one registered patent. Designing fluid, intelligent platforms."}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
               <a
                 href="#projects"
-                className="px-7 py-3.5 rounded-full bg-[#2E2E2E] hover:bg-[#B87333] text-white font-space-grotesk font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#B87333]/25 text-center cursor-pointer"
+                className="px-7 py-3.5 rounded-full bg-black/80 backdrop-blur-md hover:bg-[#B87333] text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 text-center cursor-pointer"
               >
                 Explore Work
               </a>
@@ -264,32 +264,32 @@ const Hero: React.FC = () => {
                 href="/assets/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                 className="px-7 py-3.5 rounded-full border border-[#E5E5E5] bg-transparent hover:bg-[#EDEDED] text-black font-space-grotesk font-bold text-xs uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 text-center cursor-pointer"
+                className="px-7 py-3.5 rounded-full bg-black/80 backdrop-blur-md hover:bg-black/95 text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 text-center cursor-pointer"
               >
                 View Case File
               </a>
             </div>
 
-            <div className="grid grid-cols-5 gap-3 pt-8 border-t border-[#E5E5E5] max-w-lg">
-              <div>
-                <span className="font-space-grotesk text-2xl md:text-3xl font-bold text-black">{internshipsCount}+</span>
-                <span className="font-inter text-[9px] text-black block mt-1 uppercase tracking-wider">Internships</span>
+            <div className="grid grid-cols-5 gap-3 sm:gap-5 md:gap-6 pt-8 border-t border-[#E5E5E5] w-full max-w-2xl">
+              <div className="min-w-0">
+                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">{internshipsCount}+</span>
+                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Internships</span>
               </div>
-              <div>
-                <span className="font-space-grotesk text-2xl md:text-3xl font-bold text-black">{projectsCount}+</span>
-                <span className="font-inter text-[9px] text-black block mt-1 uppercase tracking-wider">Projects</span>
+              <div className="min-w-0">
+                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">{projectsCount}+</span>
+                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Projects</span>
               </div>
-              <div>
-                <span className="font-space-grotesk text-2xl md:text-3xl font-bold text-black">{certsCount}+</span>
-                <span className="font-inter text-[9px] text-black block mt-1 uppercase tracking-wider">Credentials</span>
+              <div className="min-w-0">
+                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">{certsCount}+</span>
+                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Credentials</span>
               </div>
-              <div>
-                <span className="font-space-grotesk text-2xl md:text-3xl font-bold text-black">{patentCount}</span>
-                <span className="font-inter text-[9px] text-black block mt-1 uppercase tracking-wider">Patent</span>
+              <div className="min-w-0">
+                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">{patentCount}</span>
+                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Patent</span>
               </div>
-              <div>
-                <span className="font-space-grotesk text-2xl md:text-3xl font-bold text-black">B.E</span>
-                <span className="font-inter text-[9px] text-black block mt-1 uppercase tracking-wider">Education</span>
+              <div className="min-w-0">
+                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">B.E</span>
+                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Education</span>
               </div>
             </div>
           </motion.div>
@@ -320,25 +320,25 @@ const Hero: React.FC = () => {
 
           {/* RIGHT COLUMN: EXPERTISE (lg:col-span-3) */}
           <motion.div
-            className="lg:col-span-3 flex flex-col gap-10 text-left"
+            className="lg:col-span-3 flex flex-col gap-8 text-left"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="space-y-10">
+            <div className="space-y-8">
               {expertise.map((exp, idx) => (
-                <div key={idx} className="flex gap-4 items-start group">
-                  <div className="w-10 h-10 rounded-full border border-[#E5E5E5] bg-[#EDEDED] flex items-center justify-center text-black shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:border-[#B87333]/30">
-                    <exp.icon size={15} />
+                <div key={idx} className="flex gap-3.5 items-start group">
+                  <div className="w-9 h-9 rounded-full border border-[#E5E5E5] bg-[#EDEDED] flex items-center justify-center text-black shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:border-[#B87333]/30 mt-0.5">
+                    <exp.icon size={14} />
                   </div>
                   <div>
-                    <span className="font-space-grotesk text-[9px] font-bold text-black uppercase tracking-widest block mb-1">
+                    <span className="font-space-grotesk text-sm font-bold text-black uppercase tracking-wider block mb-0.5">
                       {exp.step}
                     </span>
-                    <h3 className="font-space-grotesk text-sm font-bold text-black mb-1.5 uppercase">
+                    <h3 className="font-small-label text-[11px] font-bold text-black/80 mb-1 uppercase tracking-wider">
                       {exp.title}
                     </h3>
-                    <p className="font-inter text-xs text-black leading-relaxed">
+                    <p className="font-body-text text-xs text-black/75 leading-relaxed">
                       {exp.desc}
                     </p>
                   </div>

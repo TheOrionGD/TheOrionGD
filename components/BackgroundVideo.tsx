@@ -24,24 +24,24 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({ hidden = false
     const deviceType = isMobileDevice ? 'mobile' : 'desktop';
     // Exact match section & deviceType
     let match = mediaList.find(
-      (m: any) => m.type === 'video' && 
-      m.metadata?.section === section && 
-      m.metadata?.deviceType === deviceType
+      (m: any) => m.type === 'video' &&
+        m.metadata?.section === section &&
+        m.metadata?.deviceType === deviceType
     );
-    
+
     // Section fallbacks
     if (!match) {
       if (['projects', 'certifications', 'gallery'].includes(section)) {
         match = mediaList.find(
-          (m: any) => m.type === 'video' && 
-          m.metadata?.section === 'projects' && 
-          m.metadata?.deviceType === deviceType
+          (m: any) => m.type === 'video' &&
+            m.metadata?.section === 'projects' &&
+            m.metadata?.deviceType === deviceType
         );
       } else if (['skills', 'coding-hub'].includes(section)) {
         match = mediaList.find(
-          (m: any) => m.type === 'video' && 
-          m.metadata?.section === 'skills' && 
-          m.metadata?.deviceType === deviceType
+          (m: any) => m.type === 'video' &&
+            m.metadata?.section === 'skills' &&
+            m.metadata?.deviceType === deviceType
         );
       }
     }
@@ -131,12 +131,12 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({ hidden = false
         transitionDelay: hidden ? '0s' : '0.6s',
       }}
     >
-      {/* White/light overlay — tones the video down so text stays legible */}
+      {/* Light overlay — soft 65% opacity wash for gentle video intensity */}
       <div
-        className="absolute inset-0 z-10 opacity-[0.85]"
+        className="absolute inset-0 z-0 opacity-[0.65]"
         style={{ backgroundColor: '#EDEDED' }}
       />
-      {/* Blur + slight scale to hide edge artifacts from the CSS blur */}
+      {/* Blur + slight scale */}
       <div className="absolute inset-0 w-full h-full" style={{ filter: 'blur(8px)', transform: 'scale(1.03)', transformOrigin: 'center' }}>
         {videoUrls.map(url => (
           <VideoLayer
@@ -151,11 +151,6 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({ hidden = false
 };
 
 // ── VideoLayer ────────────────────────────────────────────────────────────────
-// All videos are mounted immediately and play simultaneously (they're muted
-// and looped so there's zero audio impact). This keeps every video's decode
-// buffer warm so switching between sections is an instant opacity swap with
-// no buffering stutter. Only the active layer is visible.
-
 interface VideoLayerProps {
   src: string;
   isActive: boolean;
@@ -170,25 +165,25 @@ const VideoLayer: React.FC<VideoLayerProps> = ({ src, isActive }) => {
     const video = videoRef.current;
     if (!video) return;
 
-    const tryPlay = () => {
+    const markReadyAndPlay = () => {
+      setReady(true);
       video.play().catch(err => {
-        // Autoplay may be blocked until user interaction — that's fine
         console.warn(`[BackgroundVideo] Autoplay blocked for ${src}:`, err.message);
       });
     };
 
-    // If already decoded enough, play immediately
-    if (video.readyState >= 3) {
-      tryPlay();
+    if (video.readyState >= 2) {
+      markReadyAndPlay();
     } else {
-      // canplaythrough fires when the browser has buffered enough to play
-      // without interruption — ideal start point.
-      const onCanPlay = () => {
-        setReady(true);
-        tryPlay();
+      const onLoaded = () => {
+        markReadyAndPlay();
       };
-      video.addEventListener('canplay', onCanPlay, { once: true });
-      return () => video.removeEventListener('canplay', onCanPlay);
+      video.addEventListener('canplay', onLoaded, { once: true });
+      video.addEventListener('loadeddata', onLoaded, { once: true });
+      return () => {
+        video.removeEventListener('canplay', onLoaded);
+        video.removeEventListener('loadeddata', onLoaded);
+      };
     }
   }, [src]);
 
@@ -196,13 +191,16 @@ const VideoLayer: React.FC<VideoLayerProps> = ({ src, isActive }) => {
     <video
       ref={videoRef}
       src={src}
+      autoPlay
       loop
       muted
       playsInline
       preload="auto"
+      onLoadedData={() => setReady(true)}
+      onCanPlay={() => setReady(true)}
       className="absolute inset-0 w-full h-full object-cover"
       style={{
-        opacity: isActive && ready ? 1 : isActive ? 0.6 : 0,
+        opacity: isActive ? 0.35 : 0,
         transition: 'opacity 1.2s ease-in-out',
         willChange: 'opacity',
         filter: 'grayscale(100%)',

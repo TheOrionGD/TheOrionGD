@@ -259,19 +259,19 @@ const FullCertificates: FC = () => {
                     <div className="flex-1 min-w-0">
                       {/* Issuer + tag */}
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-[9px] font-black uppercase tracking-widest text-black opacity-80">{activeCert.issuer}</span>
+                        <span className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] text-black opacity-80">{activeCert.issuer}</span>
                         {activeCert.tag && (
-                          <span className="text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full glass-badge">
+                          <span className="font-status-badge text-[13px] font-semibold uppercase tracking-[0.06em] px-2.5 py-0.5 rounded-full glass-badge">
                             {activeCert.tag}
                           </span>
                         )}
                       </div>
-                      <h3 className="text-xl md:text-2xl font-black text-text-primary tracking-tight mb-2">{activeCert.name}</h3>
-                      <span className="inline-block text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full glass-badge mb-4">
+                      <h3 className="font-card-title text-xl md:text-2xl font-bold text-text-primary tracking-[-0.03em] mb-2">{activeCert.name}</h3>
+                      <span className="inline-block font-status-badge text-[13px] font-semibold uppercase tracking-[0.06em] px-3 py-1 rounded-full glass-badge mb-4">
                         {activeCert.category}
                       </span>
                       {activeCert.summary && (
-                        <p className="text-xs leading-relaxed text-text-secondary border-l-2 border-[#B87333]/40 pl-3">
+                        <p className="font-body-text text-xs md:text-sm leading-[1.7] text-text-secondary border-l-2 border-[#B87333]/40 pl-3">
                           {activeCert.summary}
                         </p>
                       )}
@@ -281,7 +281,7 @@ const FullCertificates: FC = () => {
                     <div className="flex-shrink-0 flex flex-col items-center gap-4">
                       <button
                         onClick={() => openViewer(activeIndex)}
-                        className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#EDEDED] text-black font-black text-xs uppercase tracking-widest transition-all cursor-pointer shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95 w-full justify-center"
+                        className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#EDEDED] text-black font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all cursor-pointer shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95 w-full justify-center"
                       >
                         <FaEye size={12} /> View Certificate
                       </button>

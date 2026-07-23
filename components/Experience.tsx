@@ -24,24 +24,25 @@ interface ExpRowProps {
   index: number;
   scrollRoot: React.RefObject<HTMLDivElement | null>;
   onEnter: (i: number) => void;
+  isMobile?: boolean;
 }
 
-const ExpRow: React.FC<ExpRowProps> = ({ exp, index, scrollRoot, onEnter }) => {
+const ExpRow: React.FC<ExpRowProps> = ({ exp, index, scrollRoot, onEnter, isMobile }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     const root = scrollRoot.current;
-    if (!el || !root) return;
+    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) onEnter(index); },
-      { root, threshold: 0.4 }
+      { root: isMobile ? null : root, threshold: isMobile ? 0.2 : 0.4 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [index, onEnter, scrollRoot]);
+  }, [index, onEnter, scrollRoot, isMobile]);
 
   const caseNum = `00${index + 1}`;
   const title = companyHeadingMap[exp.company] ?? `${exp.company}: ${exp.role}`;
@@ -56,23 +57,23 @@ const ExpRow: React.FC<ExpRowProps> = ({ exp, index, scrollRoot, onEnter }) => {
     >
       {/* Case number + title */}
       <div className="flex items-baseline gap-4 mb-5">
-        <span className="font-mono text-xs font-bold text-black tracking-widest select-none">
+        <span className="font-number-display text-xs font-bold text-black select-none">
           {caseNum}
         </span>
-        <h3 className="font-space-grotesk text-2xl md:text-3xl font-bold tracking-tight text-black uppercase leading-snug">
+        <h3 className="font-card-title text-2xl md:text-3xl font-bold tracking-[-0.03em] text-black uppercase leading-snug">
           {title}
         </h3>
       </div>
 
       {/* Period tag */}
       <div className="mb-5">
-        <span className="inline-block text-[9px] font-bold font-mono tracking-widest uppercase px-2.5 py-1 rounded-full glass-badge">
+        <span className="inline-block font-status-badge text-[13px] font-semibold tracking-[0.06em] uppercase px-3 py-1 rounded-full glass-badge">
           INTERVAL // {exp.period}
         </span>
       </div>
 
       {/* Summary */}
-      <p className="text-sm leading-relaxed text-black mb-6 max-w-lg">
+      <p className="font-body-text text-base md:text-[18px] leading-[1.7] text-black mb-6 max-w-lg">
         {summary}
       </p>
 
@@ -86,12 +87,12 @@ const ExpRow: React.FC<ExpRowProps> = ({ exp, index, scrollRoot, onEnter }) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden border-t border-[#DCDCDC] pt-4 mb-6"
           >
-            <span className="font-mono text-[9px] font-bold text-black/60 uppercase tracking-widest block mb-3">
+            <span className="font-small-label text-[11px] font-medium text-black/60 uppercase tracking-[0.12em] block mb-3">
               System Logs // Deliverables
             </span>
             <ul className="space-y-3">
               {exp.details.map((detail, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs leading-relaxed text-black">
+                <li key={idx} className="flex items-start gap-3 font-body-text text-xs sm:text-sm leading-[1.7] text-black">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#7B3F00] shrink-0" />
                   <span>{detail}</span>
                 </li>
@@ -104,7 +105,7 @@ const ExpRow: React.FC<ExpRowProps> = ({ exp, index, scrollRoot, onEnter }) => {
       {/* Toggle button */}
       <button
         onClick={() => setExpanded(p => !p)}
-        className="inline-flex items-center self-start bg-[#D3D3D3] hover:bg-[#7B3F00] hover:text-white transition-all duration-300 text-[10px] font-bold font-mono tracking-widest text-black py-2 px-3.5 uppercase cursor-pointer"
+        className="inline-flex items-center self-start bg-[#D3D3D3] hover:bg-[#7B3F00] hover:text-white transition-all duration-300 font-space-grotesk font-bold text-xs tracking-[0.02em] text-black py-2.5 px-4 uppercase cursor-pointer"
       >
         <span className="mr-3">{expanded ? 'Show Less' : 'Know More'}</span>
         <span className="pl-3 border-l border-[#000000]/10">{expanded ? '−' : '+'}</span>
@@ -140,7 +141,7 @@ const Experience: React.FC = () => {
     <section
       id="experience"
       /* Fixed height = viewport; overflow hidden so the section doesn't grow */
-      className="relative bg-transparent h-screen overflow-hidden flex flex-col"
+      className="relative bg-transparent min-h-screen lg:h-screen lg:overflow-hidden flex flex-col"
     >
       {/* ── Top Rule ── */}
       <div className="w-full h-px bg-[#D3D3D3] shrink-0" />
@@ -148,7 +149,7 @@ const Experience: React.FC = () => {
       {/* ── Section label bar ── */}
       <div className="container mx-auto px-6 md:px-10 shrink-0">
         <div className="py-5 border-b border-[#D3D3D3] flex items-center justify-between">
-          <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-black">
+          <span className="font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] text-black">
             Section 07 // Experience Log
           </span>
           {/* Progress dots */}
@@ -165,8 +166,8 @@ const Experience: React.FC = () => {
       </div>
 
       {/* ── Split columns — fill remaining height ── */}
-      <div className="container mx-auto px-6 md:px-10 flex-1 overflow-hidden">
-        <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <div className="container mx-auto px-6 md:px-10 flex-1 lg:overflow-hidden">
+        <div className="h-auto lg:h-full grid grid-cols-1 lg:grid-cols-2 gap-0">
 
           {/* ── LEFT: Non-scrollable fixed video panel ── */}
           <div className="hidden lg:flex h-full items-center justify-center pr-10 border-r border-[#DCDCDC]">
@@ -215,7 +216,7 @@ const Experience: React.FC = () => {
 
           {/* ── RIGHT: Independently scrollable list / Fixed video on mobile ── */}
           {isMobile ? (
-            <div className="h-full flex flex-col overflow-hidden">
+            <div className="h-auto flex flex-col lg:overflow-hidden">
               {/* Fixed Video at top on mobile */}
               <div className="py-4 shrink-0">
                 <div
@@ -230,7 +231,7 @@ const Experience: React.FC = () => {
               {/* Scrollable list below the video */}
               <div
                 ref={scrollContainerRef}
-                className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-[#DCDCDC] scrollbar-track-transparent pb-10"
+                className="flex-1 lg:overflow-y-auto scrollbar-thin scrollbar-thumb-[#DCDCDC] scrollbar-track-transparent pb-10"
               >
                 {experienceList.map((exp, index) => (
                   <ExpRow
@@ -239,6 +240,7 @@ const Experience: React.FC = () => {
                     index={index}
                     scrollRoot={scrollContainerRef}
                     onEnter={handleEnter}
+                    isMobile={isMobile}
                   />
                 ))}
               </div>
@@ -255,6 +257,7 @@ const Experience: React.FC = () => {
                   index={index}
                   scrollRoot={scrollContainerRef}
                   onEnter={handleEnter}
+                  isMobile={isMobile}
                 />
               ))}
             </div>

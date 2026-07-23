@@ -131,11 +131,11 @@ const LeetCodeActivity: FC = () => {
                 </div>
               </div>
               <div className="text-left">
-                <h2 className="text-2xl md:text-4xl font-black tracking-tight mb-2">Algorithm Forge</h2>
+                <h2 className="font-section-heading text-2xl md:text-4xl font-bold tracking-[-0.03em] mb-2 uppercase">Algorithm Forge</h2>
                 <div className="flex flex-wrap items-center gap-4">
                   <div className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-[#EDEDED] shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff]">
                     <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#7B3F00' }} />
-                    <span className="text-[10px] md:text-[11px] font-black uppercase tracking-widest">
+                    <span className="font-status-badge text-[13px] font-semibold uppercase tracking-[0.06em]">
                       Rank: {liveStats.loading ? '...' : liveStats.ranking.toLocaleString()}
                     </span>
                   </div>
@@ -149,7 +149,7 @@ const LeetCodeActivity: FC = () => {
               rel="noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group self-start sm:self-auto flex items-center gap-3 px-6 sm:px-12 py-4 md:py-5 text-black rounded-2xl font-black text-xs uppercase tracking-widest transition-all bg-[#EDEDED] shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95"
+              className="group self-start sm:self-auto flex items-center gap-3 px-6 sm:px-12 py-4 md:py-5 text-black rounded-2xl font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all bg-[#EDEDED] shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95"
             >
               Analyze Profile <FaExternalLinkAlt size={10} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.a>
@@ -186,10 +186,10 @@ const LeetCodeActivity: FC = () => {
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-6xl font-black mb-1">
+                  <span className="font-number-display text-6xl font-bold mb-1">
                     {liveStats.loading ? '...' : liveStats.totalSolved}
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em]">Mastered</span>
+                  <span className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em]">Mastered</span>
                 </div>
               </div>
               <div className="w-full space-y-4">
@@ -197,9 +197,9 @@ const LeetCodeActivity: FC = () => {
                    style={{ background: '#EDEDED', boxShadow: '6px 6px 12px #DCDCDC, -6px -6px 12px #ffffff' }}>
                    <div className="flex items-center gap-3">
                      <FaBrain />
-                     <span className="text-[11px] font-black uppercase tracking-widest">Accuracy</span>
+                     <span className="font-status-badge text-[13px] font-semibold uppercase tracking-[0.06em]">Accuracy</span>
                    </div>
-                   <span className="text-lg font-black">{liveStats.acceptanceRate}%</span>
+                   <span className="font-number-display text-lg font-bold">{liveStats.acceptanceRate}%</span>
                  </div>
               </div>
             </div>
@@ -219,14 +219,14 @@ const LeetCodeActivity: FC = () => {
                     onMouseLeave={e => { e.currentTarget.style.boxShadow = '6px 6px 12px #DCDCDC, -6px -6px 12px #ffffff'; }}
                   >
                     <div className="flex justify-between items-center mb-5">
-                      <span className="text-[11px] font-black uppercase tracking-widest">{stat.label}</span>
+                      <span className="font-status-badge text-[13px] font-semibold uppercase tracking-[0.06em]">{stat.label}</span>
                       <div className={`w-10 h-10 rounded-xl bg-[#EDEDED] flex items-center justify-center ${stat.color} shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] group-hover:scale-105 transition-transform`}>
                         <FaLightbulb size={16} />
                       </div>
                     </div>
                     <div className="flex items-baseline gap-2 mb-5">
-                      <span className={`text-4xl font-black ${stat.color}`}>{liveStats.loading ? '...' : stat.value}</span>
-                      <span className="text-sm font-bold">/ {stat.total}</span>
+                      <span className={`font-number-display text-4xl font-bold ${stat.color}`}>{liveStats.loading ? '...' : stat.value}</span>
+                      <span className="font-space-grotesk text-sm font-bold">/ {stat.total}</span>
                     </div>
                   </motion.div>
                 ))}

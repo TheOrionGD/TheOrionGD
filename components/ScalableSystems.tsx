@@ -39,15 +39,15 @@ const ScalableSystems: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 glass-badge">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] mb-6 glass-badge">
             <FaServer className="animate-pulse" /> Section 06
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight flex flex-col md:flex-row items-center justify-center gap-4">
+          <h2 className="font-section-heading text-4xl md:text-5xl font-bold mb-6 tracking-[-0.03em] flex flex-col md:flex-row items-center justify-center gap-4">
             Scalable Systems &amp; <span className="text-black uppercase tracking-tighter">Databases</span>
           </h2>
           <div className="w-24 h-1.5 mx-auto rounded-full mb-6"
             style={{ background: 'linear-gradient(90deg, #7B3F00, #B87333)' }}></div>
-          <p className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="max-w-2xl mx-auto font-body-text text-base md:text-[18px] font-normal leading-[1.7]">
             DBMS &amp; Engine Dashboard: High-fidelity transaction query mapping, runtime performance, and codebase execution.
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ const ScalableSystems: React.FC = () => {
           
           {/* LEFT: System Matrix Selectors (col-span-5) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="text-[10px] font-black uppercase tracking-widest px-2 mb-2 flex items-center gap-2">
+            <div className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] px-2 mb-2 flex items-center gap-2">
               <FaNetworkWired className="animate-ping" /> Scalable Systems Matrix
             </div>
 
@@ -76,22 +76,22 @@ const ScalableSystems: React.FC = () => {
                   }}
                 >
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-black tracking-tight uppercase transition-colors"
+                    <h3 className="font-card-title text-lg font-bold tracking-[-0.03em] uppercase transition-colors"
                       style={{ color: '#000000' }}>
                       {project.title}
                     </h3>
-                    <span className="text-[8px] font-black uppercase px-2 py-0.5 rounded-full glass-badge">
+                    <span className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full glass-badge">
                       DBMS / Backend
                     </span>
                   </div>
 
-                  <p className="text-xs leading-relaxed line-clamp-2 mb-4">
+                  <p className="font-body-text text-xs leading-[1.7] line-clamp-2 mb-4 font-normal">
                     {project.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, idx) => (
-                      <span key={idx} className="text-[9px] font-bold uppercase px-2 py-0.5 rounded-full glass-badge">
+                      <span key={idx} className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full glass-badge">
                         #{t}
                       </span>
                     ))}

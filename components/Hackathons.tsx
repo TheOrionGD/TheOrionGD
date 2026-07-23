@@ -89,7 +89,7 @@ const Hackathons: FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 font-space-grotesk text-[10px] font-bold tracking-widest uppercase mb-4 glass-badge">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 font-section-label text-[13px] font-semibold tracking-[0.08em] uppercase mb-4 glass-badge">
             <FaTrophy className="animate-pulse" /> Section 06 // Field Log
           </div>
         </motion.div>
@@ -108,10 +108,10 @@ const Hackathons: FC = () => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-space-grotesk text-2xl font-bold tracking-tight text-black mb-2 uppercase">
+              <h3 className="font-card-title text-2xl font-bold tracking-[-0.03em] text-black mb-2 uppercase">
                 {activeInfo.title}
               </h3>
-              <p className="text-xs text-black tracking-wider leading-relaxed">
+              <p className="font-body-text text-sm sm:text-base text-black leading-[1.7]">
                 {activeInfo.desc}
               </p>
             </motion.div>

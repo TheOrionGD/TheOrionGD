@@ -39,15 +39,15 @@ const ImmersiveSystems: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 glass-badge">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] mb-6 glass-badge">
             <FaMicrochip className="animate-spin-slow" /> Section 05
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight flex flex-col md:flex-row items-center justify-center gap-4">
+          <h2 className="font-section-heading text-4xl md:text-5xl font-bold mb-6 tracking-[-0.03em] flex flex-col md:flex-row items-center justify-center gap-4">
             Immersive &amp; Spatial <span className="text-black uppercase tracking-tighter">Systems</span>
           </h2>
           <div className="w-24 h-1.5 mx-auto rounded-full mb-6"
             style={{ background: 'linear-gradient(90deg, #7B3F00, #B87333)' }}></div>
-          <p className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="max-w-2xl mx-auto font-body-text text-base md:text-[18px] font-normal leading-[1.7]">
             Telemetry Dashboard: Reviewing spatial mappings, hardware frequencies, patents, and low-level specifications.
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ const ImmersiveSystems: React.FC = () => {
           
           {/* LEFT: Structural Selector Grid (col-span-5) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="text-[10px] font-black uppercase tracking-widest px-2 mb-2 flex items-center gap-2">
+            <div className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] px-2 mb-2 flex items-center gap-2">
               <FaSignal className="animate-bounce" /> Telemetry Channels
             </div>
 
@@ -76,28 +76,28 @@ const ImmersiveSystems: React.FC = () => {
                   }}
                 >
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-lg font-black tracking-tight uppercase transition-colors"
+                    <h3 className="font-card-title text-lg font-bold tracking-[-0.03em] uppercase transition-colors"
                       style={{ color: '#000000' }}>
                       {project.title}
                     </h3>
                     {project.title.toLowerCase().includes('remote') ? (
-                      <span className="text-[8px] font-black uppercase px-2 py-0.5 rounded-full flex items-center gap-1 glass-badge">
+                      <span className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full flex items-center gap-1 glass-badge">
                         <FaCertificate /> Patent Record
                       </span>
                     ) : (
-                      <span className="text-[8px] font-black uppercase px-2 py-0.5 rounded-full glass-badge">
+                      <span className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full glass-badge">
                         Immersive
                       </span>
                     )}
                   </div>
 
-                  <p className="text-xs leading-relaxed line-clamp-2 mb-4">
+                  <p className="font-body-text text-xs leading-[1.7] line-clamp-2 mb-4 font-normal">
                     {project.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, idx) => (
-                      <span key={idx} className="text-[9px] font-bold uppercase px-2 py-0.5 rounded-full glass-badge">
+                      <span key={idx} className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full glass-badge">
                         #{t}
                       </span>
                     ))}
@@ -117,56 +117,56 @@ const ImmersiveSystems: React.FC = () => {
                   <div className="flex items-center gap-3">
                     <FaBroadcastTower className="text-accent text-2xl animate-pulse" />
                     <div>
-                      <h4 className="text-xl font-black uppercase tracking-tight">{selectedProject.title}</h4>
-                      <p className="text-[9px] font-bold uppercase tracking-widest mt-0.5">Device Engineering Specs &amp; Telemetry</p>
+                      <h4 className="font-card-title text-xl font-bold uppercase tracking-[-0.03em]">{selectedProject.title}</h4>
+                      <p className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] mt-0.5">Device Engineering Specs &amp; Telemetry</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                    <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest">Active</span>
+                    <span className="font-status-badge text-[13px] font-semibold text-emerald-600 uppercase tracking-[0.06em]">Active</span>
                   </div>
                 </div>
 
-                <h5 className="text-[10px] font-black uppercase tracking-widest mb-3">System Objective &amp; Problem</h5>
+                <h5 className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] mb-3">System Objective &amp; Problem</h5>
                 {selectedProject.problemStatement && (
-                  <p className="text-xs leading-relaxed italic mb-4 font-bold">
+                  <p className="font-body-text text-xs sm:text-sm leading-[1.7] italic mb-4 font-bold">
                     Problem: {selectedProject.problemStatement}
                   </p>
                 )}
-                <p className="text-sm leading-relaxed mb-6">
+                <p className="font-body-text text-sm sm:text-base leading-[1.7] mb-6 font-normal">
                   {selectedProject.description}
                 </p>
 
                 {/* Hardware Stack Integration */}
-                <h5 className="text-[10px] font-black uppercase tracking-widest mb-4">Hardware Stack Integration</h5>
+                <h5 className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] mb-4">Hardware Stack Integration</h5>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-8">
                   {selectedProject.tech.map((tech, idx) => (
                     <React.Fragment key={idx}>
-                      <div className="px-4 py-3 rounded-xl flex items-center justify-center font-bold text-xs uppercase grow text-center"
+                      <div className="px-4 py-3 rounded-xl flex items-center justify-center font-space-grotesk font-bold text-xs uppercase grow text-center"
                         style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}>
                         {tech}
                       </div>
                       {idx < selectedProject.tech.length - 1 && (
-                        <div className="hidden sm:block text-lg font-black shrink-0">→</div>
+                        <div className="hidden sm:block text-lg font-bold shrink-0">→</div>
                       )}
                     </React.Fragment>
                   ))}
                 </div>
 
                 {/* Key Deliverables & System Specs */}
-                <h5 className="text-[10px] font-black uppercase tracking-widest mb-3 flex items-center gap-2">
+                <h5 className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
                   <FaCheckCircle size={10} className="text-accent" /> Key Deliverables &amp; System Specs
                 </h5>
                 <div className="rounded-2xl p-5 flex flex-col gap-3" style={{ background: 'rgba(248,249,251,0.95)', border: '1px solid rgba(190,228,208,0.80)' }}>
                   {selectedProject.deliverables ? (
                     selectedProject.deliverables.map((del, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs leading-relaxed">
+                      <div key={idx} className="flex items-start gap-2.5 font-body-text text-xs sm:text-sm leading-[1.7]">
                         <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
                         <span>{del}</span>
                       </div>
                     ))
                   ) : (
-                    <div className="flex items-start gap-2.5 text-xs leading-relaxed">
+                    <div className="flex items-start gap-2.5 font-body-text text-xs sm:text-sm leading-[1.7]">
                       <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
                       <span>Full system features and dynamic interface metrics configuration.</span>
                     </div>
@@ -178,7 +178,7 @@ const ImmersiveSystems: React.FC = () => {
               <div className="flex flex-col gap-3 mt-8 pt-6" style={{ borderTop: '1px solid rgba(190,228,208,0.80)' }}>
                 <button
                   onClick={() => setIsDocOpen(true)}
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all bg-accent text-white hover:opacity-90 shadow-md shadow-accent/20 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all bg-accent text-white hover:opacity-90 shadow-md shadow-accent/20 cursor-pointer"
                 >
                   <FaFileAlt size={10} /> View Documentation
                 </button>
@@ -188,17 +188,17 @@ const ImmersiveSystems: React.FC = () => {
                       href={selectedProject.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-center gap-3 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all"
+                      className="flex items-center justify-center gap-3 py-4 rounded-2xl font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all"
                       style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}
                       onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = '#7B3F00'; el.style.color = '#7B3F00'; }}
                       onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = 'rgba(190,228,208,0.80)'; el.style.color = '#000000'; }}
                     >
-                      <FaGithub size={14} /> View Schematics
+                      <FaGithub size={14} /> Repository
                     </a>
                   ) : (
-                    <div className="flex items-center justify-center gap-3 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest cursor-not-allowed opacity-40"
-                      style={{ background: 'rgba(248,249,251,0.80)', border: '1px solid rgba(190,228,208,0.40)', color: '#000000' }}>
-                      Closed Source Patent
+                    <div className="flex items-center justify-center gap-3 py-4 rounded-2xl font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] opacity-40 select-none"
+                      style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}>
+                      <FaGithub size={14} /> Private Repo
                     </div>
                   )}
 
@@ -207,15 +207,17 @@ const ImmersiveSystems: React.FC = () => {
                       href={selectedProject.demo}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-center gap-3 py-4 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all transform hover:scale-[1.02]"
-                      style={{ background: 'linear-gradient(135deg, #7B3F00, #B87333)', boxShadow: '0 4px 16px rgba(255,99,99,0.30)' }}
+                      className="flex items-center justify-center gap-3 py-4 rounded-2xl font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all"
+                      style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}
+                      onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = '#7B3F00'; el.style.color = '#7B3F00'; }}
+                      onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.borderColor = 'rgba(190,228,208,0.80)'; el.style.color = '#000000'; }}
                     >
-                      <FaPlay size={10} /> Launch Emulator
+                      <FaPlay size={10} /> Live Stream
                     </a>
                   ) : (
-                    <div className="flex items-center justify-center gap-3 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest cursor-not-allowed opacity-50"
-                      style={{ background: 'rgba(248,249,251,0.80)', border: '1px solid rgba(190,228,208,0.40)', color: '#000000' }}>
-                      Hardware Prototype Locked
+                    <div className="flex items-center justify-center gap-3 py-4 rounded-2xl font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] opacity-40 select-none"
+                      style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}>
+                      <FaPlay size={10} /> Demo Offline
                     </div>
                   )}
                 </div>

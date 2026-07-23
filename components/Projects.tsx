@@ -322,7 +322,7 @@ const InteractiveDiagram: React.FC<{ projectTitle: string }> = ({ projectTitle }
 
 const Projects: React.FC = () => {
   const { data } = usePortfolioData();
-  const projectsList = data.projects || [];
+  const projectsList = (data.projects || []).slice(0, 4);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -395,18 +395,34 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="bg-transparent relative h-screen flex flex-col overflow-hidden">
+    <section id="projects" className="bg-transparent relative min-h-screen lg:h-screen flex flex-col lg:overflow-hidden">
 
       {/* ── MATERIAL DESIGN LIGHT HEADER BAND ── */}
-      <div className="bg-gradient-to-r from-[#F2F2F2] to-[#EDEDED] text-black shrink-0 border-b border-[#E5E5E5]/40 shadow-xs">
+      <div className="bg-white/40 backdrop-blur-xl text-black shrink-0 border-b border-white/40 shadow-xs">
         <div className="container mx-auto px-6 md:px-10 pt-8 pb-0">
-          <div className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-black/70 mb-3">
-            Section 04 // Works
-          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <div className="font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] text-black/70 mb-2">
+                Section 04 // Works
+              </div>
 
-          <h2 className="text-2xl md:text-3xl font-black tracking-tight leading-tight text-black mb-8 font-space-grotesk">
-            {projectsList.length} engineering systems, one portfolio.
-          </h2>
+              <h2 className="font-section-heading text-2xl md:text-3xl font-bold tracking-[-0.03em] leading-tight text-black">
+                {projectsList.length} engineering systems, one portfolio.
+              </h2>
+            </div>
+
+            <a
+              href="https://catlogtheoriongd.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-black/75 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-3 px-6 rounded-xl shadow-lg hover:bg-black/90 active:scale-95 transition-all duration-200 cursor-pointer self-start sm:self-auto shrink-0 border border-white/20 group"
+            >
+              <span>View Entire Catalog</span>
+              <svg className="w-3.5 h-3.5 text-[#B87333] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
 
           {/* Material Tabs (Google M3 Style) */}
           <div className="overflow-x-auto scrollbar-none -mx-6 px-6 md:mx-0 md:px-0">
@@ -418,14 +434,14 @@ const Projects: React.FC = () => {
                     key={idx}
                     onClick={() => handleSelect(idx)}
                     className={`text-left px-4 py-2.5 rounded-full transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-3 border ${isActive
-                        ? 'bg-white border-[#B87333]/30 shadow-[0_2px_6px_rgba(0,0,0,0.05)] text-black'
-                        : 'bg-transparent border-transparent text-black hover:bg-[#3A3A3A]/[0.03]'
+                        ? 'bg-black/80 backdrop-blur-md border-white/30 shadow-md text-white'
+                        : 'bg-black/40 backdrop-blur-sm border-white/10 text-white/80 hover:bg-black/70 hover:text-white'
                       }`}
                   >
-                    <span className={`text-[8px] font-mono font-bold tracking-widest ${isActive ? 'text-black' : 'text-black/50'}`}>
+                    <span className={`font-number-display text-xs font-bold tracking-widest ${isActive ? 'text-white' : 'text-white/60'}`}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <span className="text-[10px] font-bold tracking-wide font-space-grotesk">
+                    <span className="font-space-grotesk text-xs font-bold tracking-[0.02em] text-white">
                       {getTabLabel(project.title)}
                     </span>
                   </button>
@@ -438,12 +454,12 @@ const Projects: React.FC = () => {
       </div>
 
       {/* ── SPLIT CONTENT PANEL ── */}
-      <div className="flex-1 overflow-hidden bg-transparent">
-        <div className="h-full container mx-auto px-6 md:px-10 py-6">
-          <div className="h-full flex flex-col lg:flex-row gap-8">
+      <div className="flex-1 lg:overflow-hidden bg-transparent">
+        <div className="h-auto lg:h-full container mx-auto px-6 md:px-10 py-6">
+          <div className="h-auto lg:h-full flex flex-col lg:flex-row gap-8">
 
             {/* ── LEFT: The Canvas (Left 62%) ── */}
-            <div className="hidden lg:flex lg:w-[62%] xl:w-[64%] h-full rounded-3xl bg-[#EDEDED] relative items-center justify-center overflow-hidden shadow-[inset_6px_6px_12px_#DCDCDC,inset_-6px_-6px_12px_#ffffff]">
+            <div className="hidden lg:flex lg:w-[62%] xl:w-[64%] h-full rounded-3xl bg-white/30 backdrop-blur-xl border border-white/40 relative items-center justify-center overflow-hidden shadow-lg">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active.title}
@@ -459,8 +475,8 @@ const Projects: React.FC = () => {
             </div>
 
             {/* ── RIGHT: The Info Card (Right 38%) ── */}
-            <div className="h-full flex-1 flex flex-col justify-between bg-[#EDEDED] rounded-3xl shadow-[8px_8px_16px_#DCDCDC,-8px_-8px_16px_#ffffff] border border-[#E5E5E5]/20 overflow-hidden relative z-10">
-              <div className="flex-1 overflow-y-auto scrollbar-none p-8">
+            <div className="h-auto lg:h-full flex-1 flex flex-col justify-between bg-[#EDEDED] rounded-3xl shadow-[8px_8px_16px_#DCDCDC,-8px_-8px_16px_#ffffff] border border-[#E5E5E5]/20 lg:overflow-hidden relative z-10">
+              <div className="flex-1 lg:overflow-y-auto scrollbar-none p-8">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={activeIndex}
@@ -474,27 +490,27 @@ const Projects: React.FC = () => {
                   >
                     {/* Content */}
                     <div>
-                      <p className="text-[9px] font-mono font-bold tracking-[0.25em] text-black mb-4 uppercase">
+                      <p className="font-small-label text-[11px] font-medium tracking-[0.12em] text-black mb-4 uppercase">
                         {caseLabel}
                       </p>
 
-                      <h3 className="text-2xl md:text-3xl font-black font-space-grotesk tracking-tight text-black mb-4 leading-snug uppercase">
+                      <h3 className="font-card-title text-2xl md:text-[34px] font-bold tracking-[-0.03em] leading-[1.15] text-black mb-4 uppercase">
                         {active.title.replace(/-/g, ' ')}
                       </h3>
 
-                      <p className="text-sm leading-relaxed text-black mb-6">
+                      <p className="font-body-text text-base md:text-[18px] leading-[1.7] text-black mb-6">
                         {shortDesc}
                       </p>
 
                       <div className="mb-5">
-                        <span className="text-[9px] font-mono font-bold tracking-widest text-black uppercase">
+                        <span className="font-card-subtitle text-[17px] font-normal text-black uppercase">
                           {subLabel}
                         </span>
                       </div>
 
                       <div className="flex flex-wrap gap-2">
                         {active.tech.map((t, i) => (
-                          <span key={i} className="text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-1 rounded-full glass-badge">
+                          <span key={i} className="font-status-badge text-[13px] font-semibold tracking-[0.06em] uppercase px-3 py-1 rounded-full glass-badge">
                             {t}
                           </span>
                         ))}
@@ -506,20 +522,20 @@ const Projects: React.FC = () => {
                       <div className="flex items-center gap-3 flex-wrap">
                         <button
                           onClick={() => { setDocTitle(active.title); setIsDocOpen(true); }}
-                          className="inline-flex items-center bg-[#EDEDED] text-black font-black font-mono tracking-widest uppercase py-2.5 px-5 rounded-xl shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95 transition-all duration-200 cursor-pointer"
+                          className="inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200 cursor-pointer"
                         >
-                          <span className="text-black/70 mr-2 text-[8px]">▪</span>
+                          <span className="text-[#B87333] mr-2 text-[8px]">▪</span>
                           View Case
                         </button>
                         {active.github && active.github !== '#' && (
                           <a href={active.github} target="_blank" rel="noreferrer"
-                            className="inline-flex items-center bg-[#EDEDED] text-black font-black font-mono tracking-widest uppercase py-2.5 px-5 rounded-xl shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95 transition-all duration-200">
+                            className="inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200">
                             Source
                           </a>
                         )}
                         {active.demo && active.demo !== '#' && (
                           <a href={active.demo} target="_blank" rel="noreferrer"
-                            className="inline-flex items-center bg-[#EDEDED] text-black font-black font-mono tracking-widest uppercase py-2.5 px-5 rounded-xl shadow-[4px_4px_8px_#DCDCDC,-4px_-4px_8px_#ffffff] hover:shadow-[inset_2px_2px_4px_#DCDCDC,inset_-2px_-2px_4px_#ffffff] active:scale-95 transition-all duration-200">
+                            className="inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200">
                             Live
                           </a>
                         )}

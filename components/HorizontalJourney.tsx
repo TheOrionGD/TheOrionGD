@@ -249,7 +249,19 @@ const HorizontalJourney: React.FC = () => {
   const progressLineRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
 
+  const [isMobile, setIsMobile] = React.useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 1024
+  );
+
+  React.useEffect(() => {
+    const handle = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener('resize', handle);
+    return () => window.removeEventListener('resize', handle);
+  }, []);
+
   useEffect(() => {
+    if (isMobile) return;
+
     const section = sectionRef.current;
     const track = trackRef.current;
     const progressFill = progressFillRef.current;
@@ -304,7 +316,7 @@ const HorizontalJourney: React.FC = () => {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
@@ -381,7 +393,14 @@ const HorizontalJourney: React.FC = () => {
       <section
         ref={sectionRef}
         id="journey"
-        style={{
+        style={isMobile ? {
+          minHeight: 'auto',
+          height: 'auto',
+          overflow: 'visible',
+          position: 'relative',
+          background: 'transparent',
+          padding: '48px 0 24px',
+        } : {
           height: '100vh',
           overflow: 'hidden',
           position: 'relative',
@@ -390,7 +409,12 @@ const HorizontalJourney: React.FC = () => {
       >
         {/* ── Section Header (sticky inside pin) ── */}
         <div
-          style={{
+          style={isMobile ? {
+            position: 'relative',
+            zIndex: 20,
+            padding: '0 24px',
+            marginBottom: 24,
+          } : {
             position: 'absolute',
             top: 0,
             left: 0,
@@ -403,6 +427,7 @@ const HorizontalJourney: React.FC = () => {
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
             <div>
               <div
+                className="font-section-label"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -414,9 +439,9 @@ const HorizontalJourney: React.FC = () => {
                   WebkitBackdropFilter: 'blur(12px)',
                   border: '1px solid rgba(255, 255, 255, 0.3)',
                   color: '#000000',
-                  fontSize: 10,
-                  fontWeight: 900,
-                  letterSpacing: '0.14em',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: 14,
                 }}
@@ -424,10 +449,11 @@ const HorizontalJourney: React.FC = () => {
                 Developer Journey
               </div>
               <h2
+                className="font-section-heading"
                 style={{
                   margin: 0,
                   fontSize: 'clamp(2rem, 3.5vw, 3.5rem)',
-                  fontWeight: 900,
+                  fontWeight: 700,
                   letterSpacing: '-0.03em',
                   color: '#000000',
                   lineHeight: 1.05,
@@ -446,9 +472,6 @@ const HorizontalJourney: React.FC = () => {
                   So Far
                 </span>
               </h2>
-              <p style={{ margin: '10px 0 0', color: '#000000', fontSize: 13, fontWeight: 500 }}>
-                Scroll to travel through milestones →
-              </p>
             </div>
 
             {/* Milestone count */}
@@ -460,10 +483,10 @@ const HorizontalJourney: React.FC = () => {
                 gap: 4,
               }}
             >
-              <span style={{ fontSize: 48, fontWeight: 900, color: '#000000', lineHeight: 1, letterSpacing: '-0.04em' }}>
+              <span className="font-number-display" style={{ fontSize: 42, fontWeight: 700, color: '#000000', lineHeight: 1, letterSpacing: '-0.03em' }}>
                 {MILESTONES.length}
               </span>
-              <span style={{ fontSize: 11, color: '#000000', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              <span className="font-small-label" style={{ fontSize: 11, color: '#000000', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Milestones
               </span>
             </div>
@@ -471,37 +494,44 @@ const HorizontalJourney: React.FC = () => {
         </div>
 
         {/* ── Progress Bar (Horizontal spine line) ── */}
-        <div
-          ref={progressLineRef}
-          style={{
-            position: 'absolute',
-            bottom: 56,
-            left: 48,
-            right: 48,
-            height: 3,
-            background: 'rgba(229, 234, 242, 0.6)',
-            borderRadius: 4,
-            overflow: 'hidden',
-            zIndex: 20,
-          }}
-        >
+        {!isMobile && (
           <div
-            ref={progressFillRef}
+            ref={progressLineRef}
             style={{
               position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(90deg, #B87333, #7B3F00, #22c55e)',
+              bottom: 56,
+              left: 48,
+              right: 48,
+              height: 3,
+              background: 'rgba(229, 234, 242, 0.6)',
               borderRadius: 4,
-              transformOrigin: 'left center',
-              transform: 'scaleX(0)',
-              boxShadow: '0 0 12px rgba(30,144,255,0.6)',
+              overflow: 'hidden',
+              zIndex: 20,
             }}
-          />
-        </div>
+          >
+            <div
+              ref={progressFillRef}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(90deg, #B87333, #7B3F00, #22c55e)',
+                borderRadius: 4,
+                transformOrigin: 'left center',
+                transform: 'scaleX(0)',
+                boxShadow: '0 0 12px rgba(30,144,255,0.6)',
+              }}
+            />
+          </div>
+        )}
 
         {/* ── Track Wrapper ── */}
         <div
-          style={{
+          style={isMobile ? {
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '24px 0',
+          } : {
             position: 'absolute',
             inset: 0,
             display: 'flex',
@@ -511,22 +541,35 @@ const HorizontalJourney: React.FC = () => {
           }}
         >
           {/* Continuous connecting timeline track line */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 120,
-              left: 0,
-              height: 2.5,
-              width: `${MILESTONES.length * 380 + 200}px`,
-              background: '#000000',
-              zIndex: 1,
-            }}
-          />
+          {!isMobile && (
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 120,
+                left: 0,
+                height: 2.5,
+                width: `${MILESTONES.length * 380 + 200}px`,
+                background: '#000000',
+                zIndex: 1,
+              }}
+            />
+          )}
 
           {/* Scrollable track */}
           <div
             ref={trackRef}
-            style={{
+            className="scrollbar-none"
+            style={isMobile ? {
+              display: 'flex',
+              alignItems: 'stretch',
+              gap: 24,
+              paddingLeft: 24,
+              paddingRight: 24,
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              width: '100%',
+              zIndex: 2,
+            } : {
               display: 'flex',
               alignItems: 'flex-end',
               gap: 60,
@@ -650,26 +693,28 @@ const HorizontalJourney: React.FC = () => {
                     </div>
 
                     {/* Vertical trace indicator pointing to progress track line */}
-                    <div
-                      style={{
-                        width: 2,
-                        height: 48,
-                        background: '#000000',
-                        position: 'relative',
-                      }}
-                    >
+                    {!isMobile && (
                       <div
                         style={{
-                          width: 10,
-                          height: 10,
-                          borderRadius: '50%',
+                          width: 2,
+                          height: 48,
                           background: '#000000',
-                          position: 'absolute',
-                          bottom: -5,
-                          left: -4,
+                          position: 'relative',
                         }}
-                      />
-                    </div>
+                      >
+                        <div
+                          style={{
+                            width: 10,
+                            height: 10,
+                            borderRadius: '50%',
+                            background: '#000000',
+                            position: 'absolute',
+                            bottom: -5,
+                            left: -4,
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -677,7 +722,16 @@ const HorizontalJourney: React.FC = () => {
 
             {/* End Card */}
             <div
-              style={{
+              style={isMobile ? {
+                flexShrink: 0,
+                width: 220,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 16,
+                paddingRight: 24,
+              } : {
                 flexShrink: 0,
                 width: 220,
                 display: 'flex',

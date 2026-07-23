@@ -127,10 +127,8 @@ const MarkdownModal: React.FC<MarkdownModalProps> = ({ isOpen, onClose, projectT
               </div>
               <button
                 onClick={onClose}
-                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer font-bold"
-                style={{ background: 'rgba(255,255,255,0.90)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = '#7B3F00'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(190,228,208,0.80)'}
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer font-bold border border-white/20 text-white shadow-md hover:bg-black/90"
+                style={{ background: 'rgba(20,20,20,0.75)', backdropFilter: 'blur(12px)' }}
               >
                 <FaTimes />
               </button>

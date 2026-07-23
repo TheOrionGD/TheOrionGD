@@ -73,13 +73,13 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto mb-16 text-center md:text-left"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 glass-badge">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] mb-6 glass-badge">
             Section 02 // The Thread
           </div>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight uppercase">
+          <h2 className="font-section-heading text-4xl md:text-6xl font-bold mb-6 tracking-[-0.03em] uppercase">
             The <span className="text-black">Thread</span>
           </h2>
-          <p className="text-base md:text-xl font-medium leading-relaxed max-w-2xl">
+          <p className="font-body-text text-base md:text-[18px] font-normal leading-[1.7] max-w-2xl">
             A four-beat evolution across cybersecurity, frontend engineering, UI/UX design, and full-stack architecture. Things are revealed, not listed.
           </p>
         </motion.div>
@@ -103,24 +103,24 @@ const About: React.FC = () => {
                   <div>
                     {/* Top Compartment: Company & Title */}
                     <div className="pb-4 mb-4 border-b border-[#D3D3D3]">
-                      <h3 className="font-space-grotesk text-[10px] tracking-widest text-black font-bold uppercase mb-1">
+                      <h3 className="font-small-label text-[11px] font-medium tracking-[0.12em] text-black uppercase mb-1">
                         {beat.company} {"// SYSTEMS RECORD"}
                       </h3>
-                      <h4 className="text-xl sm:text-2xl font-bold font-space-grotesk uppercase tracking-tight leading-tight text-black">
+                      <h4 className="font-card-title text-xl sm:text-2xl font-bold uppercase tracking-[-0.03em] leading-[1.15] text-black">
                         {beat.title}
                       </h4>
                     </div>
 
                     {/* Middle Compartment: Grid split (Date & Beat Index with Icon) */}
-                    <div className="grid grid-cols-2 border-b border-[#D3D3D3] pb-4 mb-4 text-xs font-space-grotesk">
+                    <div className="grid grid-cols-2 border-b border-[#D3D3D3] pb-4 mb-4 text-xs">
                       <div className="border-r border-[#D3D3D3] pr-4">
-                        <span className="opacity-60 text-black uppercase text-[9px] block">INTERVAL</span>
-                        <span className="font-bold tracking-tight text-black">{beat.period}</span>
+                        <span className="font-small-label text-[11px] opacity-60 text-black uppercase block">INTERVAL</span>
+                        <span className="font-space-grotesk font-bold tracking-tight text-black">{beat.period}</span>
                       </div>
                       <div className="pl-4 flex items-center justify-between">
                         <div>
-                          <span className="opacity-60 text-black uppercase text-[9px] block">REF MATRIX</span>
-                          <span className="font-bold text-black">{beat.num} {"// ACTIVE"}</span>
+                          <span className="font-small-label text-[11px] opacity-60 text-black uppercase block">REF MATRIX</span>
+                          <span className="font-number-display font-bold text-black">{beat.num} {"// ACTIVE"}</span>
                         </div>
                         <div className="text-black/60 group-hover:text-black text-lg transition-transform group-hover:scale-110 pr-2">
                           <Icon />
@@ -130,8 +130,8 @@ const About: React.FC = () => {
 
                     {/* Bottom Compartment: Narrative Text */}
                     <div className="pt-2">
-                      <span className="font-space-grotesk text-[9px] text-black opacity-60 uppercase block mb-1">LOG ENTRY</span>
-                      <p className="text-xs sm:text-sm leading-relaxed font-medium text-black group-hover:text-black transition-colors">
+                      <span className="font-small-label text-[11px] text-black opacity-60 uppercase block mb-1">LOG ENTRY</span>
+                      <p className="font-body-text text-sm sm:text-base leading-[1.7] font-normal text-black group-hover:text-black transition-colors">
                         {beat.text}
                       </p>
                     </div>
@@ -151,7 +151,7 @@ const About: React.FC = () => {
           className="max-w-4xl mx-auto mt-16 text-center"
         >
           <div className="py-6 border-t border-[#D3D3D3] inline-block w-full">
-            <p className="text-base sm:text-lg font-bold font-space-grotesk italic tracking-tight text-black leading-relaxed">
+            <p className="font-body-text text-base sm:text-[18px] font-normal italic tracking-tight text-black leading-[1.7]">
               &ldquo;Four internships. One throughline: build the thing that shouldn&apos;t be possible on the timeline you&apos;re given.&rdquo;
             </p>
           </div>

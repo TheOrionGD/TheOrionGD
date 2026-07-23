@@ -48,13 +48,13 @@ const CodingProfiles: React.FC = () => {
           viewport={{ once: true }}
           className="mb-12 text-left"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EDEDED] text-black font-space-grotesk text-[10px] font-bold tracking-widest uppercase mb-4 shadow-[inset_2px_2px_5px_#DCDCDC,inset_-2px_-2px_5px_#ffffff]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDEDED] text-black font-section-label text-[13px] font-semibold tracking-[0.08em] uppercase mb-4 shadow-[inset_2px_2px_5px_#DCDCDC,inset_-2px_-2px_5px_#ffffff]">
             Live Activity // Credentials
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-space-grotesk mb-4 tracking-tight uppercase">
+          <h2 className="font-section-heading text-4xl md:text-5xl font-bold mb-4 tracking-[-0.03em] uppercase">
             Coding Ecosystem
           </h2>
-          <p className="max-w-xl text-sm leading-relaxed text-black">
+          <p className="max-w-xl font-body-text text-base md:text-[18px] font-normal leading-[1.7] text-black">
             Explore my continuous algorithmic problem-solving, open-source repositories, and verified technical credentials across industry-standard platforms.
           </p>
         </motion.div>
@@ -78,43 +78,40 @@ const CodingProfiles: React.FC = () => {
                   <div className="text-black">
                     <platform.icon size={26} />
                   </div>
-                  <span className="text-[9px] font-space-grotesk font-bold uppercase tracking-widest text-black opacity-60">
+                  <span className="font-small-label text-[11px] font-medium uppercase tracking-[0.12em] text-black opacity-60">
                     {platform.statsLabel}
                   </span>
                 </div>
 
                 {/* Title & Username */}
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold font-space-grotesk uppercase tracking-tight text-black">
+                  <h3 className="font-card-title text-xl font-bold uppercase tracking-[-0.03em] text-black">
                     {platform.name}
                   </h3>
-                  <p className="text-[10px] font-space-grotesk font-bold uppercase tracking-wider text-black">
+                  <p className="font-card-subtitle text-xs font-normal uppercase tracking-wider text-black">
                     {platform.username}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-black text-xs leading-relaxed mb-6">
+                <p className="font-body-text text-sm sm:text-base leading-[1.7] text-black mb-6">
                   {platform.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {platform.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="text-[9px] font-space-grotesk font-bold uppercase tracking-wider px-2 py-0.5 rounded-full glass-badge"
-                    >
-                      #{tag}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {platform.tags.map((tag, tIdx) => (
+                    <span key={tIdx} className="font-status-badge text-[13px] font-semibold tracking-[0.06em] uppercase px-3 py-1 rounded-full glass-badge">
+                      {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
               {/* Link Indicator */}
-              <div className="flex items-center justify-between text-[10px] font-bold font-space-grotesk uppercase tracking-widest text-black mt-4">
-                <span>Explore Profile</span>
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <div className="flex items-center justify-between font-space-grotesk text-xs font-bold uppercase tracking-[0.02em] text-black mt-4">
+                <span>View Profile</span>
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300 text-xs text-black" />
               </div>
             </motion.a>
           ))}

@@ -26,7 +26,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent bg-[#EDEDED]">
+    <div className="relative min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent bg-transparent">
       <Header />
       <BackgroundVideo hidden={!videoReady} />
       <CursorGlow />

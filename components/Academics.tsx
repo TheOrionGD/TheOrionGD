@@ -40,14 +40,14 @@ const Academics: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 glass-badge">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] mb-6 glass-badge">
             <FaGraduationCap className="animate-pulse" /> Section 07b // Education
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+          <h2 className="font-section-heading text-4xl md:text-5xl font-bold mb-6 tracking-[-0.03em]">
             Academic <span className="text-black uppercase tracking-tighter">Milestones</span>
           </h2>
           <div className="w-24 h-1.5 mx-auto rounded-full mb-6" style={{ background: 'linear-gradient(90deg, #7B3F00, #B87333)' }} />
-          <p className="max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="max-w-2xl mx-auto font-body-text text-base md:text-[18px] font-normal leading-[1.7]">
             Acquiring engineering foundations, exploring specialized computer architectures, and pursuing deep research insights.
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ const Academics: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="text-2xl font-black mb-8 uppercase tracking-tight flex items-center gap-3">
+            <h3 className="font-section-heading text-2xl font-bold mb-8 uppercase tracking-[-0.03em] flex items-center gap-3">
               Institutional Education
               <span className="h-0.5 w-12 bg-[#7B3F00] rounded-full inline-block"></span>
             </h3>
@@ -102,9 +102,9 @@ const Academics: React.FC = () => {
                         (e.currentTarget.parentElement as HTMLElement).style.boxShadow = '0 8px 20px -4px rgba(0,0,0,0.12)';
                         (e.currentTarget as HTMLElement).style.borderBottomColor = '#b8b8b8';
                       }}>
-                      <h4 className="text-lg md:text-xl font-black mb-1 uppercase tracking-tight">{edu.degree}</h4>
-                      <p className="text-[11px] font-black uppercase tracking-widest mb-3">{edu.institution}</p>
-                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest">
+                      <h4 className="font-card-title text-lg md:text-xl font-bold mb-1 uppercase tracking-[-0.03em]">{edu.degree}</h4>
+                      <p className="font-card-subtitle text-xs font-normal uppercase mb-3">{edu.institution}</p>
+                      <div className="flex items-center gap-2 font-status-badge text-[13px] font-semibold tracking-[0.06em]">
                          <span className="w-4 h-px bg-text-muted opacity-30"></span>
                          {edu.period}
                       </div>
@@ -123,7 +123,7 @@ const Academics: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col justify-center"
           >
-            <h3 className="text-2xl font-black mb-8 uppercase tracking-tight flex items-center gap-3">
+            <h3 className="font-section-heading text-2xl font-bold mb-8 uppercase tracking-[-0.03em] flex items-center gap-3">
               Research &amp; Coursework Highlights
               <span className="h-0.5 w-12 bg-[#B87333] rounded-full inline-block"></span>
             </h3>
@@ -159,8 +159,8 @@ const Academics: React.FC = () => {
                       <high.icon className="text-lg text-black" />
                     </div>
                     <div>
-                      <h4 className="text-base font-black uppercase tracking-wider mb-2">{high.title}</h4>
-                      <p className="text-sm leading-relaxed">{high.desc}</p>
+                      <h4 className="font-card-title text-base md:text-lg font-bold uppercase tracking-[-0.03em] mb-2">{high.title}</h4>
+                      <p className="font-body-text text-sm sm:text-base leading-[1.7] font-normal">{high.desc}</p>
                     </div>
                   </div>
                 </div>

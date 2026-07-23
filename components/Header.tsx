@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -78,13 +78,13 @@ export const Header: React.FC = () => {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, 'home')}
-          className="font-space-grotesk text-sm font-black tracking-[0.25em] text-black hover:opacity-70 transition-opacity uppercase"
+          className="font-space-grotesk text-sm font-bold tracking-[0.2em] text-black hover:opacity-70 transition-opacity uppercase"
         >
           TheOrionGD
         </a>
 
         {/* Center: Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-[10px] font-mono font-bold uppercase tracking-widest">
+        <nav className="hidden md:flex items-center gap-8 font-sans text-[13px] font-medium uppercase tracking-[0.08em]">
           {navItems.map((item) => {
             const isActive = activeSection === item.target;
             return (
@@ -93,7 +93,7 @@ export const Header: React.FC = () => {
                 href={`#${item.target}`}
                 onClick={(e) => handleNavClick(e, item.target)}
                 className={`transition-colors duration-300 flex items-center gap-1.5 ${isActive
-                  ? 'text-black'
+                  ? 'text-black font-semibold'
                   : 'text-black/60 hover:text-black'
                   }`}
               >
@@ -110,13 +110,14 @@ export const Header: React.FC = () => {
         <div>
           <button
             onClick={(e) => handleNavClick(e, 'contact')}
-            className="inline-flex items-center bg-[#2E2E2E] hover:bg-[#B87333] text-black transition-all duration-300 text-[10px] font-bold font-mono tracking-widest py-2 px-4 uppercase cursor-pointer"
+            className="inline-flex items-center bg-black/80 backdrop-blur-md hover:bg-[#B87333] text-white transition-all duration-300 font-space-grotesk text-xs font-bold tracking-[0.02em] py-2 px-4 uppercase cursor-pointer border border-white/20 shadow-md"
             style={{
               clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%)'
             }}
           >
-            <span className="text-black/70 mr-2 text-[8px]">▪</span>
-            Hire ME          </button>
+            <span className="text-[#B87333] mr-2 text-[8px]">▪</span>
+            Hire ME
+          </button>
         </div>
 
       </div>

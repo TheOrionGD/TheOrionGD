@@ -49,10 +49,10 @@ export const SideNav: React.FC = () => {
   };
 
   return (
-    <div className="fixed right-6 md:right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-6 font-mono text-[10px] select-none">
-      <div className="flex flex-col gap-3.5 relative py-4 items-end">
-        {/* Vertical tracking line */}
-        <div className="absolute right-[3px] top-0 bottom-0 w-[1px] bg-[#2E2E2E]/10" />
+    <div className="fixed left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-6 font-mono text-[10px] select-none">
+      <div className="flex flex-col gap-4 relative py-6 items-start">
+        {/* Continuous vertical line passing through circular nodes */}
+        <div className="absolute left-[6.5px] top-0 bottom-0 w-[1.5px] bg-white/80 border-r border-slate-300/40 shadow-xs" />
 
         {SECTIONS.map((sec) => {
           const isActive = activeSection === sec.id;
@@ -60,25 +60,31 @@ export const SideNav: React.FC = () => {
             <button
               key={sec.id}
               onClick={() => handleScrollTo(sec.id)}
-              className="group flex items-center gap-4 text-right cursor-pointer py-1 relative z-10 focus:outline-none"
+              className="group flex items-center gap-3.5 text-left cursor-pointer py-0.5 relative z-10 focus:outline-none"
             >
-              {/* Text label revealed on hover */}
-              <span 
-                className={`opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 font-bold uppercase tracking-widest text-[9px] ${
-                  isActive ? 'text-black opacity-100!' : 'text-black/60 hover:text-black'
+              {/* Circular Node Indicator (Matches exact circular design) */}
+              <div
+                className={`w-3.5 h-3.5 rounded-full transition-all duration-300 flex items-center justify-center shrink-0 ${
+                  isActive
+                    ? 'border-2 border-[#F97316] bg-white shadow-[0_0_10px_rgba(249,115,22,0.85)] scale-110'
+                    : 'border-[1.5px] border-white/90 bg-slate-100/30 group-hover:border-slate-400 group-hover:scale-105'
+                }`}
+              >
+                {isActive && (
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
+                )}
+              </div>
+
+              {/* Section number & label tag */}
+              <span
+                className={`transition-all duration-300 font-mono font-bold uppercase tracking-wider text-[10px] whitespace-nowrap ${
+                  isActive
+                    ? 'text-black opacity-100 translate-x-0'
+                    : 'text-black/50 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0'
                 }`}
               >
                 {sec.num} {"//"} {sec.label}
               </span>
-
-              {/* Indicator Dot/Bar */}
-              <div 
-                className={`w-1.5 h-6 transition-all duration-300 rounded-full ${
-                  isActive 
-                    ? 'bg-[#B87333] w-2.5 scale-y-110 shadow-[0_0_8px_rgba(184,115,51,0.6)]' 
-                    : 'bg-[#2E2E2E]/30 group-hover:bg-[#2E2E2E]/70'
-                }`}
-              />
             </button>
           );
         })}
