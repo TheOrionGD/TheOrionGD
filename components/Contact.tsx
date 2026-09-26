@@ -111,6 +111,7 @@ const Contact: FC = () => {
 
               {/* Send Button at top control bar */}
               <button
+                form="contact-form"
                 type="submit"
                 disabled={isSubmitting}
                 className="group inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-6 cursor-pointer transition-all duration-300 rounded-full border border-white/20 shadow-md hover:bg-black/95 active:scale-95 disabled:opacity-60 shrink-0 self-start sm:self-auto"
@@ -121,7 +122,7 @@ const Contact: FC = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-0">
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-0">
               <input type="hidden" name="subject" value={`New Portfolio Message (${contactType})`} />
               <input type="hidden" name="from_name" value="Portfolio Contact Form" />
 
@@ -135,7 +136,7 @@ const Contact: FC = () => {
                     name="last_name"
                     type="text"
                     required
-                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-sm text-black placeholder:text-black/30 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
+                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-base sm:text-sm text-black placeholder:text-black/30 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
                   />
                 </div>
                 <div className="bg-transparent md:pl-4">
@@ -146,7 +147,7 @@ const Contact: FC = () => {
                     name="first_name"
                     type="text"
                     required
-                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-sm text-black placeholder:text-black/30 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
+                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-base sm:text-sm text-black placeholder:text-black/30 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
                   />
                 </div>
               </div>
@@ -161,7 +162,7 @@ const Contact: FC = () => {
                     name="email"
                     type="email"
                     required
-                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-sm text-black placeholder:text-black/30 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
+                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-base sm:text-sm text-black placeholder:text-black/30 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
                   />
                 </div>
                 <div className="bg-transparent md:pl-4">
@@ -173,7 +174,7 @@ const Contact: FC = () => {
                     type="text"
                     required
                     placeholder={contactType === 'professional' ? 'e.g. Collaboration, Project inquiry' : 'e.g. General question'}
-                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-sm text-black placeholder:text-black/25 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
+                    className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none text-base sm:text-sm text-black placeholder:text-black/25 font-sans mb-4 rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
                   />
                 </div>
               </div>
@@ -189,7 +190,7 @@ const Contact: FC = () => {
                   required
                   maxLength={350}
                   placeholder="Message (350 characters max)"
-                  className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none resize-none text-sm text-black placeholder:text-black/25 font-sans rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
+                  className="w-full bg-[#EDEDED] border-0 px-3.5 py-3 focus:outline-none resize-none text-base sm:text-sm text-black placeholder:text-black/25 font-sans rounded-xl shadow-[inset_3px_3px_6px_#DCDCDC,inset_-3px_-3px_6px_#ffffff] focus:shadow-[inset_3px_3px_6px_#C8C8C8,inset_-3px_-3px_6px_#ffffff] transition-all duration-200"
                 />
               </div>
 
@@ -205,6 +206,17 @@ const Contact: FC = () => {
                 </p>
               )}
 
+              {/* Mobile-Friendly Full-Width Bottom Submit Button */}
+              <div className="pt-2 sm:hidden">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 px-6 rounded-xl bg-black text-white font-space-grotesk font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-98 transition-all cursor-pointer disabled:opacity-60"
+                >
+                  <span className="text-[#B87333]">▪</span>
+                  {isSubmitting ? 'Sending Transmission…' : submitStatus === 'success' ? 'Transmission Sent!' : 'Send Message'}
+                </button>
+              </div>
 
             </form>
           </div>

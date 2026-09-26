@@ -218,20 +218,23 @@ const Experience: React.FC = () => {
           {isMobile ? (
             <div className="h-auto flex flex-col lg:overflow-hidden">
               {/* Fixed Video at top on mobile */}
-              <div className="py-4 shrink-0">
+              <div className="py-3 shrink-0">
                 <div
-                  className="w-full aspect-video bg-[#000000] overflow-hidden"
-                  style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)' }}
+                  className="w-full h-44 sm:h-52 bg-[#000000] overflow-hidden rounded-2xl shadow-md relative border border-black/10"
                 >
                   <video src={videoSrc} autoPlay loop muted playsInline preload="auto"
                     className="w-full h-full object-cover opacity-85" />
+                  <div className="absolute bottom-2.5 left-3 font-mono text-[9px] text-white/90 bg-black/70 px-2.5 py-1 rounded-lg backdrop-blur-md font-bold uppercase tracking-wider flex items-center gap-1.5 border border-white/10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse" />
+                    {companyHeadingMap[experienceList[activeIndex]?.company] ?? experienceList[activeIndex]?.company}
+                  </div>
                 </div>
               </div>
 
               {/* Scrollable list below the video */}
               <div
                 ref={scrollContainerRef}
-                className="flex-1 lg:overflow-y-auto scrollbar-thin scrollbar-thumb-[#DCDCDC] scrollbar-track-transparent pb-10"
+                className="flex-1 lg:overflow-y-auto scrollbar-thin scrollbar-thumb-[#DCDCDC] scrollbar-track-transparent pb-8"
               >
                 {experienceList.map((exp, index) => (
                   <ExpRow

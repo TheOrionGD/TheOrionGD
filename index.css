@@ -250,6 +250,9 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -260,6 +263,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     touch-action: manipulation;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   *,
@@ -284,7 +288,6 @@
   button, .btn {
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.02em;
-    color: #ffffff;
   }
 }
 

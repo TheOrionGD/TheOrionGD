@@ -10,7 +10,7 @@ const expertise = [
   {
     step: "01 // INNOVATE",
     title: "Advanced Research",
-    desc: "Developing novel hardware-software integrations, AI pipelines, and filing patents like Android TV IR remote signal mapping.",
+    desc: "Developing novel hardware-software integrations, AI pipelines, and intelligent embedded systems architectures.",
     icon: FaLightbulb
   },
   {
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
   const [internshipsCount, setInternshipsCount] = useState(0);
   const [projectsCount, setProjectsCount] = useState(0);
   const [certsCount, setCertsCount] = useState(0);
-  const [patentCount, setPatentCount] = useState(0);
+  const [awardsCount, setAwardsCount] = useState(0);
 
   useEffect(() => {
     const duration = 1200;
@@ -69,14 +69,14 @@ const Hero: React.FC = () => {
       setInternshipsCount(Math.min(4, Math.round((4 / totalSteps) * currentStep)));
       setProjectsCount(Math.min(40, Math.round((40 / totalSteps) * currentStep)));
       setCertsCount(Math.min(40, Math.round((40 / totalSteps) * currentStep)));
-      setPatentCount(Math.min(1, Math.round((1 / totalSteps) * currentStep)));
+      setAwardsCount(Math.min(5, Math.round((5 / totalSteps) * currentStep)));
       if (currentStep >= totalSteps) clearInterval(timer);
     }, stepTime);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen bg-transparent text-black overflow-hidden py-12 md:py-16 flex items-center justify-center">
+    <section id="home" className="relative min-h-screen bg-transparent text-black overflow-hidden pt-20 pb-12 md:py-16 flex items-center justify-center">
 
       {/* Subtle Grid Background */}
       <div
@@ -111,14 +111,14 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-left mb-6"
           >
-            <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full font-section-label text-[13px] font-semibold tracking-[0.08em] uppercase mb-5 glass-badge">
+            <div className="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full font-section-label text-xs sm:text-[13px] font-semibold tracking-[0.08em] uppercase mb-4 glass-badge">
               <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               INNOVATE // BUILD // IMPACT
             </div>
             <h1
               onClick={() => navigate('/admin/login')}
               title="System of Record // CMS"
-              className="font-hero text-[13vw] font-extrabold tracking-[-0.05em] text-black leading-[0.92] uppercase cursor-pointer hover:opacity-85 select-none"
+              className="font-hero text-[clamp(2.5rem,11.5vw,3.75rem)] font-extrabold tracking-[-0.05em] text-black leading-[0.92] uppercase cursor-pointer hover:opacity-85 select-none"
             >
               {firstName}<br />
               <span className="text-black">{lastName}</span>
@@ -130,9 +130,9 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.12 }}
-            className="flex justify-center mb-8"
+            className="flex justify-center mb-7"
           >
-            <div className="relative w-[72vw] max-w-[280px] aspect-[3/4] overflow-hidden glow-border-container rounded-[2rem] shadow-xl">
+            <div className="relative w-[70vw] max-w-[270px] aspect-[3/4] overflow-hidden glow-border-container rounded-[2rem] shadow-xl">
               <div className="glow-border-content bg-[#EDEDED] overflow-hidden rounded-[calc(2rem-1.5px)]">
                 <img
                   src={portraitSrc}
@@ -151,14 +151,14 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.22 }}
             className="text-left"
           >
-            <p className="font-body-text text-black text-[18px] leading-[1.7] mb-7 max-w-sm">
-              {personal?.tagline || "Final-year CS engineer and systems architect. Four internships, one patent. Building fluid, intelligent platforms."}
+            <p className="font-body-text text-black text-base sm:text-[18px] leading-[1.65] mb-6 max-w-sm">
+              {personal?.tagline || "Final-year CS engineer and systems architect. Four internships, award-winning hackathon engineer. Building fluid, intelligent platforms."}
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-2.5 mb-7">
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full bg-black/80 backdrop-blur-md hover:bg-[#B87333] text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 cursor-pointer"
+                className="min-h-[44px] inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-black/85 backdrop-blur-md hover:bg-[#B87333] text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 cursor-pointer active:scale-95"
               >
                 Explore Work
               </a>
@@ -166,33 +166,33 @@ const Hero: React.FC = () => {
                 href="/assets/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-black/80 backdrop-blur-md hover:bg-black/95 text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 cursor-pointer"
+                className="min-h-[44px] inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-black/85 backdrop-blur-md hover:bg-black/95 text-white font-space-grotesk font-bold text-xs uppercase tracking-[0.02em] transition-all duration-300 hover:-translate-y-0.5 shadow-md border border-white/20 cursor-pointer active:scale-95"
               >
                 View Case File
               </a>
             </div>
 
-            {/* Stats — 2×2 on mobile */}
-            <div className="grid grid-cols-2 gap-x-6 gap-y-5 pt-6 border-t border-[#E5E5E5]">
-              <div>
-                <span className="font-number-display text-[42px] font-bold text-black">{internshipsCount}+</span>
-                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Internships</span>
+            {/* Stats — 2×2 on mobile with compact cards */}
+            <div className="grid grid-cols-2 gap-2.5 pt-5 border-t border-[#E5E5E5]">
+              <div className="p-3 rounded-xl bg-black/[0.03] border border-black/5">
+                <span className="font-number-display text-3xl font-bold text-black">{internshipsCount}+</span>
+                <span className="font-small-label text-[10px] text-black/75 block mt-0.5 uppercase tracking-[0.1em]">Internships</span>
               </div>
-              <div>
-                <span className="font-number-display text-[42px] font-bold text-black">{projectsCount}+</span>
-                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Projects</span>
+              <div className="p-3 rounded-xl bg-black/[0.03] border border-black/5">
+                <span className="font-number-display text-3xl font-bold text-black">{projectsCount}+</span>
+                <span className="font-small-label text-[10px] text-black/75 block mt-0.5 uppercase tracking-[0.1em]">Projects</span>
               </div>
-              <div>
-                <span className="font-number-display text-[42px] font-bold text-black">{certsCount}+</span>
-                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Credentials</span>
+              <div className="p-3 rounded-xl bg-black/[0.03] border border-black/5">
+                <span className="font-number-display text-3xl font-bold text-black">{certsCount}+</span>
+                <span className="font-small-label text-[10px] text-black/75 block mt-0.5 uppercase tracking-[0.1em]">Credentials</span>
               </div>
-              <div>
-                <span className="font-number-display text-[42px] font-bold text-black">{patentCount}</span>
-                <span className="font-small-label text-[11px] text-black block mt-0.5 uppercase tracking-[0.12em]">Patent</span>
+              <div className="p-3 rounded-xl bg-black/[0.03] border border-black/5">
+                <span className="font-number-display text-3xl font-bold text-black">{awardsCount}+</span>
+                <span className="font-small-label text-[10px] text-black/75 block mt-0.5 uppercase tracking-[0.1em]">Awards</span>
               </div>
-              <div className="col-span-2 border-t border-[#E5E5E5]/40 pt-4 flex justify-between items-center">
-                <span className="font-small-label text-[11px] text-black uppercase tracking-[0.12em]">Education</span>
-                <span className="font-space-grotesk text-sm font-bold text-black">B.E CSE</span>
+              <div className="col-span-2 px-3 py-2.5 rounded-xl bg-black/[0.03] border border-black/5 flex justify-between items-center">
+                <span className="font-small-label text-[10px] text-black/75 uppercase tracking-[0.1em]">Education</span>
+                <span className="font-space-grotesk text-xs sm:text-sm font-bold text-black">B.E CSE — KRCT</span>
               </div>
             </div>
           </motion.div>
@@ -250,7 +250,7 @@ const Hero: React.FC = () => {
             </h1>
 
             <p className="font-body-text text-black text-[18px] leading-[1.7] mb-8 max-w-md">
-              {personal?.tagline || "Final-year Computer Science engineer and systems architect. Backed by four internships in cybersecurity, UI/UX, and full-stack development, and one registered patent. Designing fluid, intelligent platforms."}
+              {personal?.tagline || "Final-year Computer Science engineer and systems architect. Backed by four internships in cybersecurity, UI/UX, and full-stack development, and competitive hackathon wins. Designing fluid, intelligent platforms."}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
@@ -284,8 +284,8 @@ const Hero: React.FC = () => {
                 <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Credentials</span>
               </div>
               <div className="min-w-0">
-                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">{patentCount}</span>
-                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Patent</span>
+                <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">{awardsCount}+</span>
+                <span className="font-small-label text-[10px] text-black block mt-1 uppercase tracking-[0.08em] truncate">Awards</span>
               </div>
               <div className="min-w-0">
                 <span className="font-number-display text-2xl md:text-[36px] font-bold text-black">B.E</span>

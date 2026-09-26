@@ -16,7 +16,7 @@ const ChatbotWidget: React.FC = () => {
   const [input, setInput] = useState('');
   const [isThinking, setIsThinking] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [botName, setBotName] = useState('Orion Concierge // AI');
+  const [botName, setBotName] = useState('Godfrey T R');
   const [sessionId, setSessionId] = useState<string>('');
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -36,21 +36,21 @@ const ChatbotWidget: React.FC = () => {
         if (data.botName) setBotName(data.botName);
         const greetingMsg: Message = {
           role: 'assistant',
-          content: data.greeting || "Hey there! I'm Godfrey's AI assistant. You can ask me anything about his projects, technical stack, internships, or certifications!",
+          content: data.greeting || "Hey! I'm Godfrey. Ask me anything about what I've engineered, my research proposals, or my tech stack.",
           timestamp: new Date().toISOString(),
         };
         setMessages([greetingMsg]);
       } else {
         setMessages([{
           role: 'assistant',
-          content: "Hey there! I'm Godfrey's AI assistant. Ask me anything about his projects, technical stack, or internships!",
+          content: "Hey! I'm Godfrey. Ask me anything about what I've engineered, my research proposals, or my tech stack.",
           timestamp: new Date().toISOString(),
         }]);
       }
     } catch (e) {
       setMessages([{
         role: 'assistant',
-        content: "Hey there! I'm Godfrey's AI assistant. Ask me anything about his projects, technical stack, or internships!",
+        content: "Hey! I'm Godfrey. Ask me anything about what I've engineered, my research proposals, or my tech stack.",
         timestamp: new Date().toISOString(),
       }]);
     }
@@ -179,7 +179,7 @@ const ChatbotWidget: React.FC = () => {
             setIsDragging(false);
           }, 80);
         }}
-        className="fixed bottom-6 left-6 z-50 pointer-events-auto cursor-grab active:cursor-grabbing"
+        className="fixed bottom-5 left-4 sm:bottom-6 sm:left-6 z-50 pointer-events-auto cursor-grab active:cursor-grabbing"
       >
         <motion.button
           whileHover={{ scale: 1.08 }}
@@ -194,16 +194,16 @@ const ChatbotWidget: React.FC = () => {
             background: 'linear-gradient(135deg, #7B3F00, #B87333, #E5E5E5)',
             boxShadow: '0 8px 32px rgba(255,99,99,0.45), 0 0 20px rgba(190,228,208,0.3)',
           }}
-          aria-label="Toggle Personalized AI Bot"
+          aria-label="Chat with Godfrey"
         >
           {/* Outer glow pulse */}
           <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#7B3F00] via-[#B87333] to-[#E5E5E5] opacity-70 blur-md group-hover:opacity-100 transition-opacity duration-500 animate-pulse pointer-events-none" />
           
           {/* Tooltip on hover */}
           {!isOpen && (
-            <span className="absolute left-full ml-3.5 px-3 py-1.5 rounded-2xl bg-slate-900/95 text-white font-mono text-[9px] font-bold tracking-wider whitespace-nowrap shadow-2xl border border-white/15 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none flex items-center gap-1.5 backdrop-blur-md">
+            <span className="absolute left-full ml-3.5 px-3 py-1.5 rounded-2xl bg-slate-900/95 text-white font-mono text-[9px] font-bold tracking-wider whitespace-nowrap shadow-2xl border border-white/15 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none flex items-center gap-1.5 backdrop-blur-md hidden sm:flex">
               <span className="w-1.5 h-1.5 rounded-full bg-[#EDEDED] animate-ping" />
-              TALK TO GODFREY // AI
+              CHAT WITH GODFREY
             </span>
           )}
 
@@ -229,7 +229,7 @@ const ChatbotWidget: React.FC = () => {
               >
                 <img
                   src={IMG_FAVICON}
-                  alt="Godfrey AI Bot"
+                  alt="Godfrey T R"
                   className="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500"
                 />
               </motion.div>
@@ -254,8 +254,8 @@ const ChatbotWidget: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 left-4 sm:left-6 w-[calc(100vw-2rem)] sm:w-[350px] h-[480px] max-h-[calc(100vh-6.5rem)] z-50 rounded-2xl flex flex-col overflow-hidden"
-            style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)', boxShadow: '0 20px 50px rgba(255,99,99,0.15), 0 0 30px rgba(190,228,208,0.3)', backdropFilter: 'blur(24px)' }}
+            className="fixed bottom-20 left-3 right-3 sm:right-auto sm:left-6 sm:w-[360px] h-[490px] max-h-[calc(100dvh-6.5rem)] z-50 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
+            style={{ background: 'rgba(255,255,255,0.96)', border: '1px solid rgba(190,228,208,0.80)', boxShadow: '0 20px 50px rgba(0,0,0,0.18), 0 0 30px rgba(184,115,51,0.2)', backdropFilter: 'blur(24px)' }}
           >
             {/* Compact Header */}
             <div
@@ -264,12 +264,12 @@ const ChatbotWidget: React.FC = () => {
             >
               <div className="flex items-center gap-2">
                 <div className="relative flex items-center justify-center">
-                  <img src={IMG_FAVICON} alt="Godfrey AI" className="w-6 h-6 rounded-full object-cover border border-[#7B3F00]/60 shadow-sm" />
+                  <img src={IMG_FAVICON} alt="Godfrey T R" className="w-6 h-6 rounded-full object-cover border border-[#7B3F00]/60 shadow-sm" />
                   <span className="absolute -bottom-0.5 -right-0.5 w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#22c55e', boxShadow: '0 0 8px rgba(34,197,94,0.8)' }} />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider leading-none">{botName}</span>
-                  <span className="text-[8px] font-mono mt-0.5 leading-none">Online · AI Assistant</span>
+                  <span className="text-[8px] font-mono mt-0.5 leading-none">Online · Direct Portfolio Channel</span>
                 </div>
               </div>
               <button
@@ -300,8 +300,8 @@ const ChatbotWidget: React.FC = () => {
                     className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}
                   >
                     <div className="flex items-center gap-1 mb-1 text-[8px] font-mono px-1">
-                      {isUser ? <FaUser /> : <img src={IMG_FAVICON} alt="AI" className="w-3 h-3 rounded-full object-cover border border-[#7B3F00]/50 shadow-xs inline-block" />}
-                      <span className="font-bold">{isUser ? 'YOU' : 'GODFREY AI'}</span>
+                      {isUser ? <FaUser /> : <img src={IMG_FAVICON} alt="Godfrey" className="w-3 h-3 rounded-full object-cover border border-[#7B3F00]/50 shadow-xs inline-block" />}
+                      <span className="font-bold">{isUser ? 'YOU' : 'GODFREY'}</span>
                       <span>•</span>
                       <span>{timeStr}</span>
                     </div>
@@ -335,8 +335,8 @@ const ChatbotWidget: React.FC = () => {
                   className="flex flex-col items-start"
                 >
                   <div className="flex items-center gap-1.5 mb-1 text-[8px] font-mono px-1 font-bold">
-                    <img src={IMG_FAVICON} alt="AI" className="w-3 h-3 rounded-full object-cover animate-spin border border-[#7B3F00]/50 inline-block" />
-                    <span>NEURAL CORE SYNTHESIZING...</span>
+                    <img src={IMG_FAVICON} alt="Godfrey" className="w-3 h-3 rounded-full object-cover animate-spin border border-[#7B3F00]/50 inline-block" />
+                    <span>TYPING...</span>
                   </div>
                   <div className="p-2.5 rounded-2xl rounded-tl-xs flex items-center gap-1.5"
                     style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(190,228,208,0.80)' }}>
@@ -363,7 +363,7 @@ const ChatbotWidget: React.FC = () => {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about projects, skills, or hire..."
                   disabled={isThinking}
-                  className="w-full pl-8 pr-9 py-2 rounded-lg text-xs focus:outline-none font-mono transition-all disabled:opacity-50"
+                  className="w-full pl-8 pr-9 py-2 rounded-lg text-base sm:text-xs focus:outline-none font-mono transition-all disabled:opacity-50"
                   style={{ background: 'rgba(248,249,251,1)', border: '1px solid rgba(190,228,208,0.80)', color: '#000000' }}
                   onFocus={e => { e.currentTarget.style.borderColor = '#7B3F00'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(255,99,99,0.15)'; }}
                   onBlur={e => { e.currentTarget.style.borderColor = 'rgba(190,228,208,0.80)'; e.currentTarget.style.boxShadow = 'none'; }}

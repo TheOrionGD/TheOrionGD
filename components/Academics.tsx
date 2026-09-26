@@ -52,7 +52,7 @@ const Academics: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-6xl mx-auto">
           
           {/* Left Column: Education Timeline */}
           <motion.div
@@ -61,12 +61,12 @@ const Academics: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="font-section-heading text-2xl font-bold mb-8 uppercase tracking-[-0.03em] flex items-center gap-3">
+            <h3 className="font-section-heading text-xl sm:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-[-0.03em] flex items-center gap-3">
               Institutional Education
-              <span className="h-0.5 w-12 bg-[#7B3F00] rounded-full inline-block"></span>
+              <span className="h-0.5 w-10 sm:w-12 bg-[#7B3F00] rounded-full inline-block"></span>
             </h3>
             
-            <div className="space-y-6 md:space-y-8">
+            <div className="space-y-5 sm:space-y-8">
               {educationList.map((edu, index) => (
                 <motion.div 
                    key={edu.degree} 
@@ -74,19 +74,19 @@ const Academics: React.FC = () => {
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ delay: index * 0.2 }}
-                   className="relative pl-10 md:pl-12 group"
+                   className="relative pl-8 sm:pl-10 md:pl-12 group"
                 >
-                  <div className="absolute left-0 top-1.5 w-6 h-6 rounded-full flex items-center justify-center z-10 group-hover:scale-125 transition-transform duration-300 shadow-[0_4px_8px_rgba(0,0,0,0.25)]"
+                  <div className="absolute left-0 top-1.5 w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center z-10 group-hover:scale-125 transition-transform duration-300 shadow-[0_4px_8px_rgba(0,0,0,0.25)]"
                     style={{ background: 'radial-gradient(circle at 35% 35%, #ffffff 0%, #B87333 40%, #7B3F00 90%)' }}>
                     <div className="w-1.5 h-1.5 rounded-full bg-[#ffffff]/60 animate-pulse"></div>
                   </div>
                   
                   {index !== educationList.length - 1 && (
-                    <div className="absolute left-[11px] top-8 bottom-[-24px] w-0.5 bg-gradient-to-b from-[#7B3F00]/50 to-transparent"></div>
+                    <div className="absolute left-[9px] sm:left-[11px] top-7 sm:top-8 bottom-[-24px] w-0.5 bg-gradient-to-b from-[#7B3F00]/50 to-transparent"></div>
                   )}
  
                   <div className="glow-border-container rounded-2xl hover:scale-[1.01] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_-4px_rgba(0,0,0,0.12)]">
-                    <div className="glow-border-content p-6"
+                    <div className="glow-border-content p-4 sm:p-6"
                       style={{
                         background: 'linear-gradient(135deg, #fcfcfc 0%, #ededed 100%)',
                         borderTop: '2px solid #ffffff',
@@ -102,9 +102,9 @@ const Academics: React.FC = () => {
                         (e.currentTarget.parentElement as HTMLElement).style.boxShadow = '0 8px 20px -4px rgba(0,0,0,0.12)';
                         (e.currentTarget as HTMLElement).style.borderBottomColor = '#b8b8b8';
                       }}>
-                      <h4 className="font-card-title text-lg md:text-xl font-bold mb-1 uppercase tracking-[-0.03em]">{edu.degree}</h4>
-                      <p className="font-card-subtitle text-xs font-normal uppercase mb-3">{edu.institution}</p>
-                      <div className="flex items-center gap-2 font-status-badge text-[13px] font-semibold tracking-[0.06em]">
+                      <h4 className="font-card-title text-base sm:text-lg md:text-xl font-bold mb-1 uppercase tracking-[-0.03em]">{edu.degree}</h4>
+                      <p className="font-card-subtitle text-[11px] sm:text-xs font-normal uppercase mb-2.5 sm:mb-3">{edu.institution}</p>
+                      <div className="flex items-center gap-2 font-status-badge text-xs sm:text-[13px] font-semibold tracking-[0.06em]">
                          <span className="w-4 h-px bg-text-muted opacity-30"></span>
                          {edu.period}
                       </div>
@@ -123,15 +123,15 @@ const Academics: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col justify-center"
           >
-            <h3 className="font-section-heading text-2xl font-bold mb-8 uppercase tracking-[-0.03em] flex items-center gap-3">
+            <h3 className="font-section-heading text-xl sm:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-[-0.03em] flex items-center gap-3">
               Research &amp; Coursework Highlights
-              <span className="h-0.5 w-12 bg-[#B87333] rounded-full inline-block"></span>
+              <span className="h-0.5 w-10 sm:w-12 bg-[#B87333] rounded-full inline-block"></span>
             </h3>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {academicHighlights.map((high, index) => (
                 <div key={index} className="glow-border-container rounded-2xl hover:scale-[1.01] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_8px_20px_-4px_rgba(0,0,0,0.10)]">
-                  <div className="glow-border-content p-6 flex gap-5 group"
+                  <div className="glow-border-content p-4 sm:p-6 flex gap-3.5 sm:gap-5 group"
                     style={{
                       background: 'linear-gradient(135deg, #ffffff 0%, #eaeaea 100%)',
                       borderTop: '2px solid #ffffff',
@@ -147,7 +147,7 @@ const Academics: React.FC = () => {
                       (e.currentTarget.parentElement as HTMLElement).style.boxShadow = '0 8px 20px -4px rgba(0,0,0,0.10)';
                       (e.currentTarget as HTMLElement).style.borderBottomColor = '#c0c0c0';
                     }}>
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-[0_2px_4px_rgba(0,0,0,0.15)]"
                       style={{
                         background: 'linear-gradient(135deg, #e0e0e0 0%, #b8b8b8 100%)',
                         borderTop: '1px solid #ffffff',
@@ -156,11 +156,11 @@ const Academics: React.FC = () => {
                         borderRight: '1.5px solid #7a7a7a'
                       }}
                     >
-                      <high.icon className="text-lg text-black" />
+                      <high.icon className="text-base sm:text-lg text-black" />
                     </div>
                     <div>
-                      <h4 className="font-card-title text-base md:text-lg font-bold uppercase tracking-[-0.03em] mb-2">{high.title}</h4>
-                      <p className="font-body-text text-sm sm:text-base leading-[1.7] font-normal">{high.desc}</p>
+                      <h4 className="font-card-title text-sm sm:text-base md:text-lg font-bold uppercase tracking-[-0.03em] mb-1.5 sm:mb-2">{high.title}</h4>
+                      <p className="font-body-text text-xs sm:text-sm md:text-base leading-[1.65] font-normal">{high.desc}</p>
                     </div>
                   </div>
                 </div>

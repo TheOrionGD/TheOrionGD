@@ -11,15 +11,34 @@ const chatLimits = new Map();
 const EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 const PHONE_REGEX = /(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/g;
 
+import fs from 'fs';
+import path from 'path';
+
+let cachedKnowledge = null;
+function getPortfolioKnowledge() {
+  if (cachedKnowledge) return cachedKnowledge;
+  try {
+    const p = path.resolve('data/portfolio_knowledge.json');
+    if (fs.existsSync(p)) {
+      cachedKnowledge = JSON.parse(fs.readFileSync(p, 'utf8'));
+      return cachedKnowledge;
+    }
+  } catch (e) {
+    console.error('[Chat API] Failed to load portfolio_knowledge.json:', e.message);
+  }
+  return null;
+}
+
 async function callLLM(systemPrompt, contextData, messages, newMsg) {
   const groqKey = process.env.GROQ_API_KEY;
 
-  const promptContext = `SYSTEM PROMPT:\n${systemPrompt}\n\nPORTFOLIO CONTEXT (JSON):\n${JSON.stringify(contextData, null, 2)}\n\nRespond to the user's latest message in Godfrey's voice based on this context.`;
+  const promptContext = `SYSTEM PROMPT:\n${systemPrompt}\n\nPORTFOLIO CONTEXT (JSON):\n${JSON.stringify(contextData, null, 2)}\n\nRespond directly as Godfrey in the first person ("I", "my") based on this context.`;
 
-  // 1. Groq LLM API (llama-3.3-70b-versatile)
+  // 1. Groq LLM API
   if (groqKey) {
     try {
       const url = 'https://api.groq.com/openai/v1/chat/completions';
+      const groqModel = process.env.GROQ_MODEL || 'qwen/qwen3.8-27b';
       const formattedMsgs = [
         { role: 'system', content: promptContext },
         ...messages.slice(-6).map(m => ({ role: m.role, content: m.content })),
@@ -32,7 +51,7 @@ async function callLLM(systemPrompt, contextData, messages, newMsg) {
           'Authorization': `Bearer ${groqKey}`
         },
         body: JSON.stringify({
-          model: 'llama-3.3-70b-versatile',
+          model: groqModel,
           messages: formattedMsgs,
           max_tokens: 150,
           temperature: 0.7
@@ -49,19 +68,24 @@ async function callLLM(systemPrompt, contextData, messages, newMsg) {
     }
   }
 
-  // 2. Smart Fallback Mode (No Groq key or fallback triggered)
+  // 2. Smart Fallback Mode (First-Person Voice as Godfrey)
   const lowerMsg = newMsg.toLowerCase();
-  if (lowerMsg.includes('project') || lowerMsg.includes('work') || lowerMsg.includes('build')) {
-    const proj = contextData.projects?.[0]?.title || 'Veltrio.Suite';
-    return `I build AI-integrated systems and immersive XR platforms. One of my flagship works is ${proj} — check out the Featured Works section to see the live demos and architecture breakdowns!`;
+  if (lowerMsg.includes('project') || lowerMsg.includes('work') || lowerMsg.includes('build') || lowerMsg.includes('aureon') || lowerMsg.includes('walsecact')) {
+    return "I've engineered 42 systems across agentic AI, zero-trust architectures, and spatial computing — including Aureon (multi-agent wellness platform), Walsecact (MCP/A2A zero-trust mesh), and Veltrio. Check out my projects section for architecture breakdowns!";
+  }
+  if (lowerMsg.includes('intern') || lowerMsg.includes('adaovi') || lowerMsg.includes('prodigy') || lowerMsg.includes('skillcraft') || lowerMsg.includes('experience')) {
+    return "I've completed industrial internships across Cybersecurity at Adaovi, Web Development at Prodigy InfoTech, and UI/UX Design at SkillCraft Technology, applying production standards to real-world software.";
+  }
+  if (lowerMsg.includes('hackathon') || lowerMsg.includes('msme') || lowerMsg.includes('wattmap') || lowerMsg.includes('award') || lowerMsg.includes('cert')) {
+    return "I was shortlisted in the national MSME Idea Hackathon 5.0 and authored the WattMap smart energy incubation proposal, alongside earning 85+ verified credentials and completing NPTEL Patent Drafting.";
   }
   if (lowerMsg.includes('skill') || lowerMsg.includes('tech') || lowerMsg.includes('stack')) {
-    return "My technical arsenal covers Full Stack Engineering (MERN, TypeScript), AI & LLM integration, Cybersecurity fundamentals, and Spatial Computing / AR with Unity.";
+    return "My core stack spans Full-Stack Engineering (React 19, TypeScript, FastAPI), Agentic AI architectures (Groq, Gemini, ADK 2.0, MCP), Zero-Trust security, and Spatial XR with ARCore & Three.js.";
   }
   if (lowerMsg.includes('contact') || lowerMsg.includes('hire') || lowerMsg.includes('connect') || lowerMsg.includes('collab')) {
-    return "I'm always open to new adventures and technical challenges! Feel free to drop your email or message right here in the chat, or reach out via the Signal Portal at the bottom of the page.";
+    return "I'm always open to high-impact technical challenges and collaborations! Drop your email or message right here in the chat, or ping me directly at godfreytr.prof@gmail.com.";
   }
-  return "Hey there! I'm Godfrey's AI assistant. You can ask me anything about his projects, technical stack, internships, or certifications!";
+  return "Hey! I'm Godfrey. Ask me anything about what I've engineered, my research, or my tech stack.";
 }
 
 chatRouter.post('/message', async (req, res) => {
@@ -93,18 +117,65 @@ chatRouter.post('/message', async (req, res) => {
     
     // 1. Fetch persona and context
     const persona = await db.collection('bot_persona').findOne({}) || {};
-    const systemPrompt = (persona.systemPrompt || "You are Godfrey's AI portfolio assistant.") +
-      "\n\nIMPORTANT: Keep every reply SHORT — 2-3 sentences max. Be direct and punchy, no waffle.";
+    const systemPrompt = (persona.systemPrompt || `You are Godfrey T R (TheOrionGD). You speak directly in the FIRST PERSON ("I", "my", "we"). 
+You are NOT an AI assistant, bot, or virtual avatar. Never say "I am an AI assistant for Godfrey", "As an AI", or refer to Godfrey in the third person.
+You are Godfrey himself having a direct, engaging conversation with a visitor on your portfolio.
+Your tone is confident, technically sharp, authentic, and direct — like an AI systems architect and builder.
+You have completed 42 production projects (including Aureon, Walsecact, Trifecta, Cadence, FaceShield, AegisNet, EntityEase, ARgorithm, Dextra), 85+ verified credentials & certifications, national hackathons (MSME Idea Hackathon 5.0, WattMap), and multiple industrial internships (Adaovi for Cybersecurity, Prodigy InfoTech for Web Dev, SkillCraft for UI/UX).`) +
+      "\n\nIMPORTANT: Keep every reply SHORT — 2-3 sentences max. Be direct, authentic, and punchy. No generic AI fluff or waffle.";
     
-    const [personalInfo, projects, skills, experience, certifications] = await Promise.all([
+    const [personalInfo, dbProjects, skills, experience, dbCertifications] = await Promise.all([
       db.collection('personal_info').findOne({}),
-      db.collection('projects').find({}).limit(10).toArray(),
+      db.collection('projects').find({}).limit(50).toArray(),
       db.collection('skills').find({}).toArray(),
       db.collection('experience').find({}).toArray(),
-      db.collection('certifications').find({}).limit(10).toArray(),
+      db.collection('certifications').find({}).limit(100).toArray(),
     ]);
 
-    const contextData = { personalInfo, projects, skills, experience, certifications };
+    const knowledge = getPortfolioKnowledge();
+    const q = cleanMsg.toLowerCase();
+    
+    // Smart retrieval for relevant projects or credentials
+    const allProjects = knowledge?.projects || dbProjects || [];
+    const allCerts = knowledge?.certifications || dbCertifications || [];
+
+    const matchedProjects = allProjects.filter(p => 
+      q.includes(p.title.toLowerCase()) || 
+      (p.slug && q.includes(p.slug.toLowerCase())) ||
+      (p.technologies && p.technologies.some(t => q.includes(t.toLowerCase())))
+    );
+
+    const matchedCerts = allCerts.filter(c =>
+      (c.title && q.includes(c.title.toLowerCase())) ||
+      (c.issuer && q.includes(c.issuer.toLowerCase())) ||
+      (c.domain && q.includes(c.domain.toLowerCase()))
+    );
+
+    // Keep context compact (under 600 tokens) to guarantee instant responses and stay well within Groq ITPM limits
+    const relevantProjects = (matchedProjects.length > 0 ? matchedProjects.slice(0, 3) : allProjects.slice(0, 3)).map(p => ({
+      title: p.title,
+      category: p.category,
+      tech: p.technologies?.slice(0, 5),
+      summary: p.description ? p.description.split('.')[0] + '.' : ''
+    }));
+
+    const relevantCredentials = (matchedCerts.length > 0 ? matchedCerts.slice(0, 3) : [
+      { title: 'Adaovi Cybersecurity Internship', role: 'Cybersecurity Intern' },
+      { title: 'Prodigy InfoTech Web Dev Internship', role: 'Web Development Intern' },
+      { title: 'MSME Idea Hackathon 5.0 (WattMap)', status: 'National Shortlist' }
+    ]).map(c => ({
+      title: c.title,
+      issuer: c.issuer || c.provider || '',
+      summary: c.summary ? c.summary.split('.')[0] + '.' : ''
+    }));
+
+    const contextData = {
+      name: 'Godfrey T R',
+      role: 'AI Systems Architect & Full-Stack Product Engineer',
+      stats: '42 completed engineering projects, 85+ verified credentials, 4 industrial internships',
+      relevantProjects,
+      relevantCredentials
+    };
 
     // 2. Fetch or initialize chat session
     let session = await db.collection('chat_sessions').findOne({ sessionId });

@@ -1,0 +1,1975 @@
+{
+  "developer": {
+    "name": "Godfrey T R",
+    "handle": "TheOrionGD",
+    "role": "AI Systems Architect & Full-Stack Product Engineer",
+    "tagline": "Building AI-native architectures, multi-agent frameworks, zero-trust systems, and spatial computing interfaces.",
+    "email": "godfreytr.prof@gmail.com",
+    "location": "Tiruchirapalli, Tamil Nadu, India",
+    "github": "https://github.com/TheOrionGD",
+    "linkedin": "https://linkedin.com/in/theoriongd"
+  },
+  "projectsCount": 42,
+  "certificatesCount": 85,
+  "projects": [
+    {
+      "title": "Aureon",
+      "slug": "aureon",
+      "description": "Aureon is a zero-rated, offline-first digital wellness platform and multi-agent mental health companion designed for students in resource-constrained and regional academic settings. Built on a Python and FastAPI core, the system orchestrates a collaborative network of four specialized AI agents (Clinical Triage, Empathetic CBT Companion, Resource Matching, and Escalation Agent) using the Google Agent Development Kit (ADK 2.0) and the Agent2Agent (A2A) protocol. To ensure student privacy and DPDPA compliance, the platform routes traffic through a Microsoft Presidio PII scrubbing engine and an OTP-based consent gateway before executing query tokenization. The mobile client is developed using React Native and caches self-care logs, wellness tools, and acoustic libraries locally via SQLite and WatermelonDB, enabling 24/7 access during offline states. The system features an anonymous messaging bridge for WhatsApp and Telegram, zero-rated telecom bandwidth integration, and an administrative dashboard showing de-identified analytics logs. It provides students with a secure, stigma-free wellness sanctuary.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "React",
+        "SQLite"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "React",
+        "SQLite"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 1,
+      "github": "https://github.com/TheOrionGD/Aureon",
+      "demo": "",
+      "problemStatement": "Aureon is a zero-rated, offline-first digital wellness platform and multi-agent mental health companion designed for students in resource-constrained and regional academic settings.",
+      "deliverables": [
+        "Aureon is a zero-rated, offline-first digital wellness platform and multi-agent mental health companion designed for students in resource-constrained and regional academic settings..."
+      ],
+      "hook": "Engineered by Godfrey: Aureon"
+    },
+    {
+      "title": "Walsecact",
+      "slug": "walsecact",
+      "description": "Walsecact is a zero-trust decentralized security mesh designed for Multi-Agent Systems (MAS) operating over protocols like the Model Context Protocol (MCP) and Agent-to-Agent (A2A). The platform operates as a local sidecar proxy intercepting MCP JSON-RPC stdio/SSE streams, built on Node.js (Express) or Python (FastAPI). The audit and SOAR engine implements hash-chained logging using SQLite (WAL Mode), a Docker SDK/API for container quarantine scripts, and a MongoDB Atlas instance. The frontend console is built with React, Tailwind CSS, Recharts, and Socket.IO, displaying dynamic maps of data flows, drift metrics, and audit logs. The system is designed to provide secure, autonomous multi-agent orchestration, protecting agent pipelines from injection exploits and malicious data propagation.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Node.js",
+        "Express",
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "Docker",
+        "MongoDB",
+        "React",
+        "Tailwind CSS"
+      ],
+      "tech": [
+        "Node.js",
+        "Express",
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "Docker",
+        "MongoDB",
+        "React",
+        "Tailwind CSS"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 2,
+      "github": "https://github.com/TheOrionGD/Walsecact",
+      "demo": "",
+      "problemStatement": "Walsecact is a zero-trust decentralized security mesh designed for Multi-Agent Systems (MAS) operating over protocols like the Model Context Protocol (MCP) and Agent-to-Agent (A2A).",
+      "deliverables": [
+        "Walsecact is a zero-trust decentralized security mesh designed for Multi-Agent Systems (MAS) operating over protocols like the Model Context Protocol (MCP) and Agent-to-Agent (A2A)..."
+      ],
+      "hook": "Engineered by Godfrey: Walsecact"
+    },
+    {
+      "title": "Trifecta",
+      "slug": "trifecta",
+      "description": "Trifecta is an advanced educational AI assistant and student workspace platform designed to compile personalized, multi-turn study pathways. Built on a Python FastAPI backend and a React frontend, the system orchestrates a collaborative network of four sub-agents (Security Checkpoint, Interactive Quiz Agent, Weakness Tracker Agent, and Study Plan Generator Agent) using the Google Agents SDK and FastMCP. The application uses Microsoft Presidio to scrub PII and scans inputs for injection exploits. To ensure academic alignment and safety, the workflow incorporates two distinct Human-in-the-Loop checkpoints (Security Escalation and Study Plan Approval) that require teacher or parent approval via an administrative dashboard. To ground study sessions, the system runs local RAG searches over indexed files using FastMCP and queries Groq Llama 3 models to compile dynamic 5-question quizzes and custom 7-day study schedules. The React dashboard features real-time KPI metrics, active session auditing, and a drag-and-drop document upload interface.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "React"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "React"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 3,
+      "github": "https://github.com/TheOrionGD/Trifecta",
+      "demo": "",
+      "problemStatement": "Trifecta is an advanced educational AI assistant and student workspace platform designed to compile personalized, multi-turn study pathways.",
+      "deliverables": [
+        "Trifecta is an advanced educational AI assistant and student workspace platform designed to compile personalized, multi-turn study pathways. Built on a Python FastAPI backend and a..."
+      ],
+      "hook": "Engineered by Godfrey: Trifecta"
+    },
+    {
+      "title": "Cadence",
+      "slug": "cadence",
+      "description": "Cadence is an autonomous work orchestration platform for teams and agencies designed to distribute, optimize, predict, and coordinate human workflows. The frontend is built on Next.js 16 (React 19, App Router) and Tailwind CSS v4, while the backend leverages tRPC or NestJS/Hono on Bun, with PostgreSQL and Prisma managing data persistence and workspace-level row-isolation. The platform features an advanced auto-assignment engine that parses spreadsheet uploads using SheetJS, matching tasks to team members based on capacity and skill profiles. To automate core operations, the system integrates the Google Agent Development Kit (ADK) alongside the Vercel AI SDK to coordinate multi-agent workflows, utilizing Claude for reasoning, Groq for low-latency scoring, and Gemini for multimodal file processing. The application contains an embedded code sandbox and test runner for code validation, interactive Gantt and kanban dashboards, and a white-labeling portal for client agencies. It transitions traditional project management into active, autonomous work execution.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Bun",
+        "PostgreSQL",
+        "Prisma"
+      ],
+      "tech": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Bun",
+        "PostgreSQL",
+        "Prisma"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 4,
+      "github": "https://github.com/TheOrionGD/Cadence",
+      "demo": "",
+      "problemStatement": "Cadence is an autonomous work orchestration platform for teams and agencies designed to distribute, optimize, predict, and coordinate human workflows.",
+      "deliverables": [
+        "Cadence is an autonomous work orchestration platform for teams and agencies designed to distribute, optimize, predict, and coordinate human workflows. The frontend is built on Next..."
+      ],
+      "hook": "Engineered by Godfrey: Cadence"
+    },
+    {
+      "title": "FaceShield-Authentication",
+      "slug": "faceshield-authentication",
+      "description": "FaceShield-Authentication is an edge-AI facial recognition, PPE compliance, and passive liveness verification system designed for the NHAI Innovation Hackathon 7.0. The edge biometrics service is built in Python using FastAPI, running localized face-detection and ArcFace feature-extraction models via the ONNX Runtime. A NestJS API Gateway directs platform requests to the edge service or to a cloud PostgreSQL database managed via Prisma. To handle offline construction environments, the system maintains a decoupled dual-database architecture using an edge SQLite cache that syncs data back using an exponential backoff algorithm when connections resume. Visual compliance checks are handled locally via OpenCV to audit hard hats and safety vests before computing a composite identity trust score. The frontend dashboard is built in React 19, providing supervisors with real-time site stats, spoof attempt logs, and enrollment forms. The system delivers offline-capable, tamper-proof biometric checks at toll gates.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "ONNX",
+        "PostgreSQL",
+        "Prisma",
+        "SQLite",
+        "OpenCV",
+        "React"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "ONNX",
+        "PostgreSQL",
+        "Prisma",
+        "SQLite",
+        "OpenCV",
+        "React"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 5,
+      "github": "https://github.com/TheOrionGD/FaceShield-Authentication",
+      "demo": "",
+      "problemStatement": "FaceShield-Authentication is an edge-AI facial recognition, PPE compliance, and passive liveness verification system designed for the NHAI Innovation Hackathon 7.",
+      "deliverables": [
+        "FaceShield-Authentication is an edge-AI facial recognition, PPE compliance, and passive liveness verification system designed for the NHAI Innovation Hackathon 7.0. The edge biomet..."
+      ],
+      "hook": "Engineered by Godfrey: FaceShield-Authentication"
+    },
+    {
+      "title": "AegisNet-IDS",
+      "slug": "aegisnet-ids",
+      "description": "AegisNet-IDS is an enterprise-grade security platform integrating intrusion detection, log analytics, and automated orchestration (SIEM and SOAR) capabilities. The system operates by capturing in-line network traffic using libpcap (Npcap on Windows hosts) and running raw data streams through Snort 3 for signature-based packet inspection. To supplement signature detection, the system forwards alert metrics to a machine learning engine running an unsupervised Isolation Forest model, which profiles network activities over a rolling sixty-second window to spot zero-day anomalies. Discovered threats are aggregated into multi-stage attack paths using a Graph Theory correlation engine powered by NetworkX, which maps related events from reconnaissance to system delivery. Real-time visualization and alerting are delivered to analysts via a web dashboard built with React, Vite, and Tailwind CSS, communicating through asynchronous WebSockets with a backend managed by FastAPI. For mitigation, the SOAR engine uses thread-safe command execution blocks that interface with host drivers like iptables or netsh to quarantine attackers. The resulting setup offers sub-second incident grouping and automated threat mitigation in virtualization environments.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Snort 3",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "WebSockets",
+        "FastAPI"
+      ],
+      "tech": [
+        "Snort 3",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "WebSockets",
+        "FastAPI"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 6,
+      "github": "https://github.com/TheOrionGD/AegisNet-IDS",
+      "demo": "",
+      "problemStatement": "AegisNet-IDS is an enterprise-grade security platform integrating intrusion detection, log analytics, and automated orchestration (SIEM and SOAR) capabilities.",
+      "deliverables": [
+        "AegisNet-IDS is an enterprise-grade security platform integrating intrusion detection, log analytics, and automated orchestration (SIEM and SOAR) capabilities. The system operates ..."
+      ],
+      "hook": "Engineered by Godfrey: AegisNet-IDS"
+    },
+    {
+      "title": "EntityEase-DataPlatform",
+      "slug": "entityease-dataplatform",
+      "description": "EntityEase-DataPlatform is a clinical entity extraction and ICD-11 classification platform designed to automate billing reconciliation and medical note audit trails. The backend is written in FastAPI, integrating a hybrid Hierarchical Attention Network and BioBERT models to extract clinical concepts from narratives. To match these extracted entities with ICD-11 codes, the system maps vectors against a dense FAISS index containing over seventeen thousand classifications. The FastAPI server offloads CPU-intensive PyTorch inference tasks to independent thread executors via asyncio, ensuring that the main uvicorn loop remains responsive. Real-time updates and collaborative auditing workflows are synchronized across React client dashboards using persistent WebSocket connections. Security compliance is maintained through HIPAA-safe de-identification filters, session-based access controllers, and immutable logs written to MongoDB for every audit edit. The platform reduces administrative overhead, returning valuable time to clinicians.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "FastAPI",
+        "BioBERT",
+        "FAISS",
+        "PyTorch",
+        "React",
+        "MongoDB"
+      ],
+      "tech": [
+        "FastAPI",
+        "BioBERT",
+        "FAISS",
+        "PyTorch",
+        "React",
+        "MongoDB"
+      ],
+      "status": "published",
+      "featured": true,
+      "order": 7,
+      "github": "https://github.com/TheOrionGD/EntityEase-DataPlatform",
+      "demo": "",
+      "problemStatement": "EntityEase-DataPlatform is a clinical entity extraction and ICD-11 classification platform designed to automate billing reconciliation and medical note audit trails.",
+      "deliverables": [
+        "EntityEase-DataPlatform is a clinical entity extraction and ICD-11 classification platform designed to automate billing reconciliation and medical note audit trails. The backend is..."
+      ],
+      "hook": "Engineered by Godfrey: EntityEase-DataPlatform"
+    },
+    {
+      "title": "Agentic-AI-Journey",
+      "slug": "agentic-ai-journey",
+      "description": "Agentic-AI-Journey is a structured developer journal, project catalog, and assignment repository chronicling an intensive 5-day course in agentic programming and vibe coding. Built using the Google Agent Development Kit (ADK 2.0) and Python 3.13, the repository documents the daily transition from basic natural language prompting to secure, production-grade agentic architectures. The codebase is organized into five sequential directories containing daily assignment milestones: 'Atmospheric' (basic agents), 'Skyhook' (tool interoperability), 'Zephyr' (agent skills), 'VibeCarapace' (security gates), and 'AuditSentry' (spec-driven validation and state resumption). The user interface is built as a responsive Single Page Application (SPA) student workspace using React, which integrates with a FastAPI backend to stream agent telemetry and logs. The project demonstrates practical methods for aligning non-deterministic LLM behaviors with strict validation protocols, pre-commit security gates, and audit trails.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "React",
+        "FastAPI"
+      ],
+      "tech": [
+        "Python",
+        "React",
+        "FastAPI"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 8,
+      "github": "https://github.com/TheOrionGD/Agentic-AI-Journey",
+      "demo": "",
+      "problemStatement": "Agentic-AI-Journey is a structured developer journal, project catalog, and assignment repository chronicling an intensive 5-day course in agentic programming and vibe coding.",
+      "deliverables": [
+        "Agentic-AI-Journey is a structured developer journal, project catalog, and assignment repository chronicling an intensive 5-day course in agentic programming and vibe coding. Built..."
+      ],
+      "hook": "Engineered by Godfrey: Agentic-AI-Journey"
+    },
+    {
+      "title": "CONNIFY-APP",
+      "slug": "connify-app",
+      "description": "CONNIFY-APP is a zero-trust, privacy-first community assistance protocol and mobile application designed to coordinate human-to-human support. Built using a React Native and Expo client for mobile devices alongside a Next.js web portal, the application uses a Node.js API Gateway (Express/Fastify) to manage request routing and rate limiting. The core architecture replicates decentralized identity patterns used in agentic systems, implementing an Episode Service to create ephemeral request identifiers (DIDs) and a Trust Capsule Service that issues time-bound, cryptographically signed permission tokens. Proximity verification and helper matching are executed through a multi-signal protocol combining GPS coordinates, Wi-Fi handshakes, and QR token validation. To protect user privacy, a Selective Disclosure Engine filters requester details, while ephemeral communication channels are destroyed immediately upon capsule expiration. The database layer uses a decoupled structure that persists minimal transaction logs and active capsules in MongoDB and Redis without maintaining persistent identity trails.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Redis"
+      ],
+      "tech": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Redis"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 9,
+      "github": "https://github.com/TheOrionGD/CONNIFY-APP",
+      "demo": "",
+      "problemStatement": "CONNIFY-APP is a zero-trust, privacy-first community assistance protocol and mobile application designed to coordinate human-to-human support.",
+      "deliverables": [
+        "CONNIFY-APP is a zero-trust, privacy-first community assistance protocol and mobile application designed to coordinate human-to-human support. Built using a React Native and Expo c..."
+      ],
+      "hook": "Engineered by Godfrey: CONNIFY-APP"
+    },
+    {
+      "title": "EchoCortex-Intelligence",
+      "slug": "echocortex-intelligence",
+      "description": "EchoCortex-Intelligence is an institutional-grade decentralized intelligence platform and automated second brain designed to capture and index verbal meeting inputs. The system intercepts transient conversational flows via the MediaRecorder API, using Whisper speech-to-text models to generate structured transcripts. A machine learning pipeline powered by Sentence Transformers vectorizes text snippets, which are subsequently indexed in MongoDB Atlas and Supabase PostgreSQL. To handle network offline states, the platform includes a local-first memory fallback system that caches logs and bypasses database calls using validation checks. The user interface implements the high-contrast Obsidian Stark design system, utilizing Three.js to render interactive 3D neural lattices and Framer Motion for dashboard transitions. Security and compliance are enforced through explicit consent workflows that allow users to redact transcripts and purge records completely from vector indices. This platform serves remote teams by converting meetings into permanent, searchable knowledge maps.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Whisper",
+        "MongoDB",
+        "PostgreSQL",
+        "Three.js"
+      ],
+      "tech": [
+        "Whisper",
+        "MongoDB",
+        "PostgreSQL",
+        "Three.js"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 10,
+      "github": "https://github.com/TheOrionGD/EchoCortex-Intelligence",
+      "demo": "",
+      "problemStatement": "EchoCortex-Intelligence is an institutional-grade decentralized intelligence platform and automated second brain designed to capture and index verbal meeting inputs.",
+      "deliverables": [
+        "EchoCortex-Intelligence is an institutional-grade decentralized intelligence platform and automated second brain designed to capture and index verbal meeting inputs. The system int..."
+      ],
+      "hook": "Engineered by Godfrey: EchoCortex-Intelligence"
+    },
+    {
+      "title": "ARgorithm-LearningSuite",
+      "slug": "argorithm-learningsuite",
+      "description": "ARgorithm is a production-ready augmented reality educational platform designed to transform abstract computer science concepts into immersive, interactive three-dimensional experiences. Developed to overcome the limitations of traditional algorithm teaching methods, the application enables students to visualize sorting, searching, graph traversal, and dynamic programming algorithms as animated 3D structures anchored within their physical environment using markerless augmented reality. The system is built as a native Android application using Kotlin and Jetpack Compose, with Google's ARCore and Sceneview/Filament powering real-time spatial rendering and interaction. Its architecture follows a clean, multi-layered design consisting of presentation, domain, and data layers, complemented by a Node.js and Express backend integrated with MongoDB Atlas and Room SQLite for offline-first data persistence. The platform supports interactive features such as step-by-step algorithm execution, code tracing, telemetry monitoring, quizzes, leaderboards, and personalized learning progress tracking. Users can manipulate virtual structures through intuitive gestures, inspect algorithm states from multiple perspectives, and dynamically control simulation playback. By combining augmented reality, modern mobile development, and cloud-based learning services, ARgorithm bridges the gap between theoretical computer science and experiential learning, providing students and educators with a powerful and engaging platform for understanding complex algorithms and data structures.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Kotlin",
+        "Jetpack Compose",
+        "ARCore",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "SQLite"
+      ],
+      "tech": [
+        "Kotlin",
+        "Jetpack Compose",
+        "ARCore",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "SQLite"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 11,
+      "github": "https://github.com/TheOrionGD/ARgorithm-LearningSuite",
+      "demo": "",
+      "problemStatement": "ARgorithm is a production-ready augmented reality educational platform designed to transform abstract computer science concepts into immersive, interactive three-dimensional experiences.",
+      "deliverables": [
+        "ARgorithm is a production-ready augmented reality educational platform designed to transform abstract computer science concepts into immersive, interactive three-dimensional experi..."
+      ],
+      "hook": "Engineered by Godfrey: ARgorithm-LearningSuite"
+    },
+    {
+      "title": "CodeSight-DeveloperToolkit",
+      "slug": "codesight-developertoolkit",
+      "description": "CodeSight-DeveloperToolkit is an automatic code-to-diagram generator with semantic reasoning built at the intersection of computer vision and natural language processing. The Python-based backend parses source code into a language-agnostic Semantic Intermediate Representation, which is subsequently mapped to graphs representing architectural dependencies. These graphs are rendered into interactive UML and system diagrams using Graphviz and D3 on a React-based front-end interface. The core innovation lies in the platform's ability to explain the structural architecture in clear technical language and analyze diagram layout structures to flag design conflicts. Beyond simple visualization, the system explores a bidirectional workflow where editing diagrams on the UI translates back to refactoring recommendations. It operates with standard Docker setups and CI/CD pipelines to evaluate code quality, providing software engineers and system architects with an explainable code intelligence dashboard rather than standard static documentation.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "React",
+        "Docker"
+      ],
+      "tech": [
+        "Python",
+        "React",
+        "Docker"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 12,
+      "github": "https://github.com/TheOrionGD/CodeSight-DeveloperToolkit",
+      "demo": "",
+      "problemStatement": "CodeSight-DeveloperToolkit is an automatic code-to-diagram generator with semantic reasoning built at the intersection of computer vision and natural language processing.",
+      "deliverables": [
+        "CodeSight-DeveloperToolkit is an automatic code-to-diagram generator with semantic reasoning built at the intersection of computer vision and natural language processing. The Pytho..."
+      ],
+      "hook": "Engineered by Godfrey: CodeSight-DeveloperToolkit"
+    },
+    {
+      "title": "IntelliCredit-RiskEngine",
+      "slug": "intellicredit-riskengine",
+      "description": "IntelliCredit-RiskEngine is an enterprise AI corporate credit intelligence platform designed to automate and explain credit risk assessments for financial institutions. The frontend client is built in React 18 using TypeScript, Tailwind CSS, and Recharts, delivering data visualizations of financial stability metrics. The intelligence layer runs statistical credit risk models, cash flow velocity calculations, and time-series forecasting algorithms. The application features an intake portal, credit dashboards, a management DNA profiling analyzer, and an economic sentiment dashboard. Credit analysts can model risk vectors using an interactive scenario simulator, a financial stability radar, and explainable AI modules. The system architecture enforces secure document ingestion, transaction audit logs, and data encryption ready for institutional deployment. The application functions as a credit analytics prototype, providing deep risk visibility to underwriters evaluating corporate profiles.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "tech": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 13,
+      "github": "https://github.com/TheOrionGD/IntelliCredit-RiskEngine",
+      "demo": "",
+      "problemStatement": "IntelliCredit-RiskEngine is an enterprise AI corporate credit intelligence platform designed to automate and explain credit risk assessments for financial institutions.",
+      "deliverables": [
+        "IntelliCredit-RiskEngine is an enterprise AI corporate credit intelligence platform designed to automate and explain credit risk assessments for financial institutions. The fronten..."
+      ],
+      "hook": "Engineered by Godfrey: IntelliCredit-RiskEngine"
+    },
+    {
+      "title": "Dextra",
+      "slug": "dextra",
+      "description": "Dextra is a touchless desktop pointer control system and configurations dashboard that translates computer vision tracking and spoken commands into OS-level mouse and keyboard actions. The system is split into eight specialized Python background modules running as daemon threads, using Google's MediaPipe Hands for 3D landmark coordinates and OpenCV to process live webcam streams. To eliminate cursor jitter from hand tremors, the gesture engine runs coordinates through a multi-frame moving average smoothing buffer before calling PyAutoGUI to execute system actions. Spoken commands are captured via background threads using Hugging Face sounddevice libraries and transcribed locally using a quantized OpenAI Whisper model to protect user privacy. The configurations GUI is built as a React Single Page Application (SPA) styled with high-fidelity analytics cards, communicating over WebSockets with a FastAPI server to stream camera frames and transcription logs. It provides users with a touchless, zero-latency desktop controller.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "OpenCV",
+        "Whisper",
+        "React",
+        "WebSockets",
+        "FastAPI"
+      ],
+      "tech": [
+        "Python",
+        "OpenCV",
+        "Whisper",
+        "React",
+        "WebSockets",
+        "FastAPI"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 14,
+      "github": "https://github.com/TheOrionGD/Dextra",
+      "demo": "",
+      "problemStatement": "Dextra is a touchless desktop pointer control system and configurations dashboard that translates computer vision tracking and spoken commands into OS-level mouse and keyboard actions.",
+      "deliverables": [
+        "Dextra is a touchless desktop pointer control system and configurations dashboard that translates computer vision tracking and spoken commands into OS-level mouse and keyboard acti..."
+      ],
+      "hook": "Engineered by Godfrey: Dextra"
+    },
+    {
+      "title": "Chronicle-Archive-Vault",
+      "slug": "chronicle-archive-vault",
+      "description": "Chronicle-Archive-Vault is a premium, client-offline personal scheduler, calendar database, and task manager designed to prioritize user privacy and zero telemetry. The application is built on a React 19 and TypeScript core, utilizing Vite for fast, hot-reloading compilation and Tailwind CSS v4 for dynamic design configurations. Data mutations are processed entirely in-memory using React Context state wrappers, storing records strictly within the client's isolated browser sandbox via the localStorage API. The tool includes a custom Service Worker compiled from scratch to conform to strict Progressive Web App (PWA) guidelines, enabling direct installation and offline caching on mobile devices. Visual elements implement a dark glassmorphic design language with responsive horizontal touch grids, Pomodoro focus blocks, and interactive modals. The system supports multi-locale translation across six languages, providing users with a fast, private, and local-first personal productivity planner.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "tech": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 15,
+      "github": "https://github.com/TheOrionGD/Chronicle-Archive-Vault",
+      "demo": "",
+      "problemStatement": "Chronicle-Archive-Vault is a premium, client-offline personal scheduler, calendar database, and task manager designed to prioritize user privacy and zero telemetry.",
+      "deliverables": [
+        "Chronicle-Archive-Vault is a premium, client-offline personal scheduler, calendar database, and task manager designed to prioritize user privacy and zero telemetry. The application..."
+      ],
+      "hook": "Engineered by Godfrey: Chronicle-Archive-Vault"
+    },
+    {
+      "title": "ScholarAI-LearningPlatform",
+      "slug": "scholarai-learningplatform",
+      "description": "ScholarAI-LearningPlatform is an AI-powered learning management system designed to deliver personalized education pathways and academic dashboards. The application uses a React client on Vite with TypeScript, alongside an Express and Node.js backend mapping data collections in MongoDB via Mongoose. The platform integrates generative AI tutors to respond to query threads and create summaries of uploaded class documents. An adaptive assessment engine evaluates student performance, displaying progress metrics to educators on dashboards built with Recharts. Data flows are structured to process analytics logs in background queues, ensuring that main transaction requests remain responsive. Security is maintained through access permission matrices, secure token authentication, and data encryption at rest. The full-stack system provides educational institutions with a scalable, AI-assisted learning platform.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Express",
+        "Node.js",
+        "MongoDB"
+      ],
+      "tech": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Express",
+        "Node.js",
+        "MongoDB"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 16,
+      "github": "https://github.com/TheOrionGD/ScholarAI-LearningPlatform",
+      "demo": "",
+      "problemStatement": "ScholarAI-LearningPlatform is an AI-powered learning management system designed to deliver personalized education pathways and academic dashboards.",
+      "deliverables": [
+        "ScholarAI-LearningPlatform is an AI-powered learning management system designed to deliver personalized education pathways and academic dashboards. The application uses a React cli..."
+      ],
+      "hook": "Engineered by Godfrey: ScholarAI-LearningPlatform"
+    },
+    {
+      "title": "ScholarAI-AcademicAssistant",
+      "slug": "scholarai-academicassistant",
+      "description": "ScholarAI-AcademicAssistant is a document search tool and research helper built using Retrieval-Augmented Generation. The backend is written in FastAPI, processing PDF documents using PyPDF and PyMuPDF libraries to extract text structures and handle multi-column layouts. Extracted document segments are converted into semantic vector embeddings and stored in a local ChromaDB instance, with MongoDB serving as the primary metadata store. The API server utilizes an asynchronous Redis worker queue running ARQ to offload CPU-intensive OCR text parsing and vectorization steps. The frontend client is built with React, Vite, and Tailwind CSS, connecting to the backend via JWT-secured sessions. Researchers can upload academic files, query documents in natural language, and retrieve responses compiled with contextual citations. It serves university users as an intelligent RAG assistant.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "FastAPI",
+        "ChromaDB",
+        "MongoDB",
+        "Redis",
+        "React",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "tech": [
+        "FastAPI",
+        "ChromaDB",
+        "MongoDB",
+        "Redis",
+        "React",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 17,
+      "github": "https://github.com/TheOrionGD/ScholarAI-AcademicAssistant",
+      "demo": "",
+      "problemStatement": "ScholarAI-AcademicAssistant is a document search tool and research helper built using Retrieval-Augmented Generation.",
+      "deliverables": [
+        "ScholarAI-AcademicAssistant is a document search tool and research helper built using Retrieval-Augmented Generation. The backend is written in FastAPI, processing PDF documents us..."
+      ],
+      "hook": "Engineered by Godfrey: ScholarAI-AcademicAssistant"
+    },
+    {
+      "title": "AegisTrack-Platform",
+      "slug": "aegistrack-platform",
+      "description": "AegisTrack-Platform is a consent-based device monitoring, multi-device management, and real-time communication platform built to solve privacy concerns in mobile tracking environments. The platform departs from silent tracking tools by enforcing a zero-trust consent lifecycle where telemetry metrics cannot be ingested unless a cryptographically verified consent token is active. The backend is written in Python Flask with MongoDB as the data tier, using JWT authentication, Fernet cryptography for encrypting database records, and Gunicorn as the production server. On the client side, a multi-portal frontend built with vanilla HTML, CSS, and modern JavaScript utilizes Leaflet mapping libraries for spatial visualizers and connects via WebSockets to synchronize chats and coordinates. The system supports distinct roles for administrative operators and device owners, enabling owners to temporarily suspend tracking, view current session parameters, or completely revoke permissions at any time. Furthermore, the platform integrates an AI fleet assistant powered by Groq and Gemini API services to query fleet metrics and automate report generation. It serves as a regulatory-compliant spatial tracking solution.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "MongoDB",
+        "JavaScript",
+        "WebSockets"
+      ],
+      "tech": [
+        "Python",
+        "MongoDB",
+        "JavaScript",
+        "WebSockets"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 18,
+      "github": "https://github.com/TheOrionGD/AegisTrack-Platform",
+      "demo": "",
+      "problemStatement": "AegisTrack-Platform is a consent-based device monitoring, multi-device management, and real-time communication platform built to solve privacy concerns in mobile tracking environments.",
+      "deliverables": [
+        "AegisTrack-Platform is a consent-based device monitoring, multi-device management, and real-time communication platform built to solve privacy concerns in mobile tracking environme..."
+      ],
+      "hook": "Engineered by Godfrey: AegisTrack-Platform"
+    },
+    {
+      "title": "Veltrio.Suite",
+      "slug": "veltrio-suite",
+      "description": "Veltrio.Suite is an AI-powered communication hub designed to perform real-time, context-aware translation and deep sentiment analysis on text strings. Built with a React client on Vite and a Node.js/Express backend, the platform uses MongoDB to persist user history and profiles. The system features a translation process powered by the Gemini API, going beyond simple literal conversion to evaluate the sentiment and context of conversations. The interface features a floating AI companion, an advanced command palette shortcut, and dynamic theming variables configured in Tailwind CSS. The system utilizes JSON Web Tokens and role-based permissions to secure API routes, while testing is managed via Cypress for end-to-end user flows and Vitest for unit validation. The platform provides international businesses and multilingual customer support teams with a real-time translation portal.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Vite",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Tailwind CSS"
+      ],
+      "tech": [
+        "React",
+        "Vite",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Tailwind CSS"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 19,
+      "github": "https://github.com/TheOrionGD/Veltrio.Suite",
+      "demo": "",
+      "problemStatement": "Veltrio.",
+      "deliverables": [
+        "Veltrio.Suite is an AI-powered communication hub designed to perform real-time, context-aware translation and deep sentiment analysis on text strings. Built with a React client on ..."
+      ],
+      "hook": "Engineered by Godfrey: Veltrio.Suite"
+    },
+    {
+      "title": "NutriGuard",
+      "slug": "nutriguard",
+      "description": "NutriGuard is an AI-powered nutrition tracker and disease-aware health management web application built to deliver personalized dietary guidance. The platform utilizes React, Vite, and TypeScript on the frontend, with an Express and Node.js backend connecting to a MongoDB Atlas cluster. The system logs meals from images or text inputs, calling Groq's Llama 3 models to analyze food items, compute macro splits, and validate meals against disease profiles. The AI engine flags dietary risks for patients managing diabetes, hypertension, and obesity, generating warnings and personalized nutritional advice. The application includes medication logs, water hydration trackers, and an interactive chatbot for dietary questions. The backend manages database models using Mongoose, enforcing schema validation and custom error middleware. This application serves as a chronic disease management prototype, combining generative AI with medical validation rules.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Express",
+        "Node.js",
+        "MongoDB"
+      ],
+      "tech": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Express",
+        "Node.js",
+        "MongoDB"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 20,
+      "github": "https://github.com/TheOrionGD/NutriGuard",
+      "demo": "",
+      "problemStatement": "NutriGuard is an AI-powered nutrition tracker and disease-aware health management web application built to deliver personalized dietary guidance.",
+      "deliverables": [
+        "NutriGuard is an AI-powered nutrition tracker and disease-aware health management web application built to deliver personalized dietary guidance. The platform utilizes React, Vite,..."
+      ],
+      "hook": "Engineered by Godfrey: NutriGuard"
+    },
+    {
+      "title": "GitConfigMaster-Toolkit",
+      "slug": "gitconfigmaster-toolkit",
+      "description": "GitConfigMaster-Toolkit is a cinematic, gamified learning platform built with React, TypeScript, and Vite to help developers master Git configurations. The application guides users through configuration scopes, command hierarchies, staging pipelines, and conflict resolutions within an interactive terminal sandbox. The state management flow uses sessionStorage serialization to store user levels, XP, badge libraries, and active campaign progress. Visual components include an interactive scope visualizer, a cheatsheet lookup, a diagnostics HUD, and a Conflict Reactor game that tests merging skills under pressure. Custom UI sounds are synthesized programmatically via the Web Audio API to provide immediate interface feedback without asset overhead. The styling engine utilizes Tailwind CSS tokens and custom CSS variables to create a dark cyberpunk aesthetic. The resulting client-only architecture provides a zero-latency learning environment that runs completely within the browser tab.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "tech": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 21,
+      "github": "https://github.com/TheOrionGD/GitConfigMaster-Toolkit",
+      "demo": "",
+      "problemStatement": "GitConfigMaster-Toolkit is a cinematic, gamified learning platform built with React, TypeScript, and Vite to help developers master Git configurations.",
+      "deliverables": [
+        "GitConfigMaster-Toolkit is a cinematic, gamified learning platform built with React, TypeScript, and Vite to help developers master Git configurations. The application guides users..."
+      ],
+      "hook": "Engineered by Godfrey: GitConfigMaster-Toolkit"
+    },
+    {
+      "title": "CodeChallenge-Pro",
+      "slug": "codechallenge-pro",
+      "description": "CodeChallenge-Pro is a gamified competitive programming environment and developer forum developed as an internship project at Prodigy Infotech. The web application is engineered entirely on the client side using vanilla HTML5, CSS3, and ES6 JavaScript, storing state, solutions, XP logs, and streaks inside the browser's LocalStorage. The interface is designed around visual ergonomics, featuring collapsible sidebars, glassmorphic cards, and a dark theme. The coding area uses a custom line-number synchronization script that aligns scroll offsets between the input textarea and the line columns, preventing layout drift during code wraps. The application features a mock compilation feed that simulates terminal output and checks test cases dynamically. Additionally, the platform integrates a markdown-based forum utilizing sessionStorage to cache post data, search threads, and manage upvotes. This project illustrates the potential of client-side JavaScript to deliver responsive, interactive IDEs without backend compiler runtimes.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript"
+      ],
+      "tech": [
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 22,
+      "github": "https://github.com/TheOrionGD/CodeChallenge-Pro",
+      "demo": "",
+      "problemStatement": "CodeChallenge-Pro is a gamified competitive programming environment and developer forum developed as an internship project at Prodigy Infotech.",
+      "deliverables": [
+        "CodeChallenge-Pro is a gamified competitive programming environment and developer forum developed as an internship project at Prodigy Infotech. The web application is engineered en..."
+      ],
+      "hook": "Engineered by Godfrey: CodeChallenge-Pro"
+    },
+    {
+      "title": "Arcade",
+      "slug": "arcade",
+      "description": "Arcade is a zero-dependency, lightweight web gaming portal styled with a cyberpunk retro-synth visual theme and featuring six unique local multiplayer arenas. The platform hosts Tic-Tac-Toe, Dots & Boxes, Neon Dice Race, Cyber Maze Memory, Neon Reflex, and Cyber Type Battle games without utilizing build configurations or framework runtimes. Communication across independent HTML documents is handled via sessionStorage serialization, converting configuration datasets, custom player structures, and scoreboard metrics into JSON strings. Visually, the portal utilizes a custom confetti particle engine drawing on HTML5 canvas layers, scanline gradients, and box-shadow glows defined by vanilla CSS variables for dynamic dark themes. Real-time audio is synthesized on the fly via a custom oscillator-based AudioSynthesizer class referencing the browser's Web Audio API to generate sound effects without loading heavy media assets. The codebase implements grid search algorithms and path generators while strictly locking inputs during turn changes to prevent race conditions or overlapping render events. It delivers a fast-loading, local-first interactive arcade space.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "TypeScript",
+        "React"
+      ],
+      "tech": [
+        "TypeScript",
+        "React"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 23,
+      "github": "https://github.com/TheOrionGD/Arcade",
+      "demo": "",
+      "problemStatement": "Arcade is a zero-dependency, lightweight web gaming portal styled with a cyberpunk retro-synth visual theme and featuring six unique local multiplayer arenas.",
+      "deliverables": [
+        "Arcade is a zero-dependency, lightweight web gaming portal styled with a cyberpunk retro-synth visual theme and featuring six unique local multiplayer arenas. The platform hosts Ti..."
+      ],
+      "hook": "Engineered by Godfrey: Arcade"
+    },
+    {
+      "title": "ImageStudio-Toolkit",
+      "slug": "imagestudio-toolkit",
+      "description": "ImageStudio-Toolkit is a client-side image editing and file size optimization platform designed to operate entirely within the browser memory context. The application is built on a vanilla foundation of HTML5, CSS3, and ES6 JavaScript, using HTML5 Canvas APIs for image processing loops. The system avoids server-side assets by utilizing temporary Blob URLs, strictly executing memory revocation calls to prevent browser crashes during extended sessions. Core capabilities include center-aligned crop ratios, precision rotation filters, brightness adjustments, and a target-size JPEG compressor. The compressor uses an asynchronous binary search algorithm to repeatedly compress images in memory, adjusting quality parameters until the file fits the user's limit. The UI utilizes a premium glassmorphism design system to render image previews, control panels, and drag-to-pan interfaces. It provides creators with a fast, zero-latency, and privacy-respecting editing utility.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript"
+      ],
+      "tech": [
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 24,
+      "github": "https://github.com/TheOrionGD/ImageStudio-Toolkit",
+      "demo": "",
+      "problemStatement": "ImageStudio-Toolkit is a client-side image editing and file size optimization platform designed to operate entirely within the browser memory context.",
+      "deliverables": [
+        "ImageStudio-Toolkit is a client-side image editing and file size optimization platform designed to operate entirely within the browser memory context. The application is built on a..."
+      ],
+      "hook": "Engineered by Godfrey: ImageStudio-Toolkit"
+    },
+    {
+      "title": "FinTrack-Pro",
+      "slug": "fintrack-pro",
+      "description": "FinTrack-Pro is a local-first financial visualizer and personal budgeting web application designed to run entirely within the user's browser sandbox. The client application is built on modern HTML5, CSS3, and vanilla ES6 JavaScript, bypassing heavy frameworks to keep the payload size under fifty kilobytes. User transaction histories, budgeting targets, and system preferences are stored on the client disk using the LocalStorage API, ensuring absolute data privacy. Visual metrics, spending indicators, and category progress bars are rendered using a glassmorphic CSS custom property layout that updates dynamically through a centralized rendering loop. Users can sort transactions, change currency configurations, and generate high-fidelity PNG reports locally using html2canvas overlays. By isolating code execution to the client device, FinTrack Pro eliminates network tracking vectors and database breach vulnerabilities. It offers individuals a highly secure, privacy-respecting personal ledger tool.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript"
+      ],
+      "tech": [
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 25,
+      "github": "https://github.com/TheOrionGD/FinTrack-Pro",
+      "demo": "",
+      "problemStatement": "FinTrack-Pro is a local-first financial visualizer and personal budgeting web application designed to run entirely within the user's browser sandbox.",
+      "deliverables": [
+        "FinTrack-Pro is a local-first financial visualizer and personal budgeting web application designed to run entirely within the user's browser sandbox. The client application is buil..."
+      ],
+      "hook": "Engineered by Godfrey: FinTrack-Pro"
+    },
+    {
+      "title": "Luminix-ExperiencePlatform",
+      "slug": "luminix-experienceplatform",
+      "description": "Luminix-ExperiencePlatform is a lightweight embedded database and NoSQL JSON document store written in C99. The database kernel is designed for resource-constrained environments and high-performance microservices, utilizing custom memory pool allocators to prevent heap fragmentation. The engine provides robust ACID transaction management through a Write-Ahead Log, custom page buffers, multi-version concurrency control, and index layouts. The platform supports structured data mapping alongside unstructured JSON document storage, executing queries via a custom SQL-like recursive descent parser. An interactive command-line interface, written in C, allows administrators to perform hot backups, physical snapshots, and manage users. The system compiles using standard GCC and GNU Make tools with zero external dependencies, providing developer libraries with low latency and runtime overhead. It offers an efficient alternative to traditional heavy database servers.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "C99"
+      ],
+      "tech": [
+        "C99"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 26,
+      "github": "https://github.com/TheOrionGD/Luminix-ExperiencePlatform",
+      "demo": "",
+      "problemStatement": "Luminix-ExperiencePlatform is a lightweight embedded database and NoSQL JSON document store written in C99.",
+      "deliverables": [
+        "Luminix-ExperiencePlatform is a lightweight embedded database and NoSQL JSON document store written in C99. The database kernel is designed for resource-constrained environments an..."
+      ],
+      "hook": "Engineered by Godfrey: Luminix-ExperiencePlatform"
+    },
+    {
+      "title": "PasswordGuard-Security",
+      "slug": "passwordguard-security",
+      "description": "PasswordGuard-Security is a zero-knowledge password strength analyzer, cryptographically secure generator, and breach detection utility. The client application is built with vanilla HTML5, CSS3, and ES6 JavaScript, executing calculations locally to preserve credentials privacy. Password strength and crack times are calculated in real-time, and data breach validation is handled using the HaveIBeenPwned API via K-Anonymity protocols. The system computes SHA-1 hashes of inputs, sending only the first five characters of the hash to HIBP to verify breaches without disclosing credentials. Cryptographically secure random values are generated via the browser's Web Crypto API, supporting character constraints and temporary session logs of generated passwords. The UI features a dark theme built on CSS variables, complete with input validation and debounced query handlers. The application provides users with a zero-knowledge credential evaluation tool.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript"
+      ],
+      "tech": [
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 27,
+      "github": "https://github.com/TheOrionGD/PasswordGuard-Security",
+      "demo": "",
+      "problemStatement": "PasswordGuard-Security is a zero-knowledge password strength analyzer, cryptographically secure generator, and breach detection utility.",
+      "deliverables": [
+        "PasswordGuard-Security is a zero-knowledge password strength analyzer, cryptographically secure generator, and breach detection utility. The client application is built with vanill..."
+      ],
+      "hook": "Engineered by Godfrey: PasswordGuard-Security"
+    },
+    {
+      "title": "ChronoTimer-Utility",
+      "slug": "chronotimer-utility",
+      "description": "ChronoTimer-Utility is a client-side productivity timing application incorporating a centisecond stopwatch, countdown timer, and Pomodoro focus manager. The interface utilizes CSS variables to define a glassmorphic visual system featuring ambient glow filters, bottom drawer sheets, and responsive layouts for mobile and desktop screens. The core engine is built using vanilla ES6 JavaScript modules that interface with the browser's requestAnimationFrame loops to maintain clock accuracy, bypassing typical timing drifts. Real-time alarms and transition sweeps are generated locally via a custom oscillator synthesis class using the Web Audio API, minimizing asset dependencies and load times. The application stores user settings, active timer states, and interval logs using the LocalStorage API, enforcing clean data sanitization to block script injection. A global event handler captures custom keyboard hotkeys, and the layout features SVG stroke-dashoffset transitions for the circular progress bars. It offers productivity users a fast, offline-first timing tool.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript"
+      ],
+      "tech": [
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 28,
+      "github": "https://github.com/TheOrionGD/ChronoTimer-Utility",
+      "demo": "",
+      "problemStatement": "ChronoTimer-Utility is a client-side productivity timing application incorporating a centisecond stopwatch, countdown timer, and Pomodoro focus manager.",
+      "deliverables": [
+        "ChronoTimer-Utility is a client-side productivity timing application incorporating a centisecond stopwatch, countdown timer, and Pomodoro focus manager. The interface utilizes CSS ..."
+      ],
+      "hook": "Engineered by Godfrey: ChronoTimer-Utility"
+    },
+    {
+      "title": "FlappyBird-GameEngine",
+      "slug": "flappybird-gameengine",
+      "description": "FlappyBird-GameEngine is a cross-platform mobile and web application featuring a hand-crafted physics engine built in vanilla ES6 JavaScript. The application uses a class-based object-oriented structure that coordinates a game loop powered by requestAnimationFrame and executes AABB collision detection. Real-time sound effects and level alarms are synthesized dynamically via oscillator controls referencing the Web Audio API, avoiding heavy network audio assets. The application is packaged for Android using Capacitor.js, syncing static web pages to native WebView shells to generate signed release APK packages. The UI is styled with custom CSS variables to handle light/dark schemes, motion-reduction triggers, and responsive layout scaling across different viewport ratios. Score histories, unlock statistics, and custom speeds are saved locally in the browser storage, while the slow-motion level transitions adjust physics constants dynamically. It serves as an optimized, cross-platform demonstration of native web engineering.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript"
+      ],
+      "tech": [
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 29,
+      "github": "https://github.com/TheOrionGD/FlappyBird-GameEngine",
+      "demo": "",
+      "problemStatement": "FlappyBird-GameEngine is a cross-platform mobile and web application featuring a hand-crafted physics engine built in vanilla ES6 JavaScript.",
+      "deliverables": [
+        "FlappyBird-GameEngine is a cross-platform mobile and web application featuring a hand-crafted physics engine built in vanilla ES6 JavaScript. The application uses a class-based obj..."
+      ],
+      "hook": "Engineered by Godfrey: FlappyBird-GameEngine"
+    },
+    {
+      "title": "TextInsight-NLP",
+      "slug": "textinsight-nlp",
+      "description": "TextInsight-NLP is an object-oriented Python text analytics library and REST API pipeline designed to scale unstructured text processing. The library utilizes a modular pipeline pattern where documents pass through cleaning, tokenization, POS tagging, and analysis processors. Underlying computations are powered by NLTK for tokenization, TextBlob for subjectivity and polarity sentiment mapping, and Scikit-learn for TF-IDF keyword clustering. The analysis engine calculates readability indices and discovers text topics, returning results in a structured dataclass format. The package includes a REST API wrapper written in FastAPI, allowing developers to deploy the pipeline as a scalable web service. The codebase is tested using Pytest to verify string normalization and sentiment thresholds, providing data scientists and researchers with a production-grade NLP pipeline tool.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Python",
+        "NLTK",
+        "FastAPI"
+      ],
+      "tech": [
+        "Python",
+        "NLTK",
+        "FastAPI"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 30,
+      "github": "https://github.com/TheOrionGD/TextInsight-NLP",
+      "demo": "",
+      "problemStatement": "TextInsight-NLP is an object-oriented Python text analytics library and REST API pipeline designed to scale unstructured text processing.",
+      "deliverables": [
+        "TextInsight-NLP is an object-oriented Python text analytics library and REST API pipeline designed to scale unstructured text processing. The library utilizes a modular pipeline pa..."
+      ],
+      "hook": "Engineered by Godfrey: TextInsight-NLP"
+    },
+    {
+      "title": "ChronoSync-TaskManager",
+      "slug": "chronosync-taskmanager",
+      "description": "ChronoSync-TaskManager is a deterministic, offline-first event replay engine and collaborative task manager built in Java. Rather than updating database tables dynamically, the system relies on an event sourcing design pattern where application state is reconstructed by replaying immutable events from an append-only store. This approach provides developers with time-travel debugging capabilities, historical audit records, and conflict-free offline synchronization across client terminals. The core architecture is modular, separating the event store, replay engine, sync controllers, and REST endpoints written in Spring Boot. It uses Docker containerization to coordinate persistent data stores and local cache workers. Sync synchronization is handled using state snapshots to improve recovery speed, combined with conflict resolution rules that prevent silent data overwrites during merge events. The system serves as a deterministic backend utility for collaborative environments, providing complete traceability and data consistency under unstable network settings.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Docker"
+      ],
+      "tech": [
+        "Java",
+        "Spring Boot",
+        "Docker"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 31,
+      "github": "https://github.com/TheOrionGD/ChronoSync-TaskManager",
+      "demo": "",
+      "problemStatement": "ChronoSync-TaskManager is a deterministic, offline-first event replay engine and collaborative task manager built in Java.",
+      "deliverables": [
+        "ChronoSync-TaskManager is a deterministic, offline-first event replay engine and collaborative task manager built in Java. Rather than updating database tables dynamically, the sys..."
+      ],
+      "hook": "Engineered by Godfrey: ChronoSync-TaskManager"
+    },
+    {
+      "title": "ProjectSphere-CollaborationHub",
+      "slug": "projectsphere-collaborationhub",
+      "description": "ProjectSphere-CollaborationHub is a multi-tenant project management and team collaboration web application designed for agile development teams. The full-stack platform uses a React frontend client coupled with a Node.js and Express backend server, persisting data in MongoDB. Real-time updates and active event broadcasting are coordinated using Socket.io, allowing team members to sync kanban task states instantly. The SaaS architecture implements JWT authentication and workspace-level data filters to ensure strict tenant isolation across projects. The application supports user role assignments (owner, admin, member), project lifecycle boards, activity timeline logs, and basic productivity metrics. System files are organized into decoupled frontend and backend source trees to ensure clean separation of concerns and maintainability. The project offers small teams a lightweight, real-time collaboration workspace.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "tech": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 32,
+      "github": "https://github.com/TheOrionGD/ProjectSphere-CollaborationHub",
+      "demo": "",
+      "problemStatement": "ProjectSphere-CollaborationHub is a multi-tenant project management and team collaboration web application designed for agile development teams.",
+      "deliverables": [
+        "ProjectSphere-CollaborationHub is a multi-tenant project management and team collaboration web application designed for agile development teams. The full-stack platform uses a Reac..."
+      ],
+      "hook": "Engineered by Godfrey: ProjectSphere-CollaborationHub"
+    },
+    {
+      "title": "AttendFlow-Workforce",
+      "slug": "attendflow-workforce",
+      "description": "AttendFlow-Workforce is a three-tier attendance tracking platform featuring a dark-themed grey, silver, and gold presentation tier built with AngularJS. The backend is written in Java using servlet mappings and direct JDBC queries with prepared SQL statements on a MySQL database, deploying onto an Apache Tomcat server. To guarantee data consistency, the backend executes deletion and insert commands in atomic, transaction-safe database sessions configured with strict UNIQUE constraints on student records. The system avoids timezone date offsets and off-by-one errors by managing timestamps as standardized string representations in a YYYY-MM-DD format, bridging client-server differences. The frontend dashboard includes real-time counters and filter systems to track roster size and submit batch state changes in single network requests. Access controls are handled at the servlet layer via custom authentication filters that reject unauthorized transactions. The architecture balances strict ACID transaction compliance with a glare-reducing, responsive UI layout, providing institutions with a reliable attendance logging platform.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "Java"
+      ],
+      "tech": [
+        "Java"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 33,
+      "github": "https://github.com/TheOrionGD/AttendFlow-Workforce",
+      "demo": "",
+      "problemStatement": "AttendFlow-Workforce is a three-tier attendance tracking platform featuring a dark-themed grey, silver, and gold presentation tier built with AngularJS.",
+      "deliverables": [
+        "AttendFlow-Workforce is a three-tier attendance tracking platform featuring a dark-themed grey, silver, and gold presentation tier built with AngularJS. The backend is written in J..."
+      ],
+      "hook": "Engineered by Godfrey: AttendFlow-Workforce"
+    },
+    {
+      "title": "QueueFlow-Manager",
+      "slug": "queueflow-manager",
+      "description": "QueueFlow-Manager is a memory-efficient waiting list and priority seat management platform written in C99/C11. The application is designed to operate on minimal hardware resources, using binary files for flat-file database storage of bookings and waitlist states. The system features a priority-based queuing algorithm that automatically sorts VIP passengers ahead of standard bookings within custom queue structs. Additionally, the engine automatically assigns the next available seat and exports database records into standard CSV sheets. For deployment on static hosting platforms like GitHub Pages, the repository includes a web simulator built on HTML5, CSS3, and vanilla JavaScript that mocks the C execution. The system represents a systems-level console application, demonstrating structured memory-safe programming patterns for hospitality and transportation domains.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "C99",
+        "C11",
+        "JavaScript"
+      ],
+      "tech": [
+        "C99",
+        "C11",
+        "JavaScript"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 34,
+      "github": "https://github.com/TheOrionGD/QueueFlow-Manager",
+      "demo": "",
+      "problemStatement": "QueueFlow-Manager is a memory-efficient waiting list and priority seat management platform written in C99/C11.",
+      "deliverables": [
+        "QueueFlow-Manager is a memory-efficient waiting list and priority seat management platform written in C99/C11. The application is designed to operate on minimal hardware resources,..."
+      ],
+      "hook": "Engineered by Godfrey: QueueFlow-Manager"
+    },
+    {
+      "title": "Zorynth-Radar",
+      "slug": "zorynth-radar",
+      "description": "Zorynth-Radar is an operations console and weather forecasting platform built on a React client and an Express.js backend. The application retrieves meteorological metrics from the OpenWeather API, including real-time conditions, 5-day forecasts, air quality index data, and UV ratings. The system persists data in MongoDB, logging saved user locations, custom alert configurations, and historical weather snapshot records. The console features a smart alerts engine that checks thresholds (temperature, wind, and AQI) and triggers notifications, combined with a data exporter that generates PDF reports. User sessions are secured using JWT authentication, and database calls are managed using Mongoose schemas. The application operates as a meteorological intelligence dashboard, providing weather operations desks with real-time analytics, PDF reports, and alert configurations.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Express",
+        "MongoDB"
+      ],
+      "tech": [
+        "React",
+        "Express",
+        "MongoDB"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 35,
+      "github": "https://github.com/TheOrionGD/Zorynth-Radar",
+      "demo": "",
+      "problemStatement": "Zorynth-Radar is an operations console and weather forecasting platform built on a React client and an Express.",
+      "deliverables": [
+        "Zorynth-Radar is an operations console and weather forecasting platform built on a React client and an Express.js backend. The application retrieves meteorological metrics from the..."
+      ],
+      "hook": "Engineered by Godfrey: Zorynth-Radar"
+    },
+    {
+      "title": "AegisTrack-Mobile",
+      "slug": "aegistrack-mobile",
+      "description": "AegisTrack-Mobile is a standalone desktop console and geographic coordinate simulation utility developed for tracking mobile fleet assets and managing recovery requests. The software is constructed in Java using the Abstract Window Toolkit and Swing libraries for client-side graphic layouts, ensuring a zero-dependency runtime on local workstation systems. The core application logic revolves around a single-threaded simulation loop that generates high-precision latitude and longitude coordinates based on a localized, pseudo-random distribution. Security checks are enforced via hardcoded API token validation routines, while input safety is handled through strict regular expression filters that scrub input numbers to block injection and overflow attempts. High-throughput telemetry coordinates are cached using a Redis telemetry pipeline that buffers data streams to prevent performance degradation on relational databases like PostgreSQL. While the system operates as a lightweight local console, it outlines database schemas for lost report logs and coordinate histories. This utility functions as a tracking workstation proof of concept, illustrating clean separation between graphics and mathematical simulation.\r\n\r\n---",
+      "category": "Cybersecurity / Systems",
+      "technologies": [
+        "Java",
+        "express",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "tech": [
+        "Java",
+        "express",
+        "Redis",
+        "PostgreSQL"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 36,
+      "github": "https://github.com/TheOrionGD/AegisTrack-Mobile",
+      "demo": "",
+      "problemStatement": "AegisTrack-Mobile is a standalone desktop console and geographic coordinate simulation utility developed for tracking mobile fleet assets and managing recovery requests.",
+      "deliverables": [
+        "AegisTrack-Mobile is a standalone desktop console and geographic coordinate simulation utility developed for tracking mobile fleet assets and managing recovery requests. The softwa..."
+      ],
+      "hook": "Engineered by Godfrey: AegisTrack-Mobile"
+    },
+    {
+      "title": "HostelSphere-Management",
+      "slug": "hostelsphere-management",
+      "description": "HostelSphere-Management is a local client-server desktop GUI application designed to manage university hostel operations, registers, and outpass requests. The application is written in Python, using the native Tkinter framework for rapid GUI rendering on local administrative machines with zero runtime footprint. The client connects directly to a MySQL database server via network sockets, executing parameterized SQL queries to enforce security-critical access roles. The platform manages hosteller registrations, attendance marking, birthday alerts, and outpass authorization queues between students and wardens. The outpass workflow is designed as a direct transactional sequence where request states transition dynamically from pending to warden approval. To simulate layouts on web interfaces, the repository includes a lightweight HTML, CSS, and JS web mockup of the dashboard controls. The software serves wardens and resident students, providing a secure, paperless hostel administrative portal.\r\n\r\n---",
+      "category": "Cybersecurity / Systems",
+      "technologies": [
+        "Python"
+      ],
+      "tech": [
+        "Python"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 37,
+      "github": "https://github.com/TheOrionGD/HostelSphere-Management",
+      "demo": "",
+      "problemStatement": "HostelSphere-Management is a local client-server desktop GUI application designed to manage university hostel operations, registers, and outpass requests.",
+      "deliverables": [
+        "HostelSphere-Management is a local client-server desktop GUI application designed to manage university hostel operations, registers, and outpass requests. The application is writte..."
+      ],
+      "hook": "Engineered by Godfrey: HostelSphere-Management"
+    },
+    {
+      "title": "Portfolio-Legacy",
+      "slug": "portfolio-legacy",
+      "description": "Portfolio-Legacy is an interactive, personal portfolio platform designed to showcase software engineering projects, skills, and academic achievements. The front-end client is built with vanilla HTML5, CSS3, and ES6 JavaScript, implementing custom canvas physics particles and navigation animations. The visual system features a high-contrast Red and Silver color scheme, responsive grid layouts, and modular sections for project portfolios. The application containerizes using a multi-stage Docker build, copying static assets to optimized Nginx web server directories configured with security headers. The code layout is organized to support future serverless API integrations for handling recruiter contact queries and tracking site analytics. The platform serves as an optimized, responsive personal homepage, providing technical recruiters and hiring managers with a lightweight resume portal that loads in milliseconds.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "JavaScript",
+        "Docker"
+      ],
+      "tech": [
+        "JavaScript",
+        "Docker"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 38,
+      "github": "https://github.com/TheOrionGD/Portfolio-Legacy",
+      "demo": "",
+      "problemStatement": "Portfolio-Legacy is an interactive, personal portfolio platform designed to showcase software engineering projects, skills, and academic achievements.",
+      "deliverables": [
+        "Portfolio-Legacy is an interactive, personal portfolio platform designed to showcase software engineering projects, skills, and academic achievements. The front-end client is built..."
+      ],
+      "hook": "Engineered by Godfrey: Portfolio-Legacy"
+    },
+    {
+      "title": "TheOrionGD",
+      "slug": "theoriongd",
+      "description": "TheOrionGD represents the personal developer profile repository of Godfrey T R, serving as a resume catalog of skills and academic history. The page is formatted using markdown, featuring capsule renders, LinkedIn badges, and custom typing SVG graphics to show development principles. The document details proficiency in software languages including TypeScript, Python, Java, and C#, alongside frontend technologies like React and backend engines like Flask and FastAPI. It highlights spatial computing experience using Unity 3D and WebGL frameworks, listing active project repositories and dynamic commit charts. Additionally, the profile outlines a professional development roadmap focusing on AI-native architectures, scalable databases, and zero-friction user interfaces. The document operates as a personal portal, providing recruiters and collaborators with an organized directory of skills and projects.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "TypeScript",
+        "Python",
+        "Java",
+        "React",
+        "FastAPI"
+      ],
+      "tech": [
+        "TypeScript",
+        "Python",
+        "Java",
+        "React",
+        "FastAPI"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 39,
+      "github": "https://github.com/TheOrionGD/TheOrionGD",
+      "demo": "",
+      "problemStatement": "TheOrionGD represents the personal developer profile repository of Godfrey T R, serving as a resume catalog of skills and academic history.",
+      "deliverables": [
+        "TheOrionGD represents the personal developer profile repository of Godfrey T R, serving as a resume catalog of skills and academic history. The page is formatted using markdown, fe..."
+      ],
+      "hook": "Engineered by Godfrey: TheOrionGD"
+    },
+    {
+      "title": "CableSnap-AssetManager",
+      "slug": "cablesnap-assetmanager",
+      "description": "CableSnap-AssetManager represents a scaffold template designed to initialize a front-end asset management application using React and Vite. The existing documentation for this repository is restricted to standard boilerplate instructions, indicating that the project is in a pre-development or initial scaffolding stage. The template sets up Hot Module Replacement using React plugins and configures basic code formatting rules utilizing ESLint inside a lightweight Node.js development loop. While the project is set up to support React compiler optimizations and code standard validation, the repository is missing specific implementations of the asset manager's features, data models, or core functionality. Consequently, detail regarding the technical architecture, target users, and outcome is limited, though the available configuration establishes a standard development environment for React. Any future development would require building out the database integration, API client routing, and frontend dashboards to support the intended asset tracking workflows.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "React",
+        "Vite",
+        "Node.js"
+      ],
+      "tech": [
+        "React",
+        "Vite",
+        "Node.js"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 40,
+      "github": "https://github.com/TheOrionGD/CableSnap-AssetManager",
+      "demo": "",
+      "problemStatement": "CableSnap-AssetManager represents a scaffold template designed to initialize a front-end asset management application using React and Vite.",
+      "deliverables": [
+        "CableSnap-AssetManager represents a scaffold template designed to initialize a front-end asset management application using React and Vite. The existing documentation for this repo..."
+      ],
+      "hook": "Engineered by Godfrey: CableSnap-AssetManager"
+    },
+    {
+      "title": "HealthCare",
+      "slug": "healthcare",
+      "description": "HealthCare is a minimalist placeholder document representing a pre-initialization project structure in the undergraduate degree portfolio. The existing README file contains only the single primary heading `# HealthCare`, and does not document any code structures, functional components, or developer specifications. Due to this incomplete state, details regarding the project's purpose, technology stack, backend APIs, and database engines cannot be determined directly from the source repository. It can be inferred that this file was created as a stub for a healthcare-focused software utility that has not yet been implemented or documented. As a result, technical analysis of its system architecture, target users, and outcomes is restricted to this skeleton marker. Future development would involve detailing the medical use cases, data models, and API integrations required for a health-focused web platform.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "TypeScript",
+        "React"
+      ],
+      "tech": [
+        "TypeScript",
+        "React"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 41,
+      "github": "https://github.com/TheOrionGD/HealthCare",
+      "demo": "",
+      "problemStatement": "HealthCare is a minimalist placeholder document representing a pre-initialization project structure in the undergraduate degree portfolio.",
+      "deliverables": [
+        "HealthCare is a minimalist placeholder document representing a pre-initialization project structure in the undergraduate degree portfolio. The existing README file contains only th..."
+      ],
+      "hook": "Engineered by Godfrey: HealthCare"
+    },
+    {
+      "title": "System-Monitor",
+      "slug": "system-monitor",
+      "description": "System-Monitor is a minimalist placeholder document representing a system monitoring project within the student's portfolio. The repository's README file contains only the single heading `# System-Monitor`, indicating a skeleton state with no implementation documentation or file structural reference. Details regarding the platform's target operating systems, hardware metric integrations, telemetry charts, or notification triggers cannot be verified. It can be inferred that this file represents a stub for a system telemetry console that is in a pre-scaffolded or empty state. As a result, technical analysis of its capabilities, technology stack, and outcomes is restricted to this skeleton layout. Future development would involve implementing scripts to pull memory, CPU, and disk metrics, and designing an administrative dashboard to display real-time analytics.\r\n\r\n---",
+      "category": "AI / Agents / ML",
+      "technologies": [
+        "TypeScript",
+        "React"
+      ],
+      "tech": [
+        "TypeScript",
+        "React"
+      ],
+      "status": "published",
+      "featured": false,
+      "order": 42,
+      "github": "https://github.com/TheOrionGD/System-Monitor",
+      "demo": "",
+      "problemStatement": "System-Monitor is a minimalist placeholder document representing a system monitoring project within the student's portfolio.",
+      "deliverables": [
+        "System-Monitor is a minimalist placeholder document representing a system monitoring project within the student's portfolio. The repository's README file contains only the single h..."
+      ],
+      "hook": "Engineered by Godfrey: System-Monitor"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "MSME Idea Hackathon 5.0 Proof of Submission — 2025(msme hackathon shortlisted)",
+      "issuer": "Ministry of MSME",
+      "year": "2025",
+      "domain": "Sustainable Engineering",
+      "partSection": "1: Research Proposals & Innovations",
+      "summary": "This document serves as formal proof of submission for the student's idea proposal to the MSME Idea Hackathon 5.0. It validates the successful registration of the project within the national innovation framework. This submission highlights the student's participation in national hackathons and green technology projects.",
+      "status": "verified"
+    },
+    {
+      "title": "MSME Incubation Scheme Proposal - WattMap — 2025",
+      "issuer": "Ministry of MSME",
+      "year": "2025",
+      "domain": "Sustainable Engineering",
+      "partSection": "1: Research Proposals & Innovations",
+      "summary": "This official document outlines the incubation scheme proposal for 'WattMap', an AI-powered smart energy monitoring system. It maps the technical architecture, renewable energy focus, and startup potential of the student's innovation. This proposal serves as evidence of the student's research and entrepreneurship efforts.got shortlisted",
+      "status": "verified"
+    },
+    {
+      "title": "Patent Drafting for Beginners — 2024",
+      "issuer": "NPTEL",
+      "year": "2024",
+      "domain": "Intellectual Property Rights",
+      "partSection": "1: Research Proposals & Innovations",
+      "summary": "This certificate validates the completion of the 4-week NPTEL course 'Patent Drafting for Beginners'. It covers the fundamentals of patent law, claims construction, and the formal drafting of patent applications. This training demonstrates the student's understanding of intellectual property rights and innovation protection.",
+      "status": "verified"
+    },
+    {
+      "title": "Cybersecurity Internship Letter of Recommendation — 2024",
+      "issuer": "Adaovi",
+      "year": "2024",
+      "domain": "Cybersecurity",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This letter of recommendation from Adaovi validates the student's contribution as a Cybersecurity Intern during June-July 2024. It certifies the student's satisfactory performance, dedication, and technical competence in security analysis. This recommendation highlights the student's professional work ethic and collaboration skills.",
+      "status": "verified"
+    },
+    {
+      "title": "Cybersecurity Internship Offer Letter — 2024",
+      "issuer": "Adaovi",
+      "year": "2024",
+      "domain": "Cybersecurity",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This offer letter from Adaovi confirms the student's selection for a Cybersecurity Internship during the summer of 2024. It details the training scope and the opportunity to develop hands-on skills in security verification. This document serves as administrative validation of the student's internship experience.",
+      "status": "verified"
+    },
+    {
+      "title": "Web Development Internship Completion Certificate — 2024",
+      "issuer": "Prodigy InfoTech",
+      "year": "2024",
+      "domain": "Web Development",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This certificate certifies the completion of a Web Development internship at Prodigy InfoTech in August-September 2024. It validates the student's hands-on experience in building responsive web applications and integrating APIs. This credential confirms the student's practical web engineering skills.",
+      "status": "verified"
+    },
+    {
+      "title": "Web Development Internship Letter of Recommendation — 2024",
+      "issuer": "Prodigy InfoTech",
+      "year": "2024",
+      "domain": "Web Development",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This letter of recommendation from Prodigy InfoTech commends the student's excellent performance during their Web Development internship. It highlights the student's strong work ethic, technical skills, and ability to deliver projects on schedule. This recommendation confirms the student's readiness for professional development roles.",
+      "status": "verified"
+    },
+    {
+      "title": "Web Development Internship Offer Letter — 2024",
+      "issuer": "Prodigy InfoTech",
+      "year": "2024",
+      "domain": "Web Development",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This offer letter from Prodigy InfoTech confirms the student's selection for a Web Development internship in August 2024. It serves as administrative validation of the student's placement and the technical scope of the internship. This document represents the launch of the student's web engineering experience.",
+      "status": "verified"
+    },
+    {
+      "title": "UI/UX Internship Completion Certificate — 2025",
+      "issuer": "SkillCraft Technology",
+      "year": "2025",
+      "domain": "UI/UX Design",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This certificate certifies the completion of a one-month UI/UX design internship at SkillCraft Technology in early 2025. It validates the student's practical skills in wireframing, layout optimization, and user journey mapping. This experience highlights the student's ability to design user-centric interfaces.",
+      "status": "verified"
+    },
+    {
+      "title": "UI/UX Internship Letter of Recommendation — 2025",
+      "issuer": "SkillCraft Technology",
+      "year": "2025",
+      "domain": "UI/UX Design",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This letter of recommendation from SkillCraft Technology commends the student's outstanding performance as a UI/UX intern. It highlights the student's visual design expertise, problem-solving skills, and dedication to user experience improvement. This endorsement confirms the student's professionalism and technical capabilities.",
+      "status": "verified"
+    },
+    {
+      "title": "UI/UX Internship Offer Letter — 2025",
+      "issuer": "SkillCraft Technology",
+      "year": "2025",
+      "domain": "UI/UX Design",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This offer letter from SkillCraft Technology confirms the selection of the student for a UI/UX Internship in February 2025. It serves as administrative proof of the student's internship placement and scope of training. This document marks the initiation of the student's professional design experience.",
+      "status": "verified"
+    },
+    {
+      "title": "UiPath Automation Explorer for Students — 2022",
+      "issuer": "UiPath",
+      "year": "2022",
+      "domain": "Robotic Process Automation",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This certificate verifies the successful completion of the UiPath Automation Explorer course. It validates the student's foundational skills in Robotic Process Automation (RPA) design, workflow configuration, and bot deployment. This training is highly relevant to business process automation and digital transformation.",
+      "status": "verified"
+    },
+    {
+      "title": "Full Stack Internship Completion Certificate — 2026",
+      "issuer": "VDart Academy",
+      "year": "2026",
+      "domain": "Full-Stack Web Development",
+      "partSection": "2: Industrial Internships & Work Experience",
+      "summary": "This certificate certifies the completion of an Academic Internship in Full Stack Development at VDart Academy in January 2026. It validates the student's hands-on experience in MERN stack development, API integration, and collaborative coding. This experience demonstrates the student's readiness for professional software engineering roles.",
+      "status": "verified"
+    },
+    {
+      "title": "Pitch-A-Thon 2026 Certificate of Participation — 2026",
+      "issuer": "CampusX",
+      "year": "2026",
+      "domain": "Entrepreneurship",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate of participation validates the student's successful engagement in the Pitch-A-Thon 2026 competition. It records the student's commitment to pitching startup ideas and participating in mentorship and validation processes. This experience highlights the student's entrepreneurial drive and presentation skills.",
+      "status": "verified"
+    },
+    {
+      "title": "IEEE - 2025",
+      "issuer": "IEEE",
+      "year": "2025",
+      "domain": "Technical Seminars",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology recognizes the student's active participation in the IEEE Day Celebrations–2k24 event, organized in association with the IEEE Student Branch. It validates the student's engagement in technical awareness, professional networking, and exposure to IEEE community initiatives. This experience highlights the student's civic consciousness, collaborative spirit, and continuous learning mindset within an international technical organization.",
+      "status": "verified"
+    },
+    {
+      "title": "64 square - 2025",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2025",
+      "domain": "Mathematics & Logical Reasoning",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology validates the student's participation in the technical and non-technical event “MATHISTIC – 64 SQUARES” under the Department of Science and Humanities and the Homi Bhabha Science Club. It covers engagement in mathematical reasoning, logical problem-solving, and practical exposure to competitive event workflows. This experience demonstrates the student's capability to leverage analytical thinking to tackle challenges, foster continuous learning, and contribute effectively in academic and technical environments.",
+      "status": "verified"
+    },
+    {
+      "title": "Code sprint 6.0 - 2025",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2025",
+      "domain": "Software Engineering / Debugging",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology validates the student's participation in CODESPRINT 6.0 – a 6-hour internal hackathon in the domain of computer science and engineering. It covers foundational concepts such as algorithmic problem-solving, collaborative coding, and practical training in hackathon-based project workflows. This experience demonstrates the student's capability to leverage team-based programming and innovation skills to solve real-world challenges and build scalable solutions under time constraints.",
+      "status": "verified"
+    },
+    {
+      "title": "E Certificate for TAMIL - 2025",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2025",
+      "domain": "Language & Culture",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology recognizes the student's participation in the cultural event “Kalaicharal '24”, highlighting involvement in academic and cultural celebrations. It validates engagement in artistic expression, community participation, and practical exposure to cultural event workflows. This experience demonstrates the student's capability to leverage creativity and collaboration to enrich campus life, foster cultural awareness, and contribute to holistic development.",
+      "status": "verified"
+    },
+    {
+      "title": "INTER COLLEGE EVENT Caption Debug - 2025",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2025",
+      "domain": "academic knowledge sharing",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology validates the student's participation in the Inter-Departmental Paper Presentation Contest in the domain of computer science and engineering. It covers foundational concepts such as research analysis, technical documentation, and practical training in academic presentation workflows. This experience demonstrates the student's capability to leverage communication and technical reasoning skills to present innovative ideas, solve real-world problems, and contribute to professional knowledge-sharing forums.",
+      "status": "verified"
+    },
+    {
+      "title": "IPR - 2024",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2024",
+      "domain": "legal compliance in technology.",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from the Tamil Nadu State Council for Science and Technology (TNSCST) in collaboration with K. Ramakrishnan College of Technology validates the student's participation in the State-Level Technical Workshop on Intellectual Property Rights in the domain of science, technology, and legal frameworks. It covers foundational concepts such as patent filing procedures, copyright and trademark laws, and practical training in IPR documentation and compliance workflows. This experience demonstrates the student's capability to leverage intellectual property knowledge to support research innovation, protect creative outputs, and contribute to industry-ready projects.",
+      "status": "verified"
+    },
+    {
+      "title": "KRCT Certificate Extempore - 2023",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2023",
+      "domain": "creative storytelling",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology validates the student's achievement of winning first prize in the Extempore event during National Science Day & Planckton-2K24, organized by the Department of Science and Humanities in association with the Homi Bhabha Science Club. It covers foundational concepts such as on-the-spot speech creation, idea connection across dynamic visual prompts, and practical training in public speaking under real-time constraints. This accomplishment demonstrates the student's capability to leverage analytical reasoning and communication skills to articulate complex ideas, engage audiences effectively, and contribute to professional forums requiring spontaneous thought leadership.",
+      "status": "verified"
+    },
+    {
+      "title": "KRCT Certificate Math day - 2023",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2023",
+      "domain": "Mathematics",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology recognizes the student's active participation and prize achievement in the Mathematics Week 2023 quiz competition on Ramanujan’s Life History and his Inventions. It covers foundational concepts such as mathematical heritage, problem-solving aptitude, and practical exposure to quiz-based knowledge evaluation. This experience highlights the student's capability to leverage analytical reasoning and mathematical awareness to strengthen academic excellence and contribute to continuous learning in quantitative domains.",
+      "status": "verified"
+    },
+    {
+      "title": "KRCT Certificate Trash to Treasure - 2023",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2023",
+      "domain": "Design & Innovation",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology validates the student's achievement of winning second prize in the “Trash to Treasure” event during MATHISTIC – A Technical and Non-Technical Event, organized by the Department of Science and Humanities and the Homi Bhabha Science Club. It covers foundational concepts such as creative reuse of materials, logical problem-solving in sustainability, and practical teamwork in transforming waste into valuable products. This accomplishment demonstrates the student's capability to leverage innovation and environmental awareness to design meaningful solutions, present ideas effectively, and contribute to sustainable development initiatives.",
+      "status": "verified"
+    },
+    {
+      "title": "National Statistics Day - 2024",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2024",
+      "domain": "Statistics & Data Literacy",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from K. Ramakrishnan College of Technology in collaboration with PDUAM Eraligool, Karimganj, Assam validates the student's participation in the National Statistics Day 2024 E-Quiz Competition in the domain of statistics and data awareness. It covers foundational concepts such as numerical reasoning, statistical literacy, and practical exposure to quiz-based evaluation through Google Forms. This experience demonstrates the student's capability to leverage quantitative aptitude and analytical skills to interpret data, solve logical problems, and contribute to academic enrichment in statistical domains.",
+      "status": "verified"
+    },
+    {
+      "title": "festronix 25 - 2025",
+      "issuer": "K. Ramakrishnan College of Technology",
+      "year": "2025",
+      "domain": "Event Management",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate-equivalent recognition from K. Ramakrishnan College of Technology validates the student's contribution as an overall student coordinator for the FESTRONIX’2K25 National-Level Technical Symposium in the domain of computer science and engineering. It covers foundational concepts such as event coordination and volunteer management, participant engagement, and practical training in organizing technical events like paper presentations and ideathons. This experience demonstrates the student's capability to leverage leadership, communication, and organizational skills to manage large-scale academic events, foster collaboration across institutions, and contribute to professional symposium workflows.",
+      "status": "verified"
+    },
+    {
+      "title": "My Bharat Certificate - 2025",
+      "issuer": "MyBharat",
+      "year": "2025",
+      "domain": "National Youth Portal",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from the Ministry of Youth Affairs and Sports, Government of India validates the student's successful registration on MY Bharat, a national youth initiative in the domain of civic engagement and nation-building. It covers foundational concepts such as youth participation in development programs, digital registration for national initiatives, and practical exposure to community-driven platforms for social responsibility. This recognition demonstrates the student's capability to leverage civic consciousness and proactive involvement to contribute to India’s developmental vision and strengthen their role in collective progress.",
+      "status": "verified"
+    },
+    {
+      "title": "MyBharat Quiz Certificate - 2026",
+      "issuer": "MyBharat",
+      "year": "2026",
+      "domain": "National Youth Portal",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from the Ministry of Youth Affairs & Sports, Government of India validates the student's participation in the MY Bharat Budget Quest 2026 Online Quiz, guided by the NSS Programming Officers of KRCT, in the domain of civic awareness and national development. It covers foundational concepts such as budgetary knowledge, policy awareness, and practical exposure to quiz-based evaluation on governance and economics. This recognition demonstrates the student's capability to leverage civic responsibility and analytical reasoning to understand national priorities, contribute to informed discussions, and support initiatives toward a Viksit Bharat.",
+      "status": "verified"
+    },
+    {
+      "title": "MyBharat Quiz Certificate (1) - 2026",
+      "issuer": "MyBharat",
+      "year": "2026",
+      "domain": "National Youth Portal",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from the Ministry of Youth Affairs & Sports, Government of India validates the student's participation in the MY Bharat Budget Quest 2026 Online Quiz, undertaken with the guidance of the NSS Programming Officers of KRCT, in the domain of civic awareness and national policy literacy. It covers foundational concepts such as budgetary frameworks, economic governance awareness, and practical evaluation through quiz-based learning on national priorities. This recognition demonstrates the student's capability to leverage civic responsibility, analytical reasoning, and youth engagement to contribute to informed discussions and support initiatives toward a Viksit Bharat",
+      "status": "verified"
+    },
+    {
+      "title": "50174 mARATHON — 2025",
+      "issuer": "National Service Scheme",
+      "year": "2025",
+      "domain": "Social Service & Community Development",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from the National Service Scheme recognizes the student's participation in the 50174 Marathon event. It highlights the student's commitment to community welfare, physical health advocacy, and support for social awareness campaigns. This engagement demonstrates active citizenship, team spirit, and participation in community-driven events.",
+      "status": "verified"
+    },
+    {
+      "title": "PLEDGE - 2024",
+      "issuer": "National Service Scheme",
+      "year": "2024",
+      "domain": "Civic Engagement , Social Responsibility & Community Development",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This collection of certificates from the Ministry of Youth Affairs & Sports, Government of India, along with allied ministries and initiatives under MY Bharat validates the student’s active participation in multiple national-level pledge programs across domains such as health, environment, education, civic responsibility, and social welfare, guided by the NSS Programming Officers and class advisor at KRCT. It covers foundational concepts such as healthy lifestyle and fitness awareness, fuel and energy conservation, blood and organ donation, women’s rights, reading culture, and disaster preparedness, along with practical exposure to cybersecurity, nutrition security, no-tobacco commitment, and promotion of Indian handloom and affordable medicines. This collective engagement demonstrates the student’s capability to leverage civic consciousness, social responsibility, and analytical reasoning to contribute meaningfully to national development goals, foster sustainable practices, and build industry-ready skills in leadership and community participation.",
+      "status": "verified"
+    },
+    {
+      "title": "Codeathon 4.0 Certificate of Participation — 2026",
+      "issuer": "Prathyusha Engineering College",
+      "year": "2026",
+      "domain": "Competitive Programming",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate of participation certifies the student's successful engagement in the Codeathon 4.0, a 24-hour coding challenge. It validates the student's competitive programming experience, stamina, and algorithms implementation skills. This event demonstrates the student's problem-solving capabilities under time pressure.",
+      "status": "verified"
+    },
+    {
+      "title": "health in pixels startup hackathon cohort 2025 godfrey t r — 2026",
+      "issuer": "Startup Hackathon Cohort",
+      "year": "2026",
+      "domain": "Healthcare Software",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from the Startup Hackathon Cohort validates the student's participation in the 'Health-in-Pixels' hackathon in 2025. It certifies the student's contribution to designing and pitching an innovative healthcare software startup idea. This experience showcases the student's collaborative problem-solving ability, entrepreneurial drive, and skill in designing technology solutions for the medical domain.",
+      "status": "verified"
+    },
+    {
+      "title": "JET Hackathon-1.0 - 2025",
+      "issuer": "Jeyram Educational Institution, Trichy",
+      "year": "2025",
+      "domain": "Web Development & Technical Innovation",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from Jeyram Educational Institution validates the student's participation in the JET Hackathon-1.0, focusing on the domain of web development and innovation. It covers foundational concepts such as interactive CSS design, team-based project creation, and practical exposure to hackathon-style problem solving and government-supported technical courses. This experience demonstrates the student's capability to leverage web development skills, collaborative teamwork, and innovation mindset to solve real-world challenges and contribute to technical excellence.",
+      "status": "verified"
+    },
+    {
+      "title": "Brain Spark Certificate - Not specified",
+      "issuer": "NIT Trichy (Probe 2025, sponsored by Qualcomm)",
+      "year": "2025",
+      "domain": "Technical Awareness & Innovation",
+      "partSection": "3: Hackathons, Competitions & Co-Curricular Activities",
+      "summary": "This certificate from NIT Trichy (Probe 2025) validates the student's participation in the Brain Spark online quiz event, focusing on the domain of technical awareness and innovation. It covers foundational concepts such as problem-solving in engineering contexts, quiz-based evaluation of technical knowledge, and practical exposure to competitive learning environments. This experience demonstrates the student's capability to leverage analytical reasoning, technical curiosity, and continuous learning mindset to contribute to academic excellence and industry readiness.",
+      "status": "verified"
+    },
+    {
+      "title": "CS Certificate - 2025",
+      "issuer": "Adaovi",
+      "year": "2025",
+      "domain": "Cybersecurity",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Adaovi validates the student's completion of Cyber Security training, confirming their knowledge in the domain of digital safety and protection. It covers foundational concepts such as network security, threat detection, and practical training in risk mitigation and secure workflows. This training demonstrates the student's capability to leverage cybersecurity practices to solve real-world problems and safeguard scalable systems.",
+      "status": "verified"
+    },
+    {
+      "title": "Build a free website with WordPress — 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Web & Mobile App Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Build a free website with WordPress' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of WordPress development and web hosting setup to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Build a mobile app with Google Sheets on Glide and no coding — 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Web & Mobile App Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Build a mobile app with Google Sheets on Glide and no coding' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of no-code mobile application design using Glide and Google Sheets to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Building Digital Media using Graphic Design in PowerPoint - 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Design & Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Coursera validates the student's completion of the course “Building Digital Media using Graphic Design in PowerPoint” in the domain of digital media and design. It covers key skills including slide composition, visual storytelling, and practical implementation of PowerPoint-based graphic workflows. This training demonstrates the student's readiness to apply modern graphic design methodologies in professional digital content creation and presentation roles.",
+      "status": "verified"
+    },
+    {
+      "title": "Create a Lead Generation Messenger Chatbot using Chatfuel — 2024",
+      "issuer": "Coursera",
+      "year": "2024",
+      "domain": "AI & Chatbots",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Create a Lead Generation Messenger Chatbot using Chatfuel' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of automated conversational chatbot flows and AI lead generation integration to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Getting Started with Microsoft Excel — 2024",
+      "issuer": "Coursera",
+      "year": "2024",
+      "domain": "Office Productivity",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Getting Started with Microsoft Excel' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of spreadsheet fundamentals, formulas, and data analysis concepts to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Google Ads for Beginners — 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Digital Marketing",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Google Ads for Beginners' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of digital advertising campaigns, keyword targeting, and ad budget configuration to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Graphic design - 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Design & Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Coursera validates the student's completion of the course “Graphic design: pop your LinkedIn with 3D effect using Canva” in the domain of digital media and design. It covers key skills including 3D visual enhancement, profile branding, and practical implementation of Canva-based design workflows. This training demonstrates the student's readiness to apply modern graphic design techniques to elevate professional online presence and digital identity.",
+      "status": "verified"
+    },
+    {
+      "title": "How to create presentations using Canva — 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Design & Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'How to create presentations using Canva' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of visual slide design, template customization, and digital presentation layout structure to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Use Canva to Design Digital Course Collateral — 2024",
+      "issuer": "Coursera",
+      "year": "2024",
+      "domain": "Design & Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Use Canva to Design Digital Course Collateral' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of digital learning design, asset creation, and content generation workflows to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Use Genially to Create Mind Maps - 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Design & Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Coursera validates the student's completion of the project course “Use Genially to Create Mind Maps” in the domain of digital learning and visual communication. It covers key skills including concept mapping, interactive design, and practical implementation of Genially-based workflows. This training demonstrates the student's readiness to apply modern mind mapping methodologies to enhance professional presentations, collaborative projects, and knowledge organization.",
+      "status": "verified"
+    },
+    {
+      "title": "Work with Components in Figma — 2025",
+      "issuer": "Coursera",
+      "year": "2025",
+      "domain": "Design & Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate represents the successful completion of the online project course 'Work with Components in Figma' authorized by Coursera Project Network. The curriculum focuses on hands-on practical implementation of component states, typography scaling, and dynamic UI design structures in Figma to build real-world applications and workflows. This experience validates the student's ability to utilize modern design and development platforms in professional settings.",
+      "status": "verified"
+    },
+    {
+      "title": "Android Application Development — 2024",
+      "issuer": "Great Learning",
+      "year": "2024",
+      "domain": "Mobile Application Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Great Learning validates the student's foundation in Android mobile application development. It covers mobile UI/UX layouts, Android Studio basics, and the integration of core application components. This training demonstrates the student's initial capability to design and build user-friendly mobile solutions.",
+      "status": "verified"
+    },
+    {
+      "title": "ChatGPT for Excel — 2024",
+      "issuer": "Great Learning",
+      "year": "2024",
+      "domain": "Office Productivity / AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Great Learning certifies the completion of training on ChatGPT integration with Microsoft Excel. It validates the student's ability to use generative AI models to automate formula writing, format spreadsheets, and conduct data analysis. This coursework showcases the student's skill in leveraging modern AI productivity tools to streamline data workflows.",
+      "status": "verified"
+    },
+    {
+      "title": "Excel for Beginners — 2024",
+      "issuer": "Great Learning",
+      "year": "2024",
+      "domain": "Office Productivity / AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Great Learning validates the student's fundamental skills in using Microsoft Excel for data organization and analysis. It covers basic formulas, data sorting, cell formatting, and foundational functions. This training establishes essential database management and data literacy competencies relevant to any technical or business role.",
+      "status": "verified"
+    },
+    {
+      "title": "Introduction to JavaScript — 2024",
+      "issuer": "Great Learning",
+      "year": "2024",
+      "domain": "Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Great Learning validates the student's understanding of core JavaScript programming concepts. It covers variables, control flow, functions, and standard object structures used for creating dynamic web pages. This training forms the scripting foundation necessary for modern interactive front-end and back-end web development.",
+      "status": "verified"
+    },
+    {
+      "title": "Java Programming — 2024",
+      "issuer": "Great Learning",
+      "year": "2024",
+      "domain": "Programming Foundations",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Great Learning certifies the completion of foundational training in Java programming. It covers object-oriented programming principles, syntax, data types, and loop structures. This training demonstrates the student's knowledge of solid software engineering principles and object-oriented application design.",
+      "status": "verified"
+    },
+    {
+      "title": "Python Fundamentals for Beginners — 2024",
+      "issuer": "Great Learning",
+      "year": "2024",
+      "domain": "Programming Foundations",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Great Learning validates the completion of the Python programming fundamentals course. It covers basic syntax, standard data structures like lists and dictionaries, and control flow logic. This coursework establishes the analytical scripting foundation necessary for entering fields like data science, automation, and machine learning.",
+      "status": "verified"
+    },
+    {
+      "title": "CSS (Basic) - 2025",
+      "issuer": "HackerRank",
+      "year": "2025",
+      "domain": "Web Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from HackerRank validates the student's successful completion of the CSS (Basic) skill certification test in the domain of web development. It covers foundational concepts such as selectors and properties, styling layouts, and practical implementation of responsive design techniques. This certification demonstrates the student's capability to leverage CSS fundamentals to build visually consistent, scalable, and industry-ready web interfaces.",
+      "status": "verified"
+    },
+    {
+      "title": "c sharp basic certificate - 2025",
+      "issuer": "HackerRank",
+      "year": "2025",
+      "domain": "Programming Languages",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from HackerRank validates the student's successful completion of the C# (Basic) skill certification test in the domain of software development. It covers foundational concepts such as syntax and data types, control structures, and practical implementation of object-oriented programming principles. This certification demonstrates the student's capability to leverage C# fundamentals to build scalable applications and contribute effectively to professional development projects.",
+      "status": "verified"
+    },
+    {
+      "title": "AI for Beginners — 2025",
+      "issuer": "HP LIFE",
+      "year": "2025",
+      "domain": "Artificial Intelligence",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the HP LIFE 'AI for Beginners' online course. It validates the student's understanding of key artificial intelligence concepts, the importance of data, and the real-world applications of AI. This training reflects the student's awareness of emerging technological trends and their societal impacts.",
+      "status": "verified"
+    },
+    {
+      "title": "Design Thinking — 2025",
+      "issuer": "HP LIFE",
+      "year": "2025",
+      "domain": "Design Thinking",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the HP LIFE 'Design Thinking' online course. It covers the core stages of the design thinking process, problem definition, user empathy, and iterative prototyping based on feedback. This coursework validates the student's ability to apply customer-centric methodologies to solve complex engineering and product design challenges.",
+      "status": "verified"
+    },
+    {
+      "title": "LEARNATHON 2k24 — ICT Academy",
+      "issuer": "ICT Academy (with partners: Bentley, Celonis, MathWorks, MongoDB, UiPath)",
+      "year": "2024",
+      "domain": "Multi-Disciplinary Technical Learning",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This consolidated record represents the student's completion of all course certifications under the ICT Academy Learnathon 2k24 programme, delivered through globally recognized technology partners. The courses span five technical tracks: **(1) Engineering & Modelling (Bentley)** — 2D/3D CAD Modeling of Building Environment, Modeling Structures with Analytical Modeler, and Road Design Concepts & Fundamentals with OpenRoads Designer; **(2) Process Mining & AI (Celonis)** — Academic Process Mining Fundamentals and Celonis AI Foundations; **(3) Machine Learning & Deep Learning (MathWorks)** — Deep Learning Onramp and Machine Learning Onramp; **(4) Database Administration & AI (MongoDB)** — Introduction to MongoDB for Students and Introduction to MongoDB, AI, and Vector Search; **(5) Robotic Process Automation (UiPath)** — UiPath Automation Explorer. Together with the main ICT Academy Learnathon 2024 completion certificate, this achievement demonstrates the student's capability to engage with multi-disciplinary technical learning across CAD engineering, data-driven process optimization, deep learning, NoSQL database design, and automation development.",
+      "status": "verified"
+    },
+    {
+      "title": "LEARNATHON 2k25 — Microsoft Learn (via ICT Academy)",
+      "issuer": "Microsoft (via ICT Academy Learnathon 2025 programme)",
+      "year": "2025",
+      "domain": "Artificial Intelligence, Cybersecurity & Data Engineering",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This consolidated record represents the student's completion of 24 Microsoft Learn training paths under the Learnathon 2k25 programme. The courses span three major technical tracks: **(1) Generative AI & Microsoft Copilot** — Explore Generative AI, Fundamentals of Generative AI, Fundamentals of Responsible Generative AI, Apply Prompt Engineering with Azure OpenAI Service, Build Natural Language Solutions with Azure OpenAI Service, Get Started with Azure OpenAI Service, Write Effective Prompts to Achieve Optimal Results, Explore Generative AI with Copilot in Bing, Boost Your Productivity with Microsoft Copilot, Design a Dream Destination using Microsoft Copilot, Get Started with Microsoft Copilot, Get Started with Microsoft 365 Copilot Chat, and Work Smarter with Microsoft 365 Copilot Chat; **(2) Cybersecurity Fundamentals** — Describe Basic Cybersecurity Threats Attacks & Mitigations, Describe Network-Based Threats & Mitigations, Describe Application-Based Threats & How to Protect Against Them, Describe Device-Based Threats & Security Controls, Describe Authentication & Authorization in Cybersecurity, and Describe Concepts of Cryptography; **(3) Microsoft Fabric & Data Engineering** — Introduction to End-to-End Analytics using Microsoft Fabric, Get Started with Lakehouses in Microsoft Fabric, Use Apache Spark in Microsoft Fabric, Use Data Factory Pipelines in Microsoft Fabric, and Work with Delta Lake Tables in Microsoft Fabric. This achievement demonstrates the student's commitment to continuous upskilling across cloud AI services, responsible AI governance, cybersecurity threat modelling, and modern data engineering platforms.",
+      "status": "verified"
+    },
+    {
+      "title": "Introduction to MongoDB for Students — 2024",
+      "issuer": "MongoDB",
+      "year": "2024",
+      "domain": "Database Administration",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate certifies the completion of the 'Introduction to MongoDB for Students' course. It validates the student's skills in document-based NoSQL databases, query optimization, and schema design. This knowledge is essential for building scalable modern web applications.",
+      "status": "verified"
+    },
+    {
+      "title": "Introduction to MongoDB, AI, and Vector Search — 2024",
+      "issuer": "MongoDB",
+      "year": "2024",
+      "domain": "Database Administration",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies completion of the MongoDB course focusing on database administration, artificial intelligence, and vector search. It validates the student's ability to store, index, and query vector embeddings for AI applications. This skill is critical for implementing modern retrieval-augmented generation systems.",
+      "status": "verified"
+    },
+    {
+      "title": "Enhancing Soft Skills and Personality — 2024",
+      "issuer": "NPTEL",
+      "year": "2024",
+      "domain": "Professional Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate validates the completion of the 8-week NPTEL course 'Enhancing Soft Skills and Personality'. It certifies the development of professional communication, interpersonal skills, and leadership qualities. This training is essential for the student's personal development and readiness for corporate environments.",
+      "status": "verified"
+    },
+    {
+      "title": "NPTEL Consolidated Course Marklist — 2024",
+      "issuer": "NPTEL",
+      "year": "2024",
+      "domain": "Academic Records",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "A consolidated academic record mapping the student's performance across multiple NPTEL courses, including Personality Development, Soft Skills, and Python programming. It compiles scores and completions for the academic term.",
+      "status": "verified"
+    },
+    {
+      "title": "The Joy of Computing Using Python — 2024",
+      "issuer": "NPTEL",
+      "year": "2024",
+      "domain": "Programming Languages",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate validates the completion of the 12-week NPTEL course 'The Joy of Computing Using Python'. It covers programming fundamentals, algorithm design, and problem-solving using Python. This credential demonstrates the student's analytical capabilities and foundational coding skills.",
+      "status": "verified"
+    },
+    {
+      "title": "claude 101 - 2025",
+      "issuer": "Outskill",
+      "year": "2026",
+      "domain": "Artificial Intelligence Workflows & Productivity",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This workshop from Outskill validates the student's participation in the Claude 101 Workshop, focusing on the domain of AI-powered workflows and productivity enhancement. It covers foundational concepts such as context engineering, AI-driven data analysis and research automation, and practical training in building presentations, websites, and job-hunting workflows using AI tools. This training demonstrates the student's capability to leverage AI workflows and automation skills to save time, adapt to industry changes, and build scalable solutions for professional and academic contexts.",
+      "status": "verified"
+    },
+    {
+      "title": "Claude 101 Workshop Recap — 2026",
+      "issuer": "Outskill",
+      "year": "2026",
+      "domain": "Conversational AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This playbook represents the complete recap of the Outskill Claude 101 workshop. It covers advanced prompting strategies, artifact integration, and automated workflow design utilizing Anthropic's models. This training demonstrates practical skills in leveraging modern AI assistants.",
+      "status": "verified"
+    },
+    {
+      "title": "Advanced Generative AI - Models and Architecture — 2025",
+      "issuer": "Simplilearn",
+      "year": "2025",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Advanced Generative AI - Models and Architecture' course offered by Simplilearn. It covers neural architectures, transformer networks, and training paradigms for modern generative networks. This course supports the student's theoretical background in deep learning.",
+      "status": "verified"
+    },
+    {
+      "title": "Build Website With AI — 2025",
+      "issuer": "Simplilearn",
+      "year": "2025",
+      "domain": "Artificial Intelligence",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Build Website With AI' course offered by Simplilearn. The training covers practical elements of AI tools for rapid website prototyping and development. This credential demonstrates the student's continuous learning and technical readiness in the Web Development and AI domain.",
+      "status": "verified"
+    },
+    {
+      "title": "Core Essentials of Generative AI, Prompt Engineering & ChatGPT — 2025",
+      "issuer": "Simplilearn",
+      "year": "2025",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Core Essentials of Generative AI, Prompt Engineering & ChatGPT' course by Simplilearn. It validates foundational skills in structuring text queries, design patterns, and context window management. This coursework establishes a solid base for advanced AI integration.",
+      "status": "verified"
+    },
+    {
+      "title": "Foundations Programming Refresher — 2025",
+      "issuer": "Simplilearn",
+      "year": "2025",
+      "domain": "Software Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Foundations Programming Refresher' course offered by Simplilearn. The training refreshes core coding principles, algorithm design, and computational complexity analysis. This coursework validates the student's foundation in standard software development practices.",
+      "status": "verified"
+    },
+    {
+      "title": "Microsoft Certified Azure AI Engineer Associate AI-102 — 2025",
+      "issuer": "Simplilearn",
+      "year": "2025",
+      "domain": "Cloud Computing & AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the completion of the Azure AI Engineer training program matching the AI-102 syllabus. It validates capabilities in configuring cognitive search, speech-to-text APIs, and AI models in Microsoft Azure. This credential confirms cloud engineering readiness for enterprise setups.",
+      "status": "verified"
+    },
+    {
+      "title": "Open Source Models with Hugging Face — 2025",
+      "issuer": "Simplilearn",
+      "year": "2025",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Open Source Models with Hugging Face' course offered by Simplilearn. The training covers accessing, configuring, and deploying open-source models for NLP tasks using Hugging Face pipelines. This credential demonstrates the student's knowledge of modern machine learning workflows.",
+      "status": "verified"
+    },
+    {
+      "title": "Advanced Generative AI - Building LLM Applications — 2026",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Advanced Generative AI - Building LLM Applications' course offered by Simplilearn. It validates the student's ability to construct custom applications leveraging large language models and orchestrating data. This coursework demonstrates advanced capability in prompt engineering and model development.",
+      "status": "verified"
+    },
+    {
+      "title": "Advanced Generative AI - Image Generation Capabilities — 2026",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Advanced Generative AI - Image Generation Capabilities' course offered by Simplilearn. It validates the student's understanding of diffusion models, image-to-image workflows, and latent space design. This credential demonstrates creative AI engineering readiness.",
+      "status": "verified"
+    },
+    {
+      "title": "Advanced Generative AI Capstone Project — 2026",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Advanced Generative AI Capstone Project' offered by Simplilearn. The capstone required building, evaluating, and deploying a functional AI application matching industry standards. This project serves as validation of end-to-end software delivery skills using advanced models.",
+      "status": "verified"
+    },
+    {
+      "title": "Applied Generative AI Specialization — 2026",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "domain": "Generative AI",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate certifies the completion of the 'Applied Generative AI Specialization' program by Simplilearn, completed with distinction. It aggregates multiple advanced modules covering LLMs, image synthesis, and system governance. This credential represents the pinnacle of the student's generative AI expertise.",
+      "status": "verified"
+    },
+    {
+      "title": "Copilot Foundations — 2026",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "domain": "AI Productivity Tools",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Copilot Foundations' course by Simplilearn. It validates the student's proficiency in utilizing Microsoft Copilot for codebase search, document parsing, and workflow automation. This skill highlights the student's adoption of developer productivity tools.",
+      "status": "verified"
+    },
+    {
+      "title": "Generative AI Governance — 2026",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "domain": "Generative AI / Governance & Ethics",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the successful completion of the 'Generative AI Governance' course by Simplilearn. It covers risk management, ethical guidelines, bias mitigation, and compliance frameworks for AI systems. This knowledge demonstrates the student's readiness to build compliant corporate solutions.",
+      "status": "verified"
+    },
+    {
+      "title": "Diploma in Programming Language — 2024",
+      "issuer": "Tamilnadu Computer Software College",
+      "year": "2024",
+      "domain": "Software Development / Programming Languages",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate verifies the completion of a comprehensive diploma course in programming languages at Tamilnadu Computer Software College. The curriculum validated proficiency in C, C++, and Java 1.5. This certificate underscores the student's foundational programming expertise and logical skills.",
+      "status": "verified"
+    },
+    {
+      "title": "UI PATH - 2025",
+      "issuer": "UiPath Academy",
+      "year": "2025",
+      "domain": "Agentic Automation & RPA Development",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from UiPath Academy validates the student's completion of the Agentic Automation Developer Associate Training, focusing on the domain of robotic process automation and agentic AI workflows. It covers foundational concepts such as automation design principles, workflow orchestration with UiPath Studio, and practical training in building scalable bots with AI-driven decision-making. This training demonstrates the student's capability to leverage automation development and RPA integration skills to solve real-world business problems, streamline repetitive tasks, and build scalable enterprise workflows.",
+      "status": "verified"
+    },
+    {
+      "title": "AI Tools - 2025",
+      "issuer": "be10x",
+      "year": "2024",
+      "domain": "Artificial Intelligence Tools & Productivity",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from be10x validates the student's completion of the 2-Day AI Tools Workshop, focusing on the domain of AI-driven productivity and innovation. It covers foundational concepts such as AI-powered workflows, automation techniques, and practical training in modern AI tools for professional use. This training demonstrates the student's capability to leverage AI applications and digital efficiency skills to solve real-world problems, streamline tasks, and build scalable workflows in industry settings.",
+      "status": "verified"
+    },
+    {
+      "title": "ChatGPT & AI - 2025",
+      "issuer": "be10x",
+      "year": "2024",
+      "domain": "Artificial Intelligence & Conversational Tools",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from be10x validates the student's completion of the ChatGPT & AI Tools Workshop, focusing on the domain of applied AI and conversational technologies. It covers foundational concepts such as prompt engineering, AI-assisted productivity workflows, and practical training in ChatGPT and related AI tools for professional applications. This training demonstrates the student's capability to leverage AI-driven communication and automation skills to solve real-world problems, enhance efficiency, and build scalable workflows in industry contexts.",
+      "status": "verified"
+    },
+    {
+      "title": "DS using Python - 2025",
+      "issuer": "Brainovision Solutions, Telangana (in association with AICTE)",
+      "year": "2024",
+      "domain": "Data Science & Analytics",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from Brainovision Solutions in association with AICTE validates the student's participation in the International Level Student Workshop – Data Science using Python, focusing on the domain of data science and analytics through online(youtube live,zoom/gmeet). It covers foundational concepts such as Python programming for data analysis, data handling and visualization techniques, and practical training in applied data science workflows through YouTube and Zoom sessions. This workshop demonstrates the student's capability to leverage data-driven problem solving and analytical reasoning to contribute to academic research, summer school papers, and industry-ready applications in data analytics.",
+      "status": "verified"
+    },
+    {
+      "title": "Excel by AI - 2025",
+      "issuer": "OfficeMaster",
+      "year": "2025",
+      "domain": "AI-Powered Data Analysis & Automation",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from OfficeMaster validates the student's completion of the Excel Using AI Workshop, focusing on the domain of AI-driven data analysis and automation. It covers foundational concepts such as 200+ Excel formulas enhanced with AI, dashboard creation in under 2 minutes, and practical training in Macros and VBA automation using AI. This training demonstrates the student's capability to leverage AI-integrated Excel skills to streamline workflows, optimize data management, and build scalable solutions for professional environments.",
+      "status": "verified"
+    },
+    {
+      "title": "IMG20251030094639 - 2025",
+      "issuer": "OASYS Institute of Technology, Pulivalam, Tiruchirappalli",
+      "year": "2025",
+      "domain": "Cybersecurity & AI-driven Innovation",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from OASYS Institute of Technology validates the student's recognition as the Best Participant in Coding, Debugging, Developing, and Hardware Modeling during the OASYS IT Hackathon 2025, with the team project CyberBuddy under the domain of cybersecurity. It covers foundational concepts such as phishing detection systems, AI-driven awareness dashboards, and practical training in full-stack development using React.js, Node.js, Express.js, Java, and MongoDB. This achievement demonstrates the student's capability to leverage cybersecurity knowledge, AI integration, and collaborative teamwork to solve real-world problems, defend against social engineering attacks, and build scalable, industry-ready solutions.",
+      "status": "verified"
+    },
+    {
+      "title": "Power BI - 2025",
+      "issuer": "OfficeMaster",
+      "year": "2024",
+      "domain": "Business Intelligence & Data Visualization",
+      "partSection": "4: Professional Certifications & Academic Courses",
+      "summary": "This certificate from OfficeMaster validates the student's completion of the 1-Day Power BI Workshop, focusing on the domain of business intelligence and data visualization. It covers foundational concepts such as Power BI dashboards, data modeling and transformation, and practical training in interactive reporting and visualization techniques. This training demonstrates the student's capability to leverage Power BI skills to analyze datasets, create dynamic dashboards, and build scalable workflows for industry-ready decision-making.\r\n\r\n\r\n\r\n## Portfolio Summary\r\n\r\n| Metric | Count |\r\n|||\r\n| Total milestones (including certificates & proposals) | 99 |\r\n| Unique providers | 29 |\r\n| Earliest milestone | 2022 |\r\n| Most recent milestone | 2026 |\r\n| Domains covered | AI & Chatbots, AI & Cybersecurity, AI Productivity Tools, AI-Powered Data Analysis & Automation, Academic Records, Agentic Automation & RPA Development, Artificial Intelligence, Artificial Intelligence & Conversational Tools, Artificial Intelligence Tools & Productivity, Artificial Intelligence Workflows & Productivity, Business Intelligence & Data Visualization, Civic Engagement , Social Responsibility & Community Development, Cloud Computing & AI, Competitive Programming, Conversational AI, Cybersecurity, Cybersecurity & AI-driven Innovation, Data Engineering & Analytics, Data Science & Analytics, Database Administration, Design & Innovation, Design & Web Development, Design Thinking, Digital Marketing, Engineering & Modeling, Entrepreneurship, Event Management, Full-Stack Web Development, Generative AI, Generative AI / Governance & Ethics, Hardware & Software Integration, Healthcare Software, Intellectual Property Rights, Language & Culture, Machine Learning & Deep Learning, Mathematics, Mathematics & Logical Reasoning, Mobile Application Development, Multi-Disciplinary Technical Learning, National Youth Portal, Office Productivity, Office Productivity / AI, Process Mining, Professional Development, Programming Foundations, Programming Languages, Robotic Process Automation, Social Service & Community Development, Software Development, Software Development / Programming Languages, Software Engineering / Debugging, Statistics & Data Literacy, Sustainable Engineering, Technical Awareness & Innovation, Technical Seminars, UI/UX Design, Web & Mobile App Development, Web Development, Web Development & Technical Innovation, academic knowledge sharing, creative storytelling, legal compliance in technology. |",
+      "status": "verified"
+    }
+  ],
+  "internships": [
+    {
+      "company": "Adaovi",
+      "role": "Cybersecurity Intern",
+      "period": "June - July 2024",
+      "details": "Security analysis, network protection, threat detection, and secure workflows."
+    },
+    {
+      "company": "Prodigy InfoTech",
+      "role": "Web Development Intern",
+      "period": "August - September 2024",
+      "details": "Building responsive web applications, API integrations, and CodeChallenge-Pro client IDE."
+    },
+    {
+      "company": "SkillCraft Technology",
+      "role": "UI/UX Design Intern",
+      "period": "Early 2025",
+      "details": "Wireframing, user journeys, interaction design, and visual ergonomics."
+    },
+    {
+      "company": "CampusX",
+      "role": "Full Stack & Innovation",
+      "period": "2026",
+      "details": "Pitch-A-Thon finalist, startup prototyping, and full-stack software delivery."
+    }
+  ],
+  "researchAndInnovations": [
+    {
+      "title": "MSME Idea Hackathon 5.0 Shortlisted Idea",
+      "summary": "National innovation framework submission on sustainable engineering."
+    },
+    {
+      "title": "WattMap — MSME Incubation Scheme Proposal",
+      "summary": "AI-powered smart energy monitoring system with renewable energy focus."
+    },
+    {
+      "title": "Patent Drafting for Beginners (NPTEL)",
+      "summary": "Formal patent drafting, claims construction, and IP rights protection."
+    }
+  ]
+}

@@ -48,7 +48,7 @@ const ImmersiveSystems: React.FC = () => {
           <div className="w-24 h-1.5 mx-auto rounded-full mb-6"
             style={{ background: 'linear-gradient(90deg, #7B3F00, #B87333)' }}></div>
           <p className="max-w-2xl mx-auto font-body-text text-base md:text-[18px] font-normal leading-[1.7]">
-            Telemetry Dashboard: Reviewing spatial mappings, hardware frequencies, patents, and low-level specifications.
+            Telemetry Dashboard: Reviewing spatial mappings, hardware frequencies, system architectures, and low-level specifications.
           </p>
         </motion.div>
 
@@ -82,7 +82,7 @@ const ImmersiveSystems: React.FC = () => {
                     </h3>
                     {project.title.toLowerCase().includes('remote') ? (
                       <span className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full flex items-center gap-1 glass-badge">
-                        <FaCertificate /> Patent Record
+                        <FaMicrochip /> Embedded System
                       </span>
                     ) : (
                       <span className="font-status-badge text-[13px] font-semibold uppercase px-2.5 py-0.5 rounded-full glass-badge">

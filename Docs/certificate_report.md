@@ -4,9 +4,9 @@ This portfolio documents my academic and professional journey during my undergra
 
 ---
 
-## Part 1: Research Proposals, Patents & Innovations
+## Part 1: Research Proposals & Innovations
 
-This section highlights research proposals, official patent publications/drafts, and incubation submissions that showcase hardware-software integration, green technology, and startup incubation potential.
+This section highlights research proposals, technical drafts, and incubation submissions that showcase hardware-software integration, green technology, and startup incubation potential.
 
 ### MSME Idea Hackathon 5.0 Proof of Submission — 2025(msme hackathon shortlisted)
 
@@ -29,20 +29,6 @@ This section highlights research proposals, official patent publications/drafts,
 **Year:** 2024
 **Domain:** Intellectual Property Rights
 **Summary:** This certificate validates the completion of the 4-week NPTEL course 'Patent Drafting for Beginners'. It covers the fundamentals of patent law, claims construction, and the formal drafting of patent applications. This training demonstrates the student's understanding of intellectual property rights and innovation protection.
-
-### Android TV Control using Remote Sensor (IR) Patent Draft — 2024
-
-**Provider:** Patent Office India
-**Year:** 2024
-**Domain:** Hardware & Software Integration
-**Summary:** This document represents the formal draft of a patent application titled 'Android TV By using Remote Sensor (IR)'. It describes the technical architecture, sensor circuit design, and signal processing logic for remote control integration. This draft serves as proof of the student's research and hardware-software design capabilities.
-
-### Android TV Control using Remote Sensor (IR) Published Patent — 2024
-
-**Provider:** Patent Office India
-**Year:** 2024
-**Domain:** Hardware & Software Integration
-**Summary:** This official document from the Patent Office of India verifies the publication of the patent application 'Android TV By using Remote Sensor (IR)' (Application No. 202441033032 A). It records the formal entry of the student's hardware-software innovation into the national patent journal. This publication represents a major research milestone in the student's undergraduate portfolio.
 
 ---
 

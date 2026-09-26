@@ -93,7 +93,7 @@ System status: ONLINE. Welcoming connection...
 
 - 🚀 **Core Production Projects:** 7
 - 🎓 **Verified Certificate Credentials:** 50
-- 💡 **Patents Published:** 1
+- 💡 **IoT & AI Prototypes:** 5+
 - 💼 **Professional Internships Completed:** 4
 - 🏆 **Hackathon Awards Secured:** 4+
 - 👥 **Leadership Roles Held:** 5+
@@ -189,8 +189,7 @@ System status: ONLINE. Welcoming connection...
 
 ## 🏆 innovation_log
 
-### 🏆 Patents & Competitions
-- **Patent Published** — Android TV Using Remote IR Sensor (Reg: 2024)
+### 🏆 Competitions & Honors
 - **OASYS Hackathon** — Best Performance Award (Access Control System Core)
 - **National Science Day** — Presentation Winner (ARcore Implementations)
 
@@ -209,7 +208,7 @@ System status: ONLINE. Welcoming connection...
 
 ```text
 2023 ❯ Started CSE Academic Journey
-2024 ❯ Patent Published (Android TV control)
+2024 ❯ Embedded IoT & IR Sensor Systems Research
 2024 ❯ National Science Day Presentation Winner
 2024 ❯ Web Dev Internship (Prodigy InfoTech)
 2024 ❯ Cybersecurity Internship (Adaovi)

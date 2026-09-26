@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import type { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -25,7 +25,6 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Learnathon':          'from-[#B87333]/30 to-[#D3D3D3]/30 border-[#B87333]/50 text-black',
   'Awards & Events':     'from-[#7B3F00]/25 to-[#B87333]/15 border-[#7B3F00]/50 text-black',
   'NSS & Civic':         'from-[#EDEDED]/80 to-[#D3D3D3]/50 border-[#D3D3D3] text-black',
-  'Patent':              'from-[#D3D3D3]/60 to-[#B87333]/20 border-[#D3D3D3] text-black',
   'Academic':            'from-[#EDEDED]/60 to-[#D3D3D3]/30 border-[#D3D3D3] text-black',
 };
 
@@ -58,7 +57,6 @@ const ISSUER_LOGOS: Record<string, string> = {
   'Celonis':         'https://logos.hunter.io/celonis.com',
   'NSS':             'https://logos.hunter.io/nss.gov.in',
   'My Bharat':       'https://logos.hunter.io/mybharat.gov.in',
-  'Patent Office':   'https://logos.hunter.io/ipindia.gov.in',
   'Adaovi':          'https://logos.hunter.io/adaovi.com',
   'Prodigy InfoTech':'https://logos.hunter.io/prodigyinfotech.in',
   'SkillCraft Tech': 'https://logos.hunter.io/skillcrafttech.in',
@@ -121,7 +119,14 @@ const FullCertificates: FC = () => {
 
   const { data } = usePortfolioData();
   const archiveList = data.certificateArchive || CERTIFICATE_ARCHIVE;
-  const displayArchive = archiveList;
+  const displayArchive = useMemo(() => {
+    return archiveList.filter(cert => {
+      const cat = (cert.category || '').toLowerCase();
+      const name = (cert.name || '').toLowerCase();
+      const issuer = (cert.issuer || '').toLowerCase();
+      return !cat.includes('patent') && !name.includes('patent') && !issuer.includes('patent');
+    });
+  }, [archiveList]);
 
   const [modal, setModal] = useState<ModalState | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -129,6 +134,25 @@ const FullCertificates: FC = () => {
   // Coverflow state
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  const touchStartXRef = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    touchStartXRef.current = null;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);
@@ -187,7 +211,8 @@ const FullCertificates: FC = () => {
     ? encodePath(modal.pages.length > 0 ? modal.pages[modal.pageIndex] : modal.file)
     : '';
 
-  const activeCert = filtered[activeIndex];
+  const safeCertIndex = filtered.length > 0 ? (((activeIndex % filtered.length) + filtered.length) % filtered.length) : 0;
+  const activeCert = filtered[safeCertIndex] || filtered[0];
 
   return (
     <div className="min-h-screen text-text-primary selection:bg-accent/30 selection:text-accent relative z-10">
@@ -324,25 +349,31 @@ const FullCertificates: FC = () => {
             </AnimatePresence>
 
             {/* ── 3D Coverflow Carousel ────────────────────────────────────── */}
-            <div className="relative w-full flex flex-col items-center justify-center select-none min-h-[400px] md:min-h-[480px] py-6">
+            <div
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              className="relative w-full flex flex-col items-center justify-center select-none min-h-[380px] md:min-h-[480px] py-6"
+            >
 
               {/* 3D Perspective Viewport */}
               <div
                 className="relative w-full max-w-4xl h-[200px] md:h-[280px] flex items-center justify-center overflow-visible"
-                style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}
+                style={{ perspective: isMobile ? '750px' : '1200px', transformStyle: 'preserve-3d' }}
               >
                 {/* Nav Arrows */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-2 md:left-8 w-11 h-11 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all z-30 focus:outline-none cursor-pointer shadow-sm"
+                  className="absolute left-2 md:left-8 w-9 h-9 md:w-11 md:h-11 rounded-full border border-black/20 bg-black/5 hover:bg-black/15 active:scale-90 flex items-center justify-center text-black transition-all z-30 focus:outline-none cursor-pointer shadow-sm"
+                  aria-label="Previous certificate"
                 >
-                  <FaChevronLeft size={14} />
+                  <FaChevronLeft size={12} />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-2 md:right-8 w-11 h-11 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all z-30 focus:outline-none cursor-pointer shadow-sm"
+                  className="absolute right-2 md:right-8 w-9 h-9 md:w-11 md:h-11 rounded-full border border-black/20 bg-black/5 hover:bg-black/15 active:scale-90 flex items-center justify-center text-black transition-all z-30 focus:outline-none cursor-pointer shadow-sm"
+                  aria-label="Next certificate"
                 >
-                  <FaChevronRight size={14} />
+                  <FaChevronRight size={12} />
                 </button>
 
                 {/* Cards container */}
@@ -353,16 +384,17 @@ const FullCertificates: FC = () => {
                   {filtered.map((cert, index) => {
                     const distance = getCircularDistance(index, activeIndex, filtered.length);
                     const absDistance = Math.abs(distance);
-                    if (absDistance > 3) return null;
+                    const maxAllowedDistance = isMobile ? 2 : 3;
+                    if (absDistance > maxAllowedDistance) return null;
 
                     const isImg = cert.fileType === 'image' || isImageFile(cert.file);
                     const tagColor = cert.tag ? (TAG_COLORS[cert.tag] ?? 'bg-accent/20 text-accent border-accent/30') : '';
                     const zIdx = 100 - absDistance;
-                    const rotateY = distance * -32;
-                    const translateX = distance * 130;
-                    const translateZ = -absDistance * 85;
-                    const scale = 1 - absDistance * 0.13;
-                    const opacity = 1 - absDistance * 0.3;
+                    const rotateY = distance * (isMobile ? -22 : -32);
+                    const translateX = distance * (isMobile ? 55 : 130);
+                    const translateZ = -absDistance * (isMobile ? 65 : 85);
+                    const scale = 1 - absDistance * (isMobile ? 0.15 : 0.13);
+                    const opacity = 1 - absDistance * (isMobile ? 0.40 : 0.3);
 
                     return (
                       <div

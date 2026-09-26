@@ -129,24 +129,24 @@ const Certifications: React.FC = () => {
   const proofCards = [
     {
       num: "01",
-      title: "PATENT: ANDROID TV USING REMOTE IR SENSOR",
-      year: "2024",
-      icon: <FaTv className="text-slate-800 text-base sm:text-lg" />,
-      description: "The first time an idea became something legally, formally mine.",
-    },
-    {
-      num: "02",
       title: "AZURE AI ENGINEER ASSOCIATE (AI-102)",
       year: "Feb 2025",
       icon: <FaCloud className="text-slate-800 text-base sm:text-lg" />,
       description: "Microsoft-verified: NLP, computer vision, conversational AI, at production scale.",
     },
     {
-      num: "03",
+      num: "02",
       title: "APPLIED GENERATIVE AI SPECIALIZATION",
       year: "Apr 2026",
       icon: <HiSparkles className="text-slate-800 text-lg sm:text-xl" />,
       description: "LLM architecture, generative model design, AI governance — the discipline behind the hype.",
+    },
+    {
+      num: "03",
+      title: "COMPETITIVE HACKATHONS & INNOVATION AWARDS",
+      year: "2023 - 2024",
+      icon: <FaAward className="text-slate-800 text-base sm:text-lg" />,
+      description: "Secured top podium finishes including Best Performance & 1st Place across rapid-fire engineering sprints.",
     },
   ];
 
@@ -289,7 +289,7 @@ const Certifications: React.FC = () => {
                   THE ARCHIVE // FIELD RECORDS
                 </h4>
                 <p className="font-card-subtitle text-[11px] sm:text-xs text-slate-500 font-normal">
-                  A growing vault of proof, patents, and professional milestones.
+                  A growing vault of proof, credentials, and professional milestones.
                 </p>
               </div>
             </div>
@@ -307,10 +307,10 @@ const Certifications: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
             <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl bg-[#FAFAFA] border border-[#ECECEC]">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-xs">📺</span>
-                <span className="font-small-label text-[10px] font-medium uppercase tracking-[0.1em] text-slate-700">PATENTS</span>
+                <span className="text-xs">💼</span>
+                <span className="font-small-label text-[10px] font-medium uppercase tracking-[0.1em] text-slate-700">INTERNSHIPS</span>
               </div>
-              <span className="font-number-display text-xs font-bold text-slate-900">01</span>
+              <span className="font-number-display text-xs font-bold text-slate-900">04</span>
             </div>
 
             <div className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl bg-[#FAFAFA] border border-[#ECECEC]">

@@ -21,6 +21,35 @@ const Hackathons: FC = () => {
   const galleryList = data.galleryImages || GALLERY_IMAGES;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [screenWidth, setScreenWidth] = useState(() => typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  const touchStartXRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobileScreen = screenWidth < 768;
+  const isTinyScreen = screenWidth < 480;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    touchStartXRef.current = null;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+  };
 
   const encodeUrl = (src: string) => src.replace(/ /g, '%20');
 
@@ -41,34 +70,37 @@ const Hackathons: FC = () => {
   ];
 
   const getInfo = (idx: number) => {
-    return imageInfo[idx % imageInfo.length];
+    if (!imageInfo || imageInfo.length === 0) {
+      return { title: "Campus Tech Labs", desc: "Collaborating with fellow engineers on prototype development." };
+    }
+    const safeIdx = ((Math.floor(idx) % imageInfo.length) + imageInfo.length) % imageInfo.length;
+    return imageInfo[safeIdx] || imageInfo[0];
   };
 
   const handleNext = useCallback(() => {
+    if (!galleryList.length) return;
     setActiveIndex((prev) => (prev + 1) % galleryList.length);
   }, [galleryList.length]);
 
   const handlePrev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + galleryList.length) % galleryList.length);
+    if (!galleryList.length) return;
+    setActiveIndex((prev) => ((prev - 1) % galleryList.length + galleryList.length) % galleryList.length);
   }, [galleryList.length]);
 
   // Autoplay handler
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying && galleryList.length > 0) {
       const timer = setInterval(() => {
         handleNext();
       }, 3500);
       return () => clearInterval(timer);
     }
-  }, [isPlaying, handleNext]);
-
-
-
+  }, [isPlaying, handleNext, galleryList.length]);
 
   const activeInfo = getInfo(activeIndex);
 
   return (
-    <section id="gallery" className="py-24 bg-transparent relative overflow-hidden text-black border-y border-[#D3D3D3]">
+    <section id="gallery" className="py-16 md:py-24 bg-transparent relative overflow-hidden text-black border-y border-[#D3D3D3]">
 
       {/* Subtle Grid Background (same as Hero Section) */}
       <div
@@ -83,23 +115,27 @@ const Hackathons: FC = () => {
       {/* Subtle Soft Glow Gradient (same as Hero Section) */}
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#B87333] to-[#7B3F00] opacity-[0.05] blur-[100px] pointer-events-none select-none" />
 
-      <div className="container mx-auto px-6 mb-16 text-center max-w-6xl relative z-10">
+      <div className="container mx-auto px-5 sm:px-6 mb-10 md:mb-16 text-center max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 font-section-label text-[13px] font-semibold tracking-[0.08em] uppercase mb-4 glass-badge">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 font-section-label text-xs sm:text-[13px] font-semibold tracking-[0.08em] uppercase mb-4 glass-badge">
             <FaTrophy className="animate-pulse" /> Section 06 // Field Log
           </div>
         </motion.div>
       </div>
 
       {/* 3D Coverflow Showcase */}
-      <div className="relative w-full py-16 overflow-hidden flex flex-col items-center justify-center select-none min-h-[460px] md:min-h-[560px]">
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className="relative w-full py-8 md:py-16 overflow-hidden flex flex-col items-center justify-center select-none min-h-[420px] md:min-h-[560px]"
+      >
 
         {/* Dynamic Title and Description */}
-        <div className="text-center mb-10 max-w-xl px-6 relative z-20 min-h-[80px]">
+        <div className="text-center mb-8 md:mb-10 max-w-xl px-5 sm:px-6 relative z-20 min-h-[70px] sm:min-h-[80px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -108,11 +144,11 @@ const Hackathons: FC = () => {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="font-card-title text-2xl font-bold tracking-[-0.03em] text-black mb-2 uppercase">
-                {activeInfo.title}
+              <h3 className="font-card-title text-xl sm:text-2xl font-bold tracking-[-0.03em] text-black mb-1.5 sm:mb-2 uppercase">
+                {activeInfo?.title || "Field Log"}
               </h3>
-              <p className="font-body-text text-sm sm:text-base text-black leading-[1.7]">
-                {activeInfo.desc}
+              <p className="font-body-text text-xs sm:text-sm md:text-base text-black leading-[1.65]">
+                {activeInfo?.desc || ""}
               </p>
             </motion.div>
           </AnimatePresence>
@@ -120,40 +156,42 @@ const Hackathons: FC = () => {
 
         {/* 3D Perspective Viewport */}
         <div
-          className="relative w-full max-w-4xl h-[220px] md:h-[300px] flex items-center justify-center overflow-visible"
-          style={{ perspective: '1200px', transformStyle: 'preserve-3d' }}
+          className="relative w-full max-w-4xl h-[200px] sm:h-[240px] md:h-[300px] flex items-center justify-center overflow-visible"
+          style={{ perspective: isTinyScreen ? '700px' : '1200px', transformStyle: 'preserve-3d' }}
         >
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 md:left-10 w-11 h-11 rounded-full border border-[#D3D3D3] bg-[#EDEDED]/90 hover:bg-[#EDEDED] flex items-center justify-center text-black hover:text-black hover:border-[#B87333] transition-all z-30 focus:outline-none cursor-pointer shadow-sm"
+            className="absolute left-2 sm:left-4 md:left-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#D3D3D3] bg-[#EDEDED]/90 hover:bg-[#EDEDED] flex items-center justify-center text-black hover:text-black hover:border-[#B87333] transition-all z-30 focus:outline-none cursor-pointer shadow-sm active:scale-90"
+            aria-label="Previous photograph"
           >
-            <FaChevronLeft size={14} />
+            <FaChevronLeft size={12} />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-4 md:right-10 w-11 h-11 rounded-full border border-[#D3D3D3] bg-[#EDEDED]/90 hover:bg-[#EDEDED] flex items-center justify-center text-black hover:text-black hover:border-[#B87333] transition-all z-30 focus:outline-none cursor-pointer shadow-sm"
+            className="absolute right-2 sm:right-4 md:right-10 w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#D3D3D3] bg-[#EDEDED]/90 hover:bg-[#EDEDED] flex items-center justify-center text-black hover:text-black hover:border-[#B87333] transition-all z-30 focus:outline-none cursor-pointer shadow-sm active:scale-90"
+            aria-label="Next photograph"
           >
-            <FaChevronRight size={14} />
+            <FaChevronRight size={12} />
           </button>
 
           {/* Flowing Images */}
-          <div className="relative w-48 h-60 sm:w-56 sm:h-72 md:w-[20rem] md:h-80 flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
+          <div className="relative w-40 h-52 sm:w-52 sm:h-64 md:w-[20rem] md:h-80 flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
             {galleryList.map((img, index) => {
               const distance = getCircularDistance(index, activeIndex, galleryList.length);
               const absDistance = Math.abs(distance);
-              const isVisible = absDistance <= 3;
+              const maxVisible = isTinyScreen ? 1 : isMobileScreen ? 2 : 3;
+              const isVisible = absDistance <= maxVisible;
 
               if (!isVisible) return null;
 
               const zIndex = 100 - absDistance;
-              const rotateY = distance * -30;
-              const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-              const translateX = distance * (isMobile ? 70 : 130);
-              const translateZ = -absDistance * 90;
-              const scale = 1 - absDistance * 0.12;
-              const opacity = 1 - absDistance * 0.28;
+              const rotateY = distance * (isTinyScreen ? -22 : -30);
+              const translateX = distance * (isTinyScreen ? 45 : isMobileScreen ? 68 : 130);
+              const translateZ = -absDistance * (isTinyScreen ? 60 : 90);
+              const scale = 1 - absDistance * (isTinyScreen ? 0.15 : 0.12);
+              const opacity = 1 - absDistance * (isTinyScreen ? 0.45 : 0.28);
 
               return (
                 <div

@@ -362,6 +362,31 @@ const Projects: React.FC = () => {
   }, [activeIndex, startTimer]);
 
 
+  /* Auto-scroll active tab into view */
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const touchStartXRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    tabRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activeIndex]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+    const diff = touchStartXRef.current - e.changedTouches[0].clientX;
+    touchStartXRef.current = null;
+    if (Math.abs(diff) > 45) {
+      if (diff > 0) {
+        handleSelect((activeIndex + 1) % projectsList.length);
+      } else {
+        handleSelect((activeIndex - 1 + projectsList.length) % projectsList.length);
+      }
+    }
+  };
+
   /* Start timer on mount */
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -399,14 +424,14 @@ const Projects: React.FC = () => {
 
       {/* ── MATERIAL DESIGN LIGHT HEADER BAND ── */}
       <div className="bg-white/40 backdrop-blur-xl text-black shrink-0 border-b border-white/40 shadow-xs">
-        <div className="container mx-auto px-6 md:px-10 pt-8 pb-0">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div className="container mx-auto px-5 sm:px-6 md:px-10 pt-6 sm:pt-8 pb-0">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 sm:mb-6">
             <div>
-              <div className="font-section-label text-[13px] font-semibold uppercase tracking-[0.08em] text-black/70 mb-2">
+              <div className="font-section-label text-xs sm:text-[13px] font-semibold uppercase tracking-[0.08em] text-black/70 mb-1.5 sm:mb-2">
                 Section 04 // Works
               </div>
 
-              <h2 className="font-section-heading text-2xl md:text-3xl font-bold tracking-[-0.03em] leading-tight text-black">
+              <h2 className="font-section-heading text-xl sm:text-2xl md:text-3xl font-bold tracking-[-0.03em] leading-tight text-black">
                 {projectsList.length} engineering systems, one portfolio.
               </h2>
             </div>
@@ -415,7 +440,7 @@ const Projects: React.FC = () => {
               href="https://catlogtheoriongd.netlify.app/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 bg-black/75 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-3 px-6 rounded-xl shadow-lg hover:bg-black/90 active:scale-95 transition-all duration-200 cursor-pointer self-start sm:self-auto shrink-0 border border-white/20 group"
+              className="inline-flex items-center justify-center gap-2 bg-black/75 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl shadow-lg hover:bg-black/90 active:scale-95 transition-all duration-200 cursor-pointer self-start sm:self-auto shrink-0 border border-white/20 group"
             >
               <span>View Entire Catalog</span>
               <svg className="w-3.5 h-3.5 text-[#B87333] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -424,24 +449,25 @@ const Projects: React.FC = () => {
             </a>
           </div>
 
-          {/* Material Tabs (Google M3 Style) */}
-          <div className="overflow-x-auto scrollbar-none -mx-6 px-6 md:mx-0 md:px-0">
-            <div className="flex gap-2 min-w-[560px] pb-3 border-t border-[#E5E5E5]/40 pt-4">
+          {/* Material Tabs (Google M3 Style) with smooth horizontal scroll */}
+          <div className="overflow-x-auto scrollbar-none -mx-5 px-5 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
+            <div className="flex gap-2 min-w-max pb-3 border-t border-[#E5E5E5]/40 pt-3 sm:pt-4">
               {projectsList.map((project, idx) => {
                 const isActive = idx === activeIndex;
                 return (
                   <button
                     key={idx}
+                    ref={(el) => { tabRefs.current[idx] = el; }}
                     onClick={() => handleSelect(idx)}
-                    className={`text-left px-4 py-2.5 rounded-full transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-3 border ${isActive
-                        ? 'bg-black/80 backdrop-blur-md border-white/30 shadow-md text-white'
+                    className={`text-left px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-200 cursor-pointer focus:outline-none flex items-center gap-2.5 sm:gap-3 border shrink-0 ${isActive
+                        ? 'bg-black/85 backdrop-blur-md border-white/30 shadow-md text-white'
                         : 'bg-black/40 backdrop-blur-sm border-white/10 text-white/80 hover:bg-black/70 hover:text-white'
                       }`}
                   >
-                    <span className={`font-number-display text-xs font-bold tracking-widest ${isActive ? 'text-white' : 'text-white/60'}`}>
+                    <span className={`font-number-display text-[11px] sm:text-xs font-bold tracking-widest ${isActive ? 'text-white' : 'text-white/60'}`}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-space-grotesk text-xs font-bold tracking-[0.02em] text-white">
+                    <span className="font-space-grotesk text-[11px] sm:text-xs font-bold tracking-[0.02em] text-white whitespace-nowrap">
                       {getTabLabel(project.title)}
                     </span>
                   </button>
@@ -455,8 +481,8 @@ const Projects: React.FC = () => {
 
       {/* ── SPLIT CONTENT PANEL ── */}
       <div className="flex-1 lg:overflow-hidden bg-transparent">
-        <div className="h-auto lg:h-full container mx-auto px-6 md:px-10 py-6">
-          <div className="h-auto lg:h-full flex flex-col lg:flex-row gap-8">
+        <div className="h-auto lg:h-full container mx-auto px-5 sm:px-6 md:px-10 py-5 sm:py-6">
+          <div className="h-auto lg:h-full flex flex-col lg:flex-row gap-6 lg:gap-8">
 
             {/* ── LEFT: The Canvas (Left 62%) ── */}
             <div className="hidden lg:flex lg:w-[62%] xl:w-[64%] h-full rounded-3xl bg-white/30 backdrop-blur-xl border border-white/40 relative items-center justify-center overflow-hidden shadow-lg">
@@ -475,8 +501,12 @@ const Projects: React.FC = () => {
             </div>
 
             {/* ── RIGHT: The Info Card (Right 38%) ── */}
-            <div className="h-auto lg:h-full flex-1 flex flex-col justify-between bg-[#EDEDED] rounded-3xl shadow-[8px_8px_16px_#DCDCDC,-8px_-8px_16px_#ffffff] border border-[#E5E5E5]/20 lg:overflow-hidden relative z-10">
-              <div className="flex-1 lg:overflow-y-auto scrollbar-none p-8">
+            <div
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              className="h-auto lg:h-full flex-1 flex flex-col justify-between bg-[#EDEDED] rounded-2xl sm:rounded-3xl shadow-[8px_8px_16px_#DCDCDC,-8px_-8px_16px_#ffffff] border border-[#E5E5E5]/20 lg:overflow-hidden relative z-10"
+            >
+              <div className="flex-1 lg:overflow-y-auto scrollbar-none p-5 sm:p-7 md:p-8">
                 <AnimatePresence custom={direction} mode="wait">
                   <motion.div
                     key={activeIndex}
@@ -486,59 +516,97 @@ const Projects: React.FC = () => {
                     animate="center"
                     exit="exit"
                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col justify-between min-h-full gap-6"
+                    className="flex flex-col justify-between min-h-full gap-5 sm:gap-6"
                   >
                     {/* Content */}
                     <div>
-                      <p className="font-small-label text-[11px] font-medium tracking-[0.12em] text-black mb-4 uppercase">
-                        {caseLabel}
-                      </p>
+                      <div className="flex items-center justify-between mb-3">
+                        <p className="font-small-label text-[10px] sm:text-[11px] font-medium tracking-[0.12em] text-black uppercase">
+                          {caseLabel}
+                        </p>
+                        <span className="lg:hidden font-mono text-[9px] text-black/50 font-bold">
+                          SWIPE ↔
+                        </span>
+                      </div>
 
-                      <h3 className="font-card-title text-2xl md:text-[34px] font-bold tracking-[-0.03em] leading-[1.15] text-black mb-4 uppercase">
+                      <h3 className="font-card-title text-xl sm:text-2xl md:text-[34px] font-bold tracking-[-0.03em] leading-[1.15] text-black mb-3 sm:mb-4 uppercase">
                         {active.title.replace(/-/g, ' ')}
                       </h3>
 
-                      <p className="font-body-text text-base md:text-[18px] leading-[1.7] text-black mb-6">
+                      {/* Mobile Compact Interactive Diagram Preview */}
+                      <div className="lg:hidden w-full h-40 sm:h-48 rounded-2xl bg-white/50 backdrop-blur-md border border-[#D3D3D3]/80 overflow-hidden mb-4 relative flex items-center justify-center shadow-inner">
+                        <div className="absolute top-2 left-3 font-mono text-[8px] sm:text-[9px] font-bold text-black/60 uppercase tracking-wider flex items-center gap-1.5 z-10">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#B87333] animate-pulse" />
+                          ARCHITECTURE // {active.title.split('-')[0]}
+                        </div>
+                        <div className="w-full h-full pt-4 flex items-center justify-center">
+                          <InteractiveDiagram projectTitle={active.title} />
+                        </div>
+                      </div>
+
+                      <p className="font-body-text text-sm sm:text-base md:text-[18px] leading-[1.65] text-black mb-4 sm:mb-6">
                         {shortDesc}
                       </p>
 
-                      <div className="mb-5">
-                        <span className="font-card-subtitle text-[17px] font-normal text-black uppercase">
+                      <div className="mb-4 sm:mb-5">
+                        <span className="font-card-subtitle text-sm sm:text-[17px] font-normal text-black uppercase">
                           {subLabel}
                         </span>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {active.tech.map((t, i) => (
-                          <span key={i} className="font-status-badge text-[13px] font-semibold tracking-[0.06em] uppercase px-3 py-1 rounded-full glass-badge">
+                          <span key={i} className="font-status-badge text-xs sm:text-[13px] font-semibold tracking-[0.06em] uppercase px-2.5 sm:px-3 py-1 rounded-full glass-badge">
                             {t}
                           </span>
                         ))}
                       </div>
                     </div>
 
-                    {/* Bottom: CTAs + Up/Down arrows */}
-                    <div className="flex items-end justify-between pt-6 border-t border-[#E5E5E5]">
-                      <div className="flex items-center gap-3 flex-wrap">
+                    {/* Bottom: CTAs + Up/Down & Prev/Next arrows */}
+                    <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-[#E5E5E5] gap-2">
+                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                         <button
                           onClick={() => { setDocTitle(active.title); setIsDocOpen(true); }}
-                          className="inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200 cursor-pointer"
+                          className="min-h-[40px] inline-flex items-center bg-black/85 backdrop-blur-md text-white font-space-grotesk font-bold text-[11px] sm:text-xs tracking-[0.02em] uppercase py-2 sm:py-2.5 px-4 sm:px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200 cursor-pointer"
                         >
-                          <span className="text-[#B87333] mr-2 text-[8px]">▪</span>
+                          <span className="text-[#B87333] mr-1.5 text-[8px]">▪</span>
                           View Case
                         </button>
                         {active.github && active.github !== '#' && (
                           <a href={active.github} target="_blank" rel="noreferrer"
-                            className="inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200">
+                            className="min-h-[40px] inline-flex items-center bg-black/85 backdrop-blur-md text-white font-space-grotesk font-bold text-[11px] sm:text-xs tracking-[0.02em] uppercase py-2 sm:py-2.5 px-3.5 sm:px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200">
                             Source
                           </a>
                         )}
                         {active.demo && active.demo !== '#' && (
                           <a href={active.demo} target="_blank" rel="noreferrer"
-                            className="inline-flex items-center bg-black/80 backdrop-blur-md text-white font-space-grotesk font-bold text-xs tracking-[0.02em] uppercase py-2.5 px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200">
+                            className="min-h-[40px] inline-flex items-center bg-black/85 backdrop-blur-md text-white font-space-grotesk font-bold text-[11px] sm:text-xs tracking-[0.02em] uppercase py-2 sm:py-2.5 px-3.5 sm:px-5 rounded-xl border border-white/20 shadow-md hover:bg-black/95 active:scale-95 transition-all duration-200">
                             Live
                           </a>
                         )}
+                      </div>
+
+                      {/* Mobile Prev / Next Arrows */}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <button
+                          onClick={() => handleSelect((activeIndex - 1 + projectsList.length) % projectsList.length)}
+                          aria-label="Previous project"
+                          className="w-9 h-9 rounded-xl bg-black/5 hover:bg-black/10 active:scale-95 flex items-center justify-center text-black border border-black/10 cursor-pointer transition-all"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={() => handleSelect((activeIndex + 1) % projectsList.length)}
+                          aria-label="Next project"
+                          className="w-9 h-9 rounded-xl bg-black/5 hover:bg-black/10 active:scale-95 flex items-center justify-center text-black border border-black/10 cursor-pointer transition-all"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
                       </div>
                     </div>
 

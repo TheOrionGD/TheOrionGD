@@ -20,7 +20,7 @@ interface Milestone {
 const MILESTONES: Milestone[] = [
   {
     year: '2022',
-    title: 'The Spark — B.Tech CSE Begins',
+    title: 'The Spark — B.E CSE Begins',
     subtitle: 'K. Ramakrishnan College of Technology',
     type: 'edu',
     icon: '🏫',
@@ -60,13 +60,13 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: '2024',
-    title: 'Patent Filed — Android TV via IR Sensor',
-    subtitle: 'Patent No. 202441033032A',
+    title: 'Hardware & IoT Engineering',
+    subtitle: 'Embedded Signal Processing',
     type: 'award',
-    icon: '📄',
-    color: 'rgba(255,99,99,0.10)',
+    icon: '⚡',
+    color: 'rgba(255,130,130,0.10)',
     accent: '#7B3F00',
-    detail: 'Filed Indian Patent No. 202441033032A for a novel hardware-software integration — controlling Android TV using IR remote signal mapping. Research milestone.',
+    detail: 'Engineered hardware-software integration for Android TV remote signal processing via custom IR sensors, logic circuits, and low-latency signal mapping.',
   },
   {
     year: '2025',
@@ -157,7 +157,7 @@ const BlueprintGraphic: React.FC<{ milestone: Milestone }> = ({ milestone }) => 
         );
       }
 
-    case '2024': // Internships or Patent
+    case '2024': // Internships or Hardware Systems
       if (milestone.title.includes('Internships')) {
         return (
           <div className="blueprint-box p-3 flex flex-col justify-between min-h-[110px]">
@@ -181,12 +181,12 @@ const BlueprintGraphic: React.FC<{ milestone: Milestone }> = ({ milestone }) => 
             </div>
           </div>
         );
-      } else { // Patent Android TV
+      } else { // Hardware & IoT Engineering
         return (
           <div className="blueprint-box p-3 min-h-[110px] flex flex-col justify-between font-mono text-[9px] text-black text-left">
             <div className="flex justify-between border-b border-[#D3D3D3] pb-1 text-[8px] uppercase font-bold tracking-wider">
               <span>IR_SIGNAL_WAVE</span>
-              <span style={{ color: '#000000' }}>202441033032A</span>
+              <span style={{ color: '#000000' }}>38KHZ_PWM</span>
             </div>
             {/* Waveform Drawing SVG */}
             <div className="py-2.5">
@@ -373,6 +373,15 @@ const HorizontalJourney: React.FC = () => {
           width: 320px;
           transition: transform 0.2s ease;
         }
+        @media (max-width: 640px) {
+          .journey-card {
+            width: min(85vw, 305px);
+            scroll-snap-align: center;
+          }
+          .card-inner {
+            padding: 18px !important;
+          }
+        }
         .journey-card:hover {
           transform: translateY(-4px);
         }
@@ -399,7 +408,7 @@ const HorizontalJourney: React.FC = () => {
           overflow: 'visible',
           position: 'relative',
           background: 'transparent',
-          padding: '48px 0 24px',
+          padding: '40px 0 20px',
         } : {
           height: '100vh',
           overflow: 'hidden',
@@ -524,13 +533,25 @@ const HorizontalJourney: React.FC = () => {
           </div>
         )}
 
+        {/* ── Mobile Swipe Guide Bar ── */}
+        {isMobile && (
+          <div className="px-6 mb-2 flex items-center justify-between">
+            <div className="inline-flex items-center gap-2 font-mono text-[9px] font-bold text-black/70 uppercase tracking-widest bg-black/5 px-3 py-1 rounded-full border border-black/10">
+              <span className="text-[#B87333] animate-pulse font-bold">←</span> SWIPE MILESTONES <span className="text-[#B87333] animate-pulse font-bold">→</span>
+            </div>
+            <span className="font-mono text-[9px] text-black/50 font-bold uppercase tracking-wider">
+              {MILESTONES.length} STAGES
+            </span>
+          </div>
+        )}
+
         {/* ── Track Wrapper ── */}
         <div
           style={isMobile ? {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            padding: '24px 0',
+            padding: '16px 0',
           } : {
             position: 'absolute',
             inset: 0,
@@ -562,11 +583,12 @@ const HorizontalJourney: React.FC = () => {
             style={isMobile ? {
               display: 'flex',
               alignItems: 'stretch',
-              gap: 24,
-              paddingLeft: 24,
-              paddingRight: 24,
+              gap: 16,
+              paddingLeft: 20,
+              paddingRight: 20,
               overflowX: 'auto',
               WebkitOverflowScrolling: 'touch',
+              scrollSnapType: 'x mandatory',
               width: '100%',
               zIndex: 2,
             } : {
