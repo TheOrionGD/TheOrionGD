@@ -1,12 +1,21 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePortfolioData } from '../hooks/usePortfolioData';
+import { Project } from '../types';
 import MarkdownModal from './MarkdownModal';
 
 const AUTO_ADVANCE_MS = 7000;
 
 /* ── Extended project descriptions (500+ chars each) ────────────── */
 const SHORT_DESC: Record<string, string> = {
+  "Aureon":
+    "Aureon is a zero-rated, offline-first digital wellness companion orchestrating a network of 4 AI agents via Google ADK 2.0 and A2A protocol, featuring Presidio PII scrubbing and local SQLite cache.",
+  "Walsecact":
+    "Walsecact is a zero-trust decentralized security mesh for Multi-Agent Systems intercepting MCP JSON-RPC streams with hash-chained WAL logging and automated Docker container quarantine.",
+  "Trifecta":
+    "Trifecta is an educational AI workspace coordinating 4 sub-agents via Google Agents SDK and FastMCP, combining Presidio security gates with Human-in-the-Loop verification.",
+  "Cadence":
+    "Cadence is an autonomous workflow platform leveraging Google ADK and Vercel AI SDK to coordinate multi-agent work distribution, capacity matching, and execution sandboxes.",
   "EchoCortex-Intelligence":
     "EchoCortex is a decentralized intelligence platform that captures verbal knowledge. It transcribes audio via OpenAI Whisper and generates semantic vector embeddings to search MongoDB indices.",
   "FaceShield-Authentication":
@@ -25,6 +34,10 @@ const SHORT_DESC: Record<string, string> = {
 
 const getSubLabel = (title: string, category: string) => {
   const map: Record<string, string> = {
+    "Aureon": "MULTI-AGENT AI + PRIVACY",
+    "Walsecact": "ZERO-TRUST + MAS SECURITY",
+    "Trifecta": "MULTI-AGENT RAG + WORKSPACE",
+    "Cadence": "AUTONOMOUS WORK ORCHESTRATION",
     "EchoCortex-Intelligence": "AI + KNOWLEDGE GRAPH",
     "FaceShield-Authentication": "AI + COMPUTER VISION",
     "EntityEase-DataPlatform": "AI + CLINICAL DATA",
@@ -33,14 +46,415 @@ const getSubLabel = (title: string, category: string) => {
     "CodeSight-DeveloperToolkit": "AI + CODE GEN",
     "Veltrio.Suite": "AI + TRANSLATION / NLP",
   };
-  return map[title] ?? category.toUpperCase();
+  return map[title] ?? (category ? category.toUpperCase() : "ENGINEERING SYSTEM");
 };
 
 const getTabLabel = (title: string) => title.split('-')[0].replace('.', ' ');
 
+const getSystemSpecs = (project: Project) => {
+  const title = project.title;
+  const tech = project.tech || [];
+
+  const specsMap: Record<string, { runtime: string; engine: string; persistence: string; security: string }> = {
+    "Aureon": {
+      runtime: "FastAPI / Python 3.13",
+      engine: "Google ADK 2.0 (A2A)",
+      persistence: "WatermelonDB + SQLite",
+      security: "Presidio PII + Zero-Bandwidth",
+    },
+    "Walsecact": {
+      runtime: "Node.js + Python FastAPI",
+      engine: "MCP Sidecar / JSON-RPC",
+      persistence: "SQLite WAL + MongoDB Atlas",
+      security: "Zero-Trust + Docker Quarantine",
+    },
+    "Trifecta": {
+      runtime: "Python FastAPI + React 18",
+      engine: "Google Agents + FastMCP",
+      persistence: "FastMCP Vector RAG",
+      security: "Presidio + HITL Escort Gates",
+    },
+    "Cadence": {
+      runtime: "Next.js 16 (React 19) / Bun",
+      engine: "Google ADK + Vercel AI",
+      persistence: "Prisma + PostgreSQL",
+      security: "Workspace Row Isolation",
+    },
+    "EchoCortex-Intelligence": {
+      runtime: "Whisper STT + FastEmbed",
+      engine: "SentenceTransformers",
+      persistence: "ChromaDB + Atlas Cloud",
+      security: "Local-First Fallback Cache",
+    },
+    "FaceShield-Authentication": {
+      runtime: "Python + OpenCV Edge",
+      engine: "ArcFace ONNX Runtime",
+      persistence: "Edge SQLite + Prisma Sync",
+      security: "Passive Liveness + Tamper-Proof",
+    },
+    "EntityEase-DataPlatform": {
+      runtime: "FastAPI + PyTorch Async",
+      engine: "BioBERT + FAISS Dense",
+      persistence: "MongoDB Audit Store",
+      security: "HIPAA Safe De-Identification",
+    },
+    "AegisNet-IDS": {
+      runtime: "Npcap / Libpcap Engine",
+      engine: "Snort 3 + Isolation Forest",
+      persistence: "NetworkX Graph State",
+      security: "SOAR Automated IP Block",
+    },
+    "FenceIN-AccessControl": {
+      runtime: "Flask Core + SQLite Cache",
+      engine: "RFID + Fingerprint Verifier",
+      persistence: "Local SQLite Offline Store",
+      security: "Hardware Dual-Factor Gateway",
+    },
+    "CodeSight-DeveloperToolkit": {
+      runtime: "Python AST + React UI",
+      engine: "Semantic IR + Transformer",
+      persistence: "Docker Container Sandboxes",
+      security: "Automated PR CVE Scanner",
+    },
+    "Veltrio.Suite": {
+      runtime: "Custom Coreference NLP",
+      engine: "Intent-Aware Translation",
+      persistence: "In-Memory Session Store",
+      security: "Multi-Party Audio Scrubbing",
+    },
+  };
+
+  if (specsMap[title]) return specsMap[title];
+
+  // Dynamic fallback for any other project in portfolio
+  return {
+    runtime: tech[0] ? `${tech[0]} Runtime` : "Microservice Stack",
+    engine: tech[1] ? `${tech[1]} Engine` : project.category || "Full-Stack Core",
+    persistence: tech.find(t => /mongo|sql|db|postgres|redis|storage/i.test(t)) || "Cloud Persistence",
+    security: "Production Hardened // Isolated",
+  };
+};
+
+/* ── Dynamic Generic SVG Architecture Diagram for any project ── */
+const DynamicArchitectureDiagram: React.FC<{ project: Project }> = ({ project }) => {
+  const tech = project.tech && project.tech.length > 0 ? project.tech : ['React', 'Node.js', 'PostgreSQL'];
+  const node1 = tech[0] || 'CLIENT_LAYER';
+  const node2 = tech[1] || 'CORE_ENGINE';
+  const node3 = tech[2] || 'DISPATCH_SVC';
+  const node4 = tech[3] || 'DATA_STORE';
+
+  return (
+    <svg className="w-full h-full p-2" viewBox="50 70 400 250" fill="none">
+      <defs>
+        <pattern id="grid-dyn" width="22" height="22" patternUnits="userSpaceOnUse">
+          <path d="M 22 0 L 0 0 0 22" fill="none" stroke="#D3D3D3" strokeWidth="0.5" opacity="0.35" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid-dyn)" />
+
+      {/* Pathways */}
+      <path d="M 80 190 H 200" stroke="#475569" strokeWidth="1.8" />
+      <path d="M 200 190 L 320 130" stroke="#475569" strokeWidth="1.5" />
+      <path d="M 200 190 L 320 250" stroke="#475569" strokeWidth="1.5" />
+      <path d="M 320 130 H 410" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+      <path d="M 320 250 H 410" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+
+      {/* Nodes */}
+      <circle cx="80" cy="190" r="18" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+      <text x="80" y="194" textAnchor="middle" fill="#475569" className="text-[10px]">🌐</text>
+      <text x="80" y="222" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider uppercase truncate max-w-[60px]">{node1.slice(0, 10)}</text>
+
+      <circle cx="200" cy="190" r="22" fill="#EDEDED" stroke="#475569" strokeWidth="2" />
+      <circle cx="200" cy="190" r="8" fill="#B87333" />
+      <text x="200" y="228" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider uppercase">{node2.slice(0, 10)}</text>
+
+      <circle cx="320" cy="130" r="17" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+      <text x="320" y="134" textAnchor="middle" fill="#475569" className="text-[10px]">⚙️</text>
+      <text x="320" y="105" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider uppercase">{node3.slice(0, 10)}</text>
+
+      <circle cx="320" cy="250" r="17" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+      <text x="320" y="254" textAnchor="middle" fill="#475569" className="text-[10px]">💾</text>
+      <text x="320" y="280" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider uppercase">{node4.slice(0, 10)}</text>
+
+      <circle cx="410" cy="190" r="18" fill="#EDEDED" stroke="#10B981" strokeWidth="2" />
+      <text x="410" y="194" textAnchor="middle" fill="#10B981" className="text-[10px]">✓</text>
+      <text x="410" y="222" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">DEPLOYED</text>
+
+      {/* Pulses */}
+      <circle cx="140" cy="190" r="3" fill="#B87333">
+        <animate attributeName="cx" values="80;200" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="260" cy="160" r="3" fill="#10B981">
+        <animate attributeName="cx" values="200;320" dur="2.4s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="190;130" dur="2.4s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="260" cy="220" r="3" fill="#B87333">
+        <animate attributeName="cx" values="200;320" dur="2.8s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="190;250" dur="2.8s" repeatCount="indefinite" />
+      </circle>
+    </svg>
+  );
+};
+
 /* ── Interactive SVG Tech Diagrams ── */
-const InteractiveDiagram: React.FC<{ projectTitle: string }> = ({ projectTitle }) => {
+const InteractiveDiagram: React.FC<{ projectTitle: string; project?: Project }> = ({ projectTitle, project }) => {
   switch (projectTitle) {
+    case "Aureon":
+      return (
+        <svg className="w-full h-full p-2" viewBox="40 50 420 280" fill="none">
+          <defs>
+            <pattern id="grid-aureon" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#D3D3D3" strokeWidth="0.5" opacity="0.3" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-aureon)" />
+
+          {/* Connection Pathways */}
+          <path d="M 80 180 H 160" stroke="#475569" strokeWidth="2" />
+          <path d="M 160 180 H 240" stroke="#475569" strokeWidth="2" />
+          <path d="M 240 180 L 370 100" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 240 180 L 370 150" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 240 180 L 370 210" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 240 180 L 370 260" stroke="#E11D48" strokeWidth="1.5" strokeDasharray="3 3" />
+          <path d="M 160 180 V 270 H 240" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+
+          {/* Nodes */}
+          {/* 1. Client App */}
+          <circle cx="80" cy="180" r="18" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="80" y="184" textAnchor="middle" fill="#475569" className="text-[10px]">📱</text>
+          <text x="80" y="210" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">REACT_NATIVE</text>
+
+          {/* 2. Presidio PII Gate */}
+          <circle cx="160" cy="180" r="18" fill="#EDEDED" stroke="#10B981" strokeWidth="2" />
+          <text x="160" y="184" textAnchor="middle" fill="#10B981" className="text-[10px]">🛡️</text>
+          <text x="160" y="152" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">PRESIDIO_PII</text>
+
+          {/* 3. Core Multi-Agent Gateway */}
+          <circle cx="240" cy="180" r="24" fill="#EDEDED" stroke="#475569" strokeWidth="2" />
+          <circle cx="240" cy="180" r="8" fill="#B87333" />
+          <text x="240" y="220" textAnchor="middle" fill="#000000" className="text-[9px] font-mono font-black tracking-wider">ADK_A2A_CORE</text>
+
+          {/* 4. Agents Stack */}
+          <circle cx="370" cy="100" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="104" textAnchor="middle" fill="#475569" className="text-[9px]">🩺</text>
+          <text x="370" y="80" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">TRIAGE_AGENT</text>
+
+          <circle cx="370" cy="150" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="154" textAnchor="middle" fill="#475569" className="text-[9px]">💬</text>
+          <text x="370" y="132" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">CBT_COMPANION</text>
+
+          <circle cx="370" cy="210" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="214" textAnchor="middle" fill="#475569" className="text-[9px]">📍</text>
+          <text x="370" y="235" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">RESOURCE_MATCH</text>
+
+          <circle cx="370" cy="260" r="16" fill="#EDEDED" stroke="#E11D48" strokeWidth="1.5" />
+          <text x="370" y="264" textAnchor="middle" fill="#E11D48" className="text-[9px]">🚨</text>
+          <text x="370" y="285" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">ESCALATION_GATE</text>
+
+          {/* 5. Offline Storage */}
+          <circle cx="240" cy="270" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="240" y="274" textAnchor="middle" fill="#475569" className="text-[9px]">💾</text>
+          <text x="240" y="298" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">SQLITE_OFFLINE</text>
+
+          {/* Animated Pulses */}
+          <circle cx="120" cy="180" r="3" fill="#10B981">
+            <animate attributeName="cx" values="80;160" dur="1.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="200" cy="180" r="3" fill="#B87333">
+            <animate attributeName="cx" values="160;240" dur="1.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="300" cy="140" r="3" fill="#B87333">
+            <animate attributeName="cx" values="240;370" dur="2.2s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="180;100" dur="2.2s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="300" cy="165" r="3" fill="#B87333">
+            <animate attributeName="cx" values="240;370" dur="2.5s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="180;150" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      );
+
+    case "Walsecact":
+      return (
+        <svg className="w-full h-full p-2" viewBox="40 50 420 280" fill="none">
+          <defs>
+            <pattern id="grid-walsec" width="22" height="22" patternUnits="userSpaceOnUse">
+              <path d="M 22 0 L 0 0 0 22" fill="none" stroke="#D3D3D3" strokeWidth="0.5" opacity="0.3" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-walsec)" />
+
+          {/* Network Paths */}
+          <path d="M 80 150 H 170" stroke="#475569" strokeWidth="2" />
+          <path d="M 170 150 H 260" stroke="#475569" strokeWidth="2" />
+          <path d="M 260 150 L 370 100" stroke="#E11D48" strokeWidth="1.8" />
+          <path d="M 260 150 L 370 180" stroke="#475569" strokeWidth="1.8" />
+          <path d="M 260 150 L 370 250" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+          <path d="M 170 150 V 240 H 240" stroke="#475569" strokeWidth="1.5" strokeDasharray="4 4" />
+
+          {/* Nodes */}
+          <circle cx="80" cy="150" r="18" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="80" y="154" textAnchor="middle" fill="#475569" className="text-[10px]">🤖</text>
+          <text x="80" y="180" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">MCP_HOST</text>
+
+          <circle cx="170" cy="150" r="20" fill="#EDEDED" stroke="#475569" strokeWidth="2" />
+          <text x="170" y="154" textAnchor="middle" fill="#B87333" className="text-[10px]">⚡</text>
+          <text x="170" y="122" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">SIDECAR_PROXY</text>
+
+          <circle cx="260" cy="150" r="24" fill="#EDEDED" stroke="#E11D48" strokeWidth="2" />
+          <circle cx="260" cy="150" r="8" fill="#E11D48" />
+          <text x="260" y="190" textAnchor="middle" fill="#000000" className="text-[9px] font-mono font-black tracking-wider">ZERO_TRUST_MESH</text>
+
+          {/* Attack Containment Box */}
+          <circle cx="370" cy="100" r="16" fill="#EDEDED" stroke="#E11D48" strokeWidth="2" className="animate-[pulse_1.5s_infinite]" />
+          <text x="370" y="104" textAnchor="middle" fill="#E11D48" className="text-[9px]">📦</text>
+          <text x="370" y="78" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">DOCKER_QUARANTINE</text>
+
+          <circle cx="370" cy="180" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="184" textAnchor="middle" fill="#475569" className="text-[9px]">🔗</text>
+          <text x="370" y="204" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">WAL_HASH_CHAIN</text>
+
+          <circle cx="370" cy="250" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="254" textAnchor="middle" fill="#475569" className="text-[9px]">☁️</text>
+          <text x="370" y="275" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">MONGODB_ATLAS</text>
+
+          <circle cx="240" cy="240" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="240" y="244" textAnchor="middle" fill="#475569" className="text-[9px]">📊</text>
+          <text x="240" y="268" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">SIEM_SOCKETIO</text>
+
+          {/* Telemetry Pulses */}
+          <circle cx="125" cy="150" r="3" fill="#B87333">
+            <animate attributeName="cx" values="80;170" dur="2s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="315" cy="125" r="3.5" fill="#E11D48">
+            <animate attributeName="cx" values="260;370" dur="1.7s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="150;100" dur="1.7s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      );
+
+    case "Trifecta":
+      return (
+        <svg className="w-full h-full p-2" viewBox="40 50 420 280" fill="none">
+          <defs>
+            <pattern id="grid-tri" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#D3D3D3" strokeWidth="0.5" opacity="0.3" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-tri)" />
+
+          {/* Connections */}
+          <path d="M 80 170 H 160" stroke="#475569" strokeWidth="2" />
+          <path d="M 160 170 H 250" stroke="#475569" strokeWidth="2" />
+          <path d="M 250 170 L 370 100" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 250 170 L 370 170" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 250 170 L 370 240" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 250 170 V 260 H 330" stroke="#10B981" strokeWidth="1.5" strokeDasharray="3 3" />
+          <path d="M 160 170 V 260 H 190" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+
+          {/* Nodes */}
+          <circle cx="80" cy="170" r="18" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="80" y="174" textAnchor="middle" fill="#475569" className="text-[10px]">🎓</text>
+          <text x="80" y="200" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">STUDENT_UI</text>
+
+          <circle cx="160" cy="170" r="18" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="160" y="174" textAnchor="middle" fill="#475569" className="text-[10px]">🛡️</text>
+          <text x="160" y="142" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">PRESIDIO_GATE</text>
+
+          <circle cx="250" cy="170" r="22" fill="#EDEDED" stroke="#475569" strokeWidth="2" />
+          <circle cx="250" cy="170" r="8" fill="#B87333" />
+          <text x="250" y="208" textAnchor="middle" fill="#000000" className="text-[9px] font-mono font-black tracking-wider">FASTMCP_ENGINE</text>
+
+          <circle cx="370" cy="100" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="104" textAnchor="middle" fill="#475569" className="text-[9px]">❓</text>
+          <text x="370" y="78" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">GROQ_QUIZ_AGENT</text>
+
+          <circle cx="370" cy="170" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="174" textAnchor="middle" fill="#475569" className="text-[9px]">🎯</text>
+          <text x="370" y="148" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">WEAKNESS_MAP</text>
+
+          <circle cx="370" cy="240" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="370" y="244" textAnchor="middle" fill="#475569" className="text-[9px]">📅</text>
+          <text x="370" y="265" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">7D_PLANNER</text>
+
+          <circle cx="330" cy="260" r="16" fill="#EDEDED" stroke="#10B981" strokeWidth="1.5" />
+          <text x="330" y="264" textAnchor="middle" fill="#10B981" className="text-[9px]">👤</text>
+          <text x="330" y="285" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">HITL_APPROVAL</text>
+
+          <circle cx="190" cy="260" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="190" y="264" textAnchor="middle" fill="#475569" className="text-[9px]">📚</text>
+          <text x="190" y="285" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">LOCAL_RAG</text>
+
+          {/* Pulses */}
+          <circle cx="205" cy="170" r="3" fill="#B87333">
+            <animate attributeName="cx" values="160;250" dur="1.9s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="310" cy="135" r="3" fill="#B87333">
+            <animate attributeName="cx" values="250;370" dur="2.3s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="170;100" dur="2.3s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      );
+
+    case "Cadence":
+      return (
+        <svg className="w-full h-full p-2" viewBox="40 50 420 280" fill="none">
+          <defs>
+            <pattern id="grid-cadence" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#D3D3D3" strokeWidth="0.5" opacity="0.3" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-cadence)" />
+
+          {/* Work Stream Pathways */}
+          <path d="M 80 170 H 180" stroke="#475569" strokeWidth="2" />
+          <path d="M 180 170 L 290 100" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 180 170 L 290 170" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 180 170 L 290 240" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 290 100 L 400 130" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 290 170 L 400 130" stroke="#475569" strokeWidth="1.5" />
+          <path d="M 290 240 L 400 220" stroke="#475569" strokeWidth="1.5" strokeDasharray="3 3" />
+
+          {/* Nodes */}
+          <circle cx="80" cy="170" r="18" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="80" y="174" textAnchor="middle" fill="#475569" className="text-[10px]">📋</text>
+          <text x="80" y="200" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">SHEETJS_INGEST</text>
+
+          <circle cx="180" cy="170" r="22" fill="#EDEDED" stroke="#475569" strokeWidth="2" />
+          <circle cx="180" cy="170" r="8" fill="#B87333" />
+          <text x="180" y="208" textAnchor="middle" fill="#000000" className="text-[9px] font-mono font-black tracking-wider">ADK_ALLOCATOR</text>
+
+          <circle cx="290" cy="100" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="290" y="104" textAnchor="middle" fill="#475569" className="text-[9px]">🧩</text>
+          <text x="290" y="78" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">CLAUDE_REASON</text>
+
+          <circle cx="290" cy="170" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="290" y="174" textAnchor="middle" fill="#475569" className="text-[9px]">⚡</text>
+          <text x="290" y="148" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">GROQ_SCORER</text>
+
+          <circle cx="290" cy="240" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="290" y="244" textAnchor="middle" fill="#475569" className="text-[9px]">👁️</text>
+          <text x="290" y="265" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">GEMINI_MULTI</text>
+
+          <circle cx="400" cy="130" r="18" fill="#EDEDED" stroke="#10B981" strokeWidth="2" />
+          <text x="400" y="134" textAnchor="middle" fill="#10B981" className="text-[9px]">🧪</text>
+          <text x="400" y="160" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">CODE_SANDBOX</text>
+
+          <circle cx="400" cy="220" r="16" fill="#EDEDED" stroke="#475569" strokeWidth="1.5" />
+          <text x="400" y="224" textAnchor="middle" fill="#475569" className="text-[9px]">🗄️</text>
+          <text x="400" y="245" textAnchor="middle" fill="#000000" className="text-[8px] font-mono font-black tracking-wider">PRISMA_POSTGRES</text>
+
+          {/* Pulses */}
+          <circle cx="130" cy="170" r="3" fill="#B87333">
+            <animate attributeName="cx" values="80;180" dur="2s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="235" cy="135" r="3" fill="#B87333">
+            <animate attributeName="cx" values="180;290" dur="2.4s" repeatCount="indefinite" />
+            <animate attributeName="cy" values="170;100" dur="2.4s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      );
+
     case "EchoCortex-Intelligence":
       return (
         <svg className="w-full h-full p-2" viewBox="70 80 360 250" fill="none">
@@ -316,7 +730,7 @@ const InteractiveDiagram: React.FC<{ projectTitle: string }> = ({ projectTitle }
       );
 
     default:
-      return null;
+      return project ? <DynamicArchitectureDiagram project={project} /> : null;
   }
 };
 
@@ -361,13 +775,30 @@ const Projects: React.FC = () => {
     startTimer();
   }, [activeIndex, startTimer]);
 
-
-  /* Auto-scroll active tab into view */
+  /* 
+   * Tabs container ref for horizontal scrolling ONLY.
+   * NEVER uses scrollIntoView() which scrolls the window vertically and hijacks the page!
+   */
+  const tabsContainerRef = useRef<HTMLDivElement | null>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const touchStartXRef = useRef<number | null>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    tabRefs.current[activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    const container = tabsContainerRef.current;
+    const activeTab = tabRefs.current[activeIndex];
+    if (container && activeTab) {
+      // Smoothly scroll ONLY the horizontal tabs container
+      const scrollOffset = (activeTab.offsetLeft - container.offsetLeft) - (container.clientWidth / 2) + (activeTab.clientWidth / 2);
+      container.scrollTo({
+        left: Math.max(0, scrollOffset),
+        behavior: 'smooth'
+      });
+    }
   }, [activeIndex]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -389,7 +820,6 @@ const Projects: React.FC = () => {
 
   /* Start timer on mount */
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     startTimer();
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -411,6 +841,7 @@ const Projects: React.FC = () => {
   const subLabel = active ? getSubLabel(active.title, active.category) : "";
   const shortDesc = active ? (SHORT_DESC[active.title] ?? active.description.slice(0, 200) + '…') : "";
   const caseLabel = `PROJECT USE CASE_ ${String(activeIndex + 1).padStart(3, '0')}/${String(projectsList.length).padStart(3, '0')}`;
+  const specs = getSystemSpecs(active);
 
   /* Right-panel slides vertically with smoother spring easing */
   const rightVariants = {
@@ -449,8 +880,11 @@ const Projects: React.FC = () => {
             </a>
           </div>
 
-          {/* Material Tabs (Google M3 Style) with smooth horizontal scroll */}
-          <div className="overflow-x-auto scrollbar-none -mx-5 px-5 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
+          {/* Material Tabs (Google M3 Style) with smooth horizontal scroll container ONLY */}
+          <div
+            ref={tabsContainerRef}
+            className="overflow-x-auto scrollbar-none -mx-5 px-5 sm:-mx-6 sm:px-6 md:mx-0 md:px-0"
+          >
             <div className="flex gap-2 min-w-max pb-3 border-t border-[#E5E5E5]/40 pt-3 sm:pt-4">
               {projectsList.map((project, idx) => {
                 const isActive = idx === activeIndex;
@@ -484,20 +918,61 @@ const Projects: React.FC = () => {
         <div className="h-auto lg:h-full container mx-auto px-5 sm:px-6 md:px-10 py-5 sm:py-6">
           <div className="h-auto lg:h-full flex flex-col lg:flex-row gap-6 lg:gap-8">
 
-            {/* ── LEFT: The Canvas (Left 62%) ── */}
-            <div className="hidden lg:flex lg:w-[62%] xl:w-[64%] h-full rounded-3xl bg-white/30 backdrop-blur-xl border border-white/40 relative items-center justify-center overflow-hidden shadow-lg">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.title}
-                  className="w-full h-full flex items-center justify-center"
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.45 }}
-                >
-                  <InteractiveDiagram projectTitle={active.title} />
-                </motion.div>
-              </AnimatePresence>
+            {/* ── LEFT: The Canvas (Left 62%) with Live Architecture Data ── */}
+            <div className="hidden lg:flex lg:w-[62%] xl:w-[64%] h-full rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 relative flex-col justify-between overflow-hidden shadow-xl p-5 md:p-6">
+              
+              {/* Header Overlay: System ID + Live Node Status */}
+              <div className="flex items-center justify-between z-10 w-full pb-3 border-b border-black/10 shrink-0">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping" />
+                  <span className="font-mono text-[11px] font-bold tracking-[0.14em] uppercase text-black">
+                    SYS_NODE // {active.title.toUpperCase().replace(/[^A-Z0-9]/g, '_')}
+                  </span>
+                  <span className="font-mono text-[9px] font-semibold text-black/70 px-2 py-0.5 rounded-md bg-black/5 border border-black/10">
+                    LIVE TOPOLOGY
+                  </span>
+                </div>
+                <div className="font-mono text-[10px] font-bold text-black/70 tracking-widest uppercase">
+                  {subLabel}
+                </div>
+              </div>
+
+              {/* Center: The Interactive Diagram */}
+              <div className="flex-1 w-full flex items-center justify-center relative min-h-0 py-2">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={active.title}
+                    className="w-full h-full flex items-center justify-center"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.45 }}
+                  >
+                    <InteractiveDiagram projectTitle={active.title} project={active} />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Bottom Overlay: Telemetry Metrics Deck */}
+              <div className="z-10 w-full pt-3 border-t border-black/10 grid grid-cols-4 gap-2 text-black shrink-0">
+                <div className="px-3 py-2 rounded-xl bg-white/70 border border-black/5 shadow-xs flex flex-col">
+                  <span className="font-mono text-[8px] font-bold uppercase tracking-wider text-black/50">Core Runtime</span>
+                  <span className="font-space-grotesk text-[11px] font-bold truncate text-black">{specs.runtime}</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-white/70 border border-black/5 shadow-xs flex flex-col">
+                  <span className="font-mono text-[8px] font-bold uppercase tracking-wider text-black/50">Engine / AI</span>
+                  <span className="font-space-grotesk text-[11px] font-bold truncate text-black">{specs.engine}</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-white/70 border border-black/5 shadow-xs flex flex-col">
+                  <span className="font-mono text-[8px] font-bold uppercase tracking-wider text-black/50">Data Layer</span>
+                  <span className="font-space-grotesk text-[11px] font-bold truncate text-black">{specs.persistence}</span>
+                </div>
+                <div className="px-3 py-2 rounded-xl bg-white/70 border border-black/5 shadow-xs flex flex-col">
+                  <span className="font-mono text-[8px] font-bold uppercase tracking-wider text-black/50">Security / Mesh</span>
+                  <span className="font-space-grotesk text-[11px] font-bold truncate text-black">{specs.security}</span>
+                </div>
+              </div>
+
             </div>
 
             {/* ── RIGHT: The Info Card (Right 38%) ── */}
@@ -534,13 +1009,26 @@ const Projects: React.FC = () => {
                       </h3>
 
                       {/* Mobile Compact Interactive Diagram Preview */}
-                      <div className="lg:hidden w-full h-40 sm:h-48 rounded-2xl bg-white/50 backdrop-blur-md border border-[#D3D3D3]/80 overflow-hidden mb-4 relative flex items-center justify-center shadow-inner">
-                        <div className="absolute top-2 left-3 font-mono text-[8px] sm:text-[9px] font-bold text-black/60 uppercase tracking-wider flex items-center gap-1.5 z-10">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#B87333] animate-pulse" />
-                          ARCHITECTURE // {active.title.split('-')[0]}
+                      <div className="lg:hidden w-full rounded-2xl bg-white/60 backdrop-blur-md border border-[#D3D3D3]/80 overflow-hidden mb-4 relative flex flex-col shadow-inner p-3">
+                        <div className="w-full flex items-center justify-between font-mono text-[9px] font-bold text-black/70 uppercase tracking-wider mb-2">
+                          <div className="flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                            <span>SYS_NODE // {active.title.split('-')[0]}</span>
+                          </div>
+                          <span className="text-[8px] bg-black/10 px-2 py-0.5 rounded-full font-bold">TOPOLOGY</span>
                         </div>
-                        <div className="w-full h-full pt-4 flex items-center justify-center">
-                          <InteractiveDiagram projectTitle={active.title} />
+                        <div className="w-full h-44 sm:h-52 flex items-center justify-center">
+                          <InteractiveDiagram projectTitle={active.title} project={active} />
+                        </div>
+                        <div className="grid grid-cols-2 gap-1.5 mt-2 pt-2 border-t border-black/10">
+                          <div className="px-2 py-1 rounded bg-black/5 text-[9px] font-mono">
+                            <span className="text-black/50 block text-[7px] uppercase font-bold">RUNTIME</span>
+                            <span className="font-bold truncate block">{specs.runtime}</span>
+                          </div>
+                          <div className="px-2 py-1 rounded bg-black/5 text-[9px] font-mono">
+                            <span className="text-black/50 block text-[7px] uppercase font-bold">ENGINE</span>
+                            <span className="font-bold truncate block">{specs.engine}</span>
+                          </div>
                         </div>
                       </div>
 

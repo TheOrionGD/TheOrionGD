@@ -34,7 +34,28 @@ export const EDUCATION: Education[] = [];
 
 export const EXPERIENCE: Experience[] = [];
 
-export const SKILLS: SkillCategory[] = [];
+export const SKILLS: SkillCategory[] = [
+  {
+    category: "Full Stack Engineering",
+    skills: ["TypeScript", "React", "Node.js", "Next.js", "PostgreSQL", "Docker", "REST / tRPC"]
+  },
+  {
+    category: "AI & Intelligent Systems",
+    skills: ["Google ADK 2.0", "FastMCP", "PyTorch", "Vector RAG", "Whisper STT", "FAISS", "BioBERT"]
+  },
+  {
+    category: "Cybersecurity & Systems",
+    skills: ["Zero-Trust MAS", "Snort 3 IDS", "SIEM / SOAR", "NetworkX", "Npcap", "Isolation Forest"]
+  },
+  {
+    category: "Interactive & Creative Tech",
+    skills: ["ARCore", "Sceneview", "Three.js", "WebGL", "Unity", "Jetpack Compose", "Spatial UI"]
+  },
+  {
+    category: "Areas of Interest",
+    skills: ["Applied ML", "Spatial Computing & XR", "AI Agent Workflows", "CyberSecurity", "Framework Optimization"]
+  }
+];
 
 export const LEADERSHIP_XR = [
   "XR Club Vice President",

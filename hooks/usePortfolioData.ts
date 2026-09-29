@@ -3,6 +3,9 @@ import { Project, Experience, Education, SkillCategory, Certification, Certifica
 import { FaGithub, FaLinkedin, FaHackerrank } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 
+import portfolioKnowledge from '../data/portfolio_knowledge.json';
+import { SKILLS } from '../constants';
+
 export interface PortfolioData {
   personalInfo: PersonalInfo | Record<string, never>;
   education: Education[];
@@ -17,16 +20,27 @@ export interface PortfolioData {
   media: MediaItem[];
 }
 
+export const getSocialLinks = (personalInfo: Partial<PersonalInfo>) => [
+  { icon: FaGithub, url: personalInfo?.github || "", label: "GitHub" },
+  { icon: FaLinkedin, url: personalInfo?.linkedin || "", label: "LinkedIn" },
+  { icon: SiLeetcode, url: personalInfo?.leetcode || "", label: "LeetCode" },
+  { icon: FaHackerrank, url: personalInfo?.hackerrank || "", label: "HackerRank" },
+];
+
+const fallbackDeveloper = (portfolioKnowledge.developer as unknown as PersonalInfo) || {};
+const fallbackProjects = (portfolioKnowledge.projects as unknown as Project[]) || [];
+const fallbackCertifications = (portfolioKnowledge.certifications as unknown as Certification[]) || [];
+
 const defaultData: PortfolioData = {
-  personalInfo: {},
+  personalInfo: fallbackDeveloper,
   education: [],
   experience: [],
-  skills: [],
-  projects: [],
-  certifications: [],
+  skills: SKILLS,
+  projects: fallbackProjects,
+  certifications: fallbackCertifications,
   certificateArchive: [],
   galleryImages: [],
-  socialLinks: [],
+  socialLinks: getSocialLinks(fallbackDeveloper),
   botPersona: {},
   media: []
 };
@@ -38,13 +52,6 @@ let globalFetchPromise: Promise<PortfolioData> | null = null;
 export const setGlobalDataCache = (data: PortfolioData) => {
   globalDataCache = data;
 };
-
-export const getSocialLinks = (personalInfo: Partial<PersonalInfo>) => [
-  { icon: FaGithub, url: personalInfo?.github || "", label: "GitHub" },
-  { icon: FaLinkedin, url: personalInfo?.linkedin || "", label: "LinkedIn" },
-  { icon: SiLeetcode, url: personalInfo?.leetcode || "", label: "LeetCode" },
-  { icon: FaHackerrank, url: personalInfo?.hackerrank || "", label: "HackerRank" },
-];
 
 export const usePortfolioData = () => {
   const [data, setData] = useState<PortfolioData>(globalDataCache || defaultData);
@@ -79,16 +86,21 @@ export const usePortfolioData = () => {
             siteRes.json()
           ]);
 
+          const validProjects = Array.isArray(projects) && projects.length > 0 ? projects : defaultData.projects;
+          const validPersonalInfo = site.personalInfo && Object.keys(site.personalInfo).length > 0 ? site.personalInfo : defaultData.personalInfo;
+          const validSkills = Array.isArray(site.skills) && site.skills.length > 0 ? site.skills : defaultData.skills;
+          const validCertifications = Array.isArray(site.certifications) && site.certifications.length > 0 ? site.certifications : defaultData.certifications;
+
           const merged: PortfolioData = {
-            personalInfo: site.personalInfo || {},
+            personalInfo: validPersonalInfo,
             education: site.education || [],
             experience: site.experience || [],
-            skills: site.skills || [],
-            projects: projects || [],
-            certifications: site.certifications || [],
+            skills: validSkills,
+            projects: validProjects,
+            certifications: validCertifications,
             certificateArchive: site.certificateArchive || [],
             galleryImages: gallery || [],
-            socialLinks: getSocialLinks(site.personalInfo),
+            socialLinks: getSocialLinks(validPersonalInfo),
             botPersona: site.botPersona || {},
             media: media || []
           };
