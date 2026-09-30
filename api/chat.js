@@ -1,6 +1,7 @@
 import express from 'express';
 import { getDb } from './db.js';
 import { sanitizeString } from './schemas.js';
+import { sendLeadNotificationEmail } from './email.js';
 
 export const chatRouter = express.Router();
 
@@ -211,9 +212,14 @@ You have completed 42 production projects (including Aureon, Walsecact, Trifecta
 
     // 5. Generate thread summary if lead or > 2 messages
     let summary = session?.summary || "Visitor exploring portfolio via chatbot.";
-    if (isLead && !session?.leadDetected) {
+    const isNewLead = isLead && !session?.leadDetected;
+    if (isNewLead) {
       summary = `Lead detected! Interested in: ${Array.from(currentMatched).join(', ')}.`;
     }
+
+    const newlyCapturedContact = (emails.length > 0 || phones.length > 0) &&
+      session?.leadDetected &&
+      (!session?.extractedContact?.email && !session?.extractedContact?.phone);
 
     const newMessages = [
       ...existingMessages,
@@ -242,6 +248,23 @@ You have completed 42 production projects (including Aureon, Walsecact, Trifecta
     };
 
     await db.collection('chat_sessions').updateOne({ sessionId }, updateDoc, { upsert: true });
+
+    // Send email notification via Brevo if a new lead is detected or contact details were newly captured
+    if (isNewLead || newlyCapturedContact) {
+      sendLeadNotificationEmail({
+        sessionId,
+        visitorLabel,
+        summary,
+        matchedKeywords: Array.from(currentMatched),
+        extractedContact,
+        recentMessages: [
+          { role: 'user', content: cleanMsg },
+          { role: 'assistant', content: assistantReply }
+        ]
+      }).catch(err => {
+        console.error('[Chat API] Lead notification email failed:', err);
+      });
+    }
 
     return res.json({ reply: assistantReply });
   } catch (err) {

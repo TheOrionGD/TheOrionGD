@@ -19,6 +19,8 @@ dist-ssr
 upload.js
 update_paths.js
 update_paths.cjs
+scripts/manage_admin.js
+scripts/test_lead_email.js
 
 # Editor directories and files
 .vscode/*
